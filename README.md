@@ -1,6 +1,6 @@
 # Project: Regional Association Management System
-
-It will work with a **web application** and a **desktop software**. Web application and desktop application will be connected with the same MySQL databse.
+### Target: Management System for Regional Associations of a University or an Institution
+It will work with a **_web application_** and a **_desktop software_**. Web application and desktop application will be connected with the same MySQL database.
 ***
 **Web Application Features:**
 - New members registration
@@ -29,5 +29,6 @@ It will work with a **web application** and a **desktop software**. Web applicat
 - Java EE(Servlet,JSP)
 - HTML
 - CSS
+- JavaScript
 - MySQL
 - Tomcat
