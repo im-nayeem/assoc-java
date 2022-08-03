@@ -1,30 +1,35 @@
-body {margin:0;font-family:Arial}
+*{
+  background-color:rgb(60, 73, 82);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  margin:0;font-family:Arial
+ 
+}
 /*---------------------------------------*/
-/*-----header containing logo and name--*/
+
+/*-----HEADER containing logo and name--*/
     .header{
-      width: 100vw;
       background-color: rgb(65, 119, 111);
       height: 10vh;
     }
 /*---------------------------------------*/
 
-/*--top navigation bar containing menu---*/
+/*-------Top Navigation Bar---------------*/
+      /*contains menu*/
       .topnav {
-          width: 100vw;
-          /* position: sticky;
-          top: 0; */
         overflow: hidden;
-        background-color: rgb(70, 118, 97);
       }
-/*------Menu in top navigation bar--------*/
+
+  /*------Menu in topnav bar--------*/
       .menu{
-          /* width: 100%; */
           float: left;
           margin: auto;
           display: block;
-          /* background-color: #114d38; */
       }
-      /*--link in top nav bar---*/
+    /*--Link in topnav bar---*/
       .topnav a {
         float: left;
         display: block;
@@ -44,7 +49,7 @@ body {margin:0;font-family:Arial}
       
       .topnav .icon {
         display: none;
-        background-color: #399e5b;
+        font-size: 30px;
       }
       /*--dropdown menu in topnav bar--*/
       .dropdown {
@@ -82,7 +87,7 @@ body {margin:0;font-family:Arial}
       }
       
       .topnav a:hover, .dropdown:hover .dropbtn {
-        background-color: #555;
+        background-color: rgb(83, 88, 87);
         color: white;
       }
       
@@ -94,66 +99,83 @@ body {margin:0;font-family:Arial}
       .dropdown:hover .dropdown-content {
         display: block;
       }
-  
-
+     
+      /*----login signup option-----*/
       .login_signup{
         float: right;
       }
+      
 /*----------^---topnav bar--^-------------*/
 
 /*-----main content-------*/
     .content{
         height: auto;
-        background-color: #7f908a;
+        background-color: #566161;
+        /* background-image: url(""); */
+        /* background-repeat: no-repeat;  */
+        /* background-size:100vw 85vh;  */
         min-height: 75vh;
+        padding: 5px;
+        margin: 0;
+        overflow: auto;
+
+        
+
     } 
 /*---------------------------------------*/
+
+
 /*------footer---------*/
 .footer{
     background-color: rgb(63 96 88);
     height: 8vh;
+    margin-top: 3px;
 }
 /*---------------------------------------*/
 
-
-.name_in_nav{
-  display: none;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  /* font: caption; */
-  
-}
-
+/*-abbreviation of assoc name icon in nav bar-*/
+    .name_in_nav{
+      display: none;
+      font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+/*-------------------------------------------*/
 
 /*-----------responsive-----------*/
 @media screen and (max-width: 768px) {
-  /*----hide the topnav bar menu---*/
-  .topnav a, .dropdown .dropbtn {
-    display: none;
-  }
-  a.name_in_nav{
-    display: block;
-    float: right;
-  }
-  .topnav a.icon {
-    display:block;
+      /*----hide the topnav bar menu---*/
+      .topnav a, .dropdown .dropbtn {
+        display: none;
+      }
 
-  }
-  .header{
-    display: none;
-  }
-  .content{
-    min-height: 87vh;
-  }
-  .footer{
-    height: 7vh;
-  }
-  
- 
+      .header{
+        display: none;
+      }
+      /*--display the name icon--*/
+        a.name_in_nav{
+          display: block;
+          float: right;
+        }
+
+      /*--display option icon in nav bar--*/
+      .topnav a.icon {
+        display:block;
+        padding: 2px 15px 2px 15px;
+        background-color: #399e5b;
+        border-radius: 6px;
+        }
+
+        .content{
+          min-height: 87vh;
+        }
+        .footer{
+          height: 7vh;
+        }
 
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;
+  .topnav.responsive {
+    position: relative;
   }
   .menu{
     float: none;
@@ -184,6 +206,7 @@ body {margin:0;font-family:Arial}
    a.name_in_nav:first-child{
     text-align: right;
     border: none;
+    background-color: #0000;
   }
   .login_signup{
     float: none;

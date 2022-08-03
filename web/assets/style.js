@@ -1,4 +1,5 @@
 //make top navigation bar responsive
+
 function myFunction() 
 {
   var x = document.getElementById("myTopnav");
@@ -12,5 +13,4 @@ function myFunction()
   }
   
 }
-
 
