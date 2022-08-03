@@ -1,5 +1,5 @@
 *{
-  background-color:rgb(60, 73, 82);
+  background-color:rgb(71, 83, 91);
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -106,7 +106,9 @@ body {
       }
       
 /*----------^---topnav bar--^-------------*/
-
+#id02{
+  display: none;
+}
 /*-----main content-------*/
     .content{
         height: auto;
