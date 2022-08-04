@@ -64,17 +64,16 @@
             <a href="javascript:void(0);" style="font-size:30px;" class="icon option" onclick="myFunction()">&#9776;</a>
     
             <div class="login_signup">
-                    <a href="">Log-In</a>
-                    <a href="">Sign-Up</a>
+                    <a href="register-login.html">Register</a>
+                    <a href="register-login.html">Log-In</a>
             </div>
     
             
     </div>
     <div class="content">
     <div id="id01" class="modal">   
-    
+        <span onclick="window.location='./';" class="close" title="Close Form">&times;</span>
         <form class="modal-content" action="" method="post">
-            <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span> -->
            
            <!----------container that contain form input fields--------->
                <div class="container">
@@ -190,9 +189,10 @@
                </form>
            </div>
            <!-- End of Modal div -->
-
+           
            <div class="modal" id="id02">
-            
+            <span onclick="window.location='./';" class="close" title="Close Form">&times;</span>
+            <form class="modal-content" action="" method="post">   
             <form action="" class="modal-content">
                 <div class="container">
                     <h3>Log In</h3>
@@ -233,11 +233,12 @@
 
 
     <script>
+        document.getElementById(window.location.hash.substr(1,4)).style.display='block';
         function showHide(hide,show)
         {
             document.getElementById(hide).style.display='none';
             document.getElementById(show).style.display='block';
-
+            document.getElementById(show).scrollTop=true;
         }
     </script>
 </body>
