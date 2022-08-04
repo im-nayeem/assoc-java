@@ -123,4 +123,10 @@
           width: 100%;
         }
       }
+
+
+  #warn_mismatched_pass{
+    color: #c06161;
+    font-size: 15px;
+  }
   /*----------Form CSS-----------------*/
