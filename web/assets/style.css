@@ -1,228 +1,207 @@
 *{
-  background-color:rgb(71, 83, 91);
-  padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  padding: 0;
 }
-body {
-  margin:0;font-family:Arial
- 
+/* header and logo start  */
+.image-logo{
+  width: 100%;
+  height: 10vh;
+  background-image: url(/assets/img/tea_garden.jpg);
+  background-position: right top 446px;
+} 
+.header-content{
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  display: block;
+  color: white;
+  margin-top: -40px;
 }
-/*---------------------------------------*/
-
-/*-----HEADER containing logo and name--*/
-    .header{
-      background-color: rgb(65, 119, 111);
-      height: 10vh;
-    }
-/*---------------------------------------*/
-
-/*-------Top Navigation Bar---------------*/
-      /*contains menu*/
-      .topnav {
-        overflow: hidden;
-      }
-
-  /*------Menu in topnav bar--------*/
-      .menu{
-          float: left;
-          margin: auto;
-          display: block;
-      }
-    /*--Link in topnav bar---*/
-      .topnav a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 13px 16px;
-        text-decoration: none;
-        font-size: 17px;
-        
-      }
-
-      /*---when a buton is active---*/
-      .active {
-        background-color: #04AA6D;
-        color: white;
-      }
-      
-      .topnav .icon {
-        display: none;
-        font-size: 30px;
-      }
-      /*--dropdown menu in topnav bar--*/
-      .dropdown {
-        float: left;
-        overflow: hidden;
-      }
-      
-      .dropdown .dropbtn {
-        font-size: 17px;    
-        border: none;
-        outline: none;
-        color: white;
-        padding: 13px 16px;
-        background-color: inherit;
-        font-family: inherit;
-        margin: 0;
-      }
-      
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-      }
-      
-      .dropdown-content a {
-        float: none;
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-      }
-      
-      .topnav a:hover, .dropdown:hover .dropbtn {
-        background-color: rgb(83, 88, 87);
-        color: white;
-      }
-      
-      .dropdown-content a:hover {
-        background-color: #ddd;
-        color: black;
-      }
-      
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-     
-      /*----login signup option-----*/
-      .login_signup{
-        float: right;
-      }
-      
-/*----------^---topnav bar--^-------------*/
-
-/*-----main content-------*/
-    .content{
-        height: auto;
-        background-color: #566161;
-        /* background-image: url(""); */
-        /* background-repeat: no-repeat;  */
-        /* background-size:100vw 85vh;  */
-        min-height: 75vh;
-        padding: 5px;
-        margin: 0;
-        overflow: auto;
-
-        
-
-    } 
-/*---------------------------------------*/
-
-
-/*------footer---------*/
-.footer{
-    background-color: rgb(63 96 88);
-    height: 8vh;
-    margin-top: 3px;
+.assoc-logo{
+  padding: 2px 0px 0px 20px;
+  margin-top: 0px;
 }
-/*---------------------------------------*/
+/* header and logo end  */
 
-/*-abbreviation of assoc name icon in nav bar-*/
-    .name_in_nav{
-      display: none;
-      font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    }
-/*-------------------------------------------*/
+/* navbar start  */
 
-/*-----------responsive-----------*/
-@media screen and (max-width: 768px) {
-      /*----hide the topnav bar menu---*/
-      .topnav a, .dropdown .dropbtn {
-        display: none;
-      }
+/*-----------just navbar start-------------*/
+#navbar{
+  margin: 0px 0px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar{
+  background-color: rgba(82,152,78,1);
+  padding: 10px 0px 10px 0px;
+}
+/*-----------just navbar end-------------*/
 
-      .header{
-        display: none;
-      }
-      /*--display the name icon--*/
-        a.name_in_nav{
-          display: block;
-          float: right;
-        }
+/*-------menu list of navbar start ------*/
+.navbar .menu-list{
+  display: inline-flex;
+}
+.menu-list li{
+  /* margin: 0px 10px 0px 20px; */
+  list-style: none;
+  font-size: 20px;
+  padding: 0px 10px 0px 10px;
+}
+.menu-list li a{
+  text-decoration: none;
+  color: white;
+}
+/*-------menu list of navbar end ------*/
 
-      /*--display option icon in nav bar--*/
-      .topnav a.icon {
-        display:block;
-        padding: 2px 15px 2px 15px;
-        background-color: #399e5b;
-        border-radius: 6px;
-        }
-
-        .content{
-          min-height: 87vh;
-        }
-        .footer{
-          height: 7vh;
-        }
-
+/*-----hover for menu list items -----*/
+.menu-list li a:hover{
+  background-color: rgb(81, 190, 190);
+  padding: 6px 9px 6px 9px;
+  border-radius: 5px;
+  transition: all .4s ease;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav.responsive {
-    position: relative;
-  }
-  .menu{
-    float: none;
-  }
-  .topnav.responsive .icon {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
- 
-  .topnav a{
-    border: 1px solid rgb(52, 51, 51);
-    margin: 1px 0 1px 0;
+/*----to make sticky navbar ---------*/
+.navbar.sticky{
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+}
 
-  }
-  .menu a:first-child
-  {
-    border: none;
+/*------- cdn font awsome icon start------ */
+.icon{
+  display: none;
+  color: white;
+  cursor: pointer;
+}
+.menu-btn{
+  margin-left: 20px;
+  color: white;
+}
+.menu-list .cancel-btn{
+  position: absolute;
+  top: 3%;
+  left: 210px;
+}
+/*------- cdn font awsome icon end------ */
 
+/* for hidden menu btn  */
+.menu-btn.menu-btn-hide{
+  visibility: hidden;
+  /* opacity: 0; */
+}
+
+/* for showing menu list in responsive */
+.navbar .menu-list.active{
+  left: 0%;
+}
+.navbar .account.active{
+  left: 0%;
+}
+
+
+@media (max-width:868px){
+  /* showing icon  */
+  .icon{
+      display: block;
   }
- 
-  .topnav.responsive a{
-    float: none;
+  /* responsive sticky navbar  */
+  .navbar.sticky{
+      position: fixed;
+      top: 0%;
+      left: 0%;
+      padding-bottom: 20px;
+      width: 100%;
+      /* transition: all .3s ease; */
+  }
+  .menu-list li{
+      margin: 0px 10px 0px 10px;
+      list-style: none;
+      font-size: 20px;
+      padding: 10px 5px 5px 5px;
+  }
+  .menu-list li a:hover{
+      background-color: rgb(81, 190, 190);
+      padding: 6px 9px 6px 9px;
+      border-radius: 5px;
+      transition: all .4s ease;
+  }
+  .navbar .menu-list{
+      display: block;
+      position: fixed;
+      top: 62px;
+      left: -100%;
+      text-align: center;
+      width: 100%;
+      max-width: 220px;
+      height: 330px;
+      z-index: 1;
+      background-color: rgba(82,152,78,1);
+      /* border-radius: 0px 0px 30px 0px; */
+      padding: 20px 20px 20px 20px;
+  }
+  .navbar .account{
     display: block;
-    text-align: left;
-
-  }
-   a.name_in_nav:first-child{
-    text-align: right;
-    border: none;
-    background-color: #0000;
-  }
-  .login_signup{
-    float: none;
-  }
-  .topnav.responsive .dropdown {
-        float: none;
-    border: 1px solid rgb(75, 73, 73);
-
-    }
-  .topnav.responsive .dropdown-content {
-             position: relative;
-    }
-  .topnav.responsive .dropdown .dropbtn {
-    display: block;
+    position: fixed;
+    top: 432px;
+    left: -100%;
+    text-align: center;
     width: 100%;
-    text-align: left;
+    max-width: 220px;
+    height: 40px;
+    background-color: rgba(82,152,78,1);
+    border-radius: 0px 0px 30px 0px;
+    padding: 20px 20px 20px 20px;
   }
-
 }
+
+/*-----------dropdown menu list items start-------------*/
+.udropdown {
+  position: relative;
+  display: inline-block;
+}
+span{
+  color: white;
+}
+span:hover{
+  background-color: rgb(81, 190, 190);
+  padding: 6px 9px 6px 9px;
+  border-radius: 5px;
+  transition: all .4s ease;
+}
+.udropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #23b87a;
+  min-width: 50px;
+  border-radius: 7px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  transition: all .4s ease;
+  cursor:pointer;
+}
+.udropdown-content li{
+  padding: 5px 5px 5px 5px;
+}
+.udropdown:hover .udropdown-content {
+  display: block;
+}
+/*-----------dropdown menu list items end-------------*/
+
+/* register and login btn  */
+.signup-btn{
+  background-color: #68a990;
+      border-radius: 8px;
+      border: #68a990 1px solid;
+      margin-right: 8px;
+      font-size: 18px;
+      font-family: monospace;
+      padding: 3px 10px 3px 10px;
+      color: white;
+      width: max-content;
+      
+}
+
+/* navbar end  */

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>        
+    <!-- header + logo start  -->
+    <div class="image-logo">
+        <div class="assoc-logo"><img src="/assets/img/sylhet_logo.png" width="50px" height="50px"></div>
+        <div class="header-content">
+            Jalalabad Association
+        </div>
+    </div>
+    <!-- header + logo end  -->
+    
+    <!-- navbar and account start  -->
+    <div class="navbar" id="navbar">
+        <!-- navigation content start -->
+        <div class="content">
+            <ul id="menu" class="menu-list">
+                <!-- responsive menu close btn  -->
+                <div class="icon cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Constitution</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Notice</a></li>
+                
+                <!-- dropdown menu for members -->
+                <li><div class="udropdown">
+                    <span>Members</span>
+                    <div class="udropdown-content">
+                        <ul>
+                            <li><a href="#">H1</a></li>
+                            <li><a href="#">H2</a></li>
+                            <li><a href="#">H3</a></li>
+                        </ul>
+                    </div>
+                    </div>
+                </li>
+                <li><a href="#">Advisor</a></li>
+                <!-- dropdown menu for Ex members -->
+                <li><div class="udropdown">
+                    <span>Executive member</span>
+                    <div class="udropdown-content">
+                        <ul>
+                            <li><a href="#">Current</a></li>
+                            <li><a href="#">Last</a></li>
+                            <li><a href="#">...</a></li>
+                        </ul>
+                    </div>
+                    </div>
+                </li>
+                <li><a href="#">Culture</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <!-- responsive menu bar btn -->
+            <div class="icon menu-btn">
+                <i class="fas fa-bars fa-2x"></i>
+            </div>
+        </div>
+        <!-- acount part of navbar  -->
+        <div class="content">
+            <ul class="account">
+                <a href="hello.html"><button type="submit" class="signup-btn">Register</button></a>
+                <a href="#"><button type="submit" class="signup-btn">login</button></a>
+            </ul>
+        </div>
+    </div>
+    <!-- navbar and account end  -->
+
+    <!-- sliding notice  -->
+    <div>
+        <marquee style="color:white; font-size:20px; background-color: rgb(44, 128, 79);" width="100%" height="30px" >this is notice</marquee>
+    </div>
+
+    <!-- main content  start -->
+    <div>
+        <p>While talking about "The Past and Present of Taiwan Question," American author Brian Becker pointed out that the one-China principle has always been the guardrail for China-U.S. relations to move forward. And Nancy Pelosi has seriously damaged it by controversially visiting Taiwan. He said that the American people do not want another conflict after multiple wars in recent decades, especially not one with China.</p><br><br><br><br><br>
+        <p>While talking about "The Past and Present of Taiwan Question," American author Brian Becker pointed out that the one-China principle has always been the guardrail for China-U.S. relations to move forward. And Nancy Pelosi has seriously damaged it by controversially visiting Taiwan. He said that the American people do not want another conflict after multiple wars in recent decades, especially not one with China.</p><br><br><br><br><br>
+        <p>While talking about "The Past and Present of Taiwan Question," American author Brian Becker pointed out that the one-China principle has always been the guardrail for China-U.S. relations to move forward. And Nancy Pelosi has seriously damaged it by controversially visiting Taiwan. He said that the American people do not want another conflict after multiple wars in recent decades, especially not one with China.</p><br><br><br><br><br>
+        <p>While talking about "The Past and Present of Taiwan Question," American author Brian Becker pointed out that the one-China principle has always been the guardrail for China-U.S. relations to move forward. And Nancy Pelosi has seriously damaged it by controversially visiting Taiwan. He said that the American people do not want another conflict after multiple wars in recent decades, especially not one with China.</p><br><br><br><br><br>
+        <p>While talking about "The Past and Present of Taiwan Question," American author Brian Becker pointed out that the one-China principle has always been the guardrail for China-U.S. relations to move forward. And Nancy Pelosi has seriously damaged it by controversially visiting Taiwan. He said that the American people do not want another conflict after multiple wars in recent decades, especially not one with China.</p><br><br><br><br><br>
+        <p>While talking about "The Past and Present of Taiwan Question," American author Brian Becker pointed out that the one-China principle has always been the guardrail for China-U.S. relations to move forward. And Nancy Pelosi has seriously damaged it by controversially visiting Taiwan. He said that the American people do not want another conflict after multiple wars in recent decades, especially not one with China.</p><br><br><br><br><br>
+        <p>While talking about "The Past and Present of Taiwan Question," American author Brian Becker pointed out that the one-China principle has always been the guardrail for China-U.S. relations to move forward. And Nancy Pelosi has seriously damaged it by controversially visiting Taiwan. He said that the American people do not want another conflict after multiple wars in recent decades, especially not one with China.</p><br><br><br><br><br>
+        <p>While talking about "The Past and Present of Taiwan Question," American author Brian Becker pointed out that the one-China principle has always been the guardrail for China-U.S. relations to move forward. And Nancy Pelosi has seriously damaged it by controversially visiting Taiwan. He said that the American people do not want another conflict after multiple wars in recent decades, especially not one with China.</p><br><br><br><br><br>
+    </div>
+    <!-- main content end  -->
+
+    <!-- js script  -->
+    <script>
+        var navbar = document.getElementById("navbar");
+        var menuList = document.getElementById("menu");
+        const menu = document.querySelector(".menu-list");
+        const accountBar = document.querySelector(".account");
+        const menuBtn = document.querySelector(".menu-btn");
+        const cancelBtn = document.querySelector(".cancel-btn");
+
+        // for responsive navbar control show menu bar
+        menuBtn.onclick = ()=>{
+            menu.classList.add("active");
+            accountBar.classList.add("active");
+            menuBtn.classList.add("menu-btn-hide");
+        }
+        // for responsive navbar control hide menu bar
+        cancelBtn.onclick = ()=>{
+            menu.classList.remove("active");
+            accountBar.classList.remove("active");
+            menuBtn.classList.remove("menu-btn-hide");
+        }
+        
+        //for sticky navbar
+        window.onscroll = function(){
+            if(window.pageYOffset>=menuList.offsetTop){
+                navbar.classList.add("sticky");
+            }
+            else{
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+</body>
+</html>
