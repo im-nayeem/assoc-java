@@ -6,73 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register-Login</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style1.css">
     <link rel="stylesheet" href="assets/form.css">
 </head>
 
 <body>
-    <div class="header" id="header">
-        <div class="logo">
-
-        </div>
-        <div class="name">
-
-        </div>
-
-    </div>
-    <div class="topnav" id="myTopnav">
-
-        <div class="menu">
-            <a href="" class="name_in_nav">MSWA-CoU</a>
-            <a href="" class="active">Home</a>
-            <a href="constitution.html">Constitution</a>
-            <a href="#contact">Gallery</a>
-            <a href="constitution.html">Notice</a>
-
-
-            <div class="dropdown">
-                <button class="dropbtn">Members
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#">...</a>
-                    <a href="#">...</a>
-                    <a href="#">...</a>
-                </div>
-
-            </div>
-
-
-
-
-            <a href="#contact">Advisor</a>
-            <a href="#contact">Alumni</a>
-
-            <div class="dropdown">
-                <button class="dropbtn">Executive Committee
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#">Current Committee</a>
-                    <a href="#">11th</a>
-                    <a href="#">10th</a>
-                </div>
-
-            </div>
-            <a href="#about">Culture</a>
-            <a href="#about">About</a>
-        </div>
-
-        <a href="javascript:void(0);" style="font-size:30px;" class="icon option" onclick="myFunction()">&#9776;</a>
-
-        <div class="login_signup">
-            <a href="register-login.html">Register</a>
-            <a href="register-login.html">Log-In</a>
-        </div>
-
-
-    </div>
-    <div class="content">
+    <div class="content" >
         <div id="id01" class="modal">
             <span onclick="window.location='./';" class="close" title="Close Form">&times;</span>
             <form class="modal-content" action="" method="post">
@@ -88,24 +27,24 @@
                     <hr>
                     <fieldset>
                         <legend>Personal Info</legend>
-                        <label for="name"><strong>Name</strong></label>
+                        <!-- <label for="name"><strong>Name</strong></label> -->
                         <input type="text" placeholder="Name" name="name" id="name" pattern="[A-Za-z ]+" required>
 
-                        <label for="email"><strong>Email</strong></label>
+                        <!-- <label for="email"><strong>Email</strong></label> -->
                         <input type="email" placeholder="Email" name="email" id="email" required>
 
-                        <label for="password"><strong>Password</strong></label>
-                        <input type="password" id="password" name="password">
+                        <!-- <label for="password"><strong>Password</strong></label> -->
+                        <input type="password" id="password" name="password" placeholder="Password">
 
                         <div id="warn_mismatched_pass">
 
                         </div>
 
-                        <label for="confirm_pass"><strong>Confirm Password</strong></label>
-                        <input type="password" id="confirm_pass" name="confirm_pass" onkeyup="checkPass();">
+                        <!-- <label for="confirm_pass"><strong>Confirm Password</strong></label> -->
+                        <input type="password" id="confirm_pass" name="confirm_pass" placeholder="Confirm Password" onkeyup="checkPass();">
 
 
-                        <label for="dept"><strong>Department</strong></label>
+                        <!-- <label for="dept"><strong>Department</strong></label> -->
                         <select name="department" id="dept" required>
                             <option selected disabled hidden>Select Department</option>
                             // use jstl to set all the dept name
@@ -113,17 +52,18 @@
                             //use jstl
                         </select>
 
-                        <label for="id"><strong>ID</strong></label>
-                        <input type="number" placeholder="ID" name="id" id="id" required>
+                        <!-- <label for="id"><strong>ID</strong></label> -->
+                        <input type="number" placeholder="Student ID" name="id" id="id" required>
 
 
-                        <label for="session"><strong>Session</strong></label>
+                        <!-- <label for="session"><strong>Session</strong></label> -->
                         <input type="text" placeholder="Session(format: 2018-2019)" name="session" id="session"
                             pattern="[0-9]{4}-[0-9]{4}" title="For example: 2018-2019" required>
 
-                        <label for="batch"><strong>Batch</strong></label>
+                        <!-- <label for="batch"><strong>Batch</strong></label> -->
                         <input type="number" placeholder="Batch" name="batch" id="batch" required>
-
+                        
+                        <div style="width: 75%; margin: 5px 10% 22px 10%;">
                         <label for="gender"><strong>Gender:</strong></label>
                         <label>
                             <input type="radio" name="gender" value="Male" id="male" required>Male</label>
@@ -131,6 +71,7 @@
                             <input type="radio" name="gender" value="Female" id="female" required>Female</label>
                         <label>
                             <input type="radio" name="gender" value="others" id="others" required>Others</label>
+                        
                         <br><br>
 
                         <label for="blood_group"><strong>Blood Group</strong></label>
@@ -146,14 +87,15 @@
                         <label for="co_actvt"><strong>Co-curricular Activities</strong></label>
                         <input type="text" placeholder="Co-curricular Activities you are good at" name="co_actvt"
                             id="co_actvt" pattern="[A-Za-z,]+" required>
+                        </div>
                     </fieldset>
                     <br>
                     <fieldset>
                         <legend>Family Info</legend>
-                        <label for="fathers_name"><strong>Father's Name</strong></label>
+                        <!-- <label for="fathers_name"><strong>Father's Name</strong></label> -->
                         <input type="text" placeholder="Father's Name" name="fathers_name" id="fathers_name"
                             pattern="[A-Za-z ]+" required>
-                        <label for="mothers_name"><strong>Mother's Name</label>
+                        <!-- <label for="mothers_name"><strong>Mother's Name</label> -->
                         <input type="text" placeholder="Mother's Name" name="present_details" id="mothers_name"
                             pattern="[A-Za-z ]+" required>
                     </fieldset>
@@ -162,10 +104,10 @@
                     <br>
                     <fieldset>
                         <legend>Present Address</legend>
-                        <label for="present_area"><strong>Area</strong></label>
-                        <input type="text" placeholder="Current Living Area" name="present_area" id="present_area"
+                        <!-- <label for="present_area"><strong>Area</strong></label> -->
+                        <input type="text" placeholder="Present Living Area" name="present_area" id="present_area"
                             pattern="[A-Za-z ]+" required>
-                        <label for="present_details"><strong>Details</label>
+                        <!-- <label for="present_details"><strong>Details</label> -->
                         <input type="text" placeholder="Street/Road" name="present_details" id="present_details"
                             pattern="[A-Za-z ]+" required>
                     </fieldset>
@@ -173,10 +115,10 @@
                     <br>
                     <fieldset>
                         <legend>Permanent Address</legend>
-                        <label for="upazila"><strong>Upazila</strong></label>
+                        <!-- <label for="upazila"><strong>Upazila</strong></label> -->
                         <input type="text" placeholder="Permanent Upazila" name="upazila" id="upazila"
                             pattern="[A-Za-z ]+" required>
-                        <label for="permanent_details"><strong>Details</label>
+                        <!-- <label for="permanent_details"><strong>Details</label> -->
                         <input type="text" placeholder="Union-Street/Road" name="permanent_details"
                             id="permanent_details" pattern="[A-Za-z ]+" required>
                     </fieldset>
@@ -221,11 +163,11 @@
 
                         </div>
                         <hr>
-                        <label for="email"><strong>Email</strong></label>
+                        <!-- <label for="email"><strong>Email</strong></label> -->
                         <input type="email" placeholder="Email" name="email" id="email" required>
 
-                        <label for="password"><strong>Password</strong></label>
-                        <input type="password" id="password" name="password">
+                        <!-- <label for="password"><strong>Password</strong></label> -->
+                        <input type="password" placeholder="Password" id="password" name="password">
 
 
                         <div class="clearfix">
