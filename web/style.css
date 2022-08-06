@@ -1,0 +1,27 @@
+.header{
+    height: 10vh;
+    background-color: rgb(52, 122, 122);
+}
+.topnav{
+    background-color: rgb(70, 135, 192);
+    width: 100%;
+    height: 8vh;
+    /* overflow: hidden; */
+
+}
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 13px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    
+  }
+
+.content{
+    height: 200vh;
+    width: 100%;
+    background-color: black;
+}

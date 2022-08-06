@@ -1,8 +1,9 @@
 *{
-  background-color:rgb(71, 83, 91);
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  background-color: #3f5d5d;
+
 }
 body {
   margin:0;font-family:Arial
@@ -12,7 +13,7 @@ body {
 
 /*-----HEADER containing logo and name--*/
     .header{
-      background-color: rgb(65, 119, 111);
+      background-color: rgb(59 65 70 / 85%);
       height: 10vh;
     }
 /*---------------------------------------*/
@@ -20,7 +21,10 @@ body {
 /*-------Top Navigation Bar---------------*/
       /*contains menu*/
       .topnav {
-        overflow: hidden;
+        min-height: 46px;
+        background-color: #3f5d5d;
+        position: sticky;
+        top: 0;
       }
 
   /*------Menu in topnav bar--------*/
@@ -86,11 +90,13 @@ body {
         text-align: left;
       }
       
-      .topnav a:hover, .dropdown:hover .dropbtn {
+      .topnav a:hover{
         background-color: rgb(83, 88, 87);
         color: white;
       }
-      
+      .dropbtn:hover {
+        cursor: pointer;
+      }
       .dropdown-content a:hover {
         background-color: #ddd;
         color: black;
@@ -99,6 +105,9 @@ body {
       .dropdown:hover .dropdown-content {
         display: block;
       }
+      .dropdown:hover .dropbtn{
+        border: 1px solid black;
+      } 
      
       /*----login signup option-----*/
       .login_signup{
@@ -110,16 +119,12 @@ body {
 /*-----main content-------*/
     .content{
         height: auto;
-        background-color: #566161;
-        /* background-image: url(""); */
-        /* background-repeat: no-repeat;  */
-        /* background-size:100vw 85vh;  */
-        min-height: 75vh;
+        background-color: #ced6d6;
+        min-height: 76vh;
         padding: 5px;
-        margin: 0;
+        /* margin: 0; */
         overflow: auto;
-
-        
+        width: 100%;
 
     } 
 /*---------------------------------------*/
@@ -129,7 +134,7 @@ body {
 .footer{
     background-color: rgb(63 96 88);
     height: 8vh;
-    margin-top: 3px;
+    /* margin-top: 3px; */
 }
 /*---------------------------------------*/
 
@@ -147,9 +152,6 @@ body {
         display: none;
       }
 
-      .header{
-        display: none;
-      }
       /*--display the name icon--*/
         a.name_in_nav{
           display: block;
@@ -165,7 +167,7 @@ body {
         }
 
         .content{
-          min-height: 87vh;
+          min-height: 79vh;
         }
         .footer{
           height: 7vh;
@@ -174,8 +176,9 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {
-    position: relative;
+  .topnav{
+    position: sticky;
+    top: 0;
   }
   .menu{
     float: none;
