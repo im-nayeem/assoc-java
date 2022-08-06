@@ -1,132 +1,156 @@
-.container .error_message{
-    color: #d81111bd;
+.container .error_message {
+  color: #d81111bd;
 }
 
-  /* Full-width input fields */
-  input[type=text],input[type=number],input[type=email],input[type=date],input[type=password],select,textarea{
+/* Full-width input fields */
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=date],
+input[type=password],
+select,
+textarea {
+  width: 75%;
+  padding: 15px;
+  margin: 5px 10% 22px 10%;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+textarea {
+  height: 150px;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+textarea:focus {
+  background-color: #ddd;
+  outline: 2px solid rgb(80, 132, 80);
+}
+
+
+/* Set a style for all buttons */
+button {
+  background-color: #37bbb2;
+  color: #fff;
+  padding: 10px 15px 10px 13px;
+  margin: 8px 45% 0px 45%;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 10%;
+  font-weight: bold;
+  border: none
+  /* display: inline; */
+  /* width:auto; */
+}
+
+button:hover {
+  opacity: 0.6;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/*--register-login swap button--*/
+.secondary_log_sign {
+  background-color: #656059;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+legend {
+  margin-left: 8vw;
+}
+
+#id01,
+#id02 {
+  display: none;
+}
+#id02 input{
+  width: 30%;
+  margin: 10px 35% 10px 35%;
+}
+/* The Modal (background) */
+.modal {
+  /* display: none; */
+  /*Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top*/
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: #f1f1f1;
+  padding-top: 0px;
+  color: black;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 1% auto 5% auto;
+  /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+.container hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+.close {
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #8a2929;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+
+  .cancelbtn,
+  .signupbtn {
     width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
   }
- 
-
-  textarea{
-    height: 150px;
-  }
-  /* Add a background color when the inputs get focus */
-  input[type=text]:focus, input[type=number]:focus,input[type=password]:focus,input[type=email]:focus,textarea:focus {
-    background-color: #ddd;
-    outline: 2px solid rgb(80, 132, 80); 
-  }
-
-  
-      /* Set a style for all buttons */
-      button {
-        background-color: #316955;
-        color: rgb(228, 222, 222);
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-        font-weight: bold;
-        /* display: inline; */
-        /* width:auto; */
-      }
-  
-      button:hover {
-        opacity:0.6;
-      }
-  
-      /* Extra styles for the cancel button */
-      .cancelbtn {
-        padding: 14px 20px;
-        background-color: #f44336;
-      }
-      
-      /*--register-login swap button--*/
-     .secondary_log_sign{
-        background-color: #656059;
-     }
-  
-      /* Add padding to container elements */
-      .container {
-        padding: 16px;
-      }
-  legend{
-    margin-left: 8vw;
-  }
-
-  #id01,#id02{
-    display: none;
-  }
-      /* The Modal (background) */
-      .modal {
-        /* display: none; */
-                /*Hidden by default */
-        position: fixed; 
-        /* Stay in place */
-        z-index: 1;  
-        /* Sit on top*/
-        left: 0;
-        top: 0;
-        width: 100%; 
-        height: 100%; 
-        overflow: auto; /* Enable scroll if needed */
-        background-color: #6e838c;
-        padding-top: 0px;
-        color: #f1f1f1;
-      }
-  
-      /* Modal Content/Box */
-      .modal-content {
-        background-color: #fefefe;
-        margin: 1% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
-        border: 1px solid #888;
-        width: 80%; /* Could be more or less, depending on screen size */
-      }
-  
-      /* Style the horizontal ruler */
-      .container hr {
-        border: 1px solid #f1f1f1;
-        margin-bottom: 25px;
-      }
-      
-      /* The Close Button (x) */
-      .close {
-        right: 35px;
-        top: 15px;
-        font-size: 40px;
-        font-weight: bold;
-        color: #8a2929;
-      }
-  
-      .close:hover,
-      .close:focus {
-        color: #f44336;
-        cursor: pointer;
-      }
-  
-      /* Clear floats */
-      .clearfix::after {
-        content: "";
-        clear: both;
-        display: table;
-      }
-  
-      /* Change styles for cancel button and signup button on extra small screens */
-      @media screen and (max-width: 300px) {
-        .cancelbtn, .signupbtn {
-          width: 100%;
-        }
-      }
+}
 
 
-  #warn_mismatched_pass{
-    color: #c06161;
-    font-size: 15px;
-  }
-  /*----------Form CSS-----------------*/
+#warn_mismatched_pass {
+  color: #c06161;
+  font-size: 15px;
+}
+
+/*----------Form CSS-----------------*/
