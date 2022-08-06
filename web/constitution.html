@@ -14,7 +14,10 @@
 
         </div>
         <div class="name">
-
+            <h3>Mymensingh Student's Welfare Association,Comilla University</h3>
+                    <!-- show in large window -->
+            <h3>Mymensingh Student's Welfare Association <br> Comilla University</h3>
+                    <!-- show in small window -->
         </div>
 
     </div>
@@ -73,7 +76,7 @@
 
     <div class="content">
 
-       </div>
+    </div>
 
 
 
@@ -83,6 +86,23 @@
 
 
 
+    <script>
+        //if window is small show assoc name and univ name in two lines and show active page in the place of font icon(assoc name abbreviation)
+        if (window.screen.width < 768) {
+            document.getElementsByClassName('name')[0].children[0].style.display = 'none';
+            document.getElementsByClassName('name')[0].children[1].style.display = 'block';
+            
+            document.getElementsByClassName('name_in_nav')[0].text = document.getElementsByClassName('active')[0].text;
+
+        }
+        else {
+            document.getElementsByClassName('name')[0].children[1].style.display = 'none';
+
+            //if window is large increase font size of assoc name
+            document.getElementsByClassName('name')[0].children[0].style.fontSize='25px';
+        }
+
+    </script>
 
 </body>
 

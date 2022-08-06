@@ -9,13 +9,35 @@ body {
   margin:0;font-family:Arial
  
 }
+
 /*---------------------------------------*/
 
 /*-----HEADER containing logo and name--*/
     .header{
-      background-color: rgb(59 65 70 / 85%);
-      height: 10vh;
+      background-image: linear-gradient(rgb(57, 109, 141),rgb(163, 146, 134),rgb(50, 115, 69));
+      height: 13vh;
     }
+      .logo,.logo img{
+        float: left;
+        height: 13vh;
+        background-color: #0000;
+        /* width: 100px; */
+        /* min-width: 100px; */
+
+      }
+      .name, .name h3{
+        color: #ddd;
+        font-family: cursive;
+        font-weight: bold;
+        margin: auto;
+        text-align: center;
+        background-color: #0000;
+      }
+      .name{
+        top: 45%;
+      transform: translateY(-50%);
+      position: relative;
+      }
 /*---------------------------------------*/
 
 /*-------Top Navigation Bar---------------*/
@@ -33,6 +55,7 @@ body {
           margin: auto;
           display: block;
       }
+     
     /*--Link in topnav bar---*/
       .topnav a {
         float: left;
@@ -44,6 +67,11 @@ body {
         font-size: 17px;
         
       }
+     /*--padding for first link in topnav--*/
+      a.name_in_nav {
+        padding-left: 4px;
+    }
+      
 
       /*---when a buton is active---*/
       .active {
