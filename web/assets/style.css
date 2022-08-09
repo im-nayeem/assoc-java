@@ -174,7 +174,7 @@ body {
 /*-------------------------------------------*/
 
 /*-----------responsive-----------*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
       /*----hide the topnav bar menu---*/
       .topnav a, .dropdown .dropbtn {
         display: none;
@@ -203,7 +203,7 @@ body {
 
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .topnav{
     position: sticky;
     top: 0;
