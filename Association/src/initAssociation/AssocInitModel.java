@@ -69,8 +69,7 @@ public class AssocInitModel {
         
     }
 //</editor-fold>
-
-  
+ 
     
       private String getFirstQuery(){
           

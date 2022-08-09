@@ -2,6 +2,7 @@
 package initAssociation;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * AssocInitController the controller class for AssocInitView and AssocInitModel
@@ -11,6 +12,9 @@ public class AssocInitController {
 
    private AssocInitModel assocModel;
    private AssocInitView assocView;
+   private boolean processing;
+   public String status="running";
+
 
    /**
     * 
@@ -25,22 +29,57 @@ public class AssocInitController {
         /** on-click(submitDb) create new table in DB,store info in Preferences
          * @param ActionListener the instance of the class that implements ActionListener()
          */
-        this.assocView.addSubmitListener((ActionEvent ae) -> {
-            System.out.println(assocModel.createDatabaseTables(assocView));
-            assocModel.storeInPreferences();
-            assocView.getPane().removeAll();
-            assocView.repaint();
-        });
+        this.assocView.addSubmitListener(new CustomAction());
+            
        
     }
+   
     public void start()
     {
         assocView.addDatabaseForm();
         assocView.setVisible(true);
         
     }
+    public void OpenWelcomeWindow(){
+        
+    }
     public void stop(){
-        assocView.setVisible(false);
+        assocView.dispose();
+    }
+   
+    
+    class CustomAction implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            if(ae.getSource()==assocView.getSubmitDb())
+            {
+                System.out.println(assocModel.createDatabaseTables(assocView));
+                assocModel.storeInPreferences();
+                assocView.getPane().removeAll();
+                
+                assocView.addVarsityInfo();
+                assocView.repaint();
+                status="stopped";
+                
+                stop();
+            }
+//            if(ae.getSource()==assocView.getSubmitVarsity())
+//            { 
+//                    assocModel.storeVarsityInfo();
+//                    assocView.getPane().removeAll();
+//                   
+//                    assocView.addAssociationInfo();
+//                    assocView.repaint();
+//                
+//            }
+//            if(ae.getSource()==assocView.getSubmitAssoc())
+//            {
+//                assocModel.storeAssocInfo(assocView);
+//            }
+               
+        }
+        
     }
       
 }

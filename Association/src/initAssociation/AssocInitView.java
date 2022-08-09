@@ -21,6 +21,8 @@ import javax.swing.JTextField;
  * @author Nayeem
  */
 public class AssocInitView extends JFrame{
+    
+        //contentPanel that contains other components
     private JPanel contentPanel = new JPanel();
 
     private JTextField dbAddr = new JTextField();
@@ -71,6 +73,10 @@ public class AssocInitView extends JFrame{
     public String getDbPass() {
         return new String(dbPass.getPassword());
     }
+
+    public JButton getSubmitDb() {
+        return submitDb;
+    }
     
     public void addSubmitListener(ActionListener e){
         submitDb.addActionListener(e);
@@ -105,7 +111,7 @@ public class AssocInitView extends JFrame{
     }
     
     public void addVarsityInfo(){
-        
+        System.out.println("Hello World");
     }
     
     public void addAssociationInfo(){
