@@ -61,16 +61,15 @@ public class AssocInitModel {
 
     }
     
-    public void storeVarsityInfo(AssocInitView view){
+    public void storeVarsityInfo(VarsityInfo varsityInfo){
         
     }
     
-    public void storeAssocInfo(AssocInitView view){
+    public void storeAssocInfo(AssocInfo assocInfo){
         
     }
 //</editor-fold>
-
-  
+ 
     
       private String getFirstQuery(){
           
@@ -185,6 +184,6 @@ public class AssocInitModel {
 "    in_headline boolean\n" +
 ");";
       }
-    
+      
     
 }

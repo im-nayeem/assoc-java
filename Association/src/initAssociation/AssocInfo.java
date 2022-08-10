@@ -6,6 +6,7 @@
 package initAssociation;
 
 import java.io.File;
+import java.io.FileInputStream;
 
 /**
  *
@@ -13,40 +14,53 @@ import java.io.File;
  */
 public class AssocInfo {
     private String assocName;
-    private File assocLogo;
-    private File constitution;
-    private String aboutAssoc;
-    private String paymentDetails;
+    private FileInputStream assocLogo;
+    private FileInputStream constitution;
+    private String assocAbout;
+    private String paymentNumber;
+    private String paymentMethod;
+    private int payementAmount;
 
-    public AssocInfo(String assocName, File assocLogo, File constitution, String aboutAssoc, String paymentDetails) {
-        this.assocName = assocName;
-        this.assocLogo = assocLogo;
-        this.constitution = constitution;
-        this.aboutAssoc = aboutAssoc;
-        this.paymentDetails = paymentDetails;
+    public AssocInfo(AssocInitView assocView) {
+        this.assocName = assocView.getAssocName();
+        this.assocLogo = assocView.getLogo();
+        this.constitution = assocView.getConstitutionPDF();
+        this.assocAbout = assocView.getAssocAbout();
+        this.paymentNumber = assocView.getPaymentNumber();
+        this.paymentMethod = assocView.getPaymentMethod();
+        this.payementAmount = Integer.parseInt(assocView.getPaymentAmount());
     }
 
     public String getAssocName() {
         return assocName;
     }
 
-    public File getAssocLogo() {
+    public FileInputStream getAssocLogo() {
         return assocLogo;
     }
 
-    public File getConstitution() {
+    public FileInputStream getConstitution() {
         return constitution;
     }
 
     public String getAboutAssoc() {
-        return aboutAssoc;
+        return assocAbout;
     }
 
-    public String getPaymentDetails() {
-        return paymentDetails;
+    public String getAssocAbout() {
+        return assocAbout;
     }
 
-   
- 
+    public String getPaymentNumber() {
+        return paymentNumber;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public int getPayementAmount() {
+        return payementAmount;
+    }
     
 }

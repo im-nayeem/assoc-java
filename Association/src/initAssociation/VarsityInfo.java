@@ -17,13 +17,18 @@ public class VarsityInfo {
     private String varsityWebLink;
     private int numberOfDept;
     List<String>depts=new ArrayList<>();
-   private int lastBatch;
+    private int lastBatch;
 
-    public VarsityInfo(String varsityName, String varsityWebLink, int numberOfDept, int lastBatch) {
-        this.varsityName = varsityName;
-        this.varsityWebLink = varsityWebLink;
-        this.numberOfDept = numberOfDept;
-        this.lastBatch = lastBatch;
+    public VarsityInfo(AssocInitView assocView) {
+        this.varsityName = assocView.getVarsityName();
+        this.varsityWebLink = assocView.getVarsityWebLink();
+//        this.numberOfDept = assocView.getNumberOfDept();
+        String dept_list[] = assocView.getDepartmentList().split("\n");
+        for(String dept:dept_list){
+            this.depts.add(dept);
+        }
+        this.numberOfDept = this.depts.size();
+        this.lastBatch = Integer.parseInt( assocView.getLastBatch());
     }
 
     public String getVarsityName() {
