@@ -25,8 +25,7 @@ public class AssocInitController {
         this.assocModel = assocModel;
         this.assocView = assocView;
         
-           CustomAction btnAction = new CustomAction();
-     
+        CustomAction btnAction = new CustomAction();
         /** 
          * add Action listener for buttons
          * on-click(submitDb) create new table in DB,store info in Preferences,add VarsityInfoPanel to view
@@ -38,6 +37,10 @@ public class AssocInitController {
         
         // Add key event listener in numberOfDept JTextField
         this.assocView.addDeptNumberListener();
+        
+        //Add Action Listener for choosing assocLogo and assocConstitution
+        this.assocView.addLogoListener();
+        this.assocView.addConstitutionListener();
         
     }
    
@@ -63,19 +66,19 @@ public class AssocInitController {
         @Override
         public void actionPerformed(ActionEvent ae) {
             if(ae.getSource()==assocView.getSubmitDb()){
-                
-                //create tables in DB and get the result of creating tables
-                String res=assocModel.createDatabaseTables(
-                        assocView.getDbAddr(),assocView.getDbUserName(),assocView.getDbPass());
-                assocView.showDialogueMsg(res);
-                
-                //store DB info in Preferences
-                assocModel.storeInPreferences();
-                
-                //if successfully created tables in DB then goto next step
-                if(res.equals("Successfully Created Database")){
+//                
+//                //create tables in DB and get the result of creating tables
+//                String res=assocModel.createDatabaseTables(
+//                        assocView.getDbAddr(),assocView.getDbUserName(),assocView.getDbPass());
+//                assocView.showDialogueMsg(res);
+//                
+//                //store DB info in Preferences
+//                assocModel.storeInPreferences();
+//                
+//                //if successfully created tables in DB then goto next step
+//                if(res.equals("Successfully Created Database")){
                         assocView.addVarsityInfo();
-                }
+//                }
                 assocView.repaint();
             }
             if(ae.getSource()==assocView.getSubmitVarsity()){

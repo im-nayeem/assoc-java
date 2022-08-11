@@ -4,12 +4,17 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -79,12 +84,12 @@ public class AssocInitView extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         assocEmail = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        assocLogo = new javax.swing.JButton();
+        chooseAssocLogo = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         assocName = new javax.swing.JTextField();
-        assocConstitution = new javax.swing.JButton();
+        chooseAssocConstitution = new javax.swing.JButton();
         assocEmailPass = new javax.swing.JPasswordField();
         presidentPhone = new javax.swing.JFormattedTextField();
         jLabel19 = new javax.swing.JLabel();
@@ -448,8 +453,8 @@ public class AssocInitView extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         jLabel15.setText("Association Logo(<16MB):");
 
-        assocLogo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        assocLogo.setText("Choose a logo in PNG format");
+        chooseAssocLogo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        chooseAssocLogo.setText("Choose a logo in PNG format");
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
         jLabel16.setText("Constitution(PDF):");
@@ -462,8 +467,8 @@ public class AssocInitView extends javax.swing.JFrame {
 
         assocName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
 
-        assocConstitution.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        assocConstitution.setText("Choose a pdf file");
+        chooseAssocConstitution.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        chooseAssocConstitution.setText("Choose a pdf file");
 
         assocEmailPass.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
@@ -500,7 +505,7 @@ public class AssocInitView extends javax.swing.JFrame {
                                     .addComponent(jLabel19))
                                 .addGap(42, 42, 42)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(assocConstitution, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(chooseAssocConstitution, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(presidentPhone))))
                         .addGap(12, 12, 12))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -509,7 +514,7 @@ public class AssocInitView extends javax.swing.JFrame {
                             .addComponent(jLabel17))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(assocLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(chooseAssocLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(assocEmailPass))
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -536,11 +541,11 @@ public class AssocInitView extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel15)
-                    .addComponent(assocLogo))
+                    .addComponent(chooseAssocLogo))
                 .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(assocConstitution))
+                    .addComponent(chooseAssocConstitution))
                 .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(presidentPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -682,11 +687,11 @@ public class AssocInitView extends javax.swing.JFrame {
     //==========Getter Methods===========//
     //<editor-fold defaultstate="collapsed" desc="Getter Method for buttons">
     public JButton getAssocConstitution() {
-        return assocConstitution;
+        return chooseAssocConstitution;
     }
     
     public JButton getAssocLogo() {
-        return assocLogo;
+        return chooseAssocLogo;
     }
     
     public JButton getSubmitAssoc() {
@@ -779,7 +784,59 @@ public class AssocInitView extends javax.swing.JFrame {
     {
         btn.addActionListener(ae);
     }
-    
+     /**
+     * add action listener to chooseAssocConstitution button
+     * on-click(chooseAssocConstitution)  choose a file and store it in assocConstitution FileInputStream
+     * */
+    public void addConstitutionListener(){
+        this.chooseAssocConstitution.addActionListener((ActionEvent ae) -> {
+            JFileChooser fileChooser = new JFileChooser();
+            int response = fileChooser.showOpenDialog(null);
+            if(response == JFileChooser.APPROVE_OPTION) 
+            {
+                File file = fileChooser.getSelectedFile();
+                String path = file.getAbsolutePath();
+                
+                this.chooseAssocConstitution.setText(file.getPath());
+
+                try {
+                   this.assocConstitution = new FileInputStream(path.replace('\\', '/'));
+                    
+                } catch (FileNotFoundException ex) {
+                    this.chooseAssocConstitution.setText("File not found");
+                }
+            }
+            else
+                this.chooseAssocConstitution.setText("File not selected!");
+        });
+      }
+    /**
+     * add action listener to chooseAssocLogo button
+     * when clicked on chooseAssocLogo button choose a file and store it in assocLogo FileInputStream
+     * */
+    public void addLogoListener(){
+        this.chooseAssocLogo.addActionListener((ActionEvent ae) -> {
+            JFileChooser fileChooser = new JFileChooser();
+            int response = fileChooser.showOpenDialog(null);
+            if(response == JFileChooser.APPROVE_OPTION) 
+            {
+                
+                File file = fileChooser.getSelectedFile();
+                String path = file.getAbsolutePath();
+                
+                this.chooseAssocLogo.setText(file.getPath());
+
+                try {
+                   this.assocLogo = new FileInputStream(path.replace('\\', '/'));
+                    
+                } catch (FileNotFoundException ex) {
+                    this.chooseAssocLogo.setText("Image file not found");
+                }
+            }
+            else
+                this.chooseAssocLogo.setText("Image not selected!");
+        });
+      }
     // when number of department is given add JTextField in deptList pane on deptListScrollPane
     public void addDeptNumberListener(){
         numberOfDept.addKeyListener(new KeyListener() {
@@ -825,14 +882,14 @@ public class AssocInitView extends javax.swing.JFrame {
         mainContentPanel.removeAll();
         mainContentPanel.add(AssocInfoPanel);
     }
-   public void addDatabaseInfo(){
+    public void addDatabaseInfo(){
        mainContentPanel.removeAll();
        mainContentPanel.add(DatabaseInfoPanel);
    } 
 //=========================================================//
   
    
-   
+   //--------method to show dialogue message--//
    public void showDialogueMsg(String msg){
        JOptionPane.showMessageDialog(this,msg);
    }
@@ -841,7 +898,8 @@ public class AssocInitView extends javax.swing.JFrame {
 //===============Member Variables================//
    private List<JTextField>depts=new ArrayList<>();
    
-   
+   private FileInputStream assocLogo;
+   private FileInputStream assocConstitution;
    
    
    //---do not edit----//
@@ -851,10 +909,10 @@ public class AssocInitView extends javax.swing.JFrame {
     private javax.swing.JPanel DatabaseInfoPanel;
     private javax.swing.JPanel VarsityInfoPanel;
     private javax.swing.JTextArea aboutAssoc;
-    private javax.swing.JButton assocConstitution;
+    private javax.swing.JButton chooseAssocConstitution;
     private javax.swing.JTextField assocEmail;
     private javax.swing.JPanel assocInfoForm;
-    private javax.swing.JButton assocLogo;
+    private javax.swing.JButton chooseAssocLogo;
     private javax.swing.JTextField assocName;
     private javax.swing.JPasswordField assocEmailPass;
     private javax.swing.JTextField dbAddr;
