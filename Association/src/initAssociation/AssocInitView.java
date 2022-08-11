@@ -121,7 +121,7 @@ public class AssocInitView extends javax.swing.JFrame {
         mainContentPanel.setPreferredSize(this.getSize());
 
         DatabaseInfoPanel.setBackground(new java.awt.Color(153, 153, 153));
-        DatabaseInfoPanel.setMinimumSize(new java.awt.Dimension(1071, 800));
+        DatabaseInfoPanel.setMinimumSize(new java.awt.Dimension(1071, 700));
         DatabaseInfoPanel.setName("DatabaseInfoPanel"); // NOI18N
         DatabaseInfoPanel.setPreferredSize(new java.awt.Dimension(1368, 800));
 
@@ -233,7 +233,7 @@ public class AssocInitView extends javax.swing.JFrame {
         dbForm.getAccessibleContext().setAccessibleName("");
 
         VarsityInfoPanel.setBackground(new java.awt.Color(204, 204, 204));
-        VarsityInfoPanel.setMinimumSize(new java.awt.Dimension(1071, 800));
+        VarsityInfoPanel.setMinimumSize(new java.awt.Dimension(1071, 700));
         VarsityInfoPanel.setName("contentPanel"); // NOI18N
         VarsityInfoPanel.setPreferredSize(this.mainContentPanel.getSize());
 
@@ -413,7 +413,7 @@ public class AssocInitView extends javax.swing.JFrame {
                     .addComponent(varsityInfoForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        AssocInfoPanel.setMinimumSize(new java.awt.Dimension(1071, 800));
+        AssocInfoPanel.setMinimumSize(new java.awt.Dimension(1071, 700));
         AssocInfoPanel.setName("DatabaseInfoPanel"); // NOI18N
         AssocInfoPanel.setPreferredSize(new java.awt.Dimension(1368, 800));
 
@@ -523,7 +523,7 @@ public class AssocInitView extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(assocName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -551,7 +551,7 @@ public class AssocInitView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(gsPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20))
-                .addContainerGap(102, Short.MAX_VALUE))
+                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         assocInfoForm.add(jPanel1);
@@ -593,7 +593,7 @@ public class AssocInitView extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -601,7 +601,7 @@ public class AssocInitView extends javax.swing.JFrame {
                 .addComponent(jLabel22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         assocInfoForm.add(jPanel2);
@@ -645,14 +645,14 @@ public class AssocInitView extends javax.swing.JFrame {
         );
         mainContentPanelLayout.setVerticalGroup(
             mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 813, Short.MAX_VALUE)
+             .addGap(0, 713, Short.MAX_VALUE)
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(DatabaseInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 813, Short.MAX_VALUE))
+                 .addComponent(DatabaseInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE))
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(VarsityInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 813, Short.MAX_VALUE))
+                 .addComponent(VarsityInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE))
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainContentPanelLayout.createSequentialGroup()
-                    .addComponent(AssocInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                     .addComponent(AssocInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
