@@ -1,460 +1,823 @@
 package initAssociation;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import javax.swing.BorderFactory;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.border.Border;
 
 /**
- * AssocInitView view class for AssocInit that extends JFrame
+ * 
  * @author Nayeem
  */
-public class AssocInitView extends JFrame{
-    
-        //contentPanel that contains other components
-    private JPanel contentPanel = new JPanel();
-    
-    //databse variable
-    private JTextField dbAddr = new JTextField();
-    private JTextField dbUserName = new JTextField();
-    private JPasswordField dbPass = new JPasswordField();
-    private JButton submitDb = new JButton("Submit");
-    
-    //Univarsity information 
-    private JTextField varsityName;
-    private JTextField varsityWebLink;
-    private JTextField lastBatch;
-    private JTextPane departmentList;
-    private JButton submitVarsity;
-    
-//    Association Information
-    private JTextField assocName;
-    private JTextField assocEmail;
-    private JTextField assocVerificationEmail;
-    private JTextField presidentPhone;
-    private JTextField genSecretaryPhone;
-    private JTextField paymentNumber;
-    private JTextField paymentAmount;
-    private JButton submitAssoc;
-    private JTextArea assocAbout;
-    private JComboBox paymentMethod;
-    private FileInputStream logo;
-    private FileInputStream constitutionPDF;
-    
-    /**
-     * Constructor for this view class
-     * setup the components to be displayed in frame
-     */
-    public AssocInitView()
-    {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        this.setResizable(false);
-        //get the window screen size to make responsive application
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
-       this.setSize(screenSize.width, screenSize.height);
-        System.out.println(screenSize.width+" "+screenSize.height);
-//        this.setSize(new Dimension(1300,1000));
-       
-        //set background color of the frame
-        this.getContentPane().setBackground(new Color(69, 84, 82)); 
-        
-        //set layout manager for the frame
-        this.setLayout(new BorderLayout(2,2));
-        
-        contentPanel.setBackground(new Color(100, 120, 110));
-        contentPanel.setPreferredSize(this.getSize());   
-        this.add(contentPanel);
-        
-    }
-    
-    /**
-     * Method getpPane()
-     * @return  contentPanel the reference of the panel where all others component will be added
-     */
-    public JPanel getPane(){
-        return this.contentPanel;
-    }
-    
-//<editor-fold defaultstate="collapsed" desc="All Getter Methods">
-    public String getDbAddr()
-    {
-        return this.dbAddr.getText();
-    }
-    
-    public String getDbUserName() {
-        return dbUserName.getText();
-    }
-    
-    public String getDbPass() {
-        return new String(dbPass.getPassword());
-    }
+public class AssocInitView extends javax.swing.JFrame {
 
+   //----------Constructor--------------//
+    public AssocInitView() {
+        initComponents();
+                //method where auto-generated codes are added to this frame
+                
+        this.setExtendedState(AssocInitView.MAXIMIZED_BOTH);
+    }
+    //----------------------------------//
+
+    
+    
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jFrame1 = new javax.swing.JFrame();
+        mainContentPanel = new javax.swing.JPanel();
+        DatabaseInfoPanel = new javax.swing.JPanel();
+        header1 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        dbForm = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        dbAddr = new javax.swing.JTextField();
+        dbUserName = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        dbPass = new javax.swing.JTextField();
+        submitDb = new javax.swing.JButton();
+        VarsityInfoPanel = new javax.swing.JPanel();
+        header = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        varsityInfoForm = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        varsityName = new javax.swing.JTextField();
+        varsityWebLink = new javax.swing.JTextField();
+        numberOfDept = new javax.swing.JFormattedTextField();
+        lastBatch = new javax.swing.JFormattedTextField();
+        submitVarsity = new javax.swing.JButton();
+        deptListScrollPane = new javax.swing.JScrollPane();
+        deptList = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        AssocInfoPanel = new javax.swing.JPanel();
+        header2 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        assocInfoForm = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        assocEmail = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        assocLogo = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        assocName = new javax.swing.JTextField();
+        assocConstitution = new javax.swing.JButton();
+        assocPass = new javax.swing.JPasswordField();
+        presidentPhone = new javax.swing.JFormattedTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        gsPhone = new javax.swing.JFormattedTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        paymentMethod = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        aboutAssoc = new javax.swing.JTextArea();
+        jLabel22 = new javax.swing.JLabel();
+        submitAssoc = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(Toolkit.getDefaultToolkit().getScreenSize());
+        setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
+
+        mainContentPanel.setBackground(new java.awt.Color(0, 102, 102));
+        mainContentPanel.setMinimumSize(this.getSize());
+        mainContentPanel.setPreferredSize(this.getSize());
+
+        DatabaseInfoPanel.setBackground(new java.awt.Color(153, 153, 153));
+        DatabaseInfoPanel.setMinimumSize(new java.awt.Dimension(1071, 800));
+        DatabaseInfoPanel.setName("DatabaseInfoPanel"); // NOI18N
+        DatabaseInfoPanel.setPreferredSize(new java.awt.Dimension(1368, 800));
+
+        header1.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel12.setFont(new java.awt.Font("Algerian", 1, 25)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Enter Database Information");
+        jLabel12.setPreferredSize(new java.awt.Dimension(418, 95));
+
+        javax.swing.GroupLayout header1Layout = new javax.swing.GroupLayout(header1);
+        header1.setLayout(header1Layout);
+        header1Layout.setHorizontalGroup(
+            header1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        header1Layout.setVerticalGroup(
+            header1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(header1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+
+        dbForm.setBackground(new java.awt.Color(204, 204, 204));
+        dbForm.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        dbForm.setPreferredSize(new java.awt.Dimension(300, 300));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setText("Enter Database Address: ");
+
+        dbAddr.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        dbUserName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel2.setText("Enter Database Username:");
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel3.setText("Enter Database Password:");
+
+        dbPass.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        submitDb.setBackground(new java.awt.Color(0, 102, 51));
+        submitDb.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        submitDb.setText("Submit");
+
+        javax.swing.GroupLayout dbFormLayout = new javax.swing.GroupLayout(dbForm);
+        dbForm.setLayout(dbFormLayout);
+        dbFormLayout.setHorizontalGroup(
+            dbFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dbFormLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(dbFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(dbFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(dbUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+                    .addComponent(dbPass)
+                    .addComponent(dbAddr))
+                .addGap(45, 45, 45))
+            .addGroup(dbFormLayout.createSequentialGroup()
+                .addGap(274, 274, 274)
+                .addComponent(submitDb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(311, 311, 311))
+        );
+        dbFormLayout.setVerticalGroup(
+            dbFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dbFormLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(dbFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(dbAddr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(dbFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(dbUserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(dbFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(dbPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(80, 80, 80)
+                .addComponent(submitDb)
+                .addGap(42, 42, 42))
+        );
+
+        javax.swing.GroupLayout DatabaseInfoPanelLayout = new javax.swing.GroupLayout(DatabaseInfoPanel);
+        DatabaseInfoPanel.setLayout(DatabaseInfoPanelLayout);
+        DatabaseInfoPanelLayout.setHorizontalGroup(
+            DatabaseInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DatabaseInfoPanelLayout.createSequentialGroup()
+                .addContainerGap(352, Short.MAX_VALUE)
+                .addComponent(dbForm, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(352, Short.MAX_VALUE))
+            .addComponent(header1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        DatabaseInfoPanelLayout.setVerticalGroup(
+            DatabaseInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DatabaseInfoPanelLayout.createSequentialGroup()
+                .addComponent(header1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addComponent(dbForm, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(257, Short.MAX_VALUE))
+        );
+
+        dbForm.getAccessibleContext().setAccessibleName("");
+
+        VarsityInfoPanel.setBackground(new java.awt.Color(204, 204, 204));
+        VarsityInfoPanel.setMinimumSize(new java.awt.Dimension(1071, 800));
+        VarsityInfoPanel.setName("contentPanel"); // NOI18N
+        VarsityInfoPanel.setPreferredSize(this.mainContentPanel.getSize());
+
+        header.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel4.setFont(new java.awt.Font("Algerian", 1, 25)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Enter Institution Information");
+        jLabel4.setPreferredSize(new java.awt.Dimension(418, 95));
+
+        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
+        header.setLayout(headerLayout);
+        headerLayout.setHorizontalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        headerLayout.setVerticalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+
+        varsityInfoForm.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel5.setText("Institution Name:");
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel6.setText("Institution Website Link:");
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel7.setText("Current Batch:");
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel8.setText("Number Of Department:");
+
+        varsityName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        varsityWebLink.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        numberOfDept.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        numberOfDept.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        lastBatch.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        lastBatch.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        submitVarsity.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        submitVarsity.setText("Submit");
+
+        javax.swing.GroupLayout varsityInfoFormLayout = new javax.swing.GroupLayout(varsityInfoForm);
+        varsityInfoForm.setLayout(varsityInfoFormLayout);
+        varsityInfoFormLayout.setHorizontalGroup(
+            varsityInfoFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(varsityInfoFormLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(varsityInfoFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(submitVarsity)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, varsityInfoFormLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lastBatch))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, varsityInfoFormLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(numberOfDept))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, varsityInfoFormLayout.createSequentialGroup()
+                        .addGroup(varsityInfoFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(varsityInfoFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(varsityWebLink, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(varsityName, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        varsityInfoFormLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel5, jLabel6, jLabel7});
+
+        varsityInfoFormLayout.setVerticalGroup(
+            varsityInfoFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(varsityInfoFormLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(varsityInfoFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(varsityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addGroup(varsityInfoFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(varsityWebLink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(varsityInfoFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(numberOfDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(varsityInfoFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(lastBatch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                .addComponent(submitVarsity)
+                .addContainerGap(195, Short.MAX_VALUE))
+        );
+
+        varsityInfoFormLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel5, jLabel6, jLabel7});
+
+        deptListScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        deptListScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        deptListScrollPane.setAutoscrolls(true);
+        deptListScrollPane.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        deptList.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        deptList.setAutoscrolls(true);
+        deptList.setMaximumSize(new java.awt.Dimension(400, 32767));
+
+        javax.swing.GroupLayout deptListLayout = new javax.swing.GroupLayout(deptList);
+        deptList.setLayout(deptListLayout);
+        deptListLayout.setHorizontalGroup(
+            deptListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 387, Short.MAX_VALUE)
+        );
+        deptListLayout.setVerticalGroup(
+            deptListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 611, Short.MAX_VALUE)
+        );
+
+        deptListScrollPane.setViewportView(deptList);
+
+        jLabel9.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Enter All of the Department Name:");
+        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout VarsityInfoPanelLayout = new javax.swing.GroupLayout(VarsityInfoPanel);
+        VarsityInfoPanel.setLayout(VarsityInfoPanelLayout);
+        VarsityInfoPanelLayout.setHorizontalGroup(
+            VarsityInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(VarsityInfoPanelLayout.createSequentialGroup()
+                .addComponent(varsityInfoForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(VarsityInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deptListScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        VarsityInfoPanelLayout.setVerticalGroup(
+            VarsityInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VarsityInfoPanelLayout.createSequentialGroup()
+                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(VarsityInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VarsityInfoPanelLayout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deptListScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(varsityInfoForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        AssocInfoPanel.setMinimumSize(new java.awt.Dimension(1071, 800));
+        AssocInfoPanel.setName("DatabaseInfoPanel"); // NOI18N
+        AssocInfoPanel.setPreferredSize(new java.awt.Dimension(1368, 800));
+
+        header2.setBackground(new java.awt.Color(51, 51, 51));
+
+        jLabel13.setFont(new java.awt.Font("Algerian", 1, 25)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("Enter Association Information");
+        jLabel13.setPreferredSize(new java.awt.Dimension(418, 95));
+
+        javax.swing.GroupLayout header2Layout = new javax.swing.GroupLayout(header2);
+        header2.setLayout(header2Layout);
+        header2Layout.setHorizontalGroup(
+            header2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        header2Layout.setVerticalGroup(
+            header2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(header2Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+
+        assocInfoForm.setBackground(new java.awt.Color(102, 102, 102));
+        assocInfoForm.setLayout(new java.awt.GridLayout(1, 2, 2, 0));
+
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        jLabel14.setText("Association Name:");
+
+        assocEmail.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        jLabel15.setText("Association Logo(<16MB):");
+
+        assocLogo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        assocLogo.setText("Choose a logo in PNG format");
+
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        jLabel16.setText("Constitution(PDF):");
+
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        jLabel17.setText("E-mail in-app Password:");
+
+        jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        jLabel18.setText("Association E-mail address:");
+
+        assocName.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+
+        assocConstitution.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        assocConstitution.setText("Choose a pdf file");
+
+        assocPass.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        presidentPhone.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        jLabel19.setText("President Phone Number:");
+
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        jLabel20.setText("G.S. Phone Number:");
+
+        gsPhone.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52)
+                                .addComponent(assocName, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(18, 18, 18)
+                                .addComponent(assocEmail))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel19))
+                                .addGap(42, 42, 42)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(assocConstitution, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(presidentPhone))))
+                        .addGap(12, 12, 12))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(assocLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(assocPass))
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addGap(81, 81, 81)
+                        .addComponent(gsPhone)
+                        .addContainerGap())))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(assocName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(assocEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(assocPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel15)
+                    .addComponent(assocLogo))
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(assocConstitution))
+                .addGap(60, 60, 60)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(presidentPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gsPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
+                .addContainerGap(102, Short.MAX_VALUE))
+        );
+
+        assocInfoForm.add(jPanel1);
+
+        jLabel21.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        jLabel21.setText("Payment Details:");
+
+        paymentMethod.setColumns(20);
+        paymentMethod.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        paymentMethod.setLineWrap(true);
+        paymentMethod.setRows(5);
+        jScrollPane1.setViewportView(paymentMethod);
+
+        aboutAssoc.setColumns(20);
+        aboutAssoc.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        aboutAssoc.setLineWrap(true);
+        aboutAssoc.setRows(5);
+        jScrollPane2.setViewportView(aboutAssoc);
+
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 20)); // NOI18N
+        jLabel22.setText("About Association:");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel21))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+
+        assocInfoForm.add(jPanel2);
+
+        submitAssoc.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        submitAssoc.setText("Submit");
+
+        javax.swing.GroupLayout AssocInfoPanelLayout = new javax.swing.GroupLayout(AssocInfoPanel);
+        AssocInfoPanel.setLayout(AssocInfoPanelLayout);
+        AssocInfoPanelLayout.setHorizontalGroup(
+            AssocInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(header2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(assocInfoForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(AssocInfoPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(submitAssoc)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        AssocInfoPanelLayout.setVerticalGroup(
+            AssocInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AssocInfoPanelLayout.createSequentialGroup()
+                .addComponent(header2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(assocInfoForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(submitAssoc)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout mainContentPanelLayout = new javax.swing.GroupLayout(mainContentPanel);
+        mainContentPanel.setLayout(mainContentPanelLayout);
+        mainContentPanelLayout.setHorizontalGroup(
+            mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1071, Short.MAX_VALUE)
+            .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(DatabaseInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE))
+            .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(VarsityInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE))
+            .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(AssocInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE))
+        );
+        mainContentPanelLayout.setVerticalGroup(
+            mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 813, Short.MAX_VALUE)
+            .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(DatabaseInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 813, Short.MAX_VALUE))
+            .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(VarsityInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 813, Short.MAX_VALUE))
+            .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainContentPanelLayout.createSequentialGroup()
+                    .addComponent(AssocInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        DatabaseInfoPanel.getAccessibleContext().setAccessibleName("DatabaseInfoPanel");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(mainContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(995, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(mainContentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(726, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>                        
+
+    
+    //==========Getter Methods===========//
+    //<editor-fold defaultstate="collapsed" desc="Getter Method for buttons">
+    public JButton getAssocConstitution() {
+        return assocConstitution;
+    }
+    
+    public JButton getAssocLogo() {
+        return assocLogo;
+    }
+    
+    public JButton getSubmitAssoc() {
+        return submitAssoc;
+    }
+    
     public JButton getSubmitDb() {
         return submitDb;
     }
     
-    public void addSubmitListener(ActionListener e){
-        submitDb.addActionListener(e);
-    }
-
     public JButton getSubmitVarsity() {
         return submitVarsity;
     }
-
-    public String getVarsityName() {
-        return varsityName.getText();
-    }
-
-    public String getVarsityWebLink() {
-        return varsityWebLink.getText();
-    }
-
-    public String getLastBatch() {
-        return lastBatch.getText();
-    }
-
-    public String getDepartmentList() {
-        return departmentList.getText();
-    }
-
-    public JPanel getContentPanel() {
-        return contentPanel;
-    }
-
-    public String getAssocName() {
-        return assocName.getText();
-    }
-
-    public String getAssocEmail() {
-        return assocEmail.getText();
-    }
-
-    public String getAssocVerificationEmail() {
-        return assocVerificationEmail.getText();
-    }
-
-    public String getPresidentPhone() {
-        return presidentPhone.getText();
-    }
-
-    public String getGenSecretaryPhone() {
-        return genSecretaryPhone.getText();
-    }
-
-    public String getPaymentNumber() {
-        return paymentNumber.getText();
-    }
-
-    public String getPaymentAmount() {
-        return paymentAmount.getText();
-    }
-
-    public JButton getSubmitAssoc() {
-        return submitAssoc;
-    }
-
-    public String getAssocAbout() {
-        return assocAbout.getText();
-    }
-
-    public String getPaymentMethod() {
-        return paymentMethod.getSelectedItem().toString();
-    }
-
-    public FileInputStream getLogo() {
-        return logo;
-    }
-
-    public FileInputStream getConstitutionPDF() {
-        return constitutionPDF;
-    }
-    
-    
-    
 //</editor-fold>
+    //===================================//
     
-    public void addDatabaseForm(){
-        contentPanel.removeAll();
-        contentPanel.setLayout(new GridBagLayout());
-        
-        //<editor-fold defaultstate="collapsed" desc="Address Form">
-        JPanel form = new JPanel();
-        form.setLayout(new FlowLayout(FlowLayout.CENTER,100,10));
-        form.setPreferredSize(new Dimension(this.getWidth()/2, this.getHeight()/2));
-        
-        form.add(new JLabel("Enter DB Address: "));
-        form.add(dbAddr);
-        dbAddr.setPreferredSize(new Dimension(300,20));
-        form.add(new JLabel("Enter DB Username: "));
-        form.add(dbUserName);
-        dbUserName.setPreferredSize(new Dimension(300,20));
-        form.add(new JLabel("Enter DB Password: "));
-        form.add(dbPass);
-        dbPass.setPreferredSize(new Dimension(300,20));
-        form.add(submitDb);
-        
-        
-        
-//</editor-fold>
-        contentPanel.add(form);
+    
+    //================Setter Methdos======//
+    
+    //===================================//
+    
+    
+//=================Add Event Listener to Components=============//
+    public void addListener(JButton btn,ActionListener ae)
+    {
+        btn.addActionListener(ae);
     }
     
-    public void addVarsityForm(){
-        System.out.println("function is called");
-        contentPanel.removeAll();
-        contentPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        contentPanel.setLayout(null);
-        
-//        new form for varsity information
-//        JPanel form = new JPanel();
-//        form.setLayout(new GridLayout(5,2));
-//        form.setPreferredSize(new Dimension(this.getWidth()*4/5, this.getHeight()*4/5));
-//        form.setPreferredSize(new Dimension(300,300));
-        
-//        Here copy paste
-        JLabel lblNewLabel = new JLabel("University Information");
-        lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 18));
-        lblNewLabel.setBounds(575, 25, 200, 25);
-        contentPanel.add(lblNewLabel);
-
-        JLabel lblNewLabel_1 = new JLabel("University Name :");
-        lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        lblNewLabel_1.setBounds(410, 145, 200, 25);
-        contentPanel.add(lblNewLabel_1);
-
-        varsityName = new JTextField();
-        varsityName.setBounds(410, 195, 200, 25);
-        contentPanel.add(varsityName);
-        varsityName.setColumns(10);
-
-        JLabel lblNewLabel_1_1 = new JLabel("University Website Link :");
-        lblNewLabel_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        lblNewLabel_1_1.setBounds(410, 245, 200, 25);
-        contentPanel.add(lblNewLabel_1_1);
-
-        varsityWebLink = new JTextField();
-        varsityWebLink.setColumns(10);
-        varsityWebLink.setBounds(410, 295, 200, 25);
-        contentPanel.add(varsityWebLink);
-
-        JLabel lblNewLabel_2 = new JLabel("Current Batch Number :");
-        lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        lblNewLabel_2.setBounds(410, 345, 200, 25);
-        contentPanel.add(lblNewLabel_2);
-
-        lastBatch = new JTextField();
-        lastBatch.setColumns(10);
-        lastBatch.setBounds(410, 395, 200, 25);
-        contentPanel.add(lastBatch);
-
-        JLabel lblNewLabel_3 = new JLabel("All Department's Name :");
-        lblNewLabel_3.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        lblNewLabel_3.setBounds(750, 145, 200, 25);
-        contentPanel.add(lblNewLabel_3);
-
-        departmentList = new JTextPane();
-        departmentList.setText("dept 1\ndept 2\n. . .\n. . .\n. . .");
-        departmentList.setBounds(750, 200, 200, 220);
-        departmentList.setFont(new Font("Times New Roman", Font.ITALIC , 18));
-        contentPanel.add(departmentList);
-
-        submitVarsity = new JButton("Submit");
-        submitVarsity.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        submitVarsity.setBounds(626, 499, 120, 25);
-        contentPanel.add(submitVarsity);
-//        copy paste end
-
-//        contentPanel.add(form);
-    }
-    
-    public void addAssociationForm(){
-        System.out.println("add association form function is called");
-        contentPanel.removeAll();
-        contentPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        contentPanel.setLayout(null);
-        
-        JLabel lblNewLabel = new JLabel("Association Information");
-        lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 18));
-        lblNewLabel.setBounds(575, 25, 200, 30);
-        contentPanel.add(lblNewLabel);
-
-        JLabel lblNewLabel_1 = new JLabel("Association Name :");
-        lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        lblNewLabel_1.setBounds(276, 145, 152, 14);
-        contentPanel.add(lblNewLabel_1);
-
-        assocName = new JTextField();
-        assocName.setBounds(276, 175, 200, 20);
-        contentPanel.add(assocName);
-        assocName.setColumns(10);
-
-        JLabel lblNewLabel_1_1 = new JLabel("Association Logo :");
-        lblNewLabel_1_1.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        lblNewLabel_1_1.setBounds(276, 215, 152, 14);
-        contentPanel.add(lblNewLabel_1_1);
-
-        JButton assocLogo = new JButton("Choose Image");
-        assocLogo.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                        JFileChooser fileChooser = new JFileChooser();
-                        //response = 0?choose a file
-                        //responce = 1?cancel
-                        int response = fileChooser.showOpenDialog(null);  
-                        if(response == JFileChooser.APPROVE_OPTION) {
-                            File file = fileChooser.getSelectedFile();
-                            String path = file.getAbsolutePath();
-                            try {
-                                logo = new FileInputStream(path.replace('\\', '/'));
-                            } catch (FileNotFoundException e1) {
-                                    System.out.print("Image file not found");
-                            }
-                        }
+    // when number of department is given add JTextField in deptList pane on deptListScrollPane
+    public void addDeptNumberListener(){
+        numberOfDept.addKeyListener(new KeyListener() {
+            @Override
+            public void keyReleased(KeyEvent ke) {
+                if(numberOfDept.getText().equals(""))
+                    return;
+                
+                int n=Integer.parseInt(numberOfDept.getText());
+                
+                depts.clear();
+                deptList.removeAll();
+                
+                deptList.setLayout(new GridLayout(n,1,0,5));
+                for(int i=0;i<n;i++){
+                    depts.add(i, new JTextField());
+                    depts.get(i).setToolTipText("Department Name");
+                    depts.get(i).setPreferredSize(new Dimension(deptList.getWidth(),40));
+                    depts.get(i).setFont(new Font("Times New Roman",Font.PLAIN,18));
+                    deptList.add(depts.get(i));
                 }
+                
+                deptList.revalidate();
+            }
+            @Override
+            public void keyTyped(KeyEvent ke) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent ke) {
+            }
         });
-        assocLogo.setBounds(276, 240, 200, 23);
-        contentPanel.add(assocLogo);
-
-        JLabel lblNewLabel_1_2 = new JLabel("Constitution (PDF) :");
-        lblNewLabel_1_2.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        lblNewLabel_1_2.setBounds(276, 285, 150, 14);
-        contentPanel.add(lblNewLabel_1_2);
-
-        JButton assocConstitution = new JButton("Choose PDF ");
-        assocConstitution.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                        JFileChooser fileChooser = new JFileChooser();
-                        int response = fileChooser.showOpenDialog(null);
-                        if(response==JFileChooser.APPROVE_OPTION) {
-                                File file = fileChooser.getSelectedFile();
-                                String path = file.getAbsolutePath();
-                                try {
-                                    constitutionPDF = new FileInputStream(path.replace('\\', '/'));
-                                } catch (FileNotFoundException e1) {
-                                        // TODO Auto-generated catch block
-                                        e1.printStackTrace();
-                                }
-                        }
-                }
-        });
-        assocConstitution.setBounds(276, 310, 200, 23);
-        contentPanel.add(assocConstitution);
-
-        JLabel lblNewLabel_1_3 = new JLabel("Association Email Address :");
-        lblNewLabel_1_3.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        lblNewLabel_1_3.setBounds(276, 355, 171, 14);
-        contentPanel.add(lblNewLabel_1_3);
-
-        assocEmail = new JTextField();
-        assocEmail.setColumns(10);
-        assocEmail.setBounds(276, 385, 200, 20);
-        contentPanel.add(assocEmail);
-
-        JLabel lblNewLabel_1_4 = new JLabel("Email for authentication :");
-        lblNewLabel_1_4.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        lblNewLabel_1_4.setBounds(276, 425, 150, 14);
-        contentPanel.add(lblNewLabel_1_4);
-
-        assocVerificationEmail = new JTextField();
-        assocVerificationEmail.setColumns(10);
-        assocVerificationEmail.setBounds(276, 455, 200, 20);
-        contentPanel.add(assocVerificationEmail);
-
-        JLabel lblNewLabel_1_5 = new JLabel("President Phone :");
-        lblNewLabel_1_5.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        lblNewLabel_1_5.setBounds(276, 499, 152, 14);
-        contentPanel.add(lblNewLabel_1_5);
-
-        presidentPhone = new JTextField();
-        presidentPhone.setColumns(10);
-        presidentPhone.setBounds(276, 529, 200, 20);
-        contentPanel.add(presidentPhone);
-
-        JLabel lblNewLabel_1_6 = new JLabel("General Secretary Phone :");
-        lblNewLabel_1_6.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        lblNewLabel_1_6.setBounds(276, 575, 152, 14);
-        contentPanel.add(lblNewLabel_1_6);
-
-        genSecretaryPhone = new JTextField();
-        genSecretaryPhone.setColumns(10);
-        genSecretaryPhone.setBounds(276, 605, 200, 20);
-        contentPanel.add(genSecretaryPhone);
-
-        JLabel lblNewLabel_2 = new JLabel("About Association :");
-        lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        lblNewLabel_2.setBounds(640, 310, 166, 14);
-        contentPanel.add(lblNewLabel_2);
-
-        assocAbout = new JTextArea();
-        assocAbout.setBounds(637, 334, 380, 291);
-        contentPanel.add(assocAbout);
-
-        JPanel payment_panel = new JPanel();
-        Border blackline = BorderFactory.createLineBorder(Color.black);
-        payment_panel.setBounds(640, 145, 380, 120);
-        payment_panel.setBorder(blackline);
-        contentPanel.add(payment_panel);
-        payment_panel.setLayout(null);
-
-        JLabel lblNewLabel_3 = new JLabel("Payment Details :");
-        lblNewLabel_3.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        lblNewLabel_3.setBounds(10, 0, 169, 14);
-        payment_panel.add(lblNewLabel_3);
-
-        JLabel lblNewLabel_4 = new JLabel("Payment Number");
-        lblNewLabel_4.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        lblNewLabel_4.setBounds(10, 36, 101, 14);
-        payment_panel.add(lblNewLabel_4);
-
-        paymentNumber = new JTextField();
-        paymentNumber.setBounds(10, 61, 116, 20);
-        payment_panel.add(paymentNumber);
-        paymentNumber.setColumns(10);
-
-        paymentAmount = new JTextField();
-        paymentAmount.setColumns(10);
-        paymentAmount.setBounds(147, 61, 60, 20);
-        payment_panel.add(paymentAmount);
-
-        JLabel lblNewLabel_4_1 = new JLabel("Amount");
-        lblNewLabel_4_1.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        lblNewLabel_4_1.setBounds(147, 36, 72, 14);
-        payment_panel.add(lblNewLabel_4_1);
-
-        String media[] = {"bKash","Nagad","Rocket"};
-        paymentMethod = new JComboBox(media);
-        paymentMethod.setBounds(238, 60, 107, 22);
-        payment_panel.add(paymentMethod);
-
-        JLabel lblNewLabel_5 = new JLabel(" Payment Method");
-        lblNewLabel_5.setFont(new Font("Times New Roman", Font.PLAIN, 14));
-        lblNewLabel_5.setBounds(236, 36, 109, 14);
-        payment_panel.add(lblNewLabel_5);;
-
-        submitAssoc = new JButton("Submit");
-        submitAssoc.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        submitAssoc.setBounds(601, 675, 120, 25);
-        contentPanel.add(submitAssoc);
     }
+//==============================================================//
     
+    
+//==============Methods for Adding Panel to mainContentPanel========//
+    public void addVarsityInfo(){
+        mainContentPanel.removeAll();
+        mainContentPanel.add(VarsityInfoPanel);
+    }
+    public void addAssocInfo(){
+        mainContentPanel.removeAll();
+        mainContentPanel.add(AssocInfoPanel);
+    }
+   public void addDatabaseInfo(){
+       mainContentPanel.removeAll();
+       mainContentPanel.add(DatabaseInfoPanel);
+   } 
+//=========================================================//
+  
+   //===============Member Variables================//
+   private List<JTextField>depts=new ArrayList<>();
+ // <editor-fold defaultstate="collapsed" desc="Generated variables">
+    // Variables declaration - do not modify                     
+    private javax.swing.JPanel AssocInfoPanel;
+    private javax.swing.JPanel DatabaseInfoPanel;
+    private javax.swing.JPanel VarsityInfoPanel;
+    private javax.swing.JTextArea aboutAssoc;
+    private javax.swing.JButton assocConstitution;
+    private javax.swing.JTextField assocEmail;
+    private javax.swing.JPanel assocInfoForm;
+    private javax.swing.JButton assocLogo;
+    private javax.swing.JTextField assocName;
+    private javax.swing.JPasswordField assocPass;
+    private javax.swing.JTextField dbAddr;
+    private javax.swing.JPanel dbForm;
+    private javax.swing.JTextField dbPass;
+    private javax.swing.JTextField dbUserName;
+    private javax.swing.JPanel deptList;
+    private javax.swing.JScrollPane deptListScrollPane;
+    private javax.swing.JFormattedTextField gsPhone;
+    private javax.swing.JPanel header;
+    private javax.swing.JPanel header1;
+    private javax.swing.JPanel header2;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JFormattedTextField lastBatch;
+    private javax.swing.JPanel mainContentPanel;
+    private javax.swing.JFormattedTextField numberOfDept;
+    private javax.swing.JTextArea paymentMethod;
+    private javax.swing.JFormattedTextField presidentPhone;
+    private javax.swing.JButton submitAssoc;
+    private javax.swing.JButton submitDb;
+    private javax.swing.JButton submitVarsity;
+    private javax.swing.JPanel varsityInfoForm;
+    private javax.swing.JTextField varsityName;
+    private javax.swing.JTextField varsityWebLink;
+    // End of variables declaration                   
+
+ // </editor-fold> 
+
+
 }

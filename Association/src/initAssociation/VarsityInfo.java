@@ -20,15 +20,15 @@ public class VarsityInfo {
     private int lastBatch;
 
     public VarsityInfo(AssocInitView assocView) {
-        this.varsityName = assocView.getVarsityName();
-        this.varsityWebLink = assocView.getVarsityWebLink();
-//        this.numberOfDept = assocView.getNumberOfDept();
-        String dept_list[] = assocView.getDepartmentList().split("\n");
-        for(String dept:dept_list){
-            this.depts.add(dept);
-        }
+//        this.varsityName = assocView.getVarsityName();
+//        this.varsityWebLink = assocView.getVarsityWebLink();
+////        this.numberOfDept = assocView.getNumberOfDept();
+//        String dept_list[] = assocView.getDepartmentList().split("\n");
+//        for(String dept:dept_list){
+//            this.depts.add(dept);
+//        }
         this.numberOfDept = this.depts.size();
-        this.lastBatch = Integer.parseInt( assocView.getLastBatch());
+//        this.lastBatch = Integer.parseInt( assocView.getLastBatch());
     }
 
     public String getVarsityName() {

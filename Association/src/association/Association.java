@@ -37,12 +37,7 @@ public class Association {
             AssocInitModel model=new AssocInitModel();
             AssocInitController controller=new AssocInitController(model,view);
             controller.start();
-            while(controller.status.equals("running")==true)
-            {
-
-            }
-           MyFrame x=new MyFrame();
-           x.setVisible(true);
+            
                
 //            controller.stop();
         }

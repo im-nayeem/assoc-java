@@ -15,20 +15,20 @@ import java.io.FileInputStream;
 public class AssocInfo {
     private String assocName;
     private FileInputStream assocLogo;
-    private FileInputStream constitution;
+    private FileInputStream assocConstitution;
     private String assocAbout;
     private String paymentNumber;
     private String paymentMethod;
     private int payementAmount;
 
     public AssocInfo(AssocInitView assocView) {
-        this.assocName = assocView.getAssocName();
-        this.assocLogo = assocView.getLogo();
-        this.constitution = assocView.getConstitutionPDF();
-        this.assocAbout = assocView.getAssocAbout();
-        this.paymentNumber = assocView.getPaymentNumber();
-        this.paymentMethod = assocView.getPaymentMethod();
-        this.payementAmount = Integer.parseInt(assocView.getPaymentAmount());
+//        this.assocName = assocView.getAssocName();
+//        this.assocLogo = assocView.getLogo();
+//        this.assocConstitution = assocView.getConstitutionPDF();
+//        this.assocAbout = assocView.getAssocAbout();
+//        this.paymentNumber = assocView.getPaymentNumber();
+//        this.paymentMethod = assocView.getPaymentMethod();
+//        this.payementAmount = Integer.parseInt(assocView.getPaymentAmount());
     }
 
     public String getAssocName() {
@@ -39,8 +39,8 @@ public class AssocInfo {
         return assocLogo;
     }
 
-    public FileInputStream getConstitution() {
-        return constitution;
+    public FileInputStream getAssocConstitution() {
+        return assocConstitution;
     }
 
     public String getAboutAssoc() {

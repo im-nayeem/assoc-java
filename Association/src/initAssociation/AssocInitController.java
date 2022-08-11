@@ -29,14 +29,16 @@ public class AssocInitController {
         /** on-click(submitDb) create new table in DB,store info in Preferences
          * @param ActionListener the instance of the class that implements ActionListener()
          */
-        this.assocView.addSubmitListener(new CustomAction());
-            
+        CustomAction btnAction = new CustomAction();
+        this.assocView.addListener(assocView.getSubmitDb(),btnAction );
+        this.assocView.addListener(assocView.getSubmitVarsity(), btnAction);
        
+        this.assocView.addDeptNumberListener();
     }
    
     public void start()
     {
-        assocView.addDatabaseForm();
+        this.assocView.addDatabaseInfo();
         assocView.setVisible(true);
         
     }
@@ -44,41 +46,24 @@ public class AssocInitController {
         
     }
     public void stop(){
-        assocView.dispose();
+//        assocView.dispose();
     }
    
     
+    
+        
     class CustomAction implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-            if(ae.getSource()==assocView.getSubmitDb())
-            {
-                System.out.println(assocModel.createDatabaseTables(assocView));
-                assocModel.storeInPreferences();
-                assocView.getPane().removeAll();
-                
-                assocView.addVarsityForm();
+            if(ae.getSource()==assocView.getSubmitDb()){
+                assocView.addVarsityInfo();
                 assocView.repaint();
-//                status="stopped";
-//                stop();
             }
-            if(ae.getSource()==assocView.getSubmitVarsity())
-            {
-                VarsityInfo varsityInfo = new VarsityInfo(assocView);
-                assocModel.storeVarsityInfo(varsityInfo);
-                assocView.getPane().removeAll();
-
-                assocView.addAssociationForm();
+            if(ae.getSource()==assocView.getSubmitVarsity()){
+                assocView.addAssocInfo();
                 assocView.repaint();
-                
             }
-            if(ae.getSource()==assocView.getSubmitAssoc())
-            {
-                AssocInfo assocInfo = new AssocInfo(assocView);
-                assocModel.storeAssocInfo(assocInfo);
-            }
-               
         }
         
     }

@@ -27,9 +27,9 @@ public class AssocInitModel {
   
     public String createDatabaseTables(AssocInitView view)
     {
-         dbAddr="jdbc:mysql://"+view.getDbAddr()+"?allowMultiQueries=true";
-         dbUserName=view.getDbUserName();
-         dbPass=view.getDbPass();
+//         dbAddr="jdbc:mysql://"+view.getDbAddr()+"?allowMultiQueries=true";
+//         dbUserName=view.getDbUserName();
+//         dbPass=view.getDbPass();
          String query=getFirstQuery();
          
 //         System.out.println(dbAddr+"\n"+dbUserName+"\n"+dbPass);
