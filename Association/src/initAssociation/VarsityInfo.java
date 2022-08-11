@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package initAssociation;
 
 import java.util.List;
@@ -20,15 +16,11 @@ public class VarsityInfo {
     private int lastBatch;
 
     public VarsityInfo(AssocInitView assocView) {
-//        this.varsityName = assocView.getVarsityName();
-//        this.varsityWebLink = assocView.getVarsityWebLink();
-////        this.numberOfDept = assocView.getNumberOfDept();
-//        String dept_list[] = assocView.getDepartmentList().split("\n");
-//        for(String dept:dept_list){
-//            this.depts.add(dept);
-//        }
-        this.numberOfDept = this.depts.size();
-//        this.lastBatch = Integer.parseInt( assocView.getLastBatch());
+        this.varsityName = assocView.getVarsityName();
+        this.varsityWebLink = assocView.getVarsityWebLink();
+        this.numberOfDept = assocView.getNumberOfDept();
+        this.depts = assocView.getDepts();
+        this.lastBatch = assocView.getLastBatch();
     }
 
     public String getVarsityName() {

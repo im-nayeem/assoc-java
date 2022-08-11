@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package initAssociation;
 
-import java.io.File;
+package initAssociation;
 import java.io.FileInputStream;
 
 /**
@@ -17,18 +11,14 @@ public class AssocInfo {
     private FileInputStream assocLogo;
     private FileInputStream assocConstitution;
     private String assocAbout;
-    private String paymentNumber;
     private String paymentMethod;
-    private int payementAmount;
 
     public AssocInfo(AssocInitView assocView) {
-//        this.assocName = assocView.getAssocName();
-//        this.assocLogo = assocView.getLogo();
-//        this.assocConstitution = assocView.getConstitutionPDF();
-//        this.assocAbout = assocView.getAssocAbout();
-//        this.paymentNumber = assocView.getPaymentNumber();
-//        this.paymentMethod = assocView.getPaymentMethod();
-//        this.payementAmount = Integer.parseInt(assocView.getPaymentAmount());
+        this.assocName = assocView.getAssocName();
+        this.assocLogo = assocView.getAssocLogo();
+        this.assocConstitution = assocView.getAssocConstitution();
+        this.assocAbout = assocView.getAboutAssoc();
+        this.paymentMethod = assocView.getPaymentMethod();
     }
 
     public String getAssocName() {
@@ -51,16 +41,10 @@ public class AssocInfo {
         return assocAbout;
     }
 
-    public String getPaymentNumber() {
-        return paymentNumber;
-    }
 
     public String getPaymentMethod() {
         return paymentMethod;
     }
 
-    public int getPayementAmount() {
-        return payementAmount;
-    }
     
 }

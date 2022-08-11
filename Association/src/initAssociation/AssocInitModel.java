@@ -32,7 +32,6 @@ public class AssocInitModel {
          this.dbPass=dbPass;
          String query=getFirstQuery();
          
-         System.out.println(dbAddr+"\n"+dbUserName+"\n"+dbPass);
                  
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -42,16 +41,18 @@ public class AssocInitModel {
              st.close();
         } 
         catch (ClassNotFoundException e) {
-            return "Can't connect with Database";
+            return "Could't connect with Database";
         }
         catch(SQLException ex){
-            return "Can't Connect With Database,SQL Exception!";
+            return "Couldn't Connect With Database,SQL Exception!";
         }
         
         
-        return "Successfully Created Database";     
+        return "Successfully Connected With Database";     
     }
-    //<editor-fold defaultstate="collapsed" desc="mehtods to store in Preferences and DB">
+    
+
+//<editor-fold defaultstate="collapsed" desc="mehtods to store in Preferences and DB">
     public void storeInPreferences(){
         Preferences prefs=Preferences.userNodeForPackage(Association.class);
         prefs.put("dbAddr", dbAddr);

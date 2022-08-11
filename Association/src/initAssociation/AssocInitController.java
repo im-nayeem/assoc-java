@@ -25,15 +25,17 @@ public class AssocInitController {
         this.assocModel = assocModel;
         this.assocView = assocView;
         
-        CustomAction btnAction = new CustomAction();
+        
         /** 
          * add Action listener for buttons
          * on-click(submitDb) create new table in DB,store info in Preferences,add VarsityInfoPanel to view
          * @param assocView.getButton() the button in which to add action listener
          * @param ActionListener the instance of the ActionListener class
          */
+        CustomAction btnAction = new CustomAction();
         this.assocView.addListener(assocView.getSubmitDb(),btnAction );
         this.assocView.addListener(assocView.getSubmitVarsity(), btnAction);
+        this.assocView.addListener(assocView.getSubmitAssoc(), btnAction);
         
         // Add key event listener in numberOfDept JTextField
         this.assocView.addDeptNumberListener();
@@ -65,28 +67,40 @@ public class AssocInitController {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
+            
+            //<editor-fold defaultstate="collapsed" desc="if button == submitDb then...">
             if(ae.getSource()==assocView.getSubmitDb()){
-//                
-//                //create tables in DB and get the result of creating tables
-//                String res=assocModel.createDatabaseTables(
-//                        assocView.getDbAddr(),assocView.getDbUserName(),assocView.getDbPass());
-//                assocView.showDialogueMsg(res);
-//                
-//                //store DB info in Preferences
-//                assocModel.storeInPreferences();
-//                
-//                //if successfully created tables in DB then goto next step
-//                if(res.equals("Successfully Created Database")){
-                        assocView.addVarsityInfo();
-//                }
+                
+                //create tables in DB and get the result of creating tables
+                String res=assocModel.createDatabaseTables(
+                        assocView.getDbAddr(),assocView.getDbUserName(),assocView.getDbPass());
+                assocView.showDialogueMsg(res);
+                
+                //store DB info in Preferences
+                assocModel.storeInPreferences();
+                
+                //if successfully created tables in DB then goto next step
+                if(res.equals("Successfully Connected With Database")){
+                    assocView.addVarsityInfo();
+                }
                 assocView.repaint();
             }
+            //</editor-fold>
+            
             if(ae.getSource()==assocView.getSubmitVarsity()){
+                VarsityInfo varsityInfo = new VarsityInfo(assocView);
+                assocModel.storeVarsityInfo(varsityInfo);
                 assocView.addAssocInfo();
                 assocView.repaint();
             }
+            
+            if(ae.getSource()==assocView.getSubmitAssoc()){
+                AssocInfo assocInfo = new AssocInfo(assocView);
+                assocModel.storeAssocInfo(assocInfo);
+                
+            }
         }
-        
+
     }
       
 }

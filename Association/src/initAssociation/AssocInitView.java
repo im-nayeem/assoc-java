@@ -15,10 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
-import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -686,13 +683,6 @@ public class AssocInitView extends javax.swing.JFrame {
     
     //==========Getter Methods===========//
     //<editor-fold defaultstate="collapsed" desc="Getter Method for buttons">
-    public JButton getAssocConstitution() {
-        return chooseAssocConstitution;
-    }
-    
-    public JButton getAssocLogo() {
-        return chooseAssocLogo;
-    }
     
     public JButton getSubmitAssoc() {
         return submitAssoc;
@@ -722,52 +712,62 @@ public class AssocInitView extends javax.swing.JFrame {
 //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Getter for Varsity Info">
-    public JTextField getVarsityName() {
-        return varsityName;
+    public String getVarsityName() {
+        return varsityName.getText();
     }
-    public JTextField getVarsityWebLink() {
-        return varsityWebLink;
+    public String getVarsityWebLink() {
+        return varsityWebLink.getText();
     }
-    public List<JTextField> getDepts() {
-        return depts;
+    public int getNumberOfDept(){
+        return Integer.parseInt(numberOfDept.getText());
     }
+    public List<String> getDepts() {
+        
+        List<String>allDept=new ArrayList<>();
+        for(JTextField s:depts)
+            allDept.add(s.getText());
+            
+        return allDept;
+    }
+    public int getLastBatch(){
+        return Integer.parseInt(lastBatch.getText());
+    }
+    
 //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Getter for Association Info">
-    public JTextArea getAboutAssoc() {
-        return aboutAssoc;
+    public String getAboutAssoc() {
+        return aboutAssoc.getText();
     }
     
-    public JTextField getAssocEmail() {
-        return assocEmail;
+    public String getAssocEmail() {
+        return assocEmail.getText();
     }
     
-    public JTextField getAssocName() {
-        return assocName;
+    public String getAssocName() {
+        return assocName.getText();
     }
     
-    public JPasswordField getAssocEmailPass() {
-        return assocEmailPass;
+    public String getAssocEmailPass() {
+        return new String(assocEmailPass.getPassword());
     }
     
-    public JFormattedTextField getGsPhone() {
-        return gsPhone;
+    public String getGsPhone() {
+        return gsPhone.getText();
     }
     
-    public JFormattedTextField getLastBatch() {
-        return lastBatch;
+    public String getPaymentMethod() {
+        return paymentMethod.getText();
     }
     
-    public JFormattedTextField getNumberOfDept() {
-        return numberOfDept;
+    public String getPresidentPhone() {
+        return presidentPhone.getText();
     }
-    
-    public JTextArea getPaymentMethod() {
-        return paymentMethod;
+    public FileInputStream getAssocLogo(){
+        return this.assocLogo;
     }
-    
-    public JFormattedTextField getPresidentPhone() {
-        return presidentPhone;
+    public FileInputStream getAssocConstitution(){
+        return this.assocConstitution;
     }
 //</editor-fold>
    
