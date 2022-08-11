@@ -37,9 +37,7 @@ public class Association {
             AssocInitModel model=new AssocInitModel();
             AssocInitController controller=new AssocInitController(model,view);
             controller.start();
-            
                
-//            controller.stop();
         }
         else
         {

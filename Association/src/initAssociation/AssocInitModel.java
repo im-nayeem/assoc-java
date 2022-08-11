@@ -25,34 +25,33 @@ public class AssocInitModel {
     }
 
   
-    public String createDatabaseTables(AssocInitView view)
+    public String createDatabaseTables(String dbAddr,String dbUserName,String dbPass)
     {
-//         dbAddr="jdbc:mysql://"+view.getDbAddr()+"?allowMultiQueries=true";
-//         dbUserName=view.getDbUserName();
-//         dbPass=view.getDbPass();
+         this.dbAddr="jdbc:mysql://"+dbAddr+"?allowMultiQueries=true";
+         this.dbUserName=dbUserName;
+         this.dbPass=dbPass;
          String query=getFirstQuery();
          
-//         System.out.println(dbAddr+"\n"+dbUserName+"\n"+dbPass);
-
+         System.out.println(dbAddr+"\n"+dbUserName+"\n"+dbPass);
                  
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn=(Connection)DriverManager.getConnection(dbAddr, dbUserName, dbPass);
-            Statement st=conn.createStatement();
-            st.execute(query);
-            conn.close();
-            st.close();
+             Connection conn = (Connection)DriverManager.getConnection(this.dbAddr, dbUserName, dbPass);
+             Statement st = conn.createStatement();
+             st.execute(query);
+             st.close();
         } 
         catch (ClassNotFoundException e) {
             return "Can't connect with Database";
-        }catch(SQLException ex){
-            return "Error with queries!";
+        }
+        catch(SQLException ex){
+            return "Can't Connect With Database,SQL Exception!";
         }
         
         
-        return "Successfull";     
+        return "Successfully Created Database";     
     }
-    //<editor-fold defaultstate="collapsed" desc="mehtods to store in DB">
+    //<editor-fold defaultstate="collapsed" desc="mehtods to store in Preferences and DB">
     public void storeInPreferences(){
         Preferences prefs=Preferences.userNodeForPackage(Association.class);
         prefs.put("dbAddr", dbAddr);

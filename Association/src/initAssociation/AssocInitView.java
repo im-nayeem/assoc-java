@@ -10,10 +10,14 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
- * 
+ * AssocInitView the view class for AssocInitController 
  * @author Nayeem
  */
 public class AssocInitView extends javax.swing.JFrame {
@@ -24,13 +28,17 @@ public class AssocInitView extends javax.swing.JFrame {
                 //method where auto-generated codes are added to this frame
                 
         this.setExtendedState(AssocInitView.MAXIMIZED_BOTH);
+                //set frame state to extended window
     }
     //----------------------------------//
 
     
     
+    
+    
+ //================!!Dont't edit!!=================//   
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    // <editor-fold defaultstate="collapsed" desc="Generated Code - Don't edit">                          
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
@@ -77,7 +85,7 @@ public class AssocInitView extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         assocName = new javax.swing.JTextField();
         assocConstitution = new javax.swing.JButton();
-        assocPass = new javax.swing.JPasswordField();
+        assocEmailPass = new javax.swing.JPasswordField();
         presidentPhone = new javax.swing.JFormattedTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -457,7 +465,7 @@ public class AssocInitView extends javax.swing.JFrame {
         assocConstitution.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         assocConstitution.setText("Choose a pdf file");
 
-        assocPass.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        assocEmailPass.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         presidentPhone.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
@@ -502,7 +510,7 @@ public class AssocInitView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(assocLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(assocPass))
+                            .addComponent(assocEmailPass))
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel20)
@@ -524,7 +532,7 @@ public class AssocInitView extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(assocPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(assocEmailPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel15)
@@ -665,7 +673,11 @@ public class AssocInitView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>                        
-
+//=================!!Do not edit!!================//
+    
+    
+    
+    
     
     //==========Getter Methods===========//
     //<editor-fold defaultstate="collapsed" desc="Getter Method for buttons">
@@ -689,6 +701,71 @@ public class AssocInitView extends javax.swing.JFrame {
         return submitVarsity;
     }
 //</editor-fold>
+
+    //<editor-fold defaultstate="collapsed" desc="Getter for DB info">
+    public String getDbAddr() {
+        return dbAddr.getText();
+    }
+    
+    public String getDbPass() {
+        return dbPass.getText();
+    }
+    
+    public String getDbUserName() {
+        return dbUserName.getText();
+    }
+//</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Getter for Varsity Info">
+    public JTextField getVarsityName() {
+        return varsityName;
+    }
+    public JTextField getVarsityWebLink() {
+        return varsityWebLink;
+    }
+    public List<JTextField> getDepts() {
+        return depts;
+    }
+//</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Getter for Association Info">
+    public JTextArea getAboutAssoc() {
+        return aboutAssoc;
+    }
+    
+    public JTextField getAssocEmail() {
+        return assocEmail;
+    }
+    
+    public JTextField getAssocName() {
+        return assocName;
+    }
+    
+    public JPasswordField getAssocEmailPass() {
+        return assocEmailPass;
+    }
+    
+    public JFormattedTextField getGsPhone() {
+        return gsPhone;
+    }
+    
+    public JFormattedTextField getLastBatch() {
+        return lastBatch;
+    }
+    
+    public JFormattedTextField getNumberOfDept() {
+        return numberOfDept;
+    }
+    
+    public JTextArea getPaymentMethod() {
+        return paymentMethod;
+    }
+    
+    public JFormattedTextField getPresidentPhone() {
+        return presidentPhone;
+    }
+//</editor-fold>
+   
     //===================================//
     
     
@@ -754,8 +831,20 @@ public class AssocInitView extends javax.swing.JFrame {
    } 
 //=========================================================//
   
-   //===============Member Variables================//
+   
+   
+   public void showDialogueMsg(String msg){
+       JOptionPane.showMessageDialog(this,msg);
+   }
+   
+   
+//===============Member Variables================//
    private List<JTextField>depts=new ArrayList<>();
+   
+   
+   
+   
+   //---do not edit----//
  // <editor-fold defaultstate="collapsed" desc="Generated variables">
     // Variables declaration - do not modify                     
     private javax.swing.JPanel AssocInfoPanel;
@@ -767,7 +856,7 @@ public class AssocInitView extends javax.swing.JFrame {
     private javax.swing.JPanel assocInfoForm;
     private javax.swing.JButton assocLogo;
     private javax.swing.JTextField assocName;
-    private javax.swing.JPasswordField assocPass;
+    private javax.swing.JPasswordField assocEmailPass;
     private javax.swing.JTextField dbAddr;
     private javax.swing.JPanel dbForm;
     private javax.swing.JTextField dbPass;
@@ -818,6 +907,7 @@ public class AssocInitView extends javax.swing.JFrame {
     // End of variables declaration                   
 
  // </editor-fold> 
+    //---do not edit-----//
 
 
 }
