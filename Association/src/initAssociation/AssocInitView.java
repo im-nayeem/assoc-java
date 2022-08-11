@@ -850,7 +850,7 @@ public class AssocInitView extends javax.swing.JFrame {
                 depts.clear();
                 deptList.removeAll();
                 
-                deptList.setLayout(new GridLayout(n,1,0,5));
+                deptList.setLayout(new GridLayout(Math.max(n,10),1,0,5));
                 for(int i=0;i<n;i++){
                     depts.add(i, new JTextField());
                     depts.get(i).setToolTipText("Department Name");
