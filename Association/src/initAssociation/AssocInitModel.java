@@ -4,6 +4,7 @@ package initAssociation;
 import association.Association;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.prefs.Preferences;
@@ -35,10 +36,10 @@ public class AssocInitModel {
                  
         try {
             Class.forName("com.mysql.jdbc.Driver");
-             Connection conn = (Connection)DriverManager.getConnection(this.dbAddr, dbUserName, dbPass);
-             Statement st = conn.createStatement();
-             st.execute(query);
-             st.close();
+            Connection conn = (Connection)DriverManager.getConnection(this.dbAddr, dbUserName, dbPass);
+            Statement st = conn.createStatement();
+            st.execute(query);
+            st.close();
         } 
         catch (ClassNotFoundException e) {
             return "Could't connect with Database";
@@ -61,11 +62,58 @@ public class AssocInitModel {
 
     }
     
-    public void storeVarsityInfo(VarsityInfo varsityInfo){
+    public String storeVarsityInfo(VarsityInfo varsityInfo){
+        String query = "INSERT INTO varsity_info VALUES(?,?,?,?);";
+        System.out.println("varsity name :  "+varsityInfo.getVarsityName());
+        System.out.println("web link  :  "+varsityInfo.getVarsityWebLink());
+        System.out.println("json  :  "+varsityInfo.getDeptsAsJSONFormat());
+        System.out.println("last batch : "+varsityInfo.getLastBatch());
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = (Connection)DriverManager.getConnection(this.dbAddr, this.dbUserName,this.dbPass);
+            PreparedStatement pstmnt = conn.prepareStatement(query);
+            
+            //set value to the query
+            pstmnt.setString(1,varsityInfo.getVarsityName());
+            pstmnt.setString(2,varsityInfo.getVarsityWebLink());
+            pstmnt.setString(3,varsityInfo.getDeptsAsJSONFormat());
+            pstmnt.setInt(4,varsityInfo.getLastBatch());
+            System.out.println(pstmnt.toString());
+            
+            pstmnt.execute();
+        } catch (Exception e) {
+//            return "Something Wrong!";
+            return e.getMessage();
+        }
+        return "Varsity Information Stored Successfully";
         
     }
     
-    public void storeAssocInfo(AssocInfo assocInfo){
+    public String storeAssocInfo(AssocInfo assocInfo){
+        String query = "INSERT INTO assoc_info VALUES(?,?,?,?,?,?,?,?,?);";
+        
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = (Connection)DriverManager.getConnection(this.dbAddr, this.dbUserName,this.dbPass);
+            PreparedStatement pstmnt = conn.prepareStatement(query);
+            //set value to the query
+            pstmnt.setString(1,assocInfo.getAssocName());
+            pstmnt.setBinaryStream(2,assocInfo.getAssocLogo());
+            pstmnt.setString(3,assocInfo.getAssocAbout());
+            pstmnt.setBinaryStream(4,assocInfo.getAssocConstitution());
+            pstmnt.setString(5,assocInfo.getAssocEmail());
+            pstmnt.setString(6,assocInfo.getAssocPass());
+            pstmnt.setString(7,assocInfo.getPaymentMethod());
+            pstmnt.setString(8,assocInfo.getPresidentPhone());
+            pstmnt.setString(9,assocInfo.getGenSecretaryPhone());
+            System.out.println(pstmnt.toString());
+            
+            pstmnt.execute();
+        } catch (Exception e) {
+//            return "Something Wrong!";
+            return e.getMessage();
+        }
+        return "Association Information Stored Successfully";
         
     }
 //</editor-fold>
@@ -88,8 +136,8 @@ public class AssocInitModel {
 "    email varchar(20), #association email address which will be used in verification\n" +
 "    pass varchar(16), #in-app password\n" +
 "    pay_details varchar(100),\n" +
-"    prsdnt_phone int(11),\n" +
-"    gs_phone int(11)\n" +
+"    prsdnt_phone varchar(11),\n" +
+"    gs_phone varchar(11)\n" +
 "    );\n" +
 "\n" +
 "\n" +

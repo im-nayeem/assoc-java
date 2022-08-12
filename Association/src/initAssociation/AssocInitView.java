@@ -718,8 +718,8 @@ public class AssocInitView extends javax.swing.JFrame {
     public String getVarsityWebLink() {
         return varsityWebLink.getText();
     }
-    public int getNumberOfDept(){
-        return Integer.parseInt(numberOfDept.getText());
+    public String getNumberOfDept(){
+        return numberOfDept.getText();
     }
     public List<String> getDepts() {
         
@@ -729,8 +729,8 @@ public class AssocInitView extends javax.swing.JFrame {
             
         return allDept;
     }
-    public int getLastBatch(){
-        return Integer.parseInt(lastBatch.getText());
+    public String getLastBatch(){
+        return lastBatch.getText();
     }
     
 //</editor-fold>

@@ -73,7 +73,7 @@ public class AssocInitController {
                 
                 //create tables in DB and get the result of creating tables
                 String res=assocModel.createDatabaseTables(
-                        assocView.getDbAddr(),assocView.getDbUserName(),assocView.getDbPass());
+                    assocView.getDbAddr(),assocView.getDbUserName(),assocView.getDbPass());
                 assocView.showDialogueMsg(res);
                 
                 //store DB info in Preferences
@@ -83,21 +83,28 @@ public class AssocInitController {
                 if(res.equals("Successfully Connected With Database")){
                     assocView.addVarsityInfo();
                 }
+                //what will happen if can not create table successfully ?
                 assocView.repaint();
             }
             //</editor-fold>
             
             if(ae.getSource()==assocView.getSubmitVarsity()){
                 VarsityInfo varsityInfo = new VarsityInfo(assocView);
-                assocModel.storeVarsityInfo(varsityInfo);
-                assocView.addAssocInfo();
+                String res = assocModel.storeVarsityInfo(varsityInfo);
+                assocView.showDialogueMsg(res);
+                if(res.equals("Varsity Information Stored Successfully")){
+                    assocView.addAssocInfo();   
+                }
                 assocView.repaint();
             }
             
             if(ae.getSource()==assocView.getSubmitAssoc()){
                 AssocInfo assocInfo = new AssocInfo(assocView);
-                assocModel.storeAssocInfo(assocInfo);
-                
+                String res = assocModel.storeAssocInfo(assocInfo);
+                assocView.showDialogueMsg(res);
+                if(res.equals("Association Information Stored Successfully")==false){
+                    assocView.repaint();
+                }
             }
         }
 
