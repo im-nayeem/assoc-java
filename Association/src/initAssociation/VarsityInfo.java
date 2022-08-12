@@ -104,18 +104,14 @@ public class VarsityInfo {
 //    List<String> to convert JSON format
 
     public String getDeptsAsJSONFormat() {
-        System.out.println("all depts  " + this.depts);
-        System.out.println("count depts  " + this.depts.size());
         String jsonFormat = "{\"department\":[";
         for (int i = 0; i < this.depts.size(); i++) {
-            System.out.println(i + " " + this.depts.get(i));
             jsonFormat = jsonFormat + "\"" + this.depts.get(i) + "\"";
             if (i + 1 < this.depts.size()) {
                 jsonFormat = jsonFormat + ",";
             }
         }
         jsonFormat = jsonFormat + "]}";
-        System.out.println(jsonFormat);
         return jsonFormat;
     }
 

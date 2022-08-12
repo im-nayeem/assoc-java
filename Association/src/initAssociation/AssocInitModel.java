@@ -64,10 +64,6 @@ public class AssocInitModel {
     
     public String storeVarsityInfo(VarsityInfo varsityInfo){
         String query = "INSERT INTO varsity_info VALUES(?,?,?,?);";
-        System.out.println("varsity name :  "+varsityInfo.getVarsityName());
-        System.out.println("web link  :  "+varsityInfo.getVarsityWebLink());
-        System.out.println("json  :  "+varsityInfo.getDeptsAsJSONFormat());
-        System.out.println("last batch : "+varsityInfo.getLastBatch());
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = (Connection)DriverManager.getConnection(this.dbAddr, this.dbUserName,this.dbPass);
@@ -78,12 +74,10 @@ public class AssocInitModel {
             pstmnt.setString(2,varsityInfo.getVarsityWebLink());
             pstmnt.setString(3,varsityInfo.getDeptsAsJSONFormat());
             pstmnt.setInt(4,varsityInfo.getLastBatch());
-            System.out.println(pstmnt.toString());
             
             pstmnt.execute();
         } catch (Exception e) {
-//            return "Something Wrong!";
-            return e.getMessage();
+            return "Something Wrong!";
         }
         return "Varsity Information Stored Successfully";
         
@@ -96,6 +90,7 @@ public class AssocInitModel {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = (Connection)DriverManager.getConnection(this.dbAddr, this.dbUserName,this.dbPass);
             PreparedStatement pstmnt = conn.prepareStatement(query);
+            
             //set value to the query
             pstmnt.setString(1,assocInfo.getAssocName());
             pstmnt.setBinaryStream(2,assocInfo.getAssocLogo());
@@ -106,12 +101,10 @@ public class AssocInitModel {
             pstmnt.setString(7,assocInfo.getPaymentMethod());
             pstmnt.setString(8,assocInfo.getPresidentPhone());
             pstmnt.setString(9,assocInfo.getGenSecretaryPhone());
-            System.out.println(pstmnt.toString());
             
             pstmnt.execute();
         } catch (Exception e) {
-//            return "Something Wrong!";
-            return e.getMessage();
+            return "Something Wrong!";
         }
         return "Association Information Stored Successfully";
         
