@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
+import welcome.WelcomeHomeView;
 /**
  * Association the main class that assemble the model,view and controller
  * @author Nayeem
@@ -37,12 +38,16 @@ public class Association {
             AssocInitModel model=new AssocInitModel();
             AssocInitController controller=new AssocInitController(model,view);
             controller.start();
+           
+            while(view.isActive())
+            {
+                
+            }
                
         }
-        else
-        {
-            
-        }
+        WelcomeHomeView obj = new WelcomeHomeView();
+        obj.setVisible(true);
+        
     }
     
     public static void main(String[] args) {

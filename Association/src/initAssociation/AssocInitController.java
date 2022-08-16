@@ -53,12 +53,8 @@ public class AssocInitController {
         assocView.setVisible(true);
         
     }
-    public void OpenWelcomeWindow(){
-        
-    }
-    public void stop(){
-//        assocView.dispose();
-    }
+
+    
    
     
     
@@ -105,6 +101,9 @@ public class AssocInitController {
                 if(res.equals("Association Information Stored Successfully")==false){
                     assocView.repaint();
                 }
+                else
+                    assocView.dispose();
+                
             }
         }
 
