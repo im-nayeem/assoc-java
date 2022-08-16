@@ -1,6 +1,7 @@
 
 package initAssociation;
 import java.io.FileInputStream;
+import validation.Validate;
 
 /**
  *
@@ -17,26 +18,12 @@ public class AssocInfo {
     private String presidentPhone;
     private String genSecretaryPhone;
 
-    
-    private boolean isAlphabetOnly(String s) {
-        for(int i=0;i<s.length();i++){
-            if((s.charAt(i)>='a' && s.charAt(i)<='z') || (s.charAt(i)>='A' && s.charAt(i)<='Z')) 
-            {
-                continue;
-            }
-            else if(s.charAt(i)==' ' || s.charAt(i)=='\'')
-                continue;
-            else
-                return false;
-                
-        }
-        return true;
-    }
+   
     
     public AssocInfo(AssocInitView assocView) {
         this.assocName = assocView.getAssocName();
         //validity check of association name
-        if (this.isAlphabetOnly(this.assocName) == false) {
+        if (Validate.isValidAssocName(this.assocName) == false) {
             assocView.showDialogueMsg("Association name can only contain alphabet or ' or space");
             assocView.addAssocInfo();
             assocView.revalidate();
@@ -51,45 +38,47 @@ public class AssocInfo {
         this.genSecretaryPhone = assocView.getGsPhone();
     }
 
+    //<editor-fold defaultstate="collapsed" desc="getter methods">
     public String getAssocName() {
         return assocName;
     }
-
+    
     public FileInputStream getAssocLogo() {
         return assocLogo;
     }
-
+    
     public FileInputStream getAssocConstitution() {
         return assocConstitution;
     }
-
+    
     public String getAboutAssoc() {
         return assocAbout;
     }
-
+    
     public String getAssocAbout() {
         return assocAbout;
     }
-
+    
     public String getPaymentMethod() {
         return paymentMethod;
     }
-
+    
     public String getAssocEmail() {
         return assocEmail;
     }
-
+    
     public String getAssocPass() {
         return assocPass;
     }
-
+    
     public String getPresidentPhone() {
         return presidentPhone;
     }
-
+    
     public String getGenSecretaryPhone() {
         return genSecretaryPhone;
     }
+//</editor-fold>
     
     
 }

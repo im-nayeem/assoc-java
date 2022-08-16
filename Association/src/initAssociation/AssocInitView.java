@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import validation.Validate;
 
 /**
  * AssocInitView the view class for AssocInitController 
@@ -857,7 +858,7 @@ public class AssocInitView extends javax.swing.JFrame {
         numberOfDept.addKeyListener(new KeyListener() {
             @Override
             public void keyReleased(KeyEvent ke) {
-                if(numberOfDept.getText().equals(""))
+                if(numberOfDept.getText().equals("") || Validate.isNumber(numberOfDept.getText())==false)
                     return;
                 
                 int n=Integer.parseInt(numberOfDept.getText());
@@ -885,6 +886,7 @@ public class AssocInitView extends javax.swing.JFrame {
             }
         });
     }
+   
 //==============================================================//
     
     

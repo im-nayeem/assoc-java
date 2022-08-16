@@ -91,12 +91,18 @@ public class AssocInitController {
             
             if(ae.getSource()==assocView.getSubmitVarsity()){
                 VarsityInfo varsityInfo = new VarsityInfo(assocView);
-                String res = assocModel.storeVarsityInfo(varsityInfo);
-                assocView.showDialogueMsg(res);
-                if(res.equals("Varsity Information Stored Successfully")){
-                    assocView.addAssocInfo();   
+                
+                if(VarsityInfo.isValid.equals("Yes"))
+                {
+                    String res = assocModel.storeVarsityInfo(varsityInfo);
+                    assocView.showDialogueMsg(res);
+                    if(res.equals("Varsity Information Stored Successfully")){
+                        assocView.addAssocInfo();   
+                    }
+                    assocView.repaint();
                 }
-                assocView.repaint();
+                else
+                    assocView.showDialogueMsg(VarsityInfo.isValid);
             }
             
             if(ae.getSource()==assocView.getSubmitAssoc()){
