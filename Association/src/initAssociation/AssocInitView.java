@@ -13,10 +13,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  * AssocInitView the view class for AssocInitController 
@@ -30,7 +34,18 @@ public class AssocInitView extends javax.swing.JFrame {
                 //method where auto-generated codes are added to this frame
                 
         this.setExtendedState(AssocInitView.MAXIMIZED_BOTH);
-                //set frame state to extended window
+        try {
+            //set frame state to extended window
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AssocInitView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(AssocInitView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(AssocInitView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(AssocInitView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     //----------------------------------//
 

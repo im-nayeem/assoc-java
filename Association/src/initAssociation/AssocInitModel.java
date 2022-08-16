@@ -67,7 +67,8 @@ public class AssocInitModel {
 //<editor-fold defaultstate="collapsed" desc="mehtods to store in DB">
     
     public String storeVarsityInfo(VarsityInfo varsityInfo){
-        final String varsityInfoQuery = "INSERT INTO varsity_info (varsity_name,website_link,dept,last_batch) VALUES(?,?,?,?);";
+        final String varsityInfoQuery = "INSERT INTO varsity_info "
+                + "(varsity_name,website_link,dept,last_batch) VALUES(?,?,?,?);";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = (Connection)DriverManager.getConnection(this.dbAddr, this.dbUserName,this.dbPass);
@@ -82,7 +83,8 @@ public class AssocInitModel {
             pstmnt.execute();
             
             conn.close();
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e);
             return "Something Wrong!";
         }
         return "Varsity Information Stored Successfully";
@@ -112,7 +114,8 @@ public class AssocInitModel {
             
             pstmnt.execute();
             conn.close();
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e);
             return "Something Wrong!";
         }
         return "Association Information Stored Successfully";
@@ -126,7 +129,7 @@ public class AssocInitModel {
           //<editor-fold defaultstate="collapsed" desc="return first query to create tables in DB">
           return "CREATE TABLE varsity_info(\n" +
                   "    varsity_name varchar(50),\n" +
-                  "    website_link varchar(20),\n" +
+                  "    website_link varchar(30),\n" +
                   "    dept JSON,\n" +
                   "    last_batch int(3)\n" +
                   "    );\n" +

@@ -12,8 +12,7 @@ public class AssocInitController {
 
    private AssocInitModel assocModel;
    private AssocInitView assocView;
-   private boolean processing;
-   public String status="running";
+   public static boolean running = true;
 
 
    /**
@@ -21,6 +20,7 @@ public class AssocInitController {
     * @param assocModel the instance of AssocInitModel class for using by this controller class
     * @param assocView the instance of AssocInitView class for using by this controller class
     */
+    AssocInitController(){};
     public AssocInitController(AssocInitModel assocModel, AssocInitView assocView) {
         this.assocModel = assocModel;
         this.assocView = assocView;
@@ -52,6 +52,11 @@ public class AssocInitController {
         this.assocView.addDatabaseInfo();
         assocView.setVisible(true);
         
+    }
+    public void stop(){
+        assocView.dispose();
+        running = false;
+       
     }
 
     
@@ -102,7 +107,12 @@ public class AssocInitController {
                     assocView.repaint();
                 }
                 else
+                {
                     assocView.dispose();
+                    AssocInitController.running = false;
+                }
+                
+                    
                 
             }
         }

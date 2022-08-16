@@ -1,5 +1,6 @@
 package initAssociation;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -16,11 +17,16 @@ public class VarsityInfo {
     private String lastBatch;
 
     private boolean isAlphabetOnly(String s) {
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            if ((('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z')) == false) {
-                return false;
+        for(int i=0;i<s.length();i++){
+            if((s.charAt(i)>='a' && s.charAt(i)<='z') || (s.charAt(i)>='A' && s.charAt(i)<='Z')) 
+            {
+                continue;
             }
+            else if(s.charAt(i)==' ')
+                continue;
+            else
+                return false;
+                
         }
         return true;
     }
@@ -35,20 +41,21 @@ public class VarsityInfo {
         return true;
     }
 
-    public boolean isURL(String url) {
+     boolean isURL(String url) {
         try {
             (new java.net.URL(url)).openStream().close();
             return true;
-        } catch (Exception ex) {
+        } catch (IOException ex) {
+            return false;
         }
-        return false;
+        
     }
 
     public VarsityInfo(AssocInitView assocView) {
         this.varsityName = assocView.getVarsityName();
         //validity check  of varsity name
         if (this.isAlphabetOnly(this.varsityName) == false) {
-            assocView.showDialogueMsg("Varsity Name must contain only alphabet");
+            assocView.showDialogueMsg("Institution name can contain only alphabet and space");
             assocView.addVarsityInfo();
             assocView.repaint();
         }
@@ -58,32 +65,13 @@ public class VarsityInfo {
         if(isURL(this.varsityWebLink)==false){
             assocView.showDialogueMsg("Invalid website link");
             assocView.addVarsityInfo();
-            assocView.repaint();
+            assocView.revalidate();
         }
 
         this.numberOfDept = assocView.getNumberOfDept();
-        //validity check  of numberOfDepartments
-        if (this.isDigitOnly(this.numberOfDept) == false) {
-            assocView.showDialogueMsg("Number of Department must a number");
-            assocView.addVarsityInfo();
-            assocView.repaint();
-        }
-
         this.depts = assocView.getDepts();
-        //check validity of all departments name
-        for (int i = 0; i < this.depts.size(); i++) {
-            if (this.isAlphabetOnly(this.depts.get(i)) == false) {
-                assocView.showDialogueMsg(i + "th Department name is invalid\n Department must contain only alpabet");
-            }
-        }
-
         this.lastBatch = assocView.getLastBatch();
-        //check validity of lastBatch
-        if (this.isDigitOnly(this.lastBatch) == false) {
-            assocView.showDialogueMsg("Number of Department must a number");
-            assocView.addVarsityInfo();
-            assocView.repaint();
-        }
+        
     }
 
     public String getVarsityName() {

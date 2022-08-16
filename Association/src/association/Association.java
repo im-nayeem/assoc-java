@@ -39,10 +39,12 @@ public class Association {
             AssocInitController controller=new AssocInitController(model,view);
             controller.start();
            
-            while(view.isActive())
+           
+            while(controller.running==true)
             {
-                
+                // don't go to next step
             }
+
                
         }
         WelcomeHomeView obj = new WelcomeHomeView();

@@ -19,11 +19,16 @@ public class AssocInfo {
 
     
     private boolean isAlphabetOnly(String s) {
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            if ((('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z')) == false) {
-                return false;
+        for(int i=0;i<s.length();i++){
+            if((s.charAt(i)>='a' && s.charAt(i)<='z') || (s.charAt(i)>='A' && s.charAt(i)<='Z')) 
+            {
+                continue;
             }
+            else if(s.charAt(i)==' ' || s.charAt(i)=='\'')
+                continue;
+            else
+                return false;
+                
         }
         return true;
     }
@@ -32,9 +37,9 @@ public class AssocInfo {
         this.assocName = assocView.getAssocName();
         //validity check of association name
         if (this.isAlphabetOnly(this.assocName) == false) {
-            assocView.showDialogueMsg("Varsity Name must contain only alphabet");
-            assocView.addVarsityInfo();
-            assocView.repaint();
+            assocView.showDialogueMsg("Association name can only contain alphabet or ' or space");
+            assocView.addAssocInfo();
+            assocView.revalidate();
         }
         this.assocLogo = assocView.getAssocLogo();
         this.assocConstitution = assocView.getAssocConstitution();
