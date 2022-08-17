@@ -84,7 +84,7 @@ public class AssocInitModel {
             
             conn.close();
         } catch (ClassNotFoundException | SQLException e) {
-            System.out.println(e);
+//            System.out.println(e);
             return "Something Wrong!";
         }
         return "Varsity Information Stored Successfully";
@@ -115,7 +115,7 @@ public class AssocInitModel {
             pstmnt.execute();
             conn.close();
         } catch (ClassNotFoundException | SQLException e) {
-            System.out.println(e);
+//            System.out.println(e);
             return "Something Wrong!";
         }
         return "Association Information Stored Successfully";

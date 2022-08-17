@@ -7,7 +7,7 @@ import validation.Validate;
  *
  * @author Nayeem
  */
-public class AssocInfo {
+public final class AssocInfo {
     private String assocName;
     private FileInputStream assocLogo;
     private String assocAbout;
@@ -17,17 +17,15 @@ public class AssocInfo {
     private String paymentMethod;
     private String presidentPhone;
     private String genSecretaryPhone;
+    
+    public String isValid="";
 
    
     
     public AssocInfo(AssocInitView assocView) {
         this.assocName = assocView.getAssocName();
         //validity check of association name
-        if (Validate.isValidAssocName(this.assocName) == false) {
-            assocView.showDialogueMsg("Association name can only contain alphabet or ' or space");
-            assocView.addAssocInfo();
-            assocView.revalidate();
-        }
+       
         this.assocLogo = assocView.getAssocLogo();
         this.assocConstitution = assocView.getAssocConstitution();
         this.assocAbout = assocView.getAboutAssoc();
@@ -36,6 +34,14 @@ public class AssocInfo {
         this.paymentMethod = assocView.getPaymentMethod();
         this.presidentPhone = assocView.getPresidentPhone();
         this.genSecretaryPhone = assocView.getGsPhone();
+        checkValidity();
+    }
+    
+    void checkValidity(){
+         if (Validate.isValidAssocName(this.assocName) == false)
+             isValid+="Assocaition name can only contain alphabet or ' or space";
+           if(isValid.isEmpty())
+            isValid="Yes";
     }
 
     //<editor-fold defaultstate="collapsed" desc="getter methods">

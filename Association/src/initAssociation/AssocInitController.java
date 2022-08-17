@@ -12,7 +12,7 @@ public class AssocInitController {
 
    private AssocInitModel assocModel;
    private AssocInitView assocView;
-   public static boolean running = true;
+   public boolean running = true;
 
 
    /**
@@ -55,12 +55,10 @@ public class AssocInitController {
     }
     public void stop(){
         assocView.dispose();
-        running = false;
+//        running = false;
        
     }
 
-    
-   
     
     
         
@@ -81,10 +79,8 @@ public class AssocInitController {
                 assocModel.storeInPreferences();
                 
                 //if successfully created tables in DB then goto next step
-                if(res.equals("Successfully Connected With Database")){
-                    assocView.addVarsityInfo();
-                }
-                //what will happen if can not create table successfully ?
+                if(res.equals("Successfully Connected With Database"))
+                        assocView.addVarsityInfo();
                 assocView.repaint();
             }
             //</editor-fold>
@@ -92,31 +88,32 @@ public class AssocInitController {
             if(ae.getSource()==assocView.getSubmitVarsity()){
                 VarsityInfo varsityInfo = new VarsityInfo(assocView);
                 
-                if(VarsityInfo.isValid.equals("Yes"))
+                if(varsityInfo.isValid.equals("Yes"))
                 {
                     String res = assocModel.storeVarsityInfo(varsityInfo);
                     assocView.showDialogueMsg(res);
-                    if(res.equals("Varsity Information Stored Successfully")){
-                        assocView.addAssocInfo();   
-                    }
-                    assocView.repaint();
+                    if(res.equals("Varsity Information Stored Successfully"))
+                            assocView.addAssocInfo();   
+                      assocView.repaint();
                 }
                 else
-                    assocView.showDialogueMsg(VarsityInfo.isValid);
+                    assocView.showDialogueMsg(varsityInfo.isValid);
             }
             
-            if(ae.getSource()==assocView.getSubmitAssoc()){
+            if(ae.getSource()==assocView.getSubmitAssoc())
+            {
                 AssocInfo assocInfo = new AssocInfo(assocView);
-                String res = assocModel.storeAssocInfo(assocInfo);
-                assocView.showDialogueMsg(res);
-                if(res.equals("Association Information Stored Successfully")==false){
-                    assocView.repaint();
+               if(assocInfo.isValid.equals("Yes"))
+               {
+                    String res = assocModel.storeAssocInfo(assocInfo);
+                    assocView.showDialogueMsg(res);
+                    if(res.equals("Association Information Stored Successfully")==false)
+                        assocView.repaint();
+                        else
+                            running = false;
                 }
-                else
-                {
-                    assocView.dispose();
-                    AssocInitController.running = false;
-                }
+               else
+                   assocView.showDialogueMsg(assocInfo.isValid);
                 
                     
                 

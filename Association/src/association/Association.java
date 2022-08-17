@@ -22,12 +22,8 @@ public class Association {
     static Preferences prefs=Preferences.userNodeForPackage(Association.class);
     
     public static void init(){
-        try {
-            prefs.clear();
-        } catch (BackingStoreException ex) {
-            Logger.getLogger(Association.class.getName()).log(Level.SEVERE, null, ex);
-        }
         String s=prefs.get("dbAddr","");
+        s="";
         /**
          * if database info is not found in Preferences initialize AssocInitController in package initAssociation
          * AssocInitController initialize the setup for new association or existing association
@@ -39,17 +35,15 @@ public class Association {
             AssocInitController controller=new AssocInitController(model,view);
             controller.start();
            
-           
             while(controller.running==true)
             {
                 // don't go to next step
             }
+            controller.stop();
 
-               
         }
         WelcomeHomeView obj = new WelcomeHomeView();
         obj.setVisible(true);
-        
     }
     
     public static void main(String[] args) {

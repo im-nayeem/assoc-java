@@ -15,7 +15,7 @@ public final class VarsityInfo {
     private String numberOfDept;
     List<String> depts = new ArrayList<>();
     private String lastBatch;
-    public static String isValid="";
+    public String isValid="";
 
 
     public VarsityInfo(AssocInitView assocView) {
@@ -34,8 +34,8 @@ public final class VarsityInfo {
             isValid+="*Institution name should only contain alphabet and space.\n";
         
         //validity check of university website link
-        if(Validate.isUrl(this.varsityWebLink)==false)
-            isValid+=("*Invalid website link.\n");
+//        if(Validate.isUrl(this.varsityWebLink)==false)
+//            isValid+=("*Invalid website link.\n");
         if(Validate.isNumber(lastBatch)==false)
             isValid+="*Batch should be a number.";
         if(isValid.isEmpty())
