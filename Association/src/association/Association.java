@@ -23,7 +23,7 @@ public class Association {
     
     public static void init(){
         String s=prefs.get("dbAddr","");
-        s="";
+//        s="";
         /**
          * if database info is not found in Preferences initialize AssocInitController in package initAssociation
          * AssocInitController initialize the setup for new association or existing association
