@@ -6,9 +6,9 @@
 package welcome;
 
 /**
- *
+ * WelcomeModel the model class containing association statistics
  * @author Nayeem
  */
 public class WelcomeModel {
-    
+    // Dont't Touch
 }

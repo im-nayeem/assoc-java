@@ -2,11 +2,10 @@
 package association;
 
 import initAssociation.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
+import welcome.WelcomeController;
 import welcome.WelcomeHomeView;
+import welcome.WelcomeModel;
 /**
  * Association the main class that assemble the model,view and controller
  * @author Nayeem
@@ -42,8 +41,10 @@ public class Association {
             controller.stop();
 
         }
-        WelcomeHomeView obj = new WelcomeHomeView();
-        obj.setVisible(true);
+        WelcomeHomeView view = new WelcomeHomeView();
+        WelcomeModel model = new WelcomeModel();
+        WelcomeController controller = new WelcomeController(model,view);
+        controller.start();
     }
     
     public static void main(String[] args) {
