@@ -5,9 +5,12 @@ import association.Association;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.prefs.Preferences;
+import pojoClasses.MemberInfo;
 
 /**
  * AssocInitModel model class for view AssocInitView and controller AssocInitController
@@ -121,10 +124,98 @@ public class AssocInitModel {
         return "Association Information Stored Successfully";
         
     }
-//</editor-fold>
- 
     
-      private String getFirstQuery(){
+    public String markAsVerified(String id, String email, boolean alumni, boolean ex_member){
+        String query = "INSERT INTO verified VALUES(?,?,?,?,?);";
+        Preferences prefs=Preferences.userNodeForPackage(Association.class);
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+//            Connection conn = (Connection)DriverManager.getConnection(prefs.get("dbAddr",""),prefs.get("dbUserName",""),prefs.get("dbPass", ""));
+            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/association","root","");
+            PreparedStatement pstmnt = conn.prepareStatement(query);
+            pstmnt.setString(1,id);
+            pstmnt.setString(2,email);
+            pstmnt.setBoolean(3,alumni);
+            pstmnt.setBoolean(4,ex_member);
+            pstmnt.execute();
+            conn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e.toString());   
+            return "something wrong!!";
+        }
+        return "Thanks for approve.";
+    }
+//</editor-fold>
+    
+ 
+    public ArrayList<String[]> getRegisteredMemberList(){
+        ArrayList<String[]> rows = new ArrayList<>();
+        String query = "SELECT * FROM members WHERE NOT EXISTS "
+			+ "(SELECT id FROM verified WHERE verified.id=members.id);";
+        Preferences prefs=Preferences.userNodeForPackage(Association.class);
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+//            Connection conn = (Connection)DriverManager.getConnection(prefs.get("dbAddr",""),prefs.get("dbUserName",""),prefs.get("dbPass", ""));
+            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/association","root","");
+            PreparedStatement pstmnt = conn.prepareStatement(query);
+            
+            ResultSet rs = pstmnt.executeQuery();
+            while(rs.next()){
+                String row[] = new String[3];
+                row[0] = rs.getString("name");
+                row[1] = rs.getString("id");
+                row[2] = rs.getString("email");
+                rows.add(row);
+            }
+            conn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e.toString());   
+            return rows;
+        }
+        return rows;
+    }
+    
+    public MemberInfo getMemberInfo(String email){
+        MemberInfo memberInfo = new MemberInfo();
+        String query = "SELECT * FROM members WHERE members.email='"+email+"';";
+        Preferences prefs=Preferences.userNodeForPackage(Association.class);
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+//            Connection conn = (Connection)DriverManager.getConnection(prefs.get("dbAddr",""),prefs.get("dbUserName",""),prefs.get("dbPass", ""));
+            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/association","root","");
+            PreparedStatement pstmnt = conn.prepareStatement(query);
+            
+            ResultSet rs = pstmnt.executeQuery();
+            while(rs.next()){
+                memberInfo.setName(rs.getString("name"));
+                memberInfo.setId(rs.getString("id"));
+                memberInfo.setEmail(rs.getString("email"));
+                memberInfo.setPhone(rs.getString("phone"));
+                memberInfo.setDept(rs.getString("dept"));
+                memberInfo.setSession(rs.getString("session"));
+                memberInfo.setBatch(rs.getString("batch"));
+                memberInfo.setGender(rs.getString("gender"));
+                memberInfo.setBg(rs.getString("bg"));
+                memberInfo.setPhotoByte(rs.getBytes("photo"));
+                memberInfo.setCo_activity(rs.getString("co_activity"));
+                memberInfo.setFathersname(rs.getString("fathersname"));
+                memberInfo.setMothersname(rs.getString("mothersname"));
+                memberInfo.setPresent_area(rs.getString("present_area"));
+                memberInfo.setPresent_details(rs.getString("present_details"));
+                memberInfo.setPermanent_upazila(rs.getString("permanent_upazila"));
+                memberInfo.setPermanent_details(rs.getString("permanent_details"));
+                memberInfo.setTranc_no(rs.getString("tranc_no"));
+            }
+            conn.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e.toString());   
+            return memberInfo;
+        }
+        
+        return memberInfo;
+    }
+    
+    private String getFirstQuery(){
           
           //<editor-fold defaultstate="collapsed" desc="return first query to create tables in DB">
           return "CREATE TABLE varsity_info(\n" +

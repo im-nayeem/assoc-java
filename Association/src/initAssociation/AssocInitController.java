@@ -3,6 +3,8 @@ package initAssociation;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import pojoClasses.MemberInfo;
 
 /**
  * AssocInitController the controller class for AssocInitView and AssocInitModel
@@ -20,7 +22,7 @@ public class AssocInitController {
     * @param assocModel the instance of AssocInitModel class for using by this controller class
     * @param assocView the instance of AssocInitView class for using by this controller class
     */
-    AssocInitController(){};
+    public AssocInitController(){};
     public AssocInitController(AssocInitModel assocModel, AssocInitView assocView) {
         this.assocModel = assocModel;
         this.assocView = assocView;
@@ -59,8 +61,19 @@ public class AssocInitController {
        
     }
 
-    
-    
+    public ArrayList<String[]> getRegisteredMemberList(){
+        assocModel = new AssocInitModel();
+        ArrayList<String[]> rows= assocModel.getRegisteredMemberList();
+        return rows;
+    }
+    public MemberInfo memberInfo(String email){
+        assocModel = new AssocInitModel();
+        return assocModel.getMemberInfo(email);
+    }
+    public String markAsVerified(String id, String email, boolean alumni, boolean ex_member){
+        assocModel = new AssocInitModel();
+        return assocModel.markAsVerified(id, email, alumni, ex_member);
+    }
         
     class CustomAction implements ActionListener{
 

@@ -5,6 +5,12 @@
  */
 package welcome;
 
+import initAssociation.AssocInitController;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import pojoClasses.MemberInfo;
+
 /**
  *
  * @author Nayeem
@@ -14,6 +20,8 @@ public class WelcomeHomeView extends javax.swing.JFrame {
     /**
      * Creates new form WelcomeHomeView
      */
+    MemberInfo memberInfo = new MemberInfo();
+    AssocInitController assocController = new AssocInitController();
     public WelcomeHomeView() {
         initComponents();
     }
@@ -38,7 +46,54 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         sidebarPanel = new javax.swing.JPanel();
         creditPanel = new javax.swing.JPanel();
         mainContentPanel = new javax.swing.JPanel();
+        memberInfoPanel = new javax.swing.JPanel();
+        memberInfoHeaderPanel = new javax.swing.JPanel();
+        memberInfoHeader = new javax.swing.JLabel();
+        memberInfoPanel_1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        student_name = new javax.swing.JLabel();
+        student_email = new javax.swing.JLabel();
+        batch = new javax.swing.JLabel();
+        mother_name = new javax.swing.JLabel();
+        student_id = new javax.swing.JLabel();
+        session = new javax.swing.JLabel();
+        blood_group = new javax.swing.JLabel();
+        father_name = new javax.swing.JLabel();
+        student_phone = new javax.swing.JLabel();
+        gender = new javax.swing.JLabel();
+        department = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        transaction_number = new javax.swing.JLabel();
+        memberInfoFooterPanel = new javax.swing.JPanel();
+        memberInfoApprove = new javax.swing.JButton();
+        memberInfoCancel = new javax.swing.JButton();
+        memberInfoPanel_2 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        presentAddress = new javax.swing.JTextArea();
+        jLabel26 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        permanentAddress = new javax.swing.JTextArea();
+        jLabel30 = new javax.swing.JLabel();
+        memberPhoto = new javax.swing.JLabel();
+        co_activy = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        coactivity = new javax.swing.JTextArea();
+        executiveMember = new javax.swing.JCheckBox();
+        alumni = new javax.swing.JCheckBox();
         registeredList = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        members_table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,7 +151,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 401, Short.MAX_VALUE)
                 .addComponent(btnVerify)
                 .addContainerGap())
         );
@@ -146,15 +201,442 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                 .addComponent(creditPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        memberInfoPanel.setBackground(new java.awt.Color(204, 255, 102));
+
+        memberInfoHeaderPanel.setBackground(new java.awt.Color(0, 102, 102));
+
+        memberInfoHeader.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        memberInfoHeader.setForeground(new java.awt.Color(255, 255, 255));
+        memberInfoHeader.setText("Student's Information");
+
+        javax.swing.GroupLayout memberInfoHeaderPanelLayout = new javax.swing.GroupLayout(memberInfoHeaderPanel);
+        memberInfoHeaderPanel.setLayout(memberInfoHeaderPanelLayout);
+        memberInfoHeaderPanelLayout.setHorizontalGroup(
+            memberInfoHeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(memberInfoHeaderPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(memberInfoHeader)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        memberInfoHeaderPanelLayout.setVerticalGroup(
+            memberInfoHeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(memberInfoHeaderPanelLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(memberInfoHeader)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        memberInfoPanel_1.setBackground(new java.awt.Color(108, 154, 165));
+
+        jLabel1.setText("Student Name");
+
+        jLabel2.setText("Student ID");
+
+        jLabel3.setText("Phone");
+
+        jLabel4.setText("Email");
+
+        jLabel5.setText("Batch");
+
+        jLabel6.setText("Department");
+
+        jLabel7.setText("Session");
+
+        jLabel8.setText("Gender");
+
+        jLabel9.setText("Mother's Name");
+
+        jLabel10.setText("Father's Name");
+
+        jLabel12.setText("Blood Group");
+
+        student_name.setText("Student Name");
+        student_name.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                student_nameInputMethodTextChanged(evt);
+            }
+        });
+
+        student_email.setText("Email");
+
+        batch.setText("Batch");
+
+        mother_name.setText("Mother's Name");
+
+        student_id.setText("Student ID");
+
+        session.setText("Session");
+
+        blood_group.setText("Blood Group");
+
+        father_name.setText("Father's Name");
+
+        student_phone.setText("Phone");
+
+        gender.setText("Gender");
+
+        department.setText("Department");
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel27.setText("Transaction Number");
+
+        transaction_number.setText("01700000000");
+
+        javax.swing.GroupLayout memberInfoPanel_1Layout = new javax.swing.GroupLayout(memberInfoPanel_1);
+        memberInfoPanel_1.setLayout(memberInfoPanel_1Layout);
+        memberInfoPanel_1Layout.setHorizontalGroup(
+            memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addGroup(memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                        .addGroup(memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(6, 6, 6))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(15, 15, 15))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(44, 44, 44))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(52, 52, 52))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(43, 43, 43))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(19, 19, 19))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(48, 48, 48))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(53, 53, 53))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(27, 27, 27))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(6, 6, 6)))
+                        .addGap(87, 87, 87))
+                    .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                        .addGroup(memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(mother_name, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(father_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(6, 6, 6))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(blood_group, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(15, 15, 15))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(gender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(44, 44, 44))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(batch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(52, 52, 52))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(session, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(43, 43, 43))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(department, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(19, 19, 19))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(student_phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(48, 48, 48))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(student_email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(53, 53, 53))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(student_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(27, 27, 27))
+                            .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                                .addComponent(student_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(6, 6, 6)))
+                        .addGap(86, 86, 86))
+                    .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                        .addComponent(transaction_number)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        memberInfoPanel_1Layout.setVerticalGroup(
+            memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, memberInfoPanel_1Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                        .addComponent(student_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(student_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(student_email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(student_phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(department, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(session, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(batch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(gender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(blood_group, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(transaction_number, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(father_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(mother_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(20, 20, 20))
+        );
+
+        memberInfoFooterPanel.setBackground(new java.awt.Color(0, 102, 102));
+
+        memberInfoApprove.setText("Approve");
+        memberInfoApprove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                memberInfoApproveActionPerformed(evt);
+            }
+        });
+
+        memberInfoCancel.setText("Cancel");
+        memberInfoCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                memberInfoCancelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout memberInfoFooterPanelLayout = new javax.swing.GroupLayout(memberInfoFooterPanel);
+        memberInfoFooterPanel.setLayout(memberInfoFooterPanelLayout);
+        memberInfoFooterPanelLayout.setHorizontalGroup(
+            memberInfoFooterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(memberInfoFooterPanelLayout.createSequentialGroup()
+                .addGap(417, 417, 417)
+                .addComponent(memberInfoApprove, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(memberInfoCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                .addGap(418, 418, 418))
+        );
+        memberInfoFooterPanelLayout.setVerticalGroup(
+            memberInfoFooterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(memberInfoFooterPanelLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(memberInfoFooterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(memberInfoApprove)
+                    .addComponent(memberInfoCancel))
+                .addGap(17, 17, 17))
+        );
+
+        memberInfoPanel_2.setBackground(new java.awt.Color(108, 154, 165));
+
+        jLabel25.setText("Present Address");
+
+        presentAddress.setColumns(20);
+        presentAddress.setRows(5);
+        presentAddress.setEditable(false);
+        jScrollPane2.setViewportView(presentAddress);
+
+        jLabel26.setText("Permanent Address");
+
+        permanentAddress.setColumns(20);
+        permanentAddress.setRows(5);
+        permanentAddress.setEditable(false);
+        jScrollPane3.setViewportView(permanentAddress);
+
+        jLabel30.setText("Student's Photo");
+
+        memberPhoto.setBackground(new java.awt.Color(185, 183, 181));
+
+        co_activy.setText("Co-activity");
+
+        coactivity.setColumns(20);
+        coactivity.setRows(5);
+        coactivity.setEditable(false);
+        jScrollPane4.setViewportView(coactivity);
+
+        executiveMember.setText("Executive Member");
+
+        alumni.setText("Alumni");
+        alumni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alumniActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout memberInfoPanel_2Layout = new javax.swing.GroupLayout(memberInfoPanel_2);
+        memberInfoPanel_2.setLayout(memberInfoPanel_2Layout);
+        memberInfoPanel_2Layout.setHorizontalGroup(
+            memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                        .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, memberInfoPanel_2Layout.createSequentialGroup()
+                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(130, 130, 130))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, memberInfoPanel_2Layout.createSequentialGroup()
+                                .addComponent(jScrollPane3)
+                                .addContainerGap())))
+                    .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                        .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(co_activy, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel30))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                                .addComponent(jScrollPane4)
+                                .addContainerGap())
+                            .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                                .addComponent(memberPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                                .addComponent(executiveMember, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24))))))
+            .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, memberInfoPanel_2Layout.createSequentialGroup()
+                    .addContainerGap(437, Short.MAX_VALUE)
+                    .addComponent(alumni, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(24, 24, 24)))
+        );
+        memberInfoPanel_2Layout.setVerticalGroup(
+            memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane3))
+                    .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(co_activy, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, memberInfoPanel_2Layout.createSequentialGroup()
+                        .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(memberPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                                .addComponent(jLabel30)
+                                .addGap(78, 78, 78)))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, memberInfoPanel_2Layout.createSequentialGroup()
+                        .addComponent(executiveMember)
+                        .addGap(74, 74, 74))))
+            .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, memberInfoPanel_2Layout.createSequentialGroup()
+                    .addContainerGap(282, Short.MAX_VALUE)
+                    .addComponent(alumni)
+                    .addGap(119, 119, 119)))
+        );
+
+        javax.swing.GroupLayout memberInfoPanelLayout = new javax.swing.GroupLayout(memberInfoPanel);
+        memberInfoPanel.setLayout(memberInfoPanelLayout);
+        memberInfoPanelLayout.setHorizontalGroup(
+            memberInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(memberInfoHeaderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(memberInfoFooterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, memberInfoPanelLayout.createSequentialGroup()
+                .addComponent(memberInfoPanel_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(memberInfoPanel_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        memberInfoPanelLayout.setVerticalGroup(
+            memberInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(memberInfoPanelLayout.createSequentialGroup()
+                .addComponent(memberInfoHeaderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(5, 5, 5)
+                .addGroup(memberInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(memberInfoPanel_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(memberInfoPanel_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5)
+                .addComponent(memberInfoFooterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        members_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "Name", "Student ID", "Name", "Student ID"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        members_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                members_tableMouseClicked(evt);
+            }
+        });
+        members_table.setModel(getModel());
+        jScrollPane1.setViewportView(members_table);
+
         javax.swing.GroupLayout registeredListLayout = new javax.swing.GroupLayout(registeredList);
         registeredList.setLayout(registeredListLayout);
         registeredListLayout.setHorizontalGroup(
             registeredListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registeredListLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         registeredListLayout.setVerticalGroup(
             registeredListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(registeredListLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout mainContentPanelLayout = new javax.swing.GroupLayout(mainContentPanel);
@@ -162,10 +644,20 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         mainContentPanelLayout.setHorizontalGroup(
             mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(registeredList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainContentPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, 0)
+                    .addComponent(memberInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(0, 0, 0)))
         );
         mainContentPanelLayout.setVerticalGroup(
             mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(registeredList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainContentPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(memberInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -190,10 +682,83 @@ public class WelcomeHomeView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
+    
     private void btnVerifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerifyActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_btnVerifyActionPerformed
+//    registered members table model
+    private DefaultTableModel getModel(){
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("name");
+        model.addColumn("Student ID");
+        model.addColumn("E-mail");
+        ArrayList<String[]> rows = new AssocInitController().getRegisteredMemberList();
+        for(String[] row:rows){
+            model.addRow(row);
+        }
+        return model;
+    }
+    
+//    set label text for admin review 
+    private void setAllComponenetValueOfMemberInfo(){
+        student_name.setText(memberInfo.getName());
+        student_id.setText(memberInfo.getId());
+        student_email.setText(memberInfo.getEmail());
+        student_phone.setText(memberInfo.getPhone());
+        department.setText(memberInfo.getDept());
+        session.setText(memberInfo.getSession());
+        batch.setText(memberInfo.getBatch());
+        gender.setText(memberInfo.getGender());
+        blood_group.setText(memberInfo.getBg());
+        transaction_number.setText(memberInfo.getTranc_no());
+        father_name.setText(memberInfo.getFathersname());
+        mother_name.setText(memberInfo.getMothersname());
+        presentAddress.setText(memberInfo.getPermanent_details());
+        permanentAddress.setText(memberInfo.getPermanent_details());
+        coactivity.setText(memberInfo.getCo_activity());
+        memberPhoto.setIcon(memberInfo.getPhoto(memberInfo.getPhotoByte()));
+    }
+    private void members_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_members_tableMouseClicked
+        // TODO add your handling code here:
+        String email = members_table.getModel().getValueAt(members_table.getSelectedRow(),2).toString();
+        System.out.println(email);
+        memberInfo = new AssocInitController().memberInfo(email);
+        mainContentPanel.removeAll();
+        this.setAllComponenetValueOfMemberInfo();
+        mainContentPanel.add(memberInfoPanel);
+        this.setVisible(true);
+    }//GEN-LAST:event_members_tableMouseClicked
+
+    private void student_nameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_student_nameInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_student_nameInputMethodTextChanged
+
+    private void memberInfoApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberInfoApproveActionPerformed
+        // TODO add your handling code here:
+        assocController.markAsVerified(student_name.getText(), student_email.getText() ,alumni.isSelected(), executiveMember.isSelected());
+        mainContentPanel.removeAll();
+        System.out.println("removed all from maincontentPanel");
+        mainContentPanel.add(registeredList);
+        this.setVisible(true);
+
+    }//GEN-LAST:event_memberInfoApproveActionPerformed
+
+    private void memberInfoCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberInfoCancelActionPerformed
+        // TODO add your handling code here:
+        
+        mainContentPanel.removeAll();
+        System.out.println("removed all from maincontentPanel");
+        mainContentPanel.add(registeredList);
+        this.setVisible(true);
+    }//GEN-LAST:event_memberInfoCancelActionPerformed
+
+    private void alumniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alumniActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,17 +797,64 @@ public class WelcomeHomeView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox alumni;
+    private javax.swing.JLabel batch;
+    private javax.swing.JLabel blood_group;
     private javax.swing.JButton btnVerify;
+    private javax.swing.JLabel co_activy;
+    private javax.swing.JTextArea coactivity;
     private javax.swing.JPanel creditPanel;
+    private javax.swing.JLabel department;
+    private javax.swing.JCheckBox executiveMember;
+    private javax.swing.JLabel father_name;
+    private javax.swing.JLabel gender;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JPanel mainContentPanel;
+    private javax.swing.JButton memberInfoApprove;
+    private javax.swing.JButton memberInfoCancel;
+    private javax.swing.JPanel memberInfoFooterPanel;
+    private javax.swing.JLabel memberInfoHeader;
+    private javax.swing.JPanel memberInfoHeaderPanel;
+    private javax.swing.JPanel memberInfoPanel;
+    private javax.swing.JPanel memberInfoPanel_1;
+    private javax.swing.JPanel memberInfoPanel_2;
+    private javax.swing.JLabel memberPhoto;
+    private javax.swing.JTable members_table;
+    private javax.swing.JLabel mother_name;
+    private javax.swing.JTextArea permanentAddress;
+    private javax.swing.JTextArea presentAddress;
     private javax.swing.JPanel registeredList;
+    private javax.swing.JLabel session;
     private javax.swing.JPanel sidebarPanel;
     private javax.swing.JPanel statusPanel;
+    private javax.swing.JLabel student_email;
+    private javax.swing.JLabel student_id;
+    private javax.swing.JLabel student_name;
+    private javax.swing.JLabel student_phone;
+    private javax.swing.JLabel transaction_number;
     // End of variables declaration//GEN-END:variables
 }

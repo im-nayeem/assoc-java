@@ -836,7 +836,6 @@ public class AssocInitView extends javax.swing.JFrame {
             int response = fileChooser.showOpenDialog(null);
             if(response == JFileChooser.APPROVE_OPTION) 
             {
-                
                 File file = fileChooser.getSelectedFile();
                 String path = file.getAbsolutePath();
                 
@@ -844,7 +843,6 @@ public class AssocInitView extends javax.swing.JFrame {
 
                 try {
                    this.assocLogo = new FileInputStream(path.replace('\\', '/'));
-                    
                 } catch (FileNotFoundException ex) {
                     this.chooseAssocLogo.setText("Image file not found");
                 }
