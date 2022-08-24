@@ -3,6 +3,8 @@ package database;
 
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DatabaseConnection {
     
@@ -57,6 +59,16 @@ public class DatabaseConnection {
         } catch (SQLException e) {
         }
         return preparedStatement;
+    }
+    public void close(){
+        try 
+        {
+            conn.close();
+        } 
+        catch (SQLException ex) 
+        {
+            throw new RuntimeException(ex.toString()+"\nConnection is not established!");
+        }
     }
 
 /**=====================================**/

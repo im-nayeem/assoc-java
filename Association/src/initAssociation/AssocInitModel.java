@@ -2,6 +2,7 @@
 package initAssociation;
 
 import association.Association;
+import database.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -37,8 +38,8 @@ public class AssocInitModel {
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = (Connection)DriverManager.getConnection(this.dbAddr, dbUserName, dbPass);
-            Statement st = conn.createStatement();
+            DatabaseConnection conn = new DatabaseConnection();
+            Statement st = conn.getStatement();
             st.execute(query);
             st.close();
             conn.close();
@@ -71,9 +72,9 @@ public class AssocInitModel {
                 + "(varsity_name,website_link,dept,last_batch) VALUES(?,?,?,?);";
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = (Connection)DriverManager.getConnection(this.dbAddr, this.dbUserName,this.dbPass);
-            PreparedStatement pstmnt = conn.prepareStatement(varsityInfoQuery);
+            DatabaseConnection conn = new DatabaseConnection();
             
+            PreparedStatement pstmnt = conn.getPreparedStatement(varsityInfoQuery);
             //set value to the query,extract values from varsityInfo
             pstmnt.setString(1,varsityInfo.getVarsityName());
             pstmnt.setString(2,varsityInfo.getVarsityWebLink());
@@ -81,8 +82,8 @@ public class AssocInitModel {
             pstmnt.setInt(4,varsityInfo.getLastBatch());
             
             pstmnt.execute();
-            
             conn.close();
+            
         } catch (ClassNotFoundException | SQLException e) {
 //            System.out.println(e);
             return "Something Wrong!";
@@ -98,8 +99,9 @@ public class AssocInitModel {
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = (Connection)DriverManager.getConnection(this.dbAddr, this.dbUserName,this.dbPass);
-            PreparedStatement pstmnt = conn.prepareStatement(assocInfoQuery);
+            
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(assocInfoQuery);
             
             //set value to the query,extract values from assocInfo
             pstmnt.setString(1,assocInfo.getAssocName());
@@ -113,12 +115,15 @@ public class AssocInitModel {
             pstmnt.setString(9,assocInfo.getGenSecretaryPhone());
             
             pstmnt.execute();
+            
             conn.close();
+            
         } catch (ClassNotFoundException | SQLException e) {
 //            System.out.println(e);
             return "Something Wrong!";
         }
         return "Association Information Stored Successfully";
+        
         
     }
 //</editor-fold>
