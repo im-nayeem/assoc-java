@@ -17,13 +17,13 @@ public class Init extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
+        
+        
         try
         {
 
             AssocInfo assocInfo = new AssocInfo();
-
+            
             req.setAttribute("assocInfo",assocInfo);
             req.getRequestDispatcher("index.jsp").forward(req,resp);
         }

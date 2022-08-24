@@ -52,9 +52,6 @@ public class Association {
         //start the application
         init();
         
-        
-        
-        
     }
     
 }

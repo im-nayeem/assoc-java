@@ -7,7 +7,7 @@ import java.sql.*;
 public class DatabaseConnection {
     
     //do manually for current use,it will be updated later
-    private final String dbAddr = "jdbc:mysql://127.0.0.1:3306/assoc";
+    private final String dbAddr = "jdbc:mysql://127.0.0.1:3306/association";
     private final String uname = "root";
     private final String pass = "";
     private Connection conn;

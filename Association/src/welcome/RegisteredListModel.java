@@ -33,34 +33,30 @@ public class RegisteredListModel {
         
         
         
-//        try {
-//            DatabaseConnection conn = new DatabaseConnection();
-//            Statement stmt= conn.getStatement();
-//            ResultSet rs =  stmt.executeQuery("SELECT * FROM members");
-//            rs.next();
-//        }
-//        catch (SQLException e) {
-////            System.out.println(e);
-//            throw new RuntimeException(e.toString()+"\nProblem with executing query.");
-//        }
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            Statement stmt= conn.getStatement();
+            ResultSet rs =  stmt.executeQuery("SELECT * FROM members");
+            rs.next();
+        }
+        catch (SQLException e) {
+//            System.out.println(e);
+            throw new RuntimeException(e.toString()+"\nProblem with executing query.");
+        }
     }
 //==============================store in DB=================================//    
     public String markAsVerified(String id, String email, boolean alumni, boolean ex_member){
         String query = "INSERT INTO verified VALUES(?,?,?,?,?);";
-        Preferences prefs=Preferences.userNodeForPackage(Association.class);
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-//            Connection conn = (Connection)DriverManager.getConnection(prefs.get("dbAddr",""),prefs.get("dbUserName",""),prefs.get("dbPass", ""));
-            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/association","root","");
-            PreparedStatement pstmnt = conn.prepareStatement(query);
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
             pstmnt.setString(1,id);
             pstmnt.setString(2,email);
             pstmnt.setBoolean(3,alumni);
             pstmnt.setBoolean(4,ex_member);
             pstmnt.setBoolean(5,ex_member);
             pstmnt.execute();
-            conn.close();
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
 //            System.out.println("Error "+e.toString());   
             return "something wrong!!";
         }
@@ -75,10 +71,8 @@ public class RegisteredListModel {
 			+ "(SELECT id FROM verified WHERE verified.id=members.id);";
         Preferences prefs=Preferences.userNodeForPackage(Association.class);
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-//            Connection conn = (Connection)DriverManager.getConnection(prefs.get("dbAddr",""),prefs.get("dbUserName",""),prefs.get("dbPass", ""));
-            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/association","root","");
-            PreparedStatement pstmnt = conn.prepareStatement(query);
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
             
             ResultSet rs = pstmnt.executeQuery();
             while(rs.next()){
@@ -88,8 +82,7 @@ public class RegisteredListModel {
                 row[2] = rs.getString("email");
                 rows.add(row);
             }
-            conn.close();
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e.toString());   
             return rows;
         }
@@ -101,10 +94,8 @@ public class RegisteredListModel {
         String query = "SELECT * FROM members WHERE members.email='"+email+"';";
         Preferences prefs=Preferences.userNodeForPackage(Association.class);
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-//            Connection conn = (Connection)DriverManager.getConnection(prefs.get("dbAddr",""),prefs.get("dbUserName",""),prefs.get("dbPass", ""));
-            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/association","root","");
-            PreparedStatement pstmnt = conn.prepareStatement(query);
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
             
             ResultSet rs = pstmnt.executeQuery();
             while(rs.next()){
@@ -127,8 +118,7 @@ public class RegisteredListModel {
                 memberInfo.setPermanent_details(rs.getString("permanent_details"));
                 memberInfo.setTranc_no(rs.getString("tranc_no"));
             }
-            conn.close();
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e.toString());   
             return memberInfo;
         }
