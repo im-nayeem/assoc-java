@@ -31,7 +31,6 @@ public class Init extends HttpServlet {
             req.setAttribute("error",e);
             req.getRequestDispatcher("WEB-INF/error.jsp").forward(req,resp);
         }
-//        req.getRequestDispatcher("WEB-INF/view.jsp").forward(req,resp);
     }
 
     @Override

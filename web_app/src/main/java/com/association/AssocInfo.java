@@ -32,6 +32,7 @@ public class AssocInfo {
             this.assocConstitution =  rs.getBinaryStream("constitution");
             this.assocAbout =  rs.getString("about");
             this.paymentMethod =  rs.getString("pay_details");
+            this.assocName = rs.getString("assoc_name");
 
 
 
