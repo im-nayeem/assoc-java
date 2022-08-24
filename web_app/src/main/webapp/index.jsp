@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="WEB-INF/includes/head.jsp"%>
 
 <div class="content" id="content">
@@ -8,6 +9,5 @@
     laborum
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
-
 </div>
 <%@ include file="WEB-INF/includes/footer.jsp"%>

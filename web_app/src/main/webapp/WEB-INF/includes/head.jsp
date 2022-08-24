@@ -25,7 +25,7 @@
 <body>
 <div class="header" id="header">
     <div class="logo">
-        <img src="assets/img/mswa.png" alt="logo">
+        <img src="data:image/jpg;base64,${assocInfo.getAssocLogo()}" alt="logo"/>
     </div>
     <div class="name">
         <h3>${assocInfo.getAssocName()},Comilla University</h3>
