@@ -1,0 +1,259 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #3f5d5d;
+
+}
+body {
+    margin:0;font-family:Arial
+
+}
+
+/*---------------------------------------*/
+
+/*-----HEADER containing logo and name--*/
+.header{
+    background-image: linear-gradient(rgb(57, 109, 141),rgb(163, 146, 134),rgb(50, 115, 69));
+    height: 13vh;
+}
+.logo,.logo img{
+    float: left;
+    height: 13vh;
+    background-color: #0000;
+    /* width: 100px; */
+    /* min-width: 100px; */
+
+}
+.name, .name h3{
+    color: #ddd;
+    font-family: cursive;
+    font-weight: bold;
+    margin: auto;
+    text-align: center;
+    background-color: #0000;
+}
+.name{
+    top: 45%;
+    transform: translateY(-50%);
+    position: relative;
+}
+/*---------------------------------------*/
+
+/*-------Top Navigation Bar---------------*/
+/*contains menu*/
+.topnav {
+    min-height: 46px;
+    background-color: #3f5d5d;
+    position: sticky;
+    top: 0;
+}
+
+/*------Menu in topnav bar--------*/
+.menu{
+    float: left;
+    margin: auto;
+    display: block;
+}
+
+/*--Link in topnav bar---*/
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 13px 16px;
+    text-decoration: none;
+    font-size: 17px;
+
+}
+/*--padding for first link in topnav--*/
+a.name_in_nav {
+    padding-left: 4px;
+}
+
+
+/*---when a buton is active---*/
+.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.topnav .icon {
+    display: none;
+    font-size: 30px;
+}
+/*--dropdown menu in topnav bar--*/
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 13px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.topnav a:hover{
+    background-color: rgb(83, 88, 87);
+    color: white;
+}
+.dropbtn:hover {
+    cursor: pointer;
+}
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover .dropbtn{
+    border: 1px solid black;
+}
+
+/*----login signup option-----*/
+.login_signup{
+    float: right;
+}
+
+/*----------^---topnav bar--^-------------*/
+
+/*-----main content-------*/
+.content{
+    height: auto;
+    background-color: #ced6d6;
+    min-height: 76vh;
+    padding: 5px;
+    /* margin: 0; */
+    overflow: auto;
+    width: 100%;
+
+}
+/*---------------------------------------*/
+
+
+/*------footer---------*/
+.footer{
+    background-color: rgb(63 96 88);
+    height: 8vh;
+    /* margin-top: 3px; */
+}
+/*---------------------------------------*/
+
+/*-abbreviation of assoc name icon in nav bar-*/
+.name_in_nav{
+    display: none;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+/*-------------------------------------------*/
+
+/*-----------responsive-----------*/
+@media screen and (max-width: 800px) {
+    /*----hide the topnav bar menu---*/
+    .topnav a, .dropdown .dropbtn {
+        display: none;
+    }
+
+    /*--display the name icon--*/
+    a.name_in_nav{
+        display: block;
+        float: right;
+    }
+
+    /*--display option icon in nav bar--*/
+    .topnav a.icon {
+        display:block;
+        padding: 2px 15px 2px 15px;
+        background-color: #399e5b;
+        border-radius: 6px;
+    }
+
+    .content{
+        min-height: 79vh;
+    }
+    .footer{
+        height: 7vh;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .topnav{
+        position: sticky;
+        top: 0;
+    }
+    .menu{
+        float: none;
+    }
+    .topnav.responsive .icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .topnav a{
+        border: 1px solid rgb(52, 51, 51);
+        margin: 1px 0 1px 0;
+
+    }
+    .menu a:first-child
+    {
+        border: none;
+
+    }
+
+    .topnav.responsive a{
+        float: none;
+        display: block;
+        text-align: left;
+
+    }
+    a.name_in_nav:first-child{
+        text-align: right;
+        border: none;
+        background-color: #0000;
+    }
+    .login_signup{
+        float: none;
+    }
+    .topnav.responsive .dropdown {
+        float: none;
+        border: 1px solid rgb(75, 73, 73);
+
+    }
+    .topnav.responsive .dropdown-content {
+        position: relative;
+    }
+    .topnav.responsive .dropdown .dropbtn {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+}
