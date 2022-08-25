@@ -26,11 +26,12 @@ public class Init extends HttpServlet {
             VarsityInfo varsityInfo = new VarsityInfo();
 
             req.getSession().setAttribute("assocInfo",assocInfo);
+            req.getSession().setAttribute("varsityInfo", varsityInfo);
             req.getRequestDispatcher("index.jsp").forward(req,resp);
         }
         catch (Exception e){
             req.setAttribute("error",e);
-            req.getRequestDispatcher("WEB-INF/error.jsp").forward(req,resp);
+            req.getRequestDispatcher("error.jsp").forward(req,resp);
         }
     }
 

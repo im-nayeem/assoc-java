@@ -5,6 +5,7 @@
   Time: 1:12 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="includes/regLoginHead.jsp"%>
 <div class="content">
@@ -12,7 +13,7 @@
         <a href="./"> <span class="close" onclick="" title="Close Form">&times;</span></a>
 <%--        //onclick go to home page--%>
 
-        <form class="modal-content" action="/Registration" method="post">
+        <form class="modal-content" action="Registration" method="post" enctype='multipart/form-data'>
 
             <!----------container that contain form input fields--------->
             <div class="container">
@@ -20,7 +21,10 @@
                 <h3>Register</h3>
                 <br>
                 <div class="error_message">
-
+                    <c:if test="${requestScope.isNotValidEmail==true}">
+                        <div style="color:red;">This email is already used</div> 
+                    </c:if>
+                    
                 </div>
                 <hr>
                 <fieldset>
@@ -30,7 +34,10 @@
 
                     <label for="email"><strong>Email</strong></label>
                     <input type="email" placeholder="Email" name="email" id="email" required>
-
+                    
+                    <label for="phone"><strong>Phone number</strong></label>
+                    <input type="number" placeholder="Phone number" name="phone" id="phone" required>
+                    
                     <label for="password"><strong>Password</strong></label>
                     <input type="password" id="password" name="password" placeholder="Password">
 
@@ -39,15 +46,18 @@
                     </div>
 
                     <label for="confirm_pass"><strong>Confirm Password</strong></label>
-                    <input type="password" id="confirm_pass" placeholder="Confirm Password"name="confirm_pass" onkeyup="checkPass();">
+                    <input type="password" id="confirm_pass" placeholder="Confirm Password" name="confirm_pass" onkeyup="checkPass();">
 
 
                     <label for="dept"><strong>Department</strong></label>
                     <select name="department" id="dept" required>
                         <option selected disabled hidden>Select Department</option>
-                        // use jstl to set all the dept name
-                        <option value=""></option>
-                        //use jstl
+                        <!--// use jstl to set all the dept name-->
+                        <c:forEach var="dept" items="${sessionScope.varsityInfo.getDeptList()}">
+                            <option value="dept"><c:out value="${dept}"/></option>
+                        </c:forEach>
+                        
+                        <!--//use jstl-->
                     </select>
 
                     <label for="id"><strong>ID</strong></label>
@@ -73,9 +83,14 @@
                     <label for="blood_group"><strong>Blood Group</strong></label>
                     <select name="blood_group" id="blood_group" required>
                         <option selected disabled hidden>Select Blood Group</option>
-                        // use jstl to set all the dept name
-                        <option value=""></option>
-                        //use jstl
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
                     </select>
 
                     <label for="photo"><strong>Select Your Photo</strong>(less than 16MB):</label>
@@ -91,7 +106,7 @@
                     <input type="text" placeholder="Father's Name" name="fathers_name" id="fathers_name"
                            pattern="[A-Za-z ]+" required>
                     <label for="mothers_name"><strong>Mother's Name</strong></label>
-                    <input type="text" placeholder="Mother's Name" name="present_details" id="mothers_name"
+                    <input type="text" placeholder="Mother's Name" name="mothers_name" id="mothers_name"
                            pattern="[A-Za-z ]+" required>
                 </fieldset>
 
@@ -120,7 +135,8 @@
                 <br>
                 <fieldset>
                     <legend>Payment Info</legend>
-                    <strong>After sending *** TK to 01xxxxxxxx using Bkash/Rocket/Nagad payment
+                    <!--*** TK to 01xxxxxxxx using Bkash/Rocket/Nagad-->
+                    <strong>After sending <c:out value="${sessionScope.assocInfo.paymentMethod}"/> payment
                         method collect your transaction number and provide it here.</strong>
                     <input type="text" name="transc_no" id="transc_no"
                            placeholder="Transaction Number/Sender Number">
