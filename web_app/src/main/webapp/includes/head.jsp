@@ -42,11 +42,11 @@
 <div class="topnav" id="myTopnav">
 
     <div class="menu">
-        <a href="" class="name_in_nav">MSWA-CoU</a>
+        <a href="./" class="name_in_nav">MSWA-CoU</a>
         <a href="./" class="active">Home</a>
         <a href="constitution.jsp">Constitution</a>
-        <a href="#contact">Gallery</a>
-        <a href="constitution.html">Notice</a>
+        <a href="">Gallery</a>
+        <a href="">Notice</a>
 
 
         <div class="dropdown">
@@ -88,8 +88,8 @@
 
 
     <div class="login_signup">
-        <a href="register-login.html#id01">Register</a>
-        <a href="register-login.html#id02">Log-In</a>
+        <a href="registration.jsp">Register</a>
+        <a href="login.jsp">Log-In</a>
     </div>
 
 

@@ -8,7 +8,7 @@
 
 
 <div class="footer">
-
+<h4 align="center">Copyright &copy; 2022</h4>
 </div>
 
 <script>

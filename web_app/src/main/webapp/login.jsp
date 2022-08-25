@@ -10,7 +10,7 @@
 <div class="content">
     <div class="modal" id="id02">
 
-        <span onclick="" class="close" title="Close Form">&times;</span>
+        <a href="./"><span onclick="" class="close" title="Close Form">&times;</span></a>
 <%--            onclick go to home page--%>
 
         <form class="modal-content" action="/Login" method="post">
@@ -32,8 +32,10 @@
 
                     <button type="submit" class="submitbtn">Submit</button>
                     <p>Don't have an account?</p>
-                    <button type="button" class="secondary_log_sign"
+                    <a href="registration.jsp">
+                        <button type="button" class="secondary_log_sign"
                             onclick="">Register</button>
+                    </a>
 <%--                    go to registration.jsp onclick--%>
                 </div>
             </div>

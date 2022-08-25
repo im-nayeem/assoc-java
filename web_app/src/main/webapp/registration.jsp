@@ -9,7 +9,7 @@
 <%@include file="includes/regLoginHead.jsp"%>
 <div class="content">
     <div id="id01" class="modal">
-        <a href=""> <span class="close" onclick="" title="Close Form">&times;</span></a>
+        <a href="./"> <span class="close" onclick="" title="Close Form">&times;</span></a>
 <%--        //onclick go to home page--%>
 
         <form class="modal-content" action="/Registration" method="post">
@@ -132,9 +132,11 @@
 
                     <button type="submit" class="submitbtn">Submit</button>
                     <p>Already have an account?</p>
-                    <button type="button" class="secondary_log_sign"
+                    <a href="login.jsp">
+                        <button type="button" class="secondary_log_sign"
                             onclick="">Login</button>
-<%--                    go to login.jsp onclick--%>
+                    </a>
+                <%--                    go to login.jsp onclick--%>
 
 
                 </div>
