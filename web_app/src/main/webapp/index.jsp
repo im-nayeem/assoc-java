@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="WEB-INF/includes/head.jsp"%>
+<% session.setAttribute("title", "MSWA");%>
+
+<%@include file="includes/head.jsp"%>
 
 <div class="content" id="content">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -10,4 +12,4 @@
     <br><br><br><br><br><br>
     <br><br><br><br><br><br>
 </div>
-<%@ include file="WEB-INF/includes/footer.jsp"%>
+<%@ include file="includes/footer.jsp"%>

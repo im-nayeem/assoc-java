@@ -17,6 +17,7 @@
         document.getElementsByClassName('name')[0].children[0].style.display = 'none';
         document.getElementsByClassName('name')[0].children[1].style.display = 'block';
 
+        //when window is small show active page name instead of assocName in name_in_nav
         document.getElementsByClassName('name_in_nav')[0].text = document.getElementsByClassName('active')[0].text;
 
     }
@@ -27,21 +28,6 @@
         document.getElementsByClassName('name')[0].children[0].style.fontSize='25px';
     }
 
-
-    //make top navigation bar responsive
-    function myFunction()
-    {
-        var x = document.getElementById("myTopnav");
-
-
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        }
-        else  {
-            x.className = "topnav";
-        }
-
-    }
 </script>
 </body>
 

@@ -23,6 +23,7 @@ public class Init extends HttpServlet {
         {
 
             AssocInfo assocInfo = new AssocInfo();
+            VarsityInfo varsityInfo = new VarsityInfo();
 
             req.setAttribute("assocInfo",assocInfo);
             req.getRequestDispatcher("index.jsp").forward(req,resp);

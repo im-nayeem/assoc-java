@@ -12,13 +12,17 @@
 <html>
 
 <head>
-    <title>${assocInfo.getAssocName()}</title>
+    <title>${title}</title>
+<%--    set title of the page from attribute title from session--%>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         <%@include file="../assets/style.css"%>
     </style>
+    <script>
+        <%@include file="../assets/style.js"%>
+    </script>
 
 </head>
 
@@ -39,8 +43,8 @@
 
     <div class="menu">
         <a href="" class="name_in_nav">MSWA-CoU</a>
-        <a href="" class="active">Home</a>
-        <a href="constitution.html">Constitution</a>
+        <a href="./" class="active">Home</a>
+        <a href="constitution.jsp">Constitution</a>
         <a href="#contact">Gallery</a>
         <a href="constitution.html">Notice</a>
 
