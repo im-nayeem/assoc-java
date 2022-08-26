@@ -17,21 +17,22 @@ public class Init extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
-        
+
+
         try
         {
 
             AssocInfo assocInfo = new AssocInfo();
-            
-            req.setAttribute("assocInfo",assocInfo);
+            VarsityInfo varsityInfo = new VarsityInfo();
+
+            req.getSession().setAttribute("assocInfo",assocInfo);
+            req.getSession().setAttribute("varsityInfo", varsityInfo);
             req.getRequestDispatcher("index.jsp").forward(req,resp);
         }
         catch (Exception e){
             req.setAttribute("error",e);
-            req.getRequestDispatcher("WEB-INF/error.jsp").forward(req,resp);
+            req.getRequestDispatcher("error.jsp").forward(req,resp);
         }
-//        req.getRequestDispatcher("WEB-INF/view.jsp").forward(req,resp);
     }
 
     @Override

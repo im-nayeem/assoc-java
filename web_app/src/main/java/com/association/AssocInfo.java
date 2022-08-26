@@ -2,6 +2,8 @@ package com.association;
 
 
 import com.association.database.DatabaseConnection;
+import org.jetbrains.annotations.NotNull;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
@@ -10,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Base64;
-import javax.websocket.Decoder;
 
 /**
  *
@@ -32,19 +33,27 @@ public class AssocInfo {
             ResultSet rs =  stmt.executeQuery("SELECT * FROM assoc_info");
             rs.next();
 
-            this.assocLogo = this.convertBinaryStreamToBase64Image(rs.getBinaryStream("assoc_logo"));
+            this.assocLogo = inputStreamToString(rs.getBinaryStream("assoc_logo"));
             this.assocConstitution =  rs.getBinaryStream("constitution");
             this.assocAbout =  rs.getString("about");
             this.paymentMethod =  rs.getString("pay_details");
+            this.assocName = rs.getString("assoc_name");
+
         }
         catch (Exception e) {
-//            System.out.println(e);
-            throw new RuntimeException(e.toString()+"\nProblem with executing query.");
+            throw new RuntimeException(e.toString()+"\nProblem with association information executing query.");
         }
 
     }
-    public String convertBinaryStreamToBase64Image(InputStream is_image) throws IOException{
-        
+
+    /**
+     * Convert InputStream to String,Used to covert image into string
+     * @param is_image inputStream to be converted into String
+     * @return base64Image the converted String
+     * @throws IOException
+     */
+    public String inputStreamToString(@NotNull InputStream  is_image) throws IOException{
+
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         byte buffer[] = new byte[4096];
         int bytesRead = -1;
@@ -54,6 +63,8 @@ public class AssocInfo {
         String base64Image = Base64.getEncoder().encodeToString(outputStream.toByteArray());
         return base64Image;
     }
+
+    /**==================Getter Methods=======================**/
     public String getAssocName() {
         return assocName;
     }
@@ -74,12 +85,10 @@ public class AssocInfo {
         return assocAbout;
     }
 
-
     public String getPaymentMethod() {
         return paymentMethod;
     }
+    /**==================================================================**/
 
-    public static void main(String a[]){
-        System.out.println("hello world");
-    }
+
 }
