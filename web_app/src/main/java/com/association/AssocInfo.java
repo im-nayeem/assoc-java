@@ -39,10 +39,9 @@ public class AssocInfo {
             this.paymentMethod =  rs.getString("pay_details");
             this.assocName = rs.getString("assoc_name");
 
-
         }
         catch (Exception e) {
-            throw new RuntimeException(e.toString()+"\nProblem with executing query.");
+            throw new RuntimeException(e.toString()+"\nProblem with association information executing query.");
         }
 
     }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%--
@@ -85,11 +86,16 @@
 
 
     <a href="javascript:void(0);" style="font-size:30px;" class="icon option" onclick="myFunction()">&#9776;</a>
-
-
     <div class="login_signup">
-        <a href="registration.jsp">Register</a>
-        <a href="login.jsp">Log-In</a>
+        <c:choose>
+            <c:when test="${empty sessionScope.userProfile.getName()}">
+                    <a href="registration.jsp">Register</a>
+                    <a href="login.jsp">Log-In</a>
+            </c:when>
+            <c:otherwise>
+                <a href="user_profile.jsp">${sessionScope.userProfile.getName()}</a>
+            </c:otherwise>
+        </c:choose>
     </div>
 
 

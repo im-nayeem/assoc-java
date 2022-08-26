@@ -5,6 +5,7 @@
   Time: 1:27 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="includes/regLoginHead.jsp"%>
 <div class="content">
@@ -13,12 +14,19 @@
         <a href="./"><span onclick="" class="close" title="Close Form">&times;</span></a>
 <%--            onclick go to home page--%>
 
-        <form class="modal-content" action="/Login" method="post">
+        <form class="modal-content" action="Login" method="post">
             <div class="container">
                 <h3>Log In</h3>
                 <br>
                 <div class="error_message">
-
+                    <c:choose>
+                        <c:when test="${requestScope.isRegistrationCompleted==true}">
+                            <div style="color:green;">Your Registration Successfull<br>Login Here</div>
+                        </c:when>
+                        <c:when test="${not empty requestScope.login_error}">
+                            <div style="color:green;"><c:out value="${requestScope.login_error}"/></div>
+                        </c:when>
+                    </c:choose>
                 </div>
                 <hr>
                 <label for="email"><strong>Email</strong></label>
