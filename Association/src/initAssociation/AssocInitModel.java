@@ -3,8 +3,6 @@ package initAssociation;
 
 import association.Association;
 import database.DatabaseConnection;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,9 +13,6 @@ import java.util.prefs.Preferences;
  * @author Nayeem
  */
 public class AssocInitModel {
-    private String dbAddr;
-    private String dbUserName;
-    private String dbPass;
     private AssocInfo assocInfo;
     private VarsityInfo varsityInfo;
     
@@ -27,27 +22,22 @@ public class AssocInitModel {
     }
 
   
-    public String createDatabaseTables(String dbAddr,String dbUserName,String dbPass)
+    public String createDatabaseTables()
     {
         //<editor-fold defaultstate="collapsed" desc="create connection and create tables in DB">
-        this.dbAddr="jdbc:mysql://"+dbAddr+"?allowMultiQueries=true";
-        this.dbUserName=dbUserName;
-        this.dbPass=dbPass;
+       
         String query=getFirstQuery();
         
         
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+           
             DatabaseConnection conn = new DatabaseConnection();
             Statement st = conn.getStatement();
             st.execute(query);
             st.close();
             conn.close();
         }
-        catch (ClassNotFoundException e) {
-            return "Could't connect with Database";
-        }
-        catch(SQLException ex){
+        catch(Exception ex){
             return "Couldn't Connect With Database,SQL Exception!";
         }
         
@@ -57,7 +47,7 @@ public class AssocInitModel {
      
     }
     
-    public void storeInPreferences(){
+    public void storeInPreferences(String dbAddr,String dbUserName,String dbPass){
         Preferences prefs=Preferences.userNodeForPackage(Association.class);
         prefs.put("dbAddr", dbAddr);
         prefs.put("dbUserName", dbUserName);

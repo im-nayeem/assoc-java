@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 public class DatabaseConnection {
 
-    private final String dbAddr = "jdbc:mysql://127.0.0.1:3306/association";
+    private final String dbAddr = "jdbc:mysql://127.0.0.1:3306/assoc";
     private final String uname = "root";
     private final String pass = "";
     private Connection conn;
@@ -22,7 +22,7 @@ public class DatabaseConnection {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(dbAddr, uname, pass);
         } catch (ClassNotFoundException | SQLException e) {
-            new RuntimeException(e + "\nCouldn't Connect With Database");
+            throw new RuntimeException(e + "\nCouldn't Connect With Database");
         }
 
     }

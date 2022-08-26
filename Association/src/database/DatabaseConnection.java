@@ -2,16 +2,15 @@
 package database;
 
 
+import association.Association;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class DatabaseConnection {
     
     //do manually for current use,it will be updated later
-    private final String dbAddr = "jdbc:mysql://127.0.0.1:3306/association";
-    private final String uname = "root";
-    private final String pass = "";
+    private final String dbAddr = "jdbc:mysql://"+Association.prefs.get("dbAddr", "")+"?allowMultiQueries=true";
+    private final String uname = Association.prefs.get("dbUserName", "");
+    private final String pass = Association.prefs.get("dbPass", "");
     private Connection conn;
     private  Statement statement;
     private  PreparedStatement preparedStatement;
@@ -26,7 +25,9 @@ public class DatabaseConnection {
             conn = DriverManager.getConnection(dbAddr, uname, pass);
         }
         catch(ClassNotFoundException | SQLException e) {
-//            new RuntimeException(e+"\nCouldn't Connect With Database");
+            System.out.println(dbAddr+" \n"+uname+"\n"+pass);
+            System.out.println(e);
+//            throw new RuntimeException(e+"\nCouldn't Connect With Database");
         }
 
 
@@ -67,7 +68,7 @@ public class DatabaseConnection {
         } 
         catch (SQLException ex) 
         {
-            throw new RuntimeException(ex.toString()+"\nConnection is not established!");
+            throw new RuntimeException(ex.toString()+"...");
         }
     }
 

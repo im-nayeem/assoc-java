@@ -18,11 +18,10 @@ public class Association {
      * if found goto welcome window
      * if not found create new association and store DB info in preferences
      */
-    static Preferences prefs=Preferences.userNodeForPackage(Association.class);
+    public static Preferences prefs=Preferences.userNodeForPackage(Association.class);
     
     public static void init(){
         String s=prefs.get("dbAddr","");
-//        s="";
         /**
          * if database info is not found in Preferences initialize AssocInitController in package initAssociation
          * AssocInitController initialize the setup for new association or existing association
