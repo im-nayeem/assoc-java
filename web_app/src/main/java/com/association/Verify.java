@@ -9,12 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.PreparedStatement;
+import java.util.Collections;
+import java.util.Enumeration;
 
 @WebServlet(name = "verifyMail", value = "/verifyMail")
 public class Verify extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession().getAttribute("verificationCode").equals(request.getParameter("verify_code"))==false)
+
+        int x = Integer.parseInt(request.getSession().getAttribute("verificationCode").toString());
+        int y = Integer.parseInt(request.getParameter("verify_code"));
+
+        if(x!=y)
         {
             request.setAttribute("errorCode","Wrong verification code! Code didn't match.");
             request.getRequestDispatcher("verifyMail.jsp").forward(request,response);
@@ -67,12 +74,15 @@ public class Verify extends HttpServlet {
 
             pstmnt.execute();
 
+            request.getSession().removeAttribute("member");
+
         } catch (Exception e) {
             request.setAttribute("error",e);
             request.getRequestDispatcher("error.jsp").forward(request,response);
         }
         request.setAttribute("isRegistrationCompleted",true);
         request.getRequestDispatcher("login.jsp").forward(request,response);
+
 
     }
 }

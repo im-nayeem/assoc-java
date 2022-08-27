@@ -12,9 +12,10 @@
         <a href="./"> <span class="close" onclick="" title="Close Form">&times;</span></a>
         <%--        //onclick go to home page--%>
 
-        <form class="modal-content" action="verifyMail" method="post" enctype='multipart/form-data'>
+        <form class="modal-content" action="verifyMail" method="post">
 
             <!----------container that contain form input fields--------->
+            <p>${sessionScope.verificationCode}</p>
             <div class="container">
                 <div class="error_message">
                     <c:if test="${errorCode!=null}">
