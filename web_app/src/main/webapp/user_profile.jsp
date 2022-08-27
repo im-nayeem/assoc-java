@@ -15,8 +15,8 @@
     <c:out value="${sessionScope.userProfile.getName()}"/><br> <br> 
     <c:out value="${sessionScope.userProfile.getId()}"/><br><br> 
     <c:out value="${sessionScope.userProfile.getEmail()}"/><br><br> 
-    <img height="120" width="120" src="data:image/jpg;base64,${sessionScope.userProfile.getPhoto()}" alt="profile picture"/>
-    <a href="Logout">Logout</a>
+    <img height="120" width="120" src="data:image/jpg;base64,${sessionScope.userProfile.getPhotoString()}" alt="profile picture"/>
+    <a href="logout">Logout</a>
 </div>
 
 <%@ include file="includes/footer.jsp"%>

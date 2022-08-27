@@ -7,21 +7,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.PreparedStatement;
 
 @WebServlet(name = "verifyMail", value = "/verifyMail")
 public class Verify extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        if(request.getSession().getAttribute("verificationCode").equals(request.getParameter("verify_code"))==false)
+        {
+            request.setAttribute("errorCode","Wrong verification code! Code didn't match.");
+            request.getRequestDispatcher("verifyMail.jsp").forward(request,response);
+        }
         try {
             DatabaseConnection conn = new DatabaseConnection();
             String query = "INSERT INTO members VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
             PreparedStatement pstmnt = conn.getPreparedStatement(query);
-            AssocMember member = (AssocMember) request.getAttribute("member");
+            AssocMember member = (AssocMember) request.getSession().getAttribute("member");
             pstmnt.setString(1,member.getName());
             pstmnt.setString(2,member.getId());
             pstmnt.setString(3,member.getEmail());
@@ -32,16 +34,15 @@ public class Verify extends HttpServlet {
             pstmnt.setString(8,member.getBatch());
             pstmnt.setString(9,member.getGender());
             pstmnt.setString(10,member.getBloodGroup());
-            InputStream stream = new ByteArrayInputStream(member.getPhoto().getBytes());
-            pstmnt.setBlob(11,stream);
+            pstmnt.setBlob(11,member.getPhoto());
             pstmnt.setString(12,member.getCoActivity());
-            pstmnt.setString(13,member.getFathersname());
-            pstmnt.setString(14,member.getMothersname());
+            pstmnt.setString(13,member.getFathersName());
+            pstmnt.setString(14,member.getMothersName());
             pstmnt.setString(15,member.getPresentArea());
             pstmnt.setString(16,member.getPresentDetails());
             pstmnt.setString(17,member.getPermanentUpazila());
             pstmnt.setString(18,member.getPermanentDetails());
-            pstmnt.setString(19,member.getTranc_no());
+            pstmnt.setString(19,member.getTrancNo());
 
 //            pstmnt.setString(1,request.getParameter("name"));
 //            pstmnt.setString(2,request.getParameter("id"));

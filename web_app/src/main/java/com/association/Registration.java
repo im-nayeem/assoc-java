@@ -38,9 +38,10 @@ public class Registration extends HttpServlet {
             }
 //
             AssocMember member = new AssocMember(request);
-            request.setAttribute("member",member);
+            request.getSession().setAttribute("member",member);
 
             request.getSession().setAttribute("verificationCode",Utility.getVerificationCode() );
+
             AssocInfo assocInfo = (AssocInfo) request.getSession().getAttribute("assocInfo");
             SendMail mail = new SendMail(assocInfo,userMail);
             mail.send("Verification","Your Verification Code is: "+request.getSession().getAttribute("verificationCode")+"\n");

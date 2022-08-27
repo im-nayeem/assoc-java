@@ -135,7 +135,6 @@
                 <br>
                 <fieldset>
                     <legend>Payment Info</legend>
-                    <!--*** TK to 01xxxxxxxx using Bkash/Rocket/Nagad-->
                     <strong>After sending <c:out value="${sessionScope.assocInfo.paymentMethod}"/> payment
                         method collect your transaction number and provide it here.</strong>
                     <input type="text" name="transc_no" id="transc_no"

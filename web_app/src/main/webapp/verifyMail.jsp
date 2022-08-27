@@ -16,6 +16,12 @@
 
             <!----------container that contain form input fields--------->
             <div class="container">
+                <div class="error_message">
+                    <c:if test="${errorCode!=null}">
+                        <p style="color:red;">${errorCode}</p>
+                    </c:if>
+
+                </div>
                 <h3>We have sent verification code to your email address. Provide this verification code here:</h3>
                 <input type="number" id="verify_code" name="verify_code" required>
                 <button type="submit">Verify</button>
