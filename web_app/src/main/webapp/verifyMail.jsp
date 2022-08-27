@@ -22,7 +22,6 @@
             </div>
         <!-- End of container div -->
         </form>
-        <p>${member.getName()}   "  " ${member.getId()}</p>
     </div>
 
 </div>

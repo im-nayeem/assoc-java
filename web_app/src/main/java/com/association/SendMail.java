@@ -52,6 +52,7 @@ public class SendMail {
 
 //    public static void main(String[] args) {
 //        SendMail mail = new SendMail("mswacou@gmail.com","mudabbirhashmi2000@gmail.com","giekfklvjjcbazan");
+            //use this password - giekfklvjjcbazan
 //        mail.send("verification","Your verification code is: 1234");
 //    }
 

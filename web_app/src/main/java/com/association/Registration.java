@@ -36,7 +36,7 @@ public class Registration extends HttpServlet {
                 request.setAttribute("isNotValidEmail",true);
                 request.getRequestDispatcher("registration.jsp");
             }
-
+//
             AssocMember member = new AssocMember(request);
             request.setAttribute("member",member);
 
@@ -50,7 +50,6 @@ public class Registration extends HttpServlet {
             request.setAttribute("error",e);
             request.getRequestDispatcher("error.jsp").forward(request,response);
         }
-
 
 
         request.getRequestDispatcher("verifyMail.jsp").forward(request,response);
