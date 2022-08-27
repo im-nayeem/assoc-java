@@ -13,6 +13,7 @@ import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Base64;
+import javax.servlet.http.HttpServletRequest;
 import javax.swing.ImageIcon;
 import org.jetbrains.annotations.NotNull;
 
@@ -74,6 +75,34 @@ public class AssocMember {
             throw new RuntimeException(e.toString()+"\nProblem with association information executing query.");
         }
     }
+    public AssocMember(HttpServletRequest request)
+    {
+        try{
+            this.name = request.getParameter("name");
+            this.id = request.getParameter("id");
+            this.email = request.getParameter("email");
+            this.password = request.getParameter("password");
+            this.phone = request.getParameter("phone");
+            this.dept = request.getParameter("department");
+            this.session = request.getParameter("session");
+            this.batch = request.getParameter("batch");
+            this.gender = request.getParameter("gender");
+            this.blood_group = request.getParameter("blood_group");
+            this.photo = this.inputStreamToString(request.getPart("photo").getInputStream());
+            this.co_activity = request.getParameter("co_actvt");
+            this.fathersname = request.getParameter("fathers_name");
+            this.mothersname = request.getParameter("mothers_name");
+            this.present_area = request.getParameter("present_area");
+            this.present_details = request.getParameter("present_details");
+            this.permanent_upazila = request.getParameter("upazila");
+            this.permanent_details = request.getParameter("permanent_details");
+            this.tranc_no = request.getParameter("transc_no");
+        }
+        catch(Exception e)
+        {
+            throw  new RuntimeException(e);
+        }
+    }
     /*=============getter methods=============*/
     
     public String inputStreamToString(@NotNull InputStream  is_image) throws IOException{
@@ -128,7 +157,7 @@ public class AssocMember {
         return photo;
     }
 
-    public String getCo_activity() {
+    public String getCoActivity() {
         return co_activity;
     }
 
@@ -140,20 +169,23 @@ public class AssocMember {
         return mothersname;
     }
 
-    public String getPresent_area() {
+    public String getPresentArea() {
         return present_area;
     }
 
-    public String getPresent_details() {
+    public String getPresentDetails() {
         return present_details;
     }
 
-    public String getPermanent_upazila() {
+    public String getPermanentUpazila() {
         return permanent_upazila;
     }
 
-    public String getPermanent_details() {
+    public String getPermanentDetails() {
         return permanent_details;
+    }
+    public String getPassword(){
+        return this.password;
     }
     
     /*-------------------------------------*/
@@ -235,6 +267,8 @@ public class AssocMember {
     public void setTranc_no(String tranc_no) {
         this.tranc_no = tranc_no;
     }
+
+
     /*-------------------------------------------------------*/
 
 }

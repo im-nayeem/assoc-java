@@ -22,7 +22,7 @@
                 <br>
                 <div class="error_message">
                     <c:if test="${requestScope.isNotValidEmail==true}">
-                        <div style="color:red;">This email is already used</div> 
+                        <div style="color:red;">This email is already used! Use Log in instead of registration</div>
                     </c:if>
                     
                 </div>

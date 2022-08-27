@@ -149,7 +149,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                 .addComponent(jButton4)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 329, Short.MAX_VALUE)
                 .addComponent(btnVerify)
                 .addContainerGap())
         );
@@ -239,7 +239,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
             registeredListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(registeredListPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE))
         );
         registeredListPanelLayout.setVerticalGroup(
             registeredListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,6 +247,8 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE))
         );
+
+        memberViewPanel.setPreferredSize(this.memberViewPanel.getSize());
 
         memberInfoHeaderPanel.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -273,61 +275,84 @@ public class WelcomeHomeView extends javax.swing.JFrame {
 
         memberInfoPanel_1.setBackground(new java.awt.Color(108, 154, 165));
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel1.setText("Student Name");
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Student ID");
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("Phone");
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Email");
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("Batch");
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel6.setText("Department");
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Session");
 
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel8.setText("Gender");
 
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel9.setText("Mother's Name");
 
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel10.setText("Father's Name");
 
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel12.setText("Blood Group");
 
+        member_name.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         member_name.setText("Student Name");
         member_name.setText("dynamic hobe");
         member_name.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 member_nameInputMethodTextChanged(evt);
             }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
         });
 
+        member_email.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         member_email.setText("Email");
 
+        member_batch.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         member_batch.setText("Batch");
 
+        member_mother_name.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         member_mother_name.setText("Mother's Name");
 
+        member_id.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         member_id.setText("Student ID");
 
+        member_session.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         member_session.setText("Session");
 
+        member_blood_group.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         member_blood_group.setText("Blood Group");
 
+        member_father_name.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         member_father_name.setText("Father's Name");
 
+        member_phone.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         member_phone.setText("Phone");
 
+        member_gender.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         member_gender.setText("Gender");
 
+        member_department.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         member_department.setText("Department");
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel27.setText("Transaction Number");
 
+        member_tranc_no.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         member_tranc_no.setText("01700000000");
 
         javax.swing.GroupLayout memberInfoPanel_1Layout = new javax.swing.GroupLayout(memberInfoPanel_1);
@@ -374,7 +399,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                     .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
                         .addComponent(jLabel27)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(member_father_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(member_blood_group, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(member_gender, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -387,7 +412,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                     .addComponent(member_email, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(member_tranc_no, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(member_mother_name, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         memberInfoPanel_1Layout.setVerticalGroup(
             memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,6 +503,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
 
         member_present_address.setEditable(false);
         member_present_address.setColumns(20);
+        member_present_address.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         member_present_address.setRows(5);
         member_present_address.setEnabled(false);
         jScrollPane1.setViewportView(member_present_address);
@@ -607,7 +633,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(welcomePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(memberViewPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(memberViewPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1012, Short.MAX_VALUE))
         );
         mainContentPanelLayout.setVerticalGroup(
             mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -615,7 +641,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(welcomePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(memberViewPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(memberViewPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
