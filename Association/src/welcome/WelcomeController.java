@@ -32,6 +32,7 @@ public class WelcomeController {
         this.view.addMemberCancelApproveListener(new CustomAction());
         this.view.addExe_memberListener(new CustomAction());
         this.view.addExe_MemberInfoListener(new CustomAction());
+        this.view.addExe_MemberInfoCancelListener(new CustomAction());
     }
     
     public void start(){
@@ -95,12 +96,15 @@ public class WelcomeController {
                 view.addExeMemberInfoPanel();
                 view.repaint();
             }
-            else if(ae.getSource() == view.getExe_member_info_btn()){
-                String information[] = new String[5];
-                information[2] = view.getExe_member_post_name().getText();
-                information[3] = view.getExe_member_start_date().getText();
-                information[4] = view.getExe_member_end_date().getText();
-                view.setExe_member_info(information);
+            else if(ae.getSource() == view.getExe_member_info_btn() || ae.getSource()==view.getExe_member_info_Cancel_Btn()){
+                if(ae.getSource() == view.getExe_member_info_btn()){
+                    String information[] = new String[5];
+                    information[2] = view.getExe_member_post_name().getText();
+                    information[3] = view.getExe_member_start_date().getText();
+                    information[4] = view.getExe_member_end_date().getText();
+                    view.setExe_member_info(information);
+                }
+                
                 view.addMemberViewPanel();
                 view.repaint();
             }

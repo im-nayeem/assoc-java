@@ -9,6 +9,7 @@ public class DatabaseConnection {
     
     //do manually for current use,it will be updated later
     private final String dbAddr = "jdbc:mysql://"+Association.prefs.get("dbAddr", "")+"?allowMultiQueries=true";
+//    private final String dbAddr = "jdbc:mysql://127.0.0.1/association?allowMultiQueries=true";
     private final String uname = Association.prefs.get("dbUserName", "");
     private final String pass = Association.prefs.get("dbPass", "");
     private Connection conn;

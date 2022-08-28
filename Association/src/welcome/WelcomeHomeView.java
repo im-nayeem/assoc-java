@@ -61,6 +61,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         exe_member_info_btn = new javax.swing.JButton();
+        exe_member_info_Cancel_Btn = new javax.swing.JButton();
         welcomePanel = new javax.swing.JPanel();
         registeredListPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -286,6 +287,9 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         exe_member_info_btn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         exe_member_info_btn.setText("Save");
 
+        exe_member_info_Cancel_Btn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        exe_member_info_Cancel_Btn.setText("Cancel");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -293,13 +297,17 @@ public class WelcomeHomeView extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(exe_member_info_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(535, 535, 535))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(exe_member_info_Cancel_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(418, 418, 418))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(exe_member_info_btn)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(exe_member_info_btn)
+                    .addComponent(exe_member_info_Cancel_Btn))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
 
@@ -846,6 +854,10 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         this.exe_member_info_btn.addActionListener(ae);
     }
     
+    public void addExe_MemberInfoCancelListener(ActionListener ae){
+        this.exe_member_info_Cancel_Btn.addActionListener(ae);
+    }
+    
  //============================================================//
     
     
@@ -917,6 +929,11 @@ public class WelcomeHomeView extends javax.swing.JFrame {
     public JLabel getMember_id() {
         return member_id;
     }
+
+    public JButton getExe_member_info_Cancel_Btn() {
+        return exe_member_info_Cancel_Btn;
+    }
+    
     
     //check box
     public JCheckBox getAlumni() {
@@ -976,6 +993,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
     private javax.swing.JCheckBox exe_member;
     private javax.swing.JPanel exe_memberInfo;
     private javax.swing.JTextField exe_member_end_date;
+    private javax.swing.JButton exe_member_info_Cancel_Btn;
     private javax.swing.JButton exe_member_info_btn;
     private javax.swing.JTextField exe_member_post_name;
     private javax.swing.JTextField exe_member_start_date;
