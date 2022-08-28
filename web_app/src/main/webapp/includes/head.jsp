@@ -18,6 +18,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/jpg;base64,${assocInfo.getAssocLogo()}">
     <style>
         <%@include file="../assets/style.css"%>
     </style>
@@ -93,7 +94,7 @@
                     <a href="login.jsp">Log-In</a>
             </c:when>
             <c:otherwise>
-                <a href="user_profile.jsp">${sessionScope.userProfile.getName()}</a>
+                <a href="dashboard.jsp">${sessionScope.userProfile.getName()}</a>
             </c:otherwise>
         </c:choose>
     </div>

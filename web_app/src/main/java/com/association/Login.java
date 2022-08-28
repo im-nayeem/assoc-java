@@ -29,7 +29,7 @@ public class Login extends HttpServlet {
             AssocMember userProfile = new AssocMember(email);
             
             request.getSession().setAttribute("userProfile",userProfile);
-            request.getRequestDispatcher("index.jsp").forward(request,response);
+            request.getRequestDispatcher("dashboard.jsp").forward(request,response);
         }
         else{
             String msg = "Somthing error";

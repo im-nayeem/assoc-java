@@ -1,0 +1,67 @@
+table{
+    text-align: left;
+    width: 50%;
+    margin: auto;
+    border-radius: 5px;
+    background-color: rgba(75, 127, 154, 0.384);
+    line-height: 1.5em;
+    margin-bottom: 5px;
+    padding: 12px;
+}
+th,td{
+    padding: 5px;
+    border: none;
+}
+td{
+
+    color: rgb(191, 194, 194);
+}
+
+.info{
+    background-color: rgba(85, 81, 81, 0);
+}
+.photo{
+    border-radius: 5px;
+    margin: auto;
+    height: 200px;
+    width: 150px;
+    margin-bottom: 5px;
+}
+.photo img{
+    border-radius: 10px;
+    height: inherit;
+    width: inherit;
+}
+
+
+button:hover {
+    opacity:0.6;
+}
+.edit{
+    margin: auto;
+    width: 50%;
+    display: flex;
+    background-color: #0000;
+}
+/* Set a style for all buttons */
+.edit button {
+    background-color: #316955;
+    color: rgb(228, 222, 222);
+    padding: 14px 20px;
+    border: none;
+    cursor: pointer;
+    /*width: 100%;*/
+    font-weight: bold;
+
+}
+
+button:hover {
+    opacity:0.6;
+}
+
+@media screen and (max-width: 700px) {
+    table,.edit {
+        width: 100%;
+    }
+
+}
