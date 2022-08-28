@@ -68,9 +68,15 @@ public class WelcomeController {
             // If clicked on verify button add registered list panel
             if(ae.getSource() == view.getBtnVerify() || ae.getSource()==view.getMemberInfoCancel())
             {
-                view.setRegisteredListPanel(WelcomeController.this.getRegisteredTableModel());
-                view.addRegisteredList();
-                view.repaint();
+                try{
+                    view.setRegisteredListPanel(WelcomeController.this.getRegisteredTableModel());
+                    view.addRegisteredList();
+                    view.repaint();
+                }
+                catch(Exception e)
+                {
+                    view.showDialogueMsg(e.toString());
+                }
             }
             else if(ae.getSource()==view.getMemberInfoApprove()){
                 regModel.markAsVerified(view.getMember_id().getText(), view.getMember_email().getText(),

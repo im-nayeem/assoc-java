@@ -26,9 +26,7 @@ public class DatabaseConnection {
             conn = DriverManager.getConnection(dbAddr, uname, pass);
         }
         catch(ClassNotFoundException | SQLException e) {
-            System.out.println(dbAddr+" \n"+uname+"\n"+pass);
-            System.out.println(e);
-//            throw new RuntimeException(e+"\nCouldn't Connect With Database");
+            throw new RuntimeException(e+"\nCouldn't Connect With Database");
         }
 
 
