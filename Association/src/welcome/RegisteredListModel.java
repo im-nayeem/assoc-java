@@ -26,21 +26,13 @@ public class RegisteredListModel {
     private List<AssocMember>registeredList = new ArrayList<>();
     public RegisteredListModel(){
         // retrieve all the registered members List from DB
-        
-        //extract a single result from ResultSet
-        // for loop:
-        //      registeredList.add(new AssocMember(result));
-        
-        
-        
         try {
             DatabaseConnection conn = new DatabaseConnection();
             Statement stmt= conn.getStatement();
             ResultSet rs =  stmt.executeQuery("SELECT * FROM members");
             rs.next();
         }
-        catch (SQLException e) {
-//            System.out.println(e);
+        catch (Exception e) {
             throw new RuntimeException(e.toString()+"\nProblem with executing query.");
         }
     }
@@ -57,7 +49,6 @@ public class RegisteredListModel {
             pstmnt.setBoolean(5,ex_member);
             pstmnt.execute();
         } catch (SQLException e) {
-//            System.out.println("Error "+e.toString());   
             return "something wrong!!";
         }
         return "Thanks for approve.";

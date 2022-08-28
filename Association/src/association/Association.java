@@ -20,37 +20,53 @@ public class Association {
      */
     public static Preferences prefs=Preferences.userNodeForPackage(Association.class);
     
-    public static void init(){
+    public static void init()
+    {
         String s=prefs.get("dbAddr","");
-        s="";
+//        s="";
         /**
          * if database info is not found in Preferences initialize AssocInitController in package initAssociation
          * AssocInitController initialize the setup for new association or existing association
          */
         if(s.equals(""))
         {
-            AssocInitView view=new AssocInitView();
-            AssocInitModel model=new AssocInitModel();
-            AssocInitController controller=new AssocInitController(model,view);
-            controller.start();
-           
-            while(controller.running==true)
-            {
-                // don't go to next step
+            try{
+                AssocInitView view=new AssocInitView();
+                AssocInitModel model=new AssocInitModel();
+                AssocInitController controller=new AssocInitController(model,view);
+                controller.start();
+                 while(controller.running==true)
+                {
+                    // don't go to next step
+                }
+                controller.stop();
             }
-            controller.stop();
-
+            catch(Exception e){
+                new AssocInitView().showDialogueMsg(e.toString());
+            }
         }
-        WelcomeHomeView view = new WelcomeHomeView();
-        WelcomeModel model = new WelcomeModel();
-        WelcomeController controller = new WelcomeController(model,view);
-        controller.start();
+    }
+    
+    public static void openWelcomeWindow()
+    {
+        try{
+            WelcomeHomeView view = new WelcomeHomeView();
+            WelcomeModel model = new WelcomeModel();
+            WelcomeController controller = new WelcomeController(model,view);
+            controller.start();
+        }
+        catch(Exception e)
+        {
+            new WelcomeHomeView().showDialogueMsg(e.toString());
+        }
     }
     
     public static void main(String[] args) {
               
         //start the application
         init();
+        openWelcomeWindow();
+
         
     }
     

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/style.js"></script>
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+    <div class="header" id="header">
+        <div class="logo">
+            <img src="assets/img/mswa.png" alt="logo">
+        </div>
+        <div class="name">
+            <h3>Mymensingh Student's Welfare Association,Comilla University</h3>
+                    <!-- show in large window -->
+            <h3>Mymensingh Student's Welfare Association <br> Comilla University</h3>
+                    <!-- show in small window -->
+        </div>
+
+    </div>
+    <div class="topnav" id="myTopnav">
+
+        <div class="menu">
+            <a href="" class="name_in_nav">MSWA-CoU</a>
+            <a href="" class="active">Home</a>
+            <a href="constitution.html">Constitution</a>
+            <a href="#contact">Gallery</a>
+            <a href="constitution.html">Notice</a>
+
+
+            <div class="dropdown">
+                <button class="dropbtn">Members
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">...</a>
+                    <a href="#">...</a>
+                    <a href="#">...</a>
+                </div>
+
+            </div>
+
+
+
+
+            <a href="#contact">Advisor</a>
+            <a href="#contact">Alumni</a>
+
+            <div class="dropdown">
+                <button class="dropbtn">Executive Committee
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">Current Committee</a>
+                    <a href="#">11th</a>
+                    <a href="#">10th</a>
+                </div>
+
+            </div>
+            <a href="#about">Culture</a>
+            <a href="#about">About</a>
+        </div>
+
+
+
+        <a href="javascript:void(0);" style="font-size:30px;" class="icon option" onclick="myFunction()">&#9776;</a>
+
+
+        <div class="login_signup">
+            <a href="register-login.html#id01">Register</a>
+            <a href="register-login.html#id02">Log-In</a>
+        </div>
+
+
+    </div>
+
+
+    <div class="content" id="content">
+       
+        <div class="photo">
+            <img src="assets/img/mswa.png" alt="photo">
+
+        </div>
+       <div class="info">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <td>Nayeem</td>
+                </tr>
+                <!-- use jstl-->
+                <tr>
+                    <th>ID</th>
+                    <td>11908002</td>
+                </tr>
+                <tr></tr>
+            </table>
+            <div class="edit">
+                <button>Update Information</button>
+               </div>
+            </div>
+       </div>
+       
+    <div class="footer">
+
+    </div>
+
+    <script>
+        //if window is small show assoc name and univ name in two lines and show active page in the place of font icon(assoc name abbreviation)
+        if (window.screen.width < 800) {
+            document.getElementsByClassName('name')[0].children[0].style.display = 'none';
+            document.getElementsByClassName('name')[0].children[1].style.display = 'block';
+            
+            document.getElementsByClassName('name_in_nav')[0].text = document.getElementsByClassName('active')[0].text;
+
+        }
+        else {
+            document.getElementsByClassName('name')[0].children[1].style.display = 'none';
+
+            //if window is large increase font size of assoc name
+            document.getElementsByClassName('name')[0].children[0].style.fontSize='25px';
+        }
+
+    </script>
+</body>
+
+</html>
