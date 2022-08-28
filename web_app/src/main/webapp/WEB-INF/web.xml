@@ -4,4 +4,8 @@
     <welcome-file-list>
         <welcome-file>init</welcome-file>
     </welcome-file-list>
+    
+    <session-config>
+        <session-timeout>30</session-timeout> <!-- in minutes -->
+    </session-config>
 </web-app>

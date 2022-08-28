@@ -53,6 +53,37 @@ public class RegisteredListModel {
         }
         return "Thanks for approve.";
     }
+    
+    public String exeMemberInfo(String info[]){
+        String query = "INSERT INTO exec_member VALUES(?,?,?,?,?);";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
+            for(int i=0; i<5; i++){
+                pstmnt.setString(i+1, info[i]);
+            }
+            pstmnt.execute();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        
+        return "done";
+    }
+    
+    public String alumniInfo(String id, String email){
+        String query = "INSERT INTO alumni(id,email) VALUES(?,?);";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
+            pstmnt.setString(1, id);
+            pstmnt.setString(2,email);
+            pstmnt.execute();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        
+        return "done";
+    }
 //--------------------------------------------------------------------------//
 
 //=============================retrieve from DB ==========================//    

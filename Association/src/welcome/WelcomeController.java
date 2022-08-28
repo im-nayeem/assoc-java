@@ -30,6 +30,9 @@ public class WelcomeController {
         this.view.addRegisteredMemberTable(new CustomAction());
         this.view.addMemberApproveListener(new CustomAction());
         this.view.addMemberCancelApproveListener(new CustomAction());
+        this.view.addExe_memberListener(new CustomAction());
+        this.view.addExe_MemberInfoListener(new CustomAction());
+        this.view.addExe_MemberInfoCancelListener(new CustomAction());
     }
     
     public void start(){
@@ -78,8 +81,37 @@ public class WelcomeController {
             else if(ae.getSource()==view.getMemberInfoApprove()){
                 regModel.markAsVerified(view.getMember_id().getText(), view.getMember_email().getText(),
                         view.getAlumni().isSelected(), view.getExe_member().isSelected());
+                
+//                store executive member information in DB
+                if(view.getExe_member().isSelected()){
+                    String information[] = view.getExe_member_info();
+                    information[0] = view.getMember_id().getText();
+                    information[1] = view.getMember_email().getText();
+                    regModel.exeMemberInfo(information);
+                }
+//                store alumni information in DB
+                if(view.getAlumni().isSelected()){
+                    regModel.alumniInfo(view.getMember_id().getText(),view.getMember_email().getText());
+                }
                 view.setRegisteredListPanel(WelcomeController.this.getRegisteredTableModel());
                 view.addRegisteredList();
+                view.repaint();
+            }
+//            if executive member check box marked
+            else if(ae.getSource() == view.getExe_member()){
+                view.addExeMemberInfoPanel();
+                view.repaint();
+            }
+            else if(ae.getSource() == view.getExe_member_info_btn() || ae.getSource()==view.getExe_member_info_Cancel_Btn()){
+                if(ae.getSource() == view.getExe_member_info_btn()){
+                    String information[] = new String[5];
+                    information[2] = view.getExe_member_post_name().getText();
+                    information[3] = view.getExe_member_start_date().getText();
+                    information[4] = view.getExe_member_end_date().getText();
+                    view.setExe_member_info(information);
+                }
+                
+                view.addMemberViewPanel();
                 view.repaint();
             }
         }
