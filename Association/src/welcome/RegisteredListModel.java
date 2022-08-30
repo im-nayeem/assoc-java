@@ -54,14 +54,16 @@ public class RegisteredListModel {
         return "Thanks for approve.";
     }
     
-    public String exeMemberInfo(String info[]){
+    public String exeMemberInfo(ExecutiveMember exeMemberInfo){
         String query = "INSERT INTO exec_member VALUES(?,?,?,?,?);";
         try {
             DatabaseConnection conn = new DatabaseConnection();
             PreparedStatement pstmnt = conn.getPreparedStatement(query);
-            for(int i=0; i<5; i++){
-                pstmnt.setString(i+1, info[i]);
-            }
+            pstmnt.setString(1,exeMemberInfo.getStudentId());
+            pstmnt.setString(2,exeMemberInfo.getEmail());
+            pstmnt.setString(3,exeMemberInfo.getPostName());
+            pstmnt.setString(4,exeMemberInfo.getStartDate());
+            pstmnt.setString(5,exeMemberInfo.getEndDate());
             pstmnt.execute();
         } catch (Exception e) {
             return e.getMessage();
@@ -148,4 +150,17 @@ public class RegisteredListModel {
         return memberInfo;
     }
 //----------------------------------------------------------------------------//
+    
+//===============================Delete from DB===============================//
+    public String deleteMemberRow(String email){
+        String query = "DELETE FROM members WHERE email='"+email+"';";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
+            pstmnt.execute();
+        } catch (Exception e) {
+            return e.toString();
+        }
+        return "done";
+    }
 }
