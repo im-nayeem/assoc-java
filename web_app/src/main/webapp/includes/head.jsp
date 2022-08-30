@@ -13,12 +13,12 @@
 <html>
 
 <head>
-    <title>${title}</title>
+    <title>${applicationScope.assocInfo.getAssocName()}</title>
 <%--    set title of the page from attribute title from session--%>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" type="image/x-icon" href="data:image/jpg;base64,${assocInfo.getAssocLogo()}">
+    <link rel="icon" type="image/x-icon" href="data:image/jpg;base64,${applicationScope.assocInfo.getAssocLogo()}">
     <style>
         <%@include file="../assets/style.css"%>
     </style>
@@ -31,12 +31,12 @@
 <body>
 <div class="header" id="header">
     <div class="logo">
-        <img src="data:image/jpg;base64,${assocInfo.getAssocLogo()}" alt="logo"/>
+        <img src="data:image/jpg;base64,${applicationScope.assocInfo.getAssocLogo()}" alt="logo"/>
     </div>
     <div class="name">
-        <h3>${assocInfo.getAssocName()},Comilla University</h3>
+        <h3>${applicationScope.assocInfo.getAssocName()},${applicationScope.varsityInfo.getVarsityName()}</h3>
         <!-- show in large window -->
-        <h3>${assocInfo.getAssocName()} <br> Comilla University</h3>
+        <h3>${applicationScope.assocInfo.getAssocName()}<br>${applicationScope.varsityInfo.getVarsityName()}</h3>
         <!-- show in small window -->
     </div>
 
@@ -90,11 +90,11 @@
     <div class="login_signup">
         <c:choose>
             <c:when test="${empty sessionScope.userProfile.getName()}">
-                    <a href="registration.jsp">Register</a>
-                    <a href="login.jsp">Log-In</a>
+                    <a href="Registration">Register</a>
+                    <a href="Login">Log-In</a>
             </c:when>
             <c:otherwise>
-                <a href="dashboard.jsp">${sessionScope.userProfile.getName()}</a>
+                <a href="Dashboard">${sessionScope.userProfile.getName()}</a>
             </c:otherwise>
         </c:choose>
     </div>

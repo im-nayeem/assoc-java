@@ -1,5 +1,9 @@
-package com.association;
+package com.association.account;
 
+import com.association.AssocInfo;
+import com.association.AssocMember;
+import com.association.SendMail;
+import com.association.Utility;
 import com.association.database.DatabaseConnection;
 
 import javax.servlet.*;
@@ -12,6 +16,7 @@ import java.io.IOException;
 public class Registration extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("registration.jsp").forward(request,response);
 
     }
 
@@ -40,7 +45,7 @@ public class Registration extends HttpServlet {
             AssocMember member = new AssocMember(request);
             request.getSession().setAttribute("member",member);
 
-            request.getSession().setAttribute("verificationCode",Utility.getVerificationCode() );
+            request.getSession().setAttribute("verificationCode", Utility.getVerificationCode() );
 
             AssocInfo assocInfo = (AssocInfo) request.getSession().getAttribute("assocInfo");
             SendMail mail = new SendMail(assocInfo,userMail);

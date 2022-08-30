@@ -147,7 +147,7 @@
 
                     <button type="submit" class="submitbtn">Submit</button>
                     <p>Already have an account?</p>
-                    <a href="login.jsp">
+                    <a href="Login">
                         <button type="button" class="secondary_log_sign"
                             onclick="">Login</button>
                     </a>

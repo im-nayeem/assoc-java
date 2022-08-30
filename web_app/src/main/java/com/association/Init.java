@@ -25,8 +25,8 @@ public class Init extends HttpServlet {
             AssocInfo assocInfo = new AssocInfo();
             VarsityInfo varsityInfo = new VarsityInfo();
 
-            req.getSession().setAttribute("assocInfo",assocInfo);
-            req.getSession().setAttribute("varsityInfo", varsityInfo);
+            req.getServletContext().setAttribute("assocInfo",assocInfo);
+            req.getServletContext().setAttribute("varsityInfo", varsityInfo);
             req.getRequestDispatcher("index.jsp").forward(req,resp);
         }
         catch (Exception e){

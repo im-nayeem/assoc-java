@@ -5,8 +5,6 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% session.setAttribute("title", "MSWA");%>
-
 
 <%@include file="includes/head.jsp"%>
 

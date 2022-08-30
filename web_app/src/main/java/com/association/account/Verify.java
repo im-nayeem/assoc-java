@@ -1,5 +1,6 @@
-package com.association;
+package com.association.account;
 
+import com.association.AssocMember;
 import com.association.database.DatabaseConnection;
 
 import javax.servlet.ServletException;
@@ -12,6 +13,11 @@ import java.sql.PreparedStatement;
 
 @WebServlet(name = "verifyMail", value = "/verifyMail")
 public class Verify extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    }
+
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,8 +66,7 @@ public class Verify extends HttpServlet {
             request.getRequestDispatcher("error.jsp").forward(request,response);
         }
         request.setAttribute("isRegistrationCompleted",true);
-        request.getRequestDispatcher("login.jsp").forward(request,response);
-
+        response.sendRedirect("Login");
 
     }
 }

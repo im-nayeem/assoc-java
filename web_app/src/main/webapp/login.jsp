@@ -40,7 +40,7 @@
 
                     <button type="submit" class="submitbtn">Submit</button>
                     <p>Don't have an account?</p>
-                    <a href="registration.jsp">
+                    <a href="Registration">
                         <button type="button" class="secondary_log_sign"
                             onclick="">Register</button>
                     </a>

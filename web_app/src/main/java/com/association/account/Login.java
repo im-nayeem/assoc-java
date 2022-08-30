@@ -1,5 +1,6 @@
-package com.association;
+package com.association.account;
 
+import com.association.AssocMember;
 import com.association.database.DatabaseConnection;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -11,7 +12,7 @@ import java.io.PrintWriter;
 public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.getRequestDispatcher("login.jsp").forward(request,response);
     }
 
     @Override
@@ -29,7 +30,8 @@ public class Login extends HttpServlet {
             AssocMember userProfile = new AssocMember(email);
             
             request.getSession().setAttribute("userProfile",userProfile);
-            request.getRequestDispatcher("dashboard.jsp").forward(request,response);
+            response.sendRedirect("Dashboard");
+//            request.getRequestDispatcher("dashboard.jsp").forward(request,response);
         }
         else{
             String msg = "Somthing error";
