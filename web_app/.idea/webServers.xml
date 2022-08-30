@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="748e2cd2-9479-45b6-8585-d23b1719ac14" name="webapp" url="http://192.168.43.41">
+        <fileTransfer anonymous="true" accessType="FTPS" host="192.168.43.41" port="8087">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
