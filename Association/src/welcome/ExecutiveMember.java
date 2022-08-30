@@ -4,6 +4,9 @@
  */
 package welcome;
 
+import database.DatabaseConnection;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author Mestu
@@ -64,4 +67,22 @@ public class ExecutiveMember {
     }
 //--------------------------------------------//
     
+//===============database connection========================//
+    public String storeExeMemberInfo(ExecutiveMember exeMemberInfo){ //assocmember
+        String query = "INSERT INTO exec_member VALUES(?,?,?,?,?);";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
+            pstmnt.setString(1,exeMemberInfo.getStudentId());
+            pstmnt.setString(2,exeMemberInfo.getEmail());
+            pstmnt.setString(3,exeMemberInfo.getPostName());
+            pstmnt.setString(4,exeMemberInfo.getStartDate());
+            pstmnt.setString(5,exeMemberInfo.getEndDate());
+            pstmnt.execute();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        return "done";
+    }
+    //------------------------------------------------------------//
 }
