@@ -5,8 +5,13 @@
  */
 package welcome;
 
+import association.Association;
+import database.DatabaseConnection;
 import java.awt.Image;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.prefs.Preferences;
 import javax.swing.ImageIcon;
 
 /**
@@ -42,10 +47,27 @@ public class AssocMember {
      * Constructor
      * @param singleResult containing single member info
      */
-    public AssocMember(ResultSet singleResult)
+    public AssocMember(ResultSet singleResult) throws SQLException
     {
-                //use it for RegisteredListModel
-
+        //use it for RegisteredListModel
+        this.setName(singleResult.getString("name"));
+        this.setId(singleResult.getString("id"));
+        this.setEmail(singleResult.getString("email"));
+        this.setPhone(singleResult.getString("phone"));
+        this.setDept(singleResult.getString("dept"));
+        this.setSession(singleResult.getString("session"));
+        this.setBatch(singleResult.getString("batch"));
+        this.setGender(singleResult.getString("gender"));
+        this.setBg(singleResult.getString("bg"));
+        this.setPhotoByte(singleResult.getBytes("photo"));
+        this.setCo_activity(singleResult.getString("co_activity"));
+        this.setFathersname(singleResult.getString("fathersname"));
+        this.setMothersname(singleResult.getString("mothersname"));
+        this.setPresent_area(singleResult.getString("present_area"));
+        this.setPresent_details(singleResult.getString("present_details"));
+        this.setPermanent_upazila(singleResult.getString("permanent_upazila"));
+        this.setPermanent_details(singleResult.getString("permanent_details"));
+        this.setTranc_no(singleResult.getString("tranc_no"));
         
         
         // if you find better replacemet for ResultSet then replace it,try to find better idea
@@ -183,7 +205,6 @@ public class AssocMember {
     public void setBg(String bg) {
         this.bg = bg;
     }
-
     public void setPhotoByte(byte[] photoByte) {
         this.photoByte = photoByte;
     }
@@ -220,5 +241,54 @@ public class AssocMember {
         this.tranc_no = tranc_no;
     }
     /*-------------------------------------------------------*/
+    
+    //===============database connection========================//
+   
+    public String storeAlumniInfo(String id, String email){ //assocmember
+        String query = "INSERT INTO alumni(id,email) VALUES(?,?);";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
+            pstmnt.setString(1, id);
+            pstmnt.setString(2,email);
+            pstmnt.execute();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        
+        return "done";
+    }
+    
+    public String markAsVerified(String id, String email, boolean alumni, boolean ex_member){ //assocmember
+        String query = "INSERT INTO verified VALUES(?,?,?,?,?);";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
+            pstmnt.setString(1,id);
+            pstmnt.setString(2,email);
+            pstmnt.setBoolean(3,alumni);
+            pstmnt.setBoolean(4,ex_member);
+            pstmnt.setBoolean(5,ex_member);
+            pstmnt.execute();
+        } catch (SQLException e) {
+            return "something wrong!!";
+        }
+        return "Thanks for approve.";
+    }
+    
+//============rejected member delete from member table==============//
+    public String deleteMemberRow(String email){
+        String query = "DELETE FROM members WHERE email='"+email+"';";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
+            pstmnt.execute();
+        } catch (Exception e) {
+            return e.toString();
+        }
+        return "done";
+    }
 
+
+    //--------------------------------------------------------------------------------//
 }
