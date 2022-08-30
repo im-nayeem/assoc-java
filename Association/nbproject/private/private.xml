@@ -3,7 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+
             <file>file:/N:/Project/Association/src/initAssociation/AssocInitController.java</file>
+            <file>file:/N:/Project/Association/src/welcome/AssocMember.java</file>
             <file>file:/N:/Project/Association/src/welcome/WelcomeHomeView.java</file>
             <file>file:/N:/Project/Association/src/welcome/WelcomeController.java</file>
             <file>file:/N:/Project/Association/src/initAssociation/AssocInitView.java</file>
@@ -13,6 +15,7 @@
             <file>file:/N:/Project/Association/src/initAssociation/AssocInfo.java</file>
             <file>file:/N:/Project/Association/src/initAssociation/AssocInitModel.java</file>
             <file>file:/N:/Project/Association/src/welcome/WelcomeModel.java</file>
+
         </group>
     </open-files>
 </project-private>

@@ -53,6 +53,39 @@ public class RegisteredListModel {
         }
         return "Thanks for approve.";
     }
+    
+    public String exeMemberInfo(ExecutiveMember exeMemberInfo){
+        String query = "INSERT INTO exec_member VALUES(?,?,?,?,?);";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
+            pstmnt.setString(1,exeMemberInfo.getStudentId());
+            pstmnt.setString(2,exeMemberInfo.getEmail());
+            pstmnt.setString(3,exeMemberInfo.getPostName());
+            pstmnt.setString(4,exeMemberInfo.getStartDate());
+            pstmnt.setString(5,exeMemberInfo.getEndDate());
+            pstmnt.execute();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        
+        return "done";
+    }
+    
+    public String alumniInfo(String id, String email){
+        String query = "INSERT INTO alumni(id,email) VALUES(?,?);";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
+            pstmnt.setString(1, id);
+            pstmnt.setString(2,email);
+            pstmnt.execute();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        
+        return "done";
+    }
 //--------------------------------------------------------------------------//
 
 //=============================retrieve from DB ==========================//    
@@ -117,4 +150,17 @@ public class RegisteredListModel {
         return memberInfo;
     }
 //----------------------------------------------------------------------------//
+    
+//===============================Delete from DB===============================//
+    public String deleteMemberRow(String email){
+        String query = "DELETE FROM members WHERE email='"+email+"';";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
+            pstmnt.execute();
+        } catch (Exception e) {
+            return e.toString();
+        }
+        return "done";
+    }
 }
