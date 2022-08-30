@@ -49,7 +49,7 @@ public class Registration extends HttpServlet {
 
             AssocInfo assocInfo = (AssocInfo) getServletContext().getAttribute("assocInfo");
             SendMail mail = new SendMail(assocInfo,userMail);
-            mail.send("Verification","Your Verification Code is: "+request.getSession().getAttribute("verificationCode")+"\n");
+//            mail.send("Verification","Your Verification Code is: "+request.getSession().getAttribute("verificationCode")+"\n");
 
 
         }
