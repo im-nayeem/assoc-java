@@ -53,7 +53,7 @@
                     <select name="department" id="dept" required>
                         <option selected disabled hidden>Select Department</option>
                         <!--// use jstl to set all the dept name-->
-                        <c:forEach var="dept" items="${sessionScope.varsityInfo.getDeptList()}">
+                        <c:forEach var="dept" items="${applicationScope.varsityInfo.getDeptList()}">
                             <option value="dept"><c:out value="${dept}"/></option>
                         </c:forEach>
                         
@@ -135,8 +135,7 @@
                 <br>
                 <fieldset>
                     <legend>Payment Info</legend>
-                    <strong>After sending <c:out value="${sessionScope.assocInfo.paymentMethod}"/> payment
-                        method collect your transaction number and provide it here.</strong>
+                    <strong> <c:out value="${applicationScope.assocInfo.paymentMethod}"/> </strong>
                     <input type="text" name="transc_no" id="transc_no"
                            placeholder="Transaction Number/Sender Number">
                 </fieldset>

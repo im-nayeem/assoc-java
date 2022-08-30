@@ -6,6 +6,7 @@ import com.association.SendMail;
 import com.association.Utility;
 import com.association.database.DatabaseConnection;
 
+import javax.naming.Context;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -24,10 +25,8 @@ public class Registration extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-
         try{
             DatabaseConnection conn = new DatabaseConnection();
-
             String userMail = request.getParameter("email");
             String query_result = conn.getColumnValueByKey("members", "email", "email",userMail);
 //
@@ -39,7 +38,7 @@ public class Registration extends HttpServlet {
 //        check new email or not
             if(query_result.equals("no record")==false){
                 request.setAttribute("isNotValidEmail",true);
-                request.getRequestDispatcher("registration.jsp");
+                response.sendRedirect("Registration");
             }
 //
             AssocMember member = new AssocMember(request);
@@ -47,9 +46,12 @@ public class Registration extends HttpServlet {
 
             request.getSession().setAttribute("verificationCode", Utility.getVerificationCode() );
 
-            AssocInfo assocInfo = (AssocInfo) request.getSession().getAttribute("assocInfo");
+
+            AssocInfo assocInfo = (AssocInfo) getServletContext().getAttribute("assocInfo");
             SendMail mail = new SendMail(assocInfo,userMail);
             mail.send("Verification","Your Verification Code is: "+request.getSession().getAttribute("verificationCode")+"\n");
+
+
         }
         catch (Exception e)
         {
