@@ -13,7 +13,8 @@ public class VarsityInfo {
     private Vector<String> deptList;
     private int lastBatch;
     public VarsityInfo() {
-        try {
+        try
+        {
             DatabaseConnection conn = new DatabaseConnection();
             Statement stmt = conn.getStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM varsity_info");
@@ -22,13 +23,15 @@ public class VarsityInfo {
             this.varsityWebLink = rs.getString("website_link");
             this.setDeptList(rs.getString("dept"));
             this.lastBatch = rs.getInt("last_batch");
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             throw new RuntimeException(e.toString() + "\nProblem with varsity information executing query.");
         }
 
     }
     
-//    JSON file to String list 
+//    JSON file to String list
     private void setDeptList(String s) {
         deptList = new Vector<>();
         int i = 0;

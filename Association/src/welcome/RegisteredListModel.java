@@ -26,21 +26,13 @@ public class RegisteredListModel {
     private List<AssocMember>registeredList = new ArrayList<>();
     public RegisteredListModel(){
         // retrieve all the registered members List from DB
-        
-        //extract a single result from ResultSet
-        // for loop:
-        //      registeredList.add(new AssocMember(result));
-        
-        
-        
         try {
             DatabaseConnection conn = new DatabaseConnection();
             Statement stmt= conn.getStatement();
             ResultSet rs =  stmt.executeQuery("SELECT * FROM members");
             rs.next();
         }
-        catch (SQLException e) {
-//            System.out.println(e);
+        catch (Exception e) {
             throw new RuntimeException(e.toString()+"\nProblem with executing query.");
         }
     }
@@ -57,10 +49,42 @@ public class RegisteredListModel {
             pstmnt.setBoolean(5,ex_member);
             pstmnt.execute();
         } catch (SQLException e) {
-//            System.out.println("Error "+e.toString());   
             return "something wrong!!";
         }
         return "Thanks for approve.";
+    }
+    
+    public String exeMemberInfo(ExecutiveMember exeMemberInfo){
+        String query = "INSERT INTO exec_member VALUES(?,?,?,?,?);";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
+            pstmnt.setString(1,exeMemberInfo.getStudentId());
+            pstmnt.setString(2,exeMemberInfo.getEmail());
+            pstmnt.setString(3,exeMemberInfo.getPostName());
+            pstmnt.setString(4,exeMemberInfo.getStartDate());
+            pstmnt.setString(5,exeMemberInfo.getEndDate());
+            pstmnt.execute();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        
+        return "done";
+    }
+    
+    public String alumniInfo(String id, String email){
+        String query = "INSERT INTO alumni(id,email) VALUES(?,?);";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
+            pstmnt.setString(1, id);
+            pstmnt.setString(2,email);
+            pstmnt.execute();
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+        
+        return "done";
     }
 //--------------------------------------------------------------------------//
 
@@ -126,4 +150,17 @@ public class RegisteredListModel {
         return memberInfo;
     }
 //----------------------------------------------------------------------------//
+    
+//===============================Delete from DB===============================//
+    public String deleteMemberRow(String email){
+        String query = "DELETE FROM members WHERE email='"+email+"';";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(query);
+            pstmnt.execute();
+        } catch (Exception e) {
+            return e.toString();
+        }
+        return "done";
+    }
 }

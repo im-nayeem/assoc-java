@@ -12,6 +12,7 @@
 </head>
 <body>
 <p>${error}</p>
+<p>${requestScope.get("name")}</p>
 
 </body>
 </html>

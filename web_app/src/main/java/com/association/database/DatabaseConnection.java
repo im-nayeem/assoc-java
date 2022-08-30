@@ -22,7 +22,7 @@ public class DatabaseConnection {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(dbAddr, uname, pass);
         } catch (ClassNotFoundException | SQLException e) {
-            new RuntimeException(e + "\nCouldn't Connect With Database");
+            throw new RuntimeException(e + "\nCouldn't Connect With Database");
         }
 
     }

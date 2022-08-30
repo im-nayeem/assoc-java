@@ -3,8 +3,6 @@ package initAssociation;
 
 import association.Association;
 import database.DatabaseConnection;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,9 +13,6 @@ import java.util.prefs.Preferences;
  * @author Nayeem
  */
 public class AssocInitModel {
-    private String dbAddr;
-    private String dbUserName;
-    private String dbPass;
     private AssocInfo assocInfo;
     private VarsityInfo varsityInfo;
     
@@ -27,27 +22,22 @@ public class AssocInitModel {
     }
 
   
-    public String createDatabaseTables(String dbAddr,String dbUserName,String dbPass)
+    public String createDatabaseTables()
     {
         //<editor-fold defaultstate="collapsed" desc="create connection and create tables in DB">
-        this.dbAddr="jdbc:mysql://"+dbAddr+"?allowMultiQueries=true";
-        this.dbUserName=dbUserName;
-        this.dbPass=dbPass;
+       
         String query=getFirstQuery();
         
         
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+           
             DatabaseConnection conn = new DatabaseConnection();
             Statement st = conn.getStatement();
             st.execute(query);
             st.close();
             conn.close();
         }
-        catch (ClassNotFoundException e) {
-            return "Could't connect with Database";
-        }
-        catch(SQLException ex){
+        catch(Exception ex){
             return "Couldn't Connect With Database,SQL Exception!";
         }
         
@@ -57,7 +47,7 @@ public class AssocInitModel {
      
     }
     
-    public void storeInPreferences(){
+    public void storeInPreferences(String dbAddr,String dbUserName,String dbPass){
         Preferences prefs=Preferences.userNodeForPackage(Association.class);
         prefs.put("dbAddr", dbAddr);
         prefs.put("dbUserName", dbUserName);
@@ -155,7 +145,7 @@ public class AssocInitModel {
                   "CREATE TABLE members(\n" +
                   "    name varchar(30),\n" +
                   "    id int,\n" +
-                  "    email varchar(30) UNIQUE not null,\n" +
+                  "    email varchar(30),\n" +
                   "    pass varchar(30),\n" +
                   "    phone varchar(11),\n" +
                   "    dept varchar(40),\n" +
@@ -172,7 +162,7 @@ public class AssocInitModel {
                   "    permanent_upazila varchar(15),\n" +
                   "    permanent_details varchar(30),\n" +
                   "    tranc_no varchar(15),\n" +
-                  "    PRIMARY KEY(id)  );\n" +
+                  "    PRIMARY KEY(email)  );\n" +
                   "    \n" +
                   "    \n" +
                   "\n" +
@@ -196,6 +186,7 @@ public class AssocInitModel {
                   "CREATE table exec_member(\n" +
                   "    id int not null,\n" +
                   "    email varchar(30) not null,\n" +
+                  "    post_name varchar(30),\n" +
                   "    from_time varchar(10),\n" +
                   "    to_time varchar(10),\n" +
                   "    FOREIGN KEY(id) REFERENCES members(id) on update cascade on delete cascade,\n" +

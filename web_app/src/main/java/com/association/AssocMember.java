@@ -6,18 +6,19 @@
 package com.association;
 
 import com.association.database.DatabaseConnection;
-import java.awt.Image;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Base64;
-import javax.swing.ImageIcon;
+import javax.servlet.http.HttpServletRequest;
+
 import org.jetbrains.annotations.NotNull;
 
 /**
- * AssocMember the model class containing single member's info
+ * AssocMember the  class containing single member's info
  * @author Nayeem
  */
 public class AssocMember {
@@ -31,18 +32,21 @@ public class AssocMember {
     private String batch;
     private String gender;
     private String blood_group;
-    private String photo;
-    private String co_activity;
-    private String fathersname;
-    private String mothersname;
-    private String present_area;
-    private String present_details;
-    private String permanent_upazila;
-    private String permanent_details;
-    private String tranc_no;
-    // all info variables are here...complete this
-    
-    
+    private InputStream photo;
+    private String photoString;
+    private String coActivity;
+    private String fathersName;
+    private String mothersName;
+    private String presentArea;
+    private String presentDetails;
+    private String permanentUpazila;
+    private String permanentDetails;
+    private String trancNo;
+
+    /**
+     * Constructor
+     * @param memberEmail member's email address used to retrieve data from DB
+     */
     public AssocMember(String memberEmail){
         try {
             DatabaseConnection conn = new DatabaseConnection();
@@ -60,22 +64,62 @@ public class AssocMember {
             this.batch =  rs.getString("batch");
             this.gender =  rs.getString("gender");
             this.blood_group =  rs.getString("bg");
-            this.photo =  this.inputStreamToString(rs.getBinaryStream("photo"));
-            this.co_activity =  rs.getString("co_activity");
-            this.fathersname =  rs.getString("fathersname");
-            this.mothersname =  rs.getString("mothersname");
-            this.present_area =  rs.getString("present_area");
-            this.present_details =  rs.getString("present_details");
-            this.permanent_upazila =  rs.getString("permanent_upazila");
-            this.permanent_details =  rs.getString("permanent_details");
-            this.tranc_no =  rs.getString("tranc_no");
+            this.photo =  rs.getBinaryStream("photo");
+            this.photoString = this.inputStreamToString(photo);
+            this.coActivity =  rs.getString("co_activity");
+            this.fathersName =  rs.getString("fathersname");
+            this.mothersName =  rs.getString("mothersname");
+            this.presentArea =  rs.getString("present_area");
+            this.presentDetails =  rs.getString("present_details");
+            this.permanentUpazila =  rs.getString("permanent_upazila");
+            this.permanentDetails =  rs.getString("permanent_details");
+            this.trancNo =  rs.getString("tranc_no");
         }
         catch (Exception e) {
             throw new RuntimeException(e.toString()+"\nProblem with association information executing query.");
         }
     }
-    /*=============getter methods=============*/
-    
+
+    /**
+     * Constructor
+     * @param request the HttpServletRequest object
+     */
+    public AssocMember(HttpServletRequest request)
+    {
+        try{
+            this.name = request.getParameter("name");
+            this.id = request.getParameter("id");
+            this.email = request.getParameter("email");
+            this.password = request.getParameter("password");
+            this.phone = request.getParameter("phone");
+            this.dept = request.getParameter("department");
+            this.session = request.getParameter("session");
+            this.batch = request.getParameter("batch");
+            this.gender = request.getParameter("gender");
+            this.blood_group = request.getParameter("blood_group");
+            this.photo = request.getPart("photo").getInputStream();
+            this.photoString = this.inputStreamToString(photo);
+            this.coActivity = request.getParameter("co_actvt");
+            this.fathersName = request.getParameter("fathers_name");
+            this.mothersName = request.getParameter("mothers_name");
+            this.presentArea = request.getParameter("present_area");
+            this.presentDetails = request.getParameter("present_details");
+            this.permanentUpazila = request.getParameter("upazila");
+            this.permanentDetails = request.getParameter("permanent_details");
+            this.trancNo = request.getParameter("transc_no");
+        }
+        catch(Exception e)
+        {
+            throw  new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Convert InputStream to String
+     * @param is_image InputStream
+     * @return String
+     * @throws IOException
+     */
     public String inputStreamToString(@NotNull InputStream  is_image) throws IOException{
 
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -87,7 +131,8 @@ public class AssocMember {
         String base64Image = Base64.getEncoder().encodeToString(outputStream.toByteArray());
         return base64Image;
     }
-    
+
+    /**====================getter methods=========================*/
     public String getName() {
         return name;
     }
@@ -124,45 +169,51 @@ public class AssocMember {
         return blood_group;
     }
 
-    public String getPhoto() {
+    public InputStream getPhoto(){
         return photo;
     }
-
-    public String getCo_activity() {
-        return co_activity;
+    public String getPhotoString() {
+        return photoString;
+    }
+    public void another(){}
+    
+    public String getCoActivity() {
+        return coActivity;
     }
 
-    public String getFathersname() {
-        return fathersname;
+    public String getFathersName() {
+        return fathersName;
     }
 
-    public String getMothersname() {
-        return mothersname;
+    public String getMothersName() {
+        return mothersName;
     }
 
-    public String getPresent_area() {
-        return present_area;
+    public String getPresentArea() {
+        return presentArea;
     }
 
-    public String getPresent_details() {
-        return present_details;
+    public String getPresentDetails() {
+        return presentDetails;
     }
 
-    public String getPermanent_upazila() {
-        return permanent_upazila;
+    public String getPermanentUpazila() {
+        return permanentUpazila;
     }
-
-    public String getPermanent_details() {
-        return permanent_details;
+    public String getPermanentDetails() {
+        return permanentDetails;
+    }
+    public String getPassword(){
+        return this.password;
+    }
+    public String getTrancNo() {
+        return trancNo;
     }
     
-    /*-------------------------------------*/
-    
-    /*===========setter methods============*/
-    
-    public String getTranc_no() {
-        return tranc_no;
-    }
+    /**-----------------------------------------------------------------*/
+
+
+    /**=============================setter methods====================*/
 
     public void setName(String name) {
         this.name = name;
@@ -200,41 +251,39 @@ public class AssocMember {
         this.blood_group = blood_group;
     }
 
-    public void setPhotoByte(byte[] photoByte) {
-        this.photo = photo;
+    public void setCoActivity(String co_activity) {
+        this.coActivity = co_activity;
     }
 
-    public void setCo_activity(String co_activity) {
-        this.co_activity = co_activity;
+    public void setFathersName(String fathersName) {
+        this.fathersName = fathersName;
     }
 
-    public void setFathersname(String fathersname) {
-        this.fathersname = fathersname;
+    public void setMothersName(String mothersName) {
+        this.mothersName = mothersName;
     }
 
-    public void setMothersname(String mothersname) {
-        this.mothersname = mothersname;
+    public void setPresentArea(String present_area) {
+        this.presentArea = present_area;
     }
 
-    public void setPresent_area(String present_area) {
-        this.present_area = present_area;
+    public void setPresentDetails(String presentDetails) {
+        this.presentDetails = presentDetails;
     }
 
-    public void setPresent_details(String present_details) {
-        this.present_details = present_details;
+    public void setPermanentUpazila(String permanent_upazila) {
+        this.permanentUpazila = permanent_upazila;
     }
 
-    public void setPermanent_upazila(String permanent_upazila) {
-        this.permanent_upazila = permanent_upazila;
+    public void setPermanentDetails(String permanent_details) {
+        this.permanentDetails = permanent_details;
     }
 
-    public void setPermanent_details(String permanent_details) {
-        this.permanent_details = permanent_details;
+    public void setTrancNo(String trancNo) {
+        this.trancNo = trancNo;
     }
 
-    public void setTranc_no(String tranc_no) {
-        this.tranc_no = tranc_no;
-    }
-    /*-------------------------------------------------------*/
+
+    /**-------------------------------------------------------*/
 
 }

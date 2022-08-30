@@ -22,7 +22,7 @@
                 <br>
                 <div class="error_message">
                     <c:if test="${requestScope.isNotValidEmail==true}">
-                        <div style="color:red;">This email is already used</div> 
+                        <div style="color:red;">This email is already used! Use Log in instead of registration</div>
                     </c:if>
                     
                 </div>
@@ -135,7 +135,6 @@
                 <br>
                 <fieldset>
                     <legend>Payment Info</legend>
-                    <!--*** TK to 01xxxxxxxx using Bkash/Rocket/Nagad-->
                     <strong>After sending <c:out value="${sessionScope.assocInfo.paymentMethod}"/> payment
                         method collect your transaction number and provide it here.</strong>
                     <input type="text" name="transc_no" id="transc_no"

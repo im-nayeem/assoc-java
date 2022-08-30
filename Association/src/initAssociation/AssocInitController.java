@@ -68,15 +68,16 @@ public class AssocInitController {
         public void actionPerformed(ActionEvent ae) {
             
             //<editor-fold defaultstate="collapsed" desc="if button == submitDb then...">
-            if(ae.getSource()==assocView.getSubmitDb()){
+            if(ae.getSource()==assocView.getSubmitDb())
+            {
+                 
+                //store DB info in Preferences
+                assocModel.storeInPreferences(assocView.getDbAddr(),assocView.getDbUserName(),assocView.getDbPass());
                 
                 //create tables in DB and get the result of creating tables
-                String res=assocModel.createDatabaseTables(
-                    assocView.getDbAddr(),assocView.getDbUserName(),assocView.getDbPass());
-                assocView.showDialogueMsg(res);
+                String res=assocModel.createDatabaseTables();
                 
-                //store DB info in Preferences
-                assocModel.storeInPreferences();
+                assocView.showDialogueMsg(res);
                 
                 //if successfully created tables in DB then goto next step
                 if(res.equals("Successfully Connected With Database"))

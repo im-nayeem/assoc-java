@@ -24,6 +24,8 @@ public class AssocInfo {
     private InputStream assocConstitution;
     private String assocAbout;
     private String paymentMethod;
+    private String assocMail;
+    private String pass;
     private final  String query="SELECT * FROM assoc_info";
 
     public AssocInfo() {
@@ -38,6 +40,8 @@ public class AssocInfo {
             this.assocAbout =  rs.getString("about");
             this.paymentMethod =  rs.getString("pay_details");
             this.assocName = rs.getString("assoc_name");
+            this.assocMail = rs.getString("email");
+            this.pass=rs.getString("pass");
 
         }
         catch (Exception e) {
@@ -87,6 +91,14 @@ public class AssocInfo {
 
     public String getPaymentMethod() {
         return paymentMethod;
+    }
+
+    public String getAssocMail() {
+        return assocMail;
+    }
+
+    public String getPass() {
+        return pass;
     }
     /**==================================================================**/
 
