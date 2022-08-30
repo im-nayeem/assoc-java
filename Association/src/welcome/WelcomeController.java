@@ -21,6 +21,8 @@ public class WelcomeController {
     private WelcomeModel model;
     private WelcomeHomeView view;
     private RegisteredListModel regModel = new RegisteredListModel();
+    
+    private ExecutiveMember exeMemberInfo;
     public WelcomeController(WelcomeModel model,WelcomeHomeView view)
     {
         this.model = model;
@@ -29,7 +31,7 @@ public class WelcomeController {
         this.view.addVerifyListener(new CustomAction());
         this.view.addRegisteredMemberTable(new CustomAction());
         this.view.addMemberApproveListener(new CustomAction());
-        this.view.addMemberCancelApproveListener(new CustomAction());
+        this.view.addRejectMemberApproveListener(new CustomAction());
         this.view.addExe_memberListener(new CustomAction());
         this.view.addExe_MemberInfoListener(new CustomAction());
         this.view.addExe_MemberInfoCancelListener(new CustomAction());
@@ -48,7 +50,7 @@ public class WelcomeController {
     //---------- for welcomeHomeView-----------//
     public DefaultTableModel getRegisteredTableModel(){
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("name");
+        model.addColumn("Name");
         model.addColumn("Student ID");
         model.addColumn("E-mail");
         ArrayList<String[]> rows = this.regModel.getRegisteredMemberList();
@@ -65,8 +67,8 @@ public class WelcomeController {
 
         @Override
         public void actionPerformed(ActionEvent ae) {
-            // If clicked on verify button add registered list panel
-            if(ae.getSource() == view.getBtnVerify() || ae.getSource()==view.getMemberInfoCancel())
+        //================ If clicked on verify button add registered list panel=================//
+            if(ae.getSource() == view.getBtnVerify())
             {
                 try{
                     view.setRegisteredListPanel(WelcomeController.this.getRegisteredTableModel());
@@ -78,18 +80,18 @@ public class WelcomeController {
                     view.showDialogueMsg(e.toString());
                 }
             }
+        //================admin approve a member=================//
             else if(ae.getSource()==view.getMemberInfoApprove()){
                 regModel.markAsVerified(view.getMember_id().getText(), view.getMember_email().getText(),
                         view.getAlumni().isSelected(), view.getExe_member().isSelected());
                 
-//                store executive member information in DB
+                //=====store executive member information in DB=================//
                 if(view.getExe_member().isSelected()){
-                    String information[] = view.getExe_member_info();
-                    information[0] = view.getMember_id().getText();
-                    information[1] = view.getMember_email().getText();
-                    regModel.exeMemberInfo(information);
+                    exeMemberInfo.setStudentId(view.getMember_id().getText());
+                    exeMemberInfo.setEmail(view.getMember_email().getText());
+                    regModel.exeMemberInfo(exeMemberInfo);
                 }
-//                store alumni information in DB
+                //======store alumni information in DB=================//
                 if(view.getAlumni().isSelected()){
                     regModel.alumniInfo(view.getMember_id().getText(),view.getMember_email().getText());
                 }
@@ -97,18 +99,24 @@ public class WelcomeController {
                 view.addRegisteredList();
                 view.repaint();
             }
-//            if executive member check box marked
+        //================admin reject a member=================//
+            else if(ae.getSource() == view.getRejectMember()){
+                regModel.deleteMemberRow(view.getMember_email().getText());
+                view.setRegisteredListPanel(WelcomeController.this.getRegisteredTableModel());
+                view.addRegisteredList();
+                view.repaint();
+            }
+        //================if executive member check box marked=================//
             else if(ae.getSource() == view.getExe_member()){
                 view.addExeMemberInfoPanel();
                 view.repaint();
             }
-            else if(ae.getSource() == view.getExe_member_info_btn() || ae.getSource()==view.getExe_member_info_Cancel_Btn()){
-                if(ae.getSource() == view.getExe_member_info_btn()){
-                    String information[] = new String[5];
-                    information[2] = view.getExe_member_post_name().getText();
-                    information[3] = view.getExe_member_start_date().getText();
-                    information[4] = view.getExe_member_end_date().getText();
-                    view.setExe_member_info(information);
+        //================executive member info add or cancel=================//
+            else if(ae.getSource() == view.getExeMemberInfoBtn() || ae.getSource()==view.getExeMemberInfoCancelBtn()){
+                if(ae.getSource() == view.getExeMemberInfoBtn()){
+                    exeMemberInfo.setPostName(view.getExeMemberPostName().getText());
+                    exeMemberInfo.setStartDate(view.getExeMemberStartDate().getText());
+                    exeMemberInfo.setEndDate(view.getExeMemberEndDate().getText());
                 }
                 
                 view.addMemberViewPanel();

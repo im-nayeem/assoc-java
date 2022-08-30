@@ -145,7 +145,7 @@ public class AssocInitModel {
                   "CREATE TABLE members(\n" +
                   "    name varchar(30),\n" +
                   "    id int,\n" +
-                  "    email varchar(30) UNIQUE not null,\n" +
+                  "    email varchar(30),\n" +
                   "    pass varchar(30),\n" +
                   "    phone varchar(11),\n" +
                   "    dept varchar(40),\n" +
@@ -162,7 +162,7 @@ public class AssocInitModel {
                   "    permanent_upazila varchar(15),\n" +
                   "    permanent_details varchar(30),\n" +
                   "    tranc_no varchar(15),\n" +
-                  "    PRIMARY KEY(id)  );\n" +
+                  "    PRIMARY KEY(email)  );\n" +
                   "    \n" +
                   "    \n" +
                   "\n" +
@@ -186,6 +186,7 @@ public class AssocInitModel {
                   "CREATE table exec_member(\n" +
                   "    id int not null,\n" +
                   "    email varchar(30) not null,\n" +
+                  "    post_name varchar(30),\n" +
                   "    from_time varchar(10),\n" +
                   "    to_time varchar(10),\n" +
                   "    FOREIGN KEY(id) REFERENCES members(id) on update cascade on delete cascade,\n" +
