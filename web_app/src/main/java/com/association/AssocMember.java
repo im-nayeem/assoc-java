@@ -34,7 +34,6 @@ public class AssocMember {
     private String gender;
     private String blood_group;
     private InputStream photo;
-//    private String photoString;
     private String coActivity;
     private String fathersName;
     private String mothersName;
@@ -58,8 +57,7 @@ public class AssocMember {
             this.name =  rs.getString("name");
             this.id =  rs.getString("id");
             this.email =  rs.getString("email");
-            this.salt = SecurePassword.generateSalt(512).get();
-            this.password = SecurePassword.hashPassword(rs.getString("password"),salt).get();
+            this.salt = rs.getString("salt");
             this.password =  rs.getString("pass");
             this.phone =  rs.getString("phone");
             this.dept =  rs.getString("dept");
@@ -76,6 +74,8 @@ public class AssocMember {
             this.permanentUpazila =  rs.getString("permanent_upazila");
             this.permanentDetails =  rs.getString("permanent_details");
             this.trancNo =  rs.getString("tranc_no");
+
+            conn.close();
         }
         catch (Exception e) {
             throw new RuntimeException(e.toString()+"\nProblem with association information executing query.");
@@ -92,7 +92,8 @@ public class AssocMember {
             this.name = request.getParameter("name");
             this.id = request.getParameter("id");
             this.email = request.getParameter("email");
-            this.password = request.getParameter("password");
+            this.salt = SecurePassword.generateSalt(512).get();
+            this.password = SecurePassword.hashPassword(request.getParameter("password"),salt).get();
             this.phone = request.getParameter("phone");
             this.dept = request.getParameter("department");
             this.session = request.getParameter("session");
@@ -108,6 +109,7 @@ public class AssocMember {
             this.permanentUpazila = request.getParameter("upazila");
             this.permanentDetails = request.getParameter("permanent_details");
             this.trancNo = request.getParameter("transc_no");
+
         }
         catch(Exception e)
         {
@@ -212,6 +214,7 @@ public class AssocMember {
     public String getPassword(){
         return this.password;
     }
+    public String  getSalt(){return  salt;}
     public String getTrancNo() {
         return trancNo;
     }

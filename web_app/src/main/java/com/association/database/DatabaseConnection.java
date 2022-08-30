@@ -58,6 +58,13 @@ public class DatabaseConnection {
         return preparedStatement;
     }
 
+    public void close(){
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     /**
      * =====================================*
      */

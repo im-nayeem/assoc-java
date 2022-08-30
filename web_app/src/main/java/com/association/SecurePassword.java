@@ -8,9 +8,8 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Optional;
-import java.util.Scanner;
 
-class SecurePassword {
+public class SecurePassword {
     private static final int ITERATIONS = 65536;
     private static final int KEY_LENGTH = 512;
     private static final String ALGORITHM = "PBKDF2WithHmacSHA512";
@@ -32,7 +31,7 @@ class SecurePassword {
             throw new RuntimeException(e);
         }
         if (length < 1) {
-            System.err.println("error in generateSalt: length must be > 0");
+//            System.err.println("error in generateSalt: length must be > 0");
             return Optional.empty();
         }
 
@@ -63,7 +62,7 @@ class SecurePassword {
             return Optional.of(Base64.getEncoder().encodeToString(securePassword));
 
         } catch (NoSuchAlgorithmException | InvalidKeySpecException ex) {
-            System.err.println("Exception encountered in hashPassword()");
+//            System.err.println("Exception encountered in hashPassword()");
             return Optional.empty();
 
         }

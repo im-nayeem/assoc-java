@@ -21,10 +21,10 @@
                 <div class="error_message">
                     <c:choose>
                         <c:when test="${requestScope.isRegistrationCompleted==true}">
-                            <div style="color:green;">Your Registration Successfull<br>Login Here</div>
+                            <div style="color:green;">You've resgistered successfully. Wait for admin verification process. You can log-in after getting verification mail.</div>
                         </c:when>
                         <c:when test="${not empty requestScope.login_error}">
-                            <div style="color:green;"><c:out value="${requestScope.login_error}"/></div>
+                            <div style="color:darkred;"><c:out value="${requestScope.login_error}"/></div>
                         </c:when>
                     </c:choose>
                 </div>
