@@ -26,6 +26,7 @@ public class AssocMember {
     private String id;
     private String email;
     private String password;
+    private String salt;
     private String phone;
     private String dept;
     private String session;
@@ -57,6 +58,8 @@ public class AssocMember {
             this.name =  rs.getString("name");
             this.id =  rs.getString("id");
             this.email =  rs.getString("email");
+            this.salt = SecurePassword.generateSalt(512).get();
+            this.password = SecurePassword.hashPassword(rs.getString("password"),salt).get();
             this.password =  rs.getString("pass");
             this.phone =  rs.getString("phone");
             this.dept =  rs.getString("dept");
@@ -65,7 +68,6 @@ public class AssocMember {
             this.gender =  rs.getString("gender");
             this.blood_group =  rs.getString("bg");
             this.photo =  rs.getBinaryStream("photo");
-//            this.photoString = this.inputStreamToString(photo);
             this.coActivity =  rs.getString("co_activity");
             this.fathersName =  rs.getString("fathersname");
             this.mothersName =  rs.getString("mothersname");
@@ -98,7 +100,6 @@ public class AssocMember {
             this.gender = request.getParameter("gender");
             this.blood_group = request.getParameter("blood_group");
             this.photo = request.getPart("photo").getInputStream();
-//            this.photoString = this.inputStreamToString(photo);
             this.coActivity = request.getParameter("co_actvt");
             this.fathersName = request.getParameter("fathers_name");
             this.mothersName = request.getParameter("mothers_name");
@@ -116,12 +117,13 @@ public class AssocMember {
 
     /**
      * Convert InputStream to String
-     * @param is_image InputStream
+     * @param inpStream InputStream
      * @return String
      * @throws IOException
      */
-    public String inputStreamToString(@NotNull InputStream  is_image) throws IOException{
+    public String inputStreamToString(@NotNull final InputStream  inpStream) throws IOException{
 
+        InputStream is_image = inpStream;
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         byte buffer[] = new byte[4096];
         int bytesRead = -1;

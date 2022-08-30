@@ -47,8 +47,9 @@ public class AssocMember {
      * Constructor
      * @param singleResult containing single member info
      */
-    public AssocMember(ResultSet singleResult) throws SQLException
+    public AssocMember(final ResultSet singleResult) throws SQLException
     {
+        
         //use it for RegisteredListModel
         this.setName(singleResult.getString("name"));
         this.setId(singleResult.getString("id"));
