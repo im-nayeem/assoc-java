@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.PreparedStatement;
-import java.util.Collections;
-import java.util.Enumeration;
 
 @WebServlet(name = "verifyMail", value = "/verifyMail")
 public class Verify extends HttpServlet {
@@ -51,25 +49,6 @@ public class Verify extends HttpServlet {
             pstmnt.setString(18,member.getPermanentDetails());
             pstmnt.setString(19,member.getTrancNo());
 
-//            pstmnt.setString(1,request.getParameter("name"));
-//            pstmnt.setString(2,request.getParameter("id"));
-//            pstmnt.setString(3,request.getParameter("email"));
-//            pstmnt.setString(4,request.getParameter("password"));
-//            pstmnt.setString(5,request.getParameter("phone"));
-//            pstmnt.setString(6,request.getParameter("department"));
-//            pstmnt.setString(7,request.getParameter("session"));
-//            pstmnt.setString(8,request.getParameter("batch"));
-//            pstmnt.setString(9,request.getParameter("gender"));
-//            pstmnt.setString(10,request.getParameter("blood_group"));
-//            pstmnt.setBlob(11,request.getPart("photo").getInputStream());
-//            pstmnt.setString(12,request.getParameter("co_actvt"));
-//            pstmnt.setString(13,request.getParameter("fathers_name"));
-//            pstmnt.setString(14,request.getParameter("mothers_name"));
-//            pstmnt.setString(15,request.getParameter("present_area"));
-//            pstmnt.setString(16,request.getParameter("present_details"));
-//            pstmnt.setString(17,request.getParameter("upazila"));
-//            pstmnt.setString(18,request.getParameter("permanent_details"));
-//            pstmnt.setString(19,request.getParameter("transc_no"));
 
 
             pstmnt.execute();
