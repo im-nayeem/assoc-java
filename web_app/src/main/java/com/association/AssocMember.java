@@ -7,6 +7,7 @@ package com.association;
 
 import com.association.database.DatabaseConnection;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,7 +16,11 @@ import java.sql.Statement;
 import java.util.Base64;
 import javax.servlet.http.HttpServletRequest;
 
+import com.google.common.io.ByteStreams;
+import com.sun.xml.internal.fastinfoset.util.CharArrayString;
+import javafx.util.converter.CharacterStringConverter;
 import org.jetbrains.annotations.NotNull;
+import sun.awt.CharsetString;
 
 /**
  * AssocMember the  class containing single member's info
@@ -123,17 +128,24 @@ public class AssocMember {
      * @return String
      * @throws IOException
      */
-    public String inputStreamToString(@NotNull final InputStream  inpStream) throws IOException{
 
-        InputStream is_image = inpStream;
+    public String inputStreamToString(@NotNull InputStream  inpStream) throws IOException{
+
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        byte buffer[] = new byte[4096];
-        int bytesRead = -1;
-        while((bytesRead = is_image.read(buffer))!=-1){
-            outputStream.write(buffer,0,bytesRead);
+
+        byte[] buffer = new byte[8192];
+        int length;
+        while ((length = inpStream.read(buffer)) != -1) {
+            outputStream.write(buffer, 0, length);
         }
+        outputStream.flush();
+        photo = new ByteArrayInputStream(outputStream.toByteArray());
+
         String base64Image = Base64.getEncoder().encodeToString(outputStream.toByteArray());
         return base64Image;
+
+
+
     }
 
     /**====================getter methods=========================*/
