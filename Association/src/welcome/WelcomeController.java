@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,7 +23,9 @@ public class WelcomeController {
     private WelcomeHomeView view;
     private RegisteredListModel regModel = new RegisteredListModel();
     
-    private ExecutiveMember exeMemberInfo;
+    private ExecutiveMember exeMemberInfo = new ExecutiveMember();
+    private List<AssocMember>registeredList ;
+    private int selectedIndexOfRegisteredList;
     public WelcomeController(WelcomeModel model,WelcomeHomeView view)
     {
         this.model = model;
@@ -49,13 +52,19 @@ public class WelcomeController {
     
     //---------- for welcomeHomeView-----------//
     public DefaultTableModel getRegisteredTableModel(){
+        view.getAlumni().setSelected(false);
+        view.getExeMemberCheckBox().setSelected(false);
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Name");
         model.addColumn("Student ID");
         model.addColumn("E-mail");
-        ArrayList<String[]> rows = this.regModel.getRegisteredMemberList();
-        for(String[] row:rows){
-            model.addRow(row);
+        
+        if(registeredList==null || registeredList.size()==0){
+            registeredList = this.regModel.getRegisteredMemberListFromDB();
+        }
+        for(AssocMember row:registeredList){
+            String basicInfo[] = {row.getName(),row.getId(),row.getEmail()};
+            model.addRow(basicInfo);
         }
         return model;
     }
@@ -82,43 +91,79 @@ public class WelcomeController {
             }
         //================admin approve a member=================//
             else if(ae.getSource()==view.getMemberInfoApprove()){
-                regModel.markAsVerified(view.getMember_id().getText(), view.getMember_email().getText(),
-                        view.getAlumni().isSelected(), view.getExe_member().isSelected());
-                
-                //=====store executive member information in DB=================//
-                if(view.getExe_member().isSelected()){
-                    exeMemberInfo.setStudentId(view.getMember_id().getText());
-                    exeMemberInfo.setEmail(view.getMember_email().getText());
-                    regModel.exeMemberInfo(exeMemberInfo);
+                try {
+                    new AssocMember().markAsVerified(view.getMemberId().getText(), view.getMemberEmail().getText(),
+                    view.getAlumni().isSelected(), view.getExeMemberCheckBox().isSelected());
+
+                    //=====store executive member information in DB=================//
+                    if(view.getExeMemberCheckBox().isSelected()){
+                        try{
+                            exeMemberInfo.setStudentId(view.getMemberId().getText());
+                            exeMemberInfo.setEmail(view.getMemberEmail().getText());
+                            exeMemberInfo.storeExeMemberInfo(exeMemberInfo);
+                        }
+                        catch(Exception e){
+                            view.showDialogueMsg("Executive member can not be empty");
+                            return;
+                        }
+                    }
+                    //======store alumni information in DB=================//
+                    if(view.getAlumni().isSelected()){
+                        new AssocMember().storeAlumniInfo(view.getMemberId().getText(),view.getMemberEmail().getText());
+                    }
+//                    approved row remove from registeredList
+                    WelcomeController.this.registeredList.remove(selectedIndexOfRegisteredList);
+                    view.setRegisteredListPanel(WelcomeController.this.getRegisteredTableModel());
+                    view.addRegisteredList();
+                    view.repaint();
+                } catch (Exception e) {
+                    view.showDialogueMsg(e.toString());
                 }
-                //======store alumni information in DB=================//
-                if(view.getAlumni().isSelected()){
-                    regModel.alumniInfo(view.getMember_id().getText(),view.getMember_email().getText());
-                }
-                view.setRegisteredListPanel(WelcomeController.this.getRegisteredTableModel());
-                view.addRegisteredList();
-                view.repaint();
             }
         //================admin reject a member=================//
             else if(ae.getSource() == view.getRejectMember()){
-                regModel.deleteMemberRow(view.getMember_email().getText());
-                view.setRegisteredListPanel(WelcomeController.this.getRegisteredTableModel());
-                view.addRegisteredList();
-                view.repaint();
+                try {
+                    new AssocMember().deleteMemberRow(view.getMemberEmail().getText());
+                    
+//                    rejected row remove from registeredList
+                    WelcomeController.this.registeredList.remove(selectedIndexOfRegisteredList);
+                    view.setRegisteredListPanel(WelcomeController.this.getRegisteredTableModel());
+                    view.addRegisteredList();
+                    view.repaint();
+                } catch (Exception e) {
+                    view.showDialogueMsg(e.toString());
+                }
             }
         //================if executive member check box marked=================//
-            else if(ae.getSource() == view.getExe_member()){
+            else if(ae.getSource() == view.getExeMemberCheckBox()){
                 view.addExeMemberInfoPanel();
                 view.repaint();
             }
         //================executive member info add or cancel=================//
             else if(ae.getSource() == view.getExeMemberInfoBtn() || ae.getSource()==view.getExeMemberInfoCancelBtn()){
                 if(ae.getSource() == view.getExeMemberInfoBtn()){
-                    exeMemberInfo.setPostName(view.getExeMemberPostName().getText());
-                    exeMemberInfo.setStartDate(view.getExeMemberStartDate().getText());
-                    exeMemberInfo.setEndDate(view.getExeMemberEndDate().getText());
+                    String postName = view.getExeMemberPostName().getText();
+                    String startDate = view.getExeMemberStartDate().getText();
+                    String endDate = view.getExeMemberEndDate().getText();
+                    if(postName==null || postName.length()==0 || startDate==null || startDate.length()==0 || endDate==null || endDate.length()==0){
+                        view.showDialogueMsg("Please fill out all fields or cancel");
+                        return;
+                    }
+                    try{
+                        exeMemberInfo.setPostName(postName);
+                        exeMemberInfo.setStartDate(startDate);
+                        exeMemberInfo.setEndDate(endDate);
+                    }
+                    catch(Exception e){
+                        view.showDialogueMsg(e.getMessage());
+                        view.addExeMemberInfoPanel();
+                        view.repaint();
+                        return;
+                    }
                 }
-                
+                else{
+                    view.getExeMemberCheckBox().setSelected(false);
+                }
                 view.addMemberViewPanel();
                 view.repaint();
             }
@@ -126,14 +171,33 @@ public class WelcomeController {
 
         @Override
         public void mouseClicked(MouseEvent me) {
-            if(me.getSource()==view.getRegisteredMemberTable()){
-                JTable target = (JTable) me.getSource();
-                String email = target.getModel().getValueAt(target.getSelectedRow(), 2).toString();
-                AssocMember member = WelcomeController.this.regModel.getAssocMemberInfo(email);
-                view.setMemberViewPanel(member);
-                view.addMemberViewPanel();
-                view.repaint();
-            }
+            try {
+                    JTable target = (JTable) me.getSource();
+                    DefaultTableModel tableModel = (DefaultTableModel) target.getModel();
+                    String email = tableModel.getValueAt(target.getSelectedRow(), 2).toString();
+                    AssocMember member = new AssocMember();
+                    
+//                    get all information of a member using email
+//                    linear search
+                    for(int i=0; i<WelcomeController.this.registeredList.size(); i++){
+                        if(WelcomeController.this.registeredList.get(i).getEmail().equals(email)){
+                            selectedIndexOfRegisteredList = i;
+                            break;
+                        }   
+                    }
+                    member = WelcomeController.this.registeredList.get(selectedIndexOfRegisteredList);
+                    if(member.getPhotoByte()==null){
+                        view.showDialogueMsg("error "+member.getName());
+                    }
+                    else{
+                        view.setMemberViewPanel(member);
+                        view.addMemberViewPanel();
+                        view.repaint();
+                    }
+                    
+                } catch (Exception e) {
+                    view.showDialogueMsg("mouse click "+e.toString());
+                }
         }
 
         @Override

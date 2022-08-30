@@ -64,8 +64,10 @@ public class Association {
     public static void main(String[] args) {
               
         //start the application
-        init();
+//        init();
         openWelcomeWindow();
+
+        
 
         
     }

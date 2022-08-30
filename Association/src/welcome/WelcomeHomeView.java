@@ -51,7 +51,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         sidebarPanel = new javax.swing.JPanel();
         creditPanel = new javax.swing.JPanel();
         mainContentPanel = new javax.swing.JPanel();
-        exe_memberInfo = new javax.swing.JPanel();
+        exeMemberInfo = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -83,36 +83,36 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        member_name = new javax.swing.JLabel();
-        member_email = new javax.swing.JLabel();
-        member_batch = new javax.swing.JLabel();
-        member_mother_name = new javax.swing.JLabel();
-        member_id = new javax.swing.JLabel();
-        member_session = new javax.swing.JLabel();
-        member_blood_group = new javax.swing.JLabel();
-        member_father_name = new javax.swing.JLabel();
-        member_phone = new javax.swing.JLabel();
-        member_gender = new javax.swing.JLabel();
-        member_department = new javax.swing.JLabel();
+        memberName = new javax.swing.JLabel();
+        memberEmail = new javax.swing.JLabel();
+        memberBatch = new javax.swing.JLabel();
+        memberMothersName = new javax.swing.JLabel();
+        memberID = new javax.swing.JLabel();
+        memberSession = new javax.swing.JLabel();
+        memberBloodGroup = new javax.swing.JLabel();
+        memberFathersName = new javax.swing.JLabel();
+        memberPhone = new javax.swing.JLabel();
+        memberGender = new javax.swing.JLabel();
+        memberDepartment = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        member_tranc_no = new javax.swing.JLabel();
+        memberTrancNo = new javax.swing.JLabel();
         memberInfoFooterPanel = new javax.swing.JPanel();
         rejectMember = new javax.swing.JButton();
         memberInfoApprove = new javax.swing.JButton();
         memberInfoPanel_2 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        member_present_address = new javax.swing.JTextArea();
+        memberPresentAddress = new javax.swing.JTextArea();
         jLabel26 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        member_permanent_address = new javax.swing.JTextArea();
+        memberPermanentAddress = new javax.swing.JTextArea();
         jLabel30 = new javax.swing.JLabel();
-        member_photo = new javax.swing.JLabel();
+        memberPhoto = new javax.swing.JLabel();
         co_activy = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        member_co_activity = new javax.swing.JTextArea();
+        memberCoActivity = new javax.swing.JTextArea();
         alumni = new javax.swing.JCheckBox();
-        exe_member = new javax.swing.JCheckBox();
+        exeMember = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(80, 0));
@@ -313,24 +313,24 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                 .addContainerGap(63, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout exe_memberInfoLayout = new javax.swing.GroupLayout(exe_memberInfo);
-        exe_memberInfo.setLayout(exe_memberInfoLayout);
-        exe_memberInfoLayout.setHorizontalGroup(
-            exe_memberInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(exe_memberInfoLayout.createSequentialGroup()
+        javax.swing.GroupLayout exeMemberInfoLayout = new javax.swing.GroupLayout(exeMemberInfo);
+        exeMemberInfo.setLayout(exeMemberInfoLayout);
+        exeMemberInfoLayout.setHorizontalGroup(
+            exeMemberInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(exeMemberInfoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(exe_memberInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(exe_memberInfoLayout.createSequentialGroup()
+                .addGroup(exeMemberInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(exeMemberInfoLayout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(167, 167, 167))
-                    .addGroup(exe_memberInfoLayout.createSequentialGroup()
+                    .addGroup(exeMemberInfoLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
-        exe_memberInfoLayout.setVerticalGroup(
-            exe_memberInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(exe_memberInfoLayout.createSequentialGroup()
+        exeMemberInfoLayout.setVerticalGroup(
+            exeMemberInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(exeMemberInfoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -450,52 +450,52 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel12.setText("Blood Group");
 
-        member_name.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        member_name.setText("Student Name");
-        member_name.setText("dynamic hobe");
-        member_name.addInputMethodListener(new java.awt.event.InputMethodListener() {
+        memberName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberName.setText("Student Name");
+        memberName.setText("dynamic hobe");
+        memberName.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                member_nameInputMethodTextChanged(evt);
+                memberNameInputMethodTextChanged(evt);
             }
         });
 
-        member_email.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        member_email.setText("Email");
+        memberEmail.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberEmail.setText("Email");
 
-        member_batch.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        member_batch.setText("Batch");
+        memberBatch.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberBatch.setText("Batch");
 
-        member_mother_name.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        member_mother_name.setText("Mother's Name");
+        memberMothersName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberMothersName.setText("Mother's Name");
 
-        member_id.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        member_id.setText("Student ID");
+        memberID.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberID.setText("Student ID");
 
-        member_session.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        member_session.setText("Session");
+        memberSession.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberSession.setText("Session");
 
-        member_blood_group.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        member_blood_group.setText("Blood Group");
+        memberBloodGroup.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberBloodGroup.setText("Blood Group");
 
-        member_father_name.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        member_father_name.setText("Father's Name");
+        memberFathersName.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberFathersName.setText("Father's Name");
 
-        member_phone.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        member_phone.setText("Phone");
+        memberPhone.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberPhone.setText("Phone");
 
-        member_gender.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        member_gender.setText("Gender");
+        memberGender.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberGender.setText("Gender");
 
-        member_department.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        member_department.setText("Department");
+        memberDepartment.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberDepartment.setText("Department");
 
         jLabel27.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel27.setText("Transaction Number");
 
-        member_tranc_no.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        member_tranc_no.setText("01700000000");
+        memberTrancNo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberTrancNo.setText("01700000000");
 
         javax.swing.GroupLayout memberInfoPanel_1Layout = new javax.swing.GroupLayout(memberInfoPanel_1);
         memberInfoPanel_1.setLayout(memberInfoPanel_1Layout);
@@ -542,18 +542,18 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                         .addComponent(jLabel27)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(member_father_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(member_blood_group, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(member_gender, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(member_batch, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(member_session, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(member_department, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(member_phone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(member_name, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(member_id, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(member_email, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(member_tranc_no, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(member_mother_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(memberFathersName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(memberBloodGroup, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(memberGender, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(memberBatch, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(memberSession, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(memberDepartment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(memberPhone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(memberName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(memberID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(memberEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(memberTrancNo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(memberMothersName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         memberInfoPanel_1Layout.setVerticalGroup(
@@ -562,29 +562,29 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addGroup(memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
-                        .addComponent(member_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(memberName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(member_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(memberID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(member_email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(memberEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(member_phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(memberPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(member_department, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(memberDepartment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(member_session, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(memberSession, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(member_batch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(memberBatch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(member_gender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(memberGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(member_blood_group, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(memberBloodGroup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(member_tranc_no, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(memberTrancNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(member_father_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(memberFathersName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(member_mother_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(memberMothersName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -643,37 +643,37 @@ public class WelcomeHomeView extends javax.swing.JFrame {
 
         jLabel25.setText("Present Address");
 
-        member_present_address.setEditable(false);
-        member_present_address.setColumns(20);
-        member_present_address.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        member_present_address.setRows(5);
-        member_present_address.setEnabled(false);
-        jScrollPane1.setViewportView(member_present_address);
+        memberPresentAddress.setEditable(false);
+        memberPresentAddress.setColumns(20);
+        memberPresentAddress.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        memberPresentAddress.setRows(5);
+        memberPresentAddress.setEnabled(false);
+        jScrollPane1.setViewportView(memberPresentAddress);
 
         jLabel26.setText("Permanent Address");
 
-        member_permanent_address.setColumns(20);
-        member_permanent_address.setRows(5);
-        member_permanent_address.setEnabled(false);
-        jScrollPane2.setViewportView(member_permanent_address);
+        memberPermanentAddress.setColumns(20);
+        memberPermanentAddress.setRows(5);
+        memberPermanentAddress.setEnabled(false);
+        jScrollPane2.setViewportView(memberPermanentAddress);
 
         jLabel30.setText("Photo");
 
-        member_photo.setBackground(new java.awt.Color(185, 183, 181));
+        memberPhoto.setBackground(new java.awt.Color(185, 183, 181));
 
         co_activy.setText("Co-activity");
 
-        member_co_activity.setColumns(20);
-        member_co_activity.setRows(5);
-        member_co_activity.setEditable(false);
-        jScrollPane3.setViewportView(member_co_activity);
+        memberCoActivity.setColumns(20);
+        memberCoActivity.setRows(5);
+        memberCoActivity.setEditable(false);
+        jScrollPane3.setViewportView(memberCoActivity);
 
         alumni.setText("Alumni");
 
-        exe_member.setText("Executive Member");
-        exe_member.addActionListener(new java.awt.event.ActionListener() {
+        exeMember.setText("Executive Member");
+        exeMember.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exe_memberActionPerformed(evt);
+                exeMemberActionPerformed(evt);
             }
         });
 
@@ -706,10 +706,10 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                         .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3)
                             .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
-                                .addComponent(member_photo, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(memberPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(65, 65, 65)
                                 .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(exe_member, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(exeMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(alumni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addContainerGap())))
         );
@@ -736,7 +736,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                     .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(member_photo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(memberPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addComponent(jLabel30)))
@@ -745,7 +745,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addComponent(alumni)
                         .addGap(38, 38, 38)
-                        .addComponent(exe_member)
+                        .addComponent(exeMember)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -783,7 +783,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                 .addComponent(memberViewPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1400, Short.MAX_VALUE))
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(mainContentPanelLayout.createSequentialGroup()
-                    .addComponent(exe_memberInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(exeMemberInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         mainContentPanelLayout.setVerticalGroup(
@@ -795,7 +795,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                 .addComponent(memberViewPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE))
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(mainContentPanelLayout.createSequentialGroup()
-                    .addComponent(exe_memberInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(exeMemberInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -822,14 +822,14 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void member_nameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_member_nameInputMethodTextChanged
+    private void memberNameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_memberNameInputMethodTextChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_member_nameInputMethodTextChanged
+    }//GEN-LAST:event_memberNameInputMethodTextChanged
 
-    private void exe_memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exe_memberActionPerformed
+    private void exeMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exeMemberActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_exe_memberActionPerformed
+    }//GEN-LAST:event_exeMemberActionPerformed
  //====Don't Modify==========//
   
     
@@ -850,7 +850,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
     }
     
     public void addExe_memberListener(ActionListener ae){
-        this.exe_member.addActionListener(ae);
+        this.exeMember.addActionListener(ae);
     }
     
     public void addExe_MemberInfoListener(ActionListener ae){
@@ -886,7 +886,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
    
    public void addExeMemberInfoPanel(){
        mainContentPanel.removeAll();
-       mainContentPanel.add(this.exe_memberInfo);
+       mainContentPanel.add(this.exeMemberInfo);
    }
    
    
@@ -894,22 +894,22 @@ public class WelcomeHomeView extends javax.swing.JFrame {
 //=========================================================//
 
     public void setMemberViewPanel(AssocMember memberInfo) {
-        member_name.setText(memberInfo.getName());
-        member_id.setText(memberInfo.getId());
-        member_email.setText(memberInfo.getEmail());
-        member_phone.setText(memberInfo.getPhone());
-        member_department.setText(memberInfo.getDept());
-        member_session.setText(memberInfo.getSession());
-        member_batch.setText(memberInfo.getBatch());
-        member_gender.setText(memberInfo.getGender());
-        member_blood_group.setText(memberInfo.getBg());
-        member_tranc_no.setText(memberInfo.getTranc_no());
-        member_father_name.setText(memberInfo.getFathersname());
-        member_mother_name.setText(memberInfo.getMothersname());
-        member_present_address.setText(memberInfo.getPresent_details());
-        member_permanent_address.setText(memberInfo.getPermanent_details());
-        member_co_activity.setText(memberInfo.getCo_activity());
-        member_photo.setIcon(memberInfo.getPhoto(memberInfo.getPhotoByte()));
+        memberName.setText(memberInfo.getName());
+        memberID.setText(memberInfo.getId());
+        memberEmail.setText(memberInfo.getEmail());
+        memberPhone.setText(memberInfo.getPhone());
+        memberDepartment.setText(memberInfo.getDept());
+        memberSession.setText(memberInfo.getSession());
+        memberBatch.setText(memberInfo.getBatch());
+        memberGender.setText(memberInfo.getGender());
+        memberBloodGroup.setText(memberInfo.getBg());
+        memberTrancNo.setText(memberInfo.getTranc_no());
+        memberFathersName.setText(memberInfo.getFathersname());
+        memberMothersName.setText(memberInfo.getMothersname());
+        memberPresentAddress.setText(memberInfo.getPresent_details());
+        memberPermanentAddress.setText(memberInfo.getPermanent_details());
+        memberCoActivity.setText(memberInfo.getCo_activity());
+        memberPhoto.setIcon(memberInfo.getPhoto(memberInfo.getPhotoByte()));
     }
 
     public void setRegisteredListPanel(DefaultTableModel registeredTableModel) {
@@ -953,17 +953,17 @@ public class WelcomeHomeView extends javax.swing.JFrame {
     }
     
     
-    public JCheckBox getExe_member() {
-        return exe_member;
+    public JCheckBox getExeMemberCheckBox() {
+        return exeMember;
     }    
     
     //label
-    public JLabel getMember_email() {
-        return member_email;
+    public JLabel getMemberEmail() {
+        return memberEmail;
     }
       
-    public JLabel getMember_id() {
-        return member_id;
+    public JLabel getMemberId() {
+        return memberID;
     }
     
     
@@ -999,13 +999,13 @@ public class WelcomeHomeView extends javax.swing.JFrame {
     private javax.swing.JButton btnVerify;
     private javax.swing.JLabel co_activy;
     private javax.swing.JPanel creditPanel;
+    private javax.swing.JCheckBox exeMember;
     private javax.swing.JTextField exeMemberEndDate;
+    private javax.swing.JPanel exeMemberInfo;
     private javax.swing.JButton exeMemberInfoBtn;
     private javax.swing.JButton exeMemberInfoCancelBtn;
     private javax.swing.JTextField exeMemberPostName;
     private javax.swing.JTextField exeMemberStartDate;
-    private javax.swing.JCheckBox exe_member;
-    private javax.swing.JPanel exe_memberInfo;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1039,29 +1039,29 @@ public class WelcomeHomeView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JPanel mainContentPanel;
+    private javax.swing.JLabel memberBatch;
+    private javax.swing.JLabel memberBloodGroup;
+    private javax.swing.JTextArea memberCoActivity;
+    private javax.swing.JLabel memberDepartment;
+    private javax.swing.JLabel memberEmail;
+    private javax.swing.JLabel memberFathersName;
+    private javax.swing.JLabel memberGender;
+    private javax.swing.JLabel memberID;
     private javax.swing.JButton memberInfoApprove;
     private javax.swing.JPanel memberInfoFooterPanel;
     private javax.swing.JLabel memberInfoHeader;
     private javax.swing.JPanel memberInfoHeaderPanel;
     private javax.swing.JPanel memberInfoPanel_1;
     private javax.swing.JPanel memberInfoPanel_2;
+    private javax.swing.JLabel memberMothersName;
+    private javax.swing.JLabel memberName;
+    private javax.swing.JTextArea memberPermanentAddress;
+    private javax.swing.JLabel memberPhone;
+    private javax.swing.JLabel memberPhoto;
+    private javax.swing.JTextArea memberPresentAddress;
+    private javax.swing.JLabel memberSession;
+    private javax.swing.JLabel memberTrancNo;
     private javax.swing.JPanel memberViewPanel;
-    private javax.swing.JLabel member_batch;
-    private javax.swing.JLabel member_blood_group;
-    private javax.swing.JTextArea member_co_activity;
-    private javax.swing.JLabel member_department;
-    private javax.swing.JLabel member_email;
-    private javax.swing.JLabel member_father_name;
-    private javax.swing.JLabel member_gender;
-    private javax.swing.JLabel member_id;
-    private javax.swing.JLabel member_mother_name;
-    private javax.swing.JLabel member_name;
-    private javax.swing.JTextArea member_permanent_address;
-    private javax.swing.JLabel member_phone;
-    private javax.swing.JLabel member_photo;
-    private javax.swing.JTextArea member_present_address;
-    private javax.swing.JLabel member_session;
-    private javax.swing.JLabel member_tranc_no;
     private javax.swing.JPanel registeredListPanel;
     private javax.swing.JTable registeredMemberTable;
     private javax.swing.JButton rejectMember;
