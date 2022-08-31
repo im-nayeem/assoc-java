@@ -19,6 +19,7 @@ import java.sql.ResultSet;
 public class Registration extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getSession().setAttribute("title","Registration");
         request.getRequestDispatcher("registration.jsp").forward(request,response);
 
     }

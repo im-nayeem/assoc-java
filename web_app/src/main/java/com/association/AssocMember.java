@@ -128,25 +128,37 @@ public class AssocMember {
      * @return String
      * @throws IOException
      */
+    public  String inputStreamToString(@NotNull InputStream inpStream)
+    {
 
-    public String inputStreamToString(@NotNull InputStream  inpStream) throws IOException{
+        try{
 
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
-        byte[] buffer = new byte[8192];
-        int length;
-        while ((length = inpStream.read(buffer)) != -1) {
-            outputStream.write(buffer, 0, length);
+            byte[] buffer = new byte[8192];
+            int length;
+            while ((length = inpStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, length);
+            }
+            outputStream.flush();
+
+            photo = new ByteArrayInputStream(outputStream.toByteArray());
+
+            String base64Image = Base64.getEncoder().encodeToString(outputStream.toByteArray());
+            return base64Image;
+
+
+
         }
-        outputStream.flush();
-        photo = new ByteArrayInputStream(outputStream.toByteArray());
-
-        String base64Image = Base64.getEncoder().encodeToString(outputStream.toByteArray());
-        return base64Image;
+        catch(Exception e)
+        {
+            throw  new RuntimeException(e.getMessage());
+        }
 
 
 
     }
+
 
     /**====================getter methods=========================*/
     public String getName() {
@@ -189,11 +201,8 @@ public class AssocMember {
         return photo;
     }
     public String getPhotoString() {
-        try {
-            return inputStreamToString(photo);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        return inputStreamToString(photo);
+
     }
     public void another(){}
     
