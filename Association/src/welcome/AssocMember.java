@@ -60,7 +60,7 @@ public class AssocMember {
         this.setGender(singleResult.getString("gender"));
         this.setBg(singleResult.getString("bg"));
         this.setPhotoByte(singleResult.getBytes("photo"));
-        this.setCoActivity(singleResult.getString("co_ctivity"));
+        this.setCoActivity(singleResult.getString("co_activity"));
         this.setFathersname(singleResult.getString("fathersname"));
         this.setMothersname(singleResult.getString("mothersname"));
         this.setPresentArea(singleResult.getString("present_area"));

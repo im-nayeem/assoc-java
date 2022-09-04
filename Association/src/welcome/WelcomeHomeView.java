@@ -5,9 +5,9 @@
  */
 package welcome;
 
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseListener;
@@ -273,7 +273,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(389, 389, 389)
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
                 .addGap(333, 333, 333))
         );
         jPanel1Layout.setVerticalGroup(
@@ -301,7 +301,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                 .addComponent(exeMemberInfoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(exeMemberInfoCancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(418, 418, 418))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,24 +320,19 @@ public class WelcomeHomeView extends javax.swing.JFrame {
             .addGroup(exeMemberInfoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(exeMemberInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(exeMemberInfoLayout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(167, 167, 167))
-                    .addGroup(exeMemberInfoLayout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(exeMemberInfoLayout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 67, Short.MAX_VALUE))))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(72, 72, 72))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         exeMemberInfoLayout.setVerticalGroup(
             exeMemberInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(exeMemberInfoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -393,7 +388,8 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 687, Short.MAX_VALUE))
         );
 
-        memberViewPanel.setPreferredSize(this.memberViewPanel.getSize());
+        memberViewPanel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberViewPanel.setPreferredSize(this.mainContentPanel.getSize());
 
         memberInfoHeaderPanel.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -457,10 +453,10 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         memberName.setText("Student Name");
         memberName.setText("dynamic hobe");
         memberName.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 memberNameInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
 
@@ -509,7 +505,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                 .addGroup(memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
                         .addGroup(memberInfoPanel_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
                             .addGroup(memberInfoPanel_1Layout.createSequentialGroup()
                                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(6, 6, 6))
@@ -556,7 +552,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                     .addComponent(memberID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(memberEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(memberTrancNo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(memberMothersName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(memberMothersName, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
                 .addContainerGap())
         );
         memberInfoPanel_1Layout.setVerticalGroup(
@@ -635,11 +631,11 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         memberInfoFooterPanelLayout.setVerticalGroup(
             memberInfoFooterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, memberInfoFooterPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(memberInfoFooterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(memberInfoApprove)
                     .addComponent(rejectMember))
-                .addGap(91, 91, 91))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         memberInfoPanel_2.setBackground(new java.awt.Color(108, 154, 165));
@@ -647,22 +643,28 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         jLabel25.setText("Present Address");
 
         memberPresentAddress.setEditable(false);
+        memberPresentAddress.setBackground(new java.awt.Color(204, 204, 204));
         memberPresentAddress.setColumns(20);
-        memberPresentAddress.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        memberPresentAddress.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberPresentAddress.setLineWrap(true);
         memberPresentAddress.setRows(5);
         memberPresentAddress.setEnabled(false);
         jScrollPane1.setViewportView(memberPresentAddress);
 
         jLabel26.setText("Permanent Address");
 
+        memberPermanentAddress.setEditable(false);
+        memberPermanentAddress.setBackground(new java.awt.Color(204, 204, 204));
         memberPermanentAddress.setColumns(20);
+        memberPermanentAddress.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        memberPermanentAddress.setLineWrap(true);
         memberPermanentAddress.setRows(5);
         memberPermanentAddress.setEnabled(false);
         jScrollPane2.setViewportView(memberPermanentAddress);
 
         jLabel30.setText("Photo");
 
-        memberPhoto.setBackground(new java.awt.Color(185, 183, 181));
+        memberPhoto.setBackground(new java.awt.Color(0, 102, 102));
 
         co_activy.setText("Co-activity");
 
@@ -688,33 +690,29 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
-                        .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, memberInfoPanel_2Layout.createSequentialGroup()
-                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
-                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(130, 130, 130))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, memberInfoPanel_2Layout.createSequentialGroup()
-                                .addComponent(jScrollPane2)
-                                .addContainerGap())))
+                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE))
+                        .addGap(13, 13, 13)
+                        .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)))
                     .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
                         .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(co_activy, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel30))
+                            .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(jLabel30)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3)
                             .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
-                                .addComponent(memberPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(65, 65, 65)
+                                .addComponent(memberPhoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(exeMember, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(alumni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addContainerGap())))
+                                    .addComponent(alumni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addGap(14, 14, 14))
         );
         memberInfoPanel_2Layout.setVerticalGroup(
             memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -726,10 +724,11 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2))
                     .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
                         .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
                 .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
@@ -737,19 +736,21 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                         .addComponent(co_activy, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(memberInfoPanel_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(memberPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addComponent(jLabel30)))
-                        .addContainerGap())
-                    .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(alumni)
-                        .addGap(38, 38, 38)
-                        .addComponent(exeMember)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(alumni)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(exeMember))
+                            .addGroup(memberInfoPanel_2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel30)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, memberInfoPanel_2Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(memberPhoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout memberViewPanelLayout = new javax.swing.GroupLayout(memberViewPanel);
@@ -759,7 +760,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
             .addComponent(memberInfoHeaderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(memberInfoFooterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(memberViewPanelLayout.createSequentialGroup()
-                .addComponent(memberInfoPanel_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(memberInfoPanel_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(memberInfoPanel_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -768,11 +769,11 @@ public class WelcomeHomeView extends javax.swing.JFrame {
             .addGroup(memberViewPanelLayout.createSequentialGroup()
                 .addComponent(memberInfoHeaderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addGroup(memberViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(memberViewPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(memberInfoPanel_1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(memberInfoPanel_2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(5, 5, 5)
-                .addComponent(memberInfoFooterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(memberInfoFooterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout mainContentPanelLayout = new javax.swing.GroupLayout(mainContentPanel);
@@ -783,7 +784,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(welcomePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(memberViewPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1418, Short.MAX_VALUE))
+                .addComponent(memberViewPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1433, Short.MAX_VALUE))
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(mainContentPanelLayout.createSequentialGroup()
                     .addComponent(exeMemberInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -795,7 +796,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(welcomePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(memberViewPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE))
+                .addComponent(memberViewPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE))
             .addGroup(mainContentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(mainContentPanelLayout.createSequentialGroup()
                     .addComponent(exeMemberInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -910,6 +911,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         memberFathersName.setText(memberInfo.getFathersname());
         memberMothersName.setText(memberInfo.getMothersname());
         memberPresentAddress.setText(memberInfo.getPresentDetails());
+        memberPresentAddress.setBackground(Color.BLACK);
         memberPermanentAddress.setText(memberInfo.getPermanentDetails());
         memberCoActivity.setText(memberInfo.getCoActivity());
         memberPhoto.setIcon(memberInfo.getPhoto(memberInfo.getPhotoByte()));
