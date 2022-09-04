@@ -67,7 +67,9 @@ public class ExecutiveMember {
     }
 //--------------------------------------------//
     
+
 //===============database connection========================//
+
     public String storeExeMemberInfo(ExecutiveMember exeMemberInfo){ //assocmember
         String query = "INSERT INTO exec_member VALUES(?,?,?,?,?);";
         try {

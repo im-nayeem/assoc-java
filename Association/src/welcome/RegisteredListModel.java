@@ -59,7 +59,5 @@ public class RegisteredListModel {
         }
         return registeredList;
     }
-    
-    
 //----------------------------------------------------------------------------//
 }
