@@ -49,7 +49,6 @@ public class AssocMember {
      */
     public AssocMember(final ResultSet singleResult) throws SQLException
     {
-        
         //use it for RegisteredListModel
         this.setName(singleResult.getString("name"));
         this.setId(singleResult.getString("id"));
@@ -289,7 +288,5 @@ public class AssocMember {
         }
         return "done";
     }
-
-
     //--------------------------------------------------------------------------------//
 }
