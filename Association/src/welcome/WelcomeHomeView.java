@@ -327,7 +327,7 @@ public class WelcomeHomeView extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(exe_memberInfoLayout.createSequentialGroup()
+                    .addGroup(exeMemberInfoLayout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 67, Short.MAX_VALUE))))
         );
@@ -852,15 +852,15 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         this.registeredMemberTable.addMouseListener(me);
     }
     
-    public void addExe_memberListener(ActionListener ae){
+    public void addExeMemberListener(ActionListener ae){
         this.exeMember.addActionListener(ae);
     }
     
-    public void addExe_MemberInfoListener(ActionListener ae){
+    public void addExeMemberInfoListener(ActionListener ae){
         this.exeMemberInfoBtn.addActionListener(ae);
     }
     
-    public void addExe_MemberInfoCancelListener(ActionListener ae){
+    public void addExeMemberInfoCancelListener(ActionListener ae){
         this.exeMemberInfoCancelBtn.addActionListener(ae);
     }
     
@@ -906,12 +906,12 @@ public class WelcomeHomeView extends javax.swing.JFrame {
         memberBatch.setText(memberInfo.getBatch());
         memberGender.setText(memberInfo.getGender());
         memberBloodGroup.setText(memberInfo.getBg());
-        memberTrancNo.setText(memberInfo.getTranc_no());
+        memberTrancNo.setText(memberInfo.getTrancNo());
         memberFathersName.setText(memberInfo.getFathersname());
         memberMothersName.setText(memberInfo.getMothersname());
-        memberPresentAddress.setText(memberInfo.getPresent_details());
-        memberPermanentAddress.setText(memberInfo.getPermanent_details());
-        memberCoActivity.setText(memberInfo.getCo_activity());
+        memberPresentAddress.setText(memberInfo.getPresentDetails());
+        memberPermanentAddress.setText(memberInfo.getPermanentDetails());
+        memberCoActivity.setText(memberInfo.getCoActivity());
         memberPhoto.setIcon(memberInfo.getPhoto(memberInfo.getPhotoByte()));
     }
 

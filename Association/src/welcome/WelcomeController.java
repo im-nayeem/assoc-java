@@ -35,9 +35,9 @@ public class WelcomeController {
         this.view.addRegisteredMemberTable(new CustomAction());
         this.view.addMemberApproveListener(new CustomAction());
         this.view.addRejectMemberApproveListener(new CustomAction());
-        this.view.addExe_memberListener(new CustomAction());
-        this.view.addExe_MemberInfoListener(new CustomAction());
-        this.view.addExe_MemberInfoCancelListener(new CustomAction());
+        this.view.addExeMemberListener(new CustomAction());
+        this.view.addExeMemberInfoListener(new CustomAction());
+        this.view.addExeMemberInfoCancelListener(new CustomAction());
     }
     
     public void start(){
@@ -177,7 +177,7 @@ public class WelcomeController {
                     DefaultTableModel tableModel = (DefaultTableModel) target.getModel();
                     String email = tableModel.getValueAt(target.getSelectedRow(), 2).toString();
                     AssocMember member = new AssocMember();
-                    
+
 //                    get all information of a member using email
 //                    linear search
                     for(int i=0; i<WelcomeController.this.registeredList.size(); i++){
@@ -195,10 +195,11 @@ public class WelcomeController {
                         view.addMemberViewPanel();
                         view.repaint();
                     }
-                    
+
                 } catch (Exception e) {
                     view.showDialogueMsg("mouse click "+e.toString());
                 }
+            }
         }
 
         @Override
