@@ -21,8 +21,9 @@
                 <h3>Register</h3>
                 <br>
                 <div class="error_message">
-                    <c:if test="${requestScope.isNotValidEmail==true}">
-                        <div style="color:red;">This email is already used! Use Log in instead of registration</div>
+
+                    <c:if test="${not empty requestScope.reg_error}">
+                        <div style="color:red;">${requestScope.reg_error}</div>
                     </c:if>
                     
                 </div>

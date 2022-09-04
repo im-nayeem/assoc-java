@@ -11,12 +11,15 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 @WebServlet(name = "Registration", value = "/Registration")
 @MultipartConfig
 public class Registration extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getSession().setAttribute("title","Registration");
         request.getRequestDispatcher("registration.jsp").forward(request,response);
 
     }
@@ -27,20 +30,19 @@ public class Registration extends HttpServlet {
 
         try{
             DatabaseConnection conn = new DatabaseConnection();
-            String userMail = request.getParameter("email");
-            String query_result = conn.getColumnValueByKey("members", "email", "email",userMail);
-//
-//        exception handle
-            if(query_result.substring(0,6).equals("error")){
-                request.setAttribute("error",query_result);
-                request.getRequestDispatcher("error.jsp").forward(request,response);
+            String email = request.getParameter("email");
+
+            PreparedStatement pstmt = conn.getPreparedStatement("SELECT  * from members where email=?");
+            pstmt.setString(1,email);
+            ResultSet rs = pstmt.executeQuery();
+
+
+            if(rs.next()){
+                request.setAttribute("reg_error","This e-mail is already used!");
+                request.getRequestDispatcher("registration.jsp").forward(request,response);
             }
-//        check new email or not
-            if(query_result.equals("no record")==false){
-                request.setAttribute("isNotValidEmail",true);
-                response.sendRedirect("Registration");
-            }
-//
+
+
             AssocMember member = new AssocMember(request);
             request.getSession().setAttribute("member",member);
 
@@ -48,9 +50,12 @@ public class Registration extends HttpServlet {
 
 
             AssocInfo assocInfo = (AssocInfo) getServletContext().getAttribute("assocInfo");
-            SendMail mail = new SendMail(assocInfo,userMail);
+            SendMail mail = new SendMail(assocInfo,email);
 //            mail.send("Verification","Your Verification Code is: "+request.getSession().getAttribute("verificationCode")+"\n");
 
+            request.getRequestDispatcher("verifyMail.jsp").forward(request,response);
+
+            conn.close();
 
         }
         catch (Exception e)
@@ -60,7 +65,7 @@ public class Registration extends HttpServlet {
         }
 
 
-        request.getRequestDispatcher("verifyMail.jsp").forward(request,response);
+
 
 
     }

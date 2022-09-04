@@ -5,11 +5,13 @@
  */
 package welcome;
 
+import association.Association;
 import database.DatabaseConnection;
 import java.awt.Image;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.prefs.Preferences;
 import javax.swing.ImageIcon;
 
 /**
@@ -45,7 +47,7 @@ public class AssocMember {
      * Constructor
      * @param singleResult containing single member info
      */
-    public AssocMember(ResultSet singleResult) throws SQLException
+    public AssocMember(final ResultSet singleResult) throws SQLException
     {
         //use it for RegisteredListModel
         this.setName(singleResult.getString("name"));
@@ -203,7 +205,6 @@ public class AssocMember {
     public void setBg(String bg) {
         this.bg = bg;
     }
-
     public void setPhotoByte(byte[] photoByte) {
         this.photoByte = photoByte;
     }
@@ -287,8 +288,5 @@ public class AssocMember {
         }
         return "done";
     }
-
-
     //--------------------------------------------------------------------------------//
-
 }

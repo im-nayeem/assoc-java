@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/N:/Project/Association/src/welcome/AssocMember.java</file>
+            <file>file:/N:/Project/Association/src/welcome/WelcomeHomeView.java</file>
+            <file>file:/N:/Project/Association/src/welcome/WelcomeController.java</file>
+            <file>file:/N:/Project/Association/src/welcome/ExecutiveMember.java</file>
+            <file>file:/N:/Project/Association/src/welcome/RegisteredListModel.java</file>
+            <file>file:/N:/Project/Association/src/association/Association.java</file>
+            <file>file:/N:/Project/Association/src/welcome/WelcomeModel.java</file>
+        </group>
+>>>>>>> 6e3ae5c17540ec170846a4d8cb7c59416df534c6
     </open-files>
 </project-private>

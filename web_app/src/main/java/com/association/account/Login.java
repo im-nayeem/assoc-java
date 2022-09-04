@@ -6,8 +6,10 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
+import com.association.SecurePassword;
 @WebServlet(name = "Login", value = "/Login")
 public class Login extends HttpServlet {
     @Override
@@ -17,39 +19,47 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        
-        DatabaseConnection db = new DatabaseConnection();
-        
-        String validPassword = db.getColumnValueByKey("members", "pass","email", email);
-        
-        if(validPassword.equals(password)){
-//            set user information to requestSession and forward to homepage
 
-            AssocMember userProfile = new AssocMember(email);
-            
-            request.getSession().setAttribute("userProfile",userProfile);
-            response.sendRedirect("Dashboard");
-//            request.getRequestDispatcher("dashboard.jsp").forward(request,response);
-        }
-        else{
-            String msg = "Somthing error";
-//            user email does not contain any account
-            if(validPassword.equals("no record")){
-                msg = "Invalid Email account";
+        try{
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+
+            DatabaseConnection conn = new DatabaseConnection();
+
+            PreparedStatement pstmt = conn.getPreparedStatement("SELECT  * from verified where email=?");
+            pstmt.setString(1,email);
+            ResultSet rs = pstmt.executeQuery();
+
+
+            if(!rs.next()){
+                request.setAttribute("login_error","Invalid e-mail address!");
+                request.getRequestDispatcher("login.jsp").forward(request,response);
             }
-//            Database Query Error
-            else if(validPassword.substring(0,7).equals("Error!")){
-                request.setAttribute("error",msg);
-                request.getRequestDispatcher("error.jsp").forward(request,response);
+
+
+            String key = conn.getColumnValueByKey("members", "pass","email", email);
+            String salt = conn.getColumnValueByKey("members", "salt","email", email);
+
+            if(SecurePassword.verifyPassword(password,key,salt)==true)
+            {
+                AssocMember userProfile = new AssocMember(email);
+                request.getSession().setAttribute("userProfile",userProfile);
+                response.sendRedirect("Dashboard");
             }
-//            password not match
             else{
-                msg = "Wrong password";
+                request.setAttribute("login_error","Incorrect Password!");
+                request.getRequestDispatcher("login.jsp").forward(request,response);
             }
-            request.setAttribute("login_error",msg);
-            request.getRequestDispatcher("login.jsp").forward(request,response);
+
+            conn.close();
+
+
         }
+        catch(Exception e){
+            request.setAttribute("error",e);
+           request.getRequestDispatcher("error.jsp").forward(request,response);
+        }
+        
+
     }
 }

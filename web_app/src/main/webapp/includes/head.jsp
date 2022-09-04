@@ -13,7 +13,7 @@
 <html>
 
 <head>
-    <title>${applicationScope.assocInfo.getAssocName()}</title>
+    <title>${title}</title>
 <%--    set title of the page from attribute title from session--%>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,7 +44,7 @@
 <div class="topnav" id="myTopnav">
 
     <div class="menu">
-        <a href="./" class="name_in_nav">MSWA-CoU</a>
+        <a href="./" class="name_in_nav">${h}</a>
         <a href="./" class="active">Home</a>
         <a href="constitution.jsp">Constitution</a>
         <a href="">Gallery</a>

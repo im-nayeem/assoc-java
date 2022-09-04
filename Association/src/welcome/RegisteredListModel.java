@@ -23,7 +23,7 @@ import java.util.prefs.Preferences;
  */
 public class RegisteredListModel {
     
-    private List<AssocMember>registeredList = new ArrayList<>();
+    private List<AssocMember>registeredList ;
     public RegisteredListModel(){
         // retrieve all the registered members List from DB
         try {

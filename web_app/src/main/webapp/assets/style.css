@@ -25,6 +25,9 @@ body {
     /* min-width: 100px; */
 
 }
+.logo{
+    padding-left: 14px;
+}
 .name, .name h3{
     color: #ddd;
     font-family: cursive;
@@ -184,6 +187,9 @@ a.name_in_nav {
     a.name_in_nav{
         display: block;
         float: right;
+    }
+    .logo{
+        padding-left: 0;
     }
 
     /*--display option icon in nav bar--*/

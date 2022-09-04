@@ -171,7 +171,7 @@ public class WelcomeController {
 
         @Override
         public void mouseClicked(MouseEvent me) {
-            if(me.getSource() == view.getRegisteredMemberTable()){
+            if(me.getSource()==view.getRegisteredMemberTable()){
                 try {
                     JTable target = (JTable) me.getSource();
                     DefaultTableModel tableModel = (DefaultTableModel) target.getModel();

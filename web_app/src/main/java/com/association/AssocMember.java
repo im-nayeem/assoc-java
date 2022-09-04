@@ -7,6 +7,7 @@ package com.association;
 
 import com.association.database.DatabaseConnection;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,7 +16,11 @@ import java.sql.Statement;
 import java.util.Base64;
 import javax.servlet.http.HttpServletRequest;
 
+import com.google.common.io.ByteStreams;
+import com.sun.xml.internal.fastinfoset.util.CharArrayString;
+import javafx.util.converter.CharacterStringConverter;
 import org.jetbrains.annotations.NotNull;
+import sun.awt.CharsetString;
 
 /**
  * AssocMember the  class containing single member's info
@@ -26,6 +31,7 @@ public class AssocMember {
     private String id;
     private String email;
     private String password;
+    private String salt;
     private String phone;
     private String dept;
     private String session;
@@ -33,7 +39,6 @@ public class AssocMember {
     private String gender;
     private String blood_group;
     private InputStream photo;
-//    private String photoString;
     private String coActivity;
     private String fathersName;
     private String mothersName;
@@ -57,6 +62,7 @@ public class AssocMember {
             this.name =  rs.getString("name");
             this.id =  rs.getString("id");
             this.email =  rs.getString("email");
+            this.salt = rs.getString("salt");
             this.password =  rs.getString("pass");
             this.phone =  rs.getString("phone");
             this.dept =  rs.getString("dept");
@@ -65,7 +71,6 @@ public class AssocMember {
             this.gender =  rs.getString("gender");
             this.blood_group =  rs.getString("bg");
             this.photo =  rs.getBinaryStream("photo");
-//            this.photoString = this.inputStreamToString(photo);
             this.coActivity =  rs.getString("co_activity");
             this.fathersName =  rs.getString("fathersname");
             this.mothersName =  rs.getString("mothersname");
@@ -74,6 +79,8 @@ public class AssocMember {
             this.permanentUpazila =  rs.getString("permanent_upazila");
             this.permanentDetails =  rs.getString("permanent_details");
             this.trancNo =  rs.getString("tranc_no");
+
+            conn.close();
         }
         catch (Exception e) {
             throw new RuntimeException(e.toString()+"\nProblem with association information executing query.");
@@ -90,7 +97,8 @@ public class AssocMember {
             this.name = request.getParameter("name");
             this.id = request.getParameter("id");
             this.email = request.getParameter("email");
-            this.password = request.getParameter("password");
+            this.salt = SecurePassword.generateSalt(512).get();
+            this.password = SecurePassword.hashPassword(request.getParameter("password"),salt).get();
             this.phone = request.getParameter("phone");
             this.dept = request.getParameter("department");
             this.session = request.getParameter("session");
@@ -98,7 +106,6 @@ public class AssocMember {
             this.gender = request.getParameter("gender");
             this.blood_group = request.getParameter("blood_group");
             this.photo = request.getPart("photo").getInputStream();
-//            this.photoString = this.inputStreamToString(photo);
             this.coActivity = request.getParameter("co_actvt");
             this.fathersName = request.getParameter("fathers_name");
             this.mothersName = request.getParameter("mothers_name");
@@ -107,6 +114,7 @@ public class AssocMember {
             this.permanentUpazila = request.getParameter("upazila");
             this.permanentDetails = request.getParameter("permanent_details");
             this.trancNo = request.getParameter("transc_no");
+
         }
         catch(Exception e)
         {
@@ -116,21 +124,41 @@ public class AssocMember {
 
     /**
      * Convert InputStream to String
-     * @param is_image InputStream
+     * @param inpStream InputStream
      * @return String
      * @throws IOException
      */
-    public String inputStreamToString(@NotNull InputStream  is_image) throws IOException{
+    public  String inputStreamToString(@NotNull InputStream inpStream)
+    {
 
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        byte buffer[] = new byte[4096];
-        int bytesRead = -1;
-        while((bytesRead = is_image.read(buffer))!=-1){
-            outputStream.write(buffer,0,bytesRead);
+        try{
+
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+            byte[] buffer = new byte[8192];
+            int length;
+            while ((length = inpStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, length);
+            }
+            outputStream.flush();
+
+            photo = new ByteArrayInputStream(outputStream.toByteArray());
+
+            String base64Image = Base64.getEncoder().encodeToString(outputStream.toByteArray());
+            return base64Image;
+
+
+
         }
-        String base64Image = Base64.getEncoder().encodeToString(outputStream.toByteArray());
-        return base64Image;
+        catch(Exception e)
+        {
+            throw  new RuntimeException(e.getMessage());
+        }
+
+
+
     }
+
 
     /**====================getter methods=========================*/
     public String getName() {
@@ -173,11 +201,8 @@ public class AssocMember {
         return photo;
     }
     public String getPhotoString() {
-        try {
-            return inputStreamToString(photo);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        return inputStreamToString(photo);
+
     }
     public void another(){}
     
@@ -210,6 +235,7 @@ public class AssocMember {
     public String getPassword(){
         return this.password;
     }
+    public String  getSalt(){return  salt;}
     public String getTrancNo() {
         return trancNo;
     }
