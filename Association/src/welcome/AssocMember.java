@@ -28,14 +28,14 @@ public class AssocMember {
     private String bg;
     private byte[] photoByte;
     private ImageIcon photo;
-    private String co_activity;
+    private String coActivity;
     private String fathersname;
     private String mothersname;
-    private String present_area;
-    private String present_details;
-    private String permanent_upazila;
-    private String permanent_details;
-    private String tranc_no;
+    private String presentArea;
+    private String presentDetails;
+    private String permanentUpazila;
+    private String permanentDetails;
+    private String trancNo;
     // all info variables are here...complete this
     
     
@@ -58,14 +58,14 @@ public class AssocMember {
         this.setGender(singleResult.getString("gender"));
         this.setBg(singleResult.getString("bg"));
         this.setPhotoByte(singleResult.getBytes("photo"));
-        this.setCo_activity(singleResult.getString("co_activity"));
+        this.setCoActivity(singleResult.getString("co_ctivity"));
         this.setFathersname(singleResult.getString("fathersname"));
         this.setMothersname(singleResult.getString("mothersname"));
-        this.setPresent_area(singleResult.getString("present_area"));
-        this.setPresent_details(singleResult.getString("present_details"));
-        this.setPermanent_upazila(singleResult.getString("permanent_upazila"));
-        this.setPermanent_details(singleResult.getString("permanent_details"));
-        this.setTranc_no(singleResult.getString("tranc_no"));
+        this.setPresentArea(singleResult.getString("present_area"));
+        this.setPresentDetails(singleResult.getString("present_details"));
+        this.setPermanentUpazila(singleResult.getString("permanent_upazila"));
+        this.setPermanentDetails(singleResult.getString("permanent_details"));
+        this.setTrancNo(singleResult.getString("tranc_no"));
         
         
         // if you find better replacemet for ResultSet then replace it,try to find better idea
@@ -132,8 +132,8 @@ public class AssocMember {
         return photoByte;
     }
 
-    public String getCo_activity() {
-        return co_activity;
+    public String getCoActivity() {
+        return coActivity;
     }
 
     public String getFathersname() {
@@ -144,28 +144,28 @@ public class AssocMember {
         return mothersname;
     }
 
-    public String getPresent_area() {
-        return present_area;
+    public String getPresentArea() {
+        return presentArea;
     }
 
-    public String getPresent_details() {
-        return present_details;
+    public String getPresentDetails() {
+        return presentDetails;
     }
 
-    public String getPermanent_upazila() {
-        return permanent_upazila;
+    public String getPermanentUpazila() {
+        return permanentUpazila;
     }
 
-    public String getPermanent_details() {
-        return permanent_details;
+    public String getPermanentDetails() {
+        return permanentDetails;
     }
     
     /*-------------------------------------*/
     
     /*===========setter methods============*/
     
-    public String getTranc_no() {
-        return tranc_no;
+    public String getTrancNo() {
+        return trancNo;
     }
 
     public void setName(String name) {
@@ -208,8 +208,8 @@ public class AssocMember {
         this.photoByte = photoByte;
     }
 
-    public void setCo_activity(String co_activity) {
-        this.co_activity = co_activity;
+    public void setCoActivity(String co_activity) {
+        this.coActivity = co_activity;
     }
 
     public void setFathersname(String fathersname) {
@@ -220,24 +220,24 @@ public class AssocMember {
         this.mothersname = mothersname;
     }
 
-    public void setPresent_area(String present_area) {
-        this.present_area = present_area;
+    public void setPresentArea(String present_area) {
+        this.presentArea = present_area;
     }
 
-    public void setPresent_details(String present_details) {
-        this.present_details = present_details;
+    public void setPresentDetails(String present_details) {
+        this.presentDetails = present_details;
     }
 
-    public void setPermanent_upazila(String permanent_upazila) {
-        this.permanent_upazila = permanent_upazila;
+    public void setPermanentUpazila(String permanent_upazila) {
+        this.permanentUpazila = permanent_upazila;
     }
 
-    public void setPermanent_details(String permanent_details) {
-        this.permanent_details = permanent_details;
+    public void setPermanentDetails(String permanent_details) {
+        this.permanentDetails = permanent_details;
     }
 
-    public void setTranc_no(String tranc_no) {
-        this.tranc_no = tranc_no;
+    public void setTrancNo(String tranc_no) {
+        this.trancNo = tranc_no;
     }
     /*-------------------------------------------------------*/
     
