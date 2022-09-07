@@ -7,11 +7,11 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="includes/regLoginHead.jsp"%>
+<%@include file="../includes/regLoginHead.jsp"%>
 <div class="content">
     <div class="modal" id="id02">
 
-        <a href="./"><span onclick="" class="close" title="Close Form">&times;</span></a>
+        <a href="../"><span onclick="" class="close" title="Close Form">&times;</span></a>
 <%--            onclick go to home page--%>
 
         <form class="modal-content" action="Login" method="post">
@@ -52,4 +52,4 @@
 
 </div>
 
-<%@include file="includes/footer.jsp"%>
+<%@include file="../includes/footer.jsp"%>

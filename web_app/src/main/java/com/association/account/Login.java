@@ -14,7 +14,7 @@ import com.association.SecurePassword;
 public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request,response);
+        request.getRequestDispatcher("account/login.jsp").forward(request,response);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Login extends HttpServlet {
 
             if(!rs.next()){
                 request.setAttribute("login_error","Invalid e-mail address!");
-                request.getRequestDispatcher("login.jsp").forward(request,response);
+                request.getRequestDispatcher("account/login.jsp").forward(request,response);
             }
 
 
@@ -48,7 +48,7 @@ public class Login extends HttpServlet {
             }
             else{
                 request.setAttribute("login_error","Incorrect Password!");
-                request.getRequestDispatcher("login.jsp").forward(request,response);
+                request.getRequestDispatcher("account/login.jsp").forward(request,response);
             }
 
             conn.close();

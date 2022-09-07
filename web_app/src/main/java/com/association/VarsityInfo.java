@@ -1,6 +1,8 @@
 package com.association;
 
 import com.association.database.DatabaseConnection;
+
+import javax.servlet.http.HttpServletRequest;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
@@ -28,6 +30,9 @@ public class VarsityInfo {
         {
             throw new RuntimeException(e.toString() + "\nProblem with varsity information executing query.");
         }
+
+    }
+    public VarsityInfo(HttpServletRequest request){
 
     }
     

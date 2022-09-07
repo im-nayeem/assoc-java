@@ -28,7 +28,7 @@ public class Verify extends HttpServlet {
         if(x!=y)
         {
             request.setAttribute("errorCode","Wrong verification code! Code didn't match.");
-            request.getRequestDispatcher("verifyMail.jsp").forward(request,response);
+            request.getRequestDispatcher("account/verifyMail.jsp").forward(request,response);
         }
         try {
             DatabaseConnection conn = new DatabaseConnection();

@@ -20,7 +20,7 @@ public class Registration extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().setAttribute("title","Registration");
-        request.getRequestDispatcher("registration.jsp").forward(request,response);
+        request.getRequestDispatcher("account/registration.jsp").forward(request,response);
 
     }
 
@@ -39,7 +39,7 @@ public class Registration extends HttpServlet {
 
             if(rs.next()){
                 request.setAttribute("reg_error","This e-mail is already used!");
-                request.getRequestDispatcher("registration.jsp").forward(request,response);
+                request.getRequestDispatcher("account/registration.jsp").forward(request,response);
             }
 
 
@@ -53,7 +53,7 @@ public class Registration extends HttpServlet {
             SendMail mail = new SendMail(assocInfo,email);
             mail.send("Verification","Your Verification Code is: "+request.getSession().getAttribute("verificationCode")+"\n");
 
-            request.getRequestDispatcher("verifyMail.jsp").forward(request,response);
+            request.getRequestDispatcher("account/verifyMail.jsp").forward(request,response);
 
             conn.close();
 

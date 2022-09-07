@@ -6,10 +6,10 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@include file="includes/head.jsp"%>
+<%@include file="../includes/head.jsp"%>
 
 <style>
-    <%@include file="assets/dashboard.css"%>
+    <%@include file="../assets/dashboard.css"%>
 </style>
 
 <div class="content">
@@ -43,4 +43,4 @@
 
 </div>
 
-<%@ include file="includes/footer.jsp"%>
+<%@ include file="../includes/footer.jsp"%>

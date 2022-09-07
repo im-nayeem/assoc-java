@@ -4,6 +4,7 @@ package com.association;
 import com.association.database.DatabaseConnection;
 import org.jetbrains.annotations.NotNull;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
@@ -47,6 +48,9 @@ public class AssocInfo {
         catch (Exception e) {
             throw new RuntimeException(e.toString()+"\nProblem with association information executing query.");
         }
+
+    }
+    public AssocInfo(HttpServletRequest request){
 
     }
 
