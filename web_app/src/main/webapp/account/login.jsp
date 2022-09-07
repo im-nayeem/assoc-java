@@ -11,7 +11,7 @@
 <div class="content">
     <div class="modal" id="id02">
 
-        <a href="../"><span onclick="" class="close" title="Close Form">&times;</span></a>
+        <a href="./"><span onclick="" class="close" title="Close Form">&times;</span></a>
 <%--            onclick go to home page--%>
 
         <form class="modal-content" action="Login" method="post">

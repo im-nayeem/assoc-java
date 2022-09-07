@@ -10,7 +10,7 @@
 <%@include file="../includes/regLoginHead.jsp"%>
 <div class="content">
     <div id="id01" class="modal">
-        <a href="../"> <span class="close" onclick="" title="Close Form">&times;</span></a>
+        <a href="./"> <span class="close" onclick="" title="Close Form">&times;</span></a>
 <%--        //onclick go to home page--%>
 
         <form class="modal-content" action="Registration" method="post" enctype='multipart/form-data'>

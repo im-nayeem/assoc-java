@@ -5,12 +5,18 @@
   Time: 12:43 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-</body>
-</html>
+<%@include file="./includes/head.jsp"%>
+
+<style>
+<%--    <%@include file=""%>--%>
+</style>
+
+<div class="content">
+
+
+</div>
+
+<%@include file="./includes/footer.jsp"%>
+

@@ -29,6 +29,8 @@ public class StoreInfo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            System.out.println("Hello World");
+            System.out.println(request.getParameter("email"));
             AssocInfo assocInfo = new AssocInfo(request);
             AdminDAO admin = new AdminDAO();
             admin.storeAssocInfo(assocInfo);
