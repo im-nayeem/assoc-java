@@ -42,7 +42,7 @@ public class VarsityInfo {
             for(int i=1; i<=numberOfDepts; i++){
                 String dept = request.getParameter("department"+i);
                 this.deptListAsString += dept;
-                if(i+1<numberOfDepts)this.deptListAsString+=",";
+                if(i+1<=numberOfDepts)this.deptListAsString+=",";
             }
             this.lastBatch = Integer.parseInt(request.getParameter("last_batch_number"));
         } catch (Exception e) {
@@ -51,7 +51,7 @@ public class VarsityInfo {
         
     }
     
-//    JSON file to String list
+    
     private void setDeptList(String s) {
         deptList = new Vector<>();
         String tmp[] = s.split(",");

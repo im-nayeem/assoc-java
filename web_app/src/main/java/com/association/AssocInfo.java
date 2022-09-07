@@ -62,8 +62,8 @@ public class AssocInfo {
     public AssocInfo(HttpServletRequest request){
         try {
             this.assocName = request.getParameter("assoc_name");
-            this.assocLogo = new AssocMember().inputStreamToString(request.getPart("assoc_logo").getInputStream());
-            this.assocConstitution = new AssocMember().inputStreamToString(request.getPart("assoc_constitution").getInputStream());
+            this.assocLogoStream = request.getPart("assoc_logo").getInputStream();
+            this.assocConstStream = request.getPart("assoc_constitution").getInputStream();
             this.assocAbout = request.getParameter("assoc_about");
             this.paymentMethod = request.getParameter("payment_details");
             this.assocMail = request.getParameter("assoc_email");

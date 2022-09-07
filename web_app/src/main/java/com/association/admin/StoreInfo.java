@@ -15,6 +15,7 @@ import java.io.PrintWriter;
  * @author Nayeem
  */
 @WebServlet(name = "StoreInfo", value = "/StoreInfo")
+@MultipartConfig
 public class StoreInfo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,26 +30,21 @@ public class StoreInfo extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        out.println(request.getParameter("infoType"));
-        out.println(request.getParameter("assoc_name"));
-        out.println(request.getParameter("name"));
-//        try {
-//            AdminDAO admin = new AdminDAO();
-//            
-//            if(request.getParameter("infoType").equals("varsityInfo")){
-//                VarsityInfo varsityInfo = new VarsityInfo(request);
-//                admin.storeVarsityInfo(varsityInfo);
-//            }
-//            else if(request.getParameter("infoType").equals("assocInfo")){
-//                AssocInfo assocInfo = new AssocInfo();
-//                admin.storeAssocInfo(assocInfo);
-//            }
-//        }
-//        catch (Exception e){
-////            request.setAttribute("error",e);
-////            request.getRequestDispatcher("error.jsp").forward(request,response);
-//        }
+        try {
+            AdminDAO admin = new AdminDAO();
+            //infoType is set in 17th line of two jsp files
+            if(request.getParameter("infoType").equals("varsityInfo")){
+                VarsityInfo varsityInfo = new VarsityInfo(request);
+                admin.storeVarsityInfo(varsityInfo);
+            }
+            else if(request.getParameter("infoType").equals("assocInfo")){
+                AssocInfo assocInfo = new AssocInfo(request);
+                admin.storeAssocInfo(assocInfo);
+            }
+        }
+        catch (Exception e){
+            request.setAttribute("error",e);
+            request.getRequestDispatcher("error.jsp").include(request,response);
+        }
     }
 }
