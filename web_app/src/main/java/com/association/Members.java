@@ -15,11 +15,18 @@ import java.util.Vector;
 public class Members extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MembersDAO memberModel = new MembersDAO();
-        Vector<AssocMember>assocMemberList = memberModel.getAssocMemberList();
         
-        request.getSession().setAttribute("assocMemberList", assocMemberList);
-        request.getRequestDispatcher("members.jsp").forward(request,response);
+        try{
+            MembersDAO memberModel = new MembersDAO();
+            Vector<AssocMember>assocMemberList = memberModel.getAssocMemberList();
+
+            request.getSession().setAttribute("assocMemberList", assocMemberList);
+            request.getRequestDispatcher("members.jsp").forward(request,response);
+        }
+        catch(Exception e){
+            request.setAttribute("error",e);
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
     }
 
     @Override

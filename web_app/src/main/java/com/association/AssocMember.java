@@ -282,7 +282,7 @@ public class AssocMember {
     }
 
     public void setBloodGroup(String bg) {
-        this.blood_group = blood_group;
+        this.blood_group = bg;
     }
 
     public void setCoActivity(String co_activity) {

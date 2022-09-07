@@ -277,4 +277,10 @@ a.name_in_nav {
     color:black;
     background: white;
 }
+.content .assoc-member-table td a{
+    color:blue;
+    background: white;
+    text-decoration: none;
+    font-weight: 600;
+}
 /*-------------------------------------------------------------*/

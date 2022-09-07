@@ -114,6 +114,9 @@
             for (var i = link.length - 1; i >= 0; i--) {
                 if (link[i] === '/')
                     break;
+                if(link[i] === '?'){
+                    tmp="";continue;
+                }
                 tmp += link[i];
             }
             var pageName = "";
@@ -129,7 +132,7 @@
             else if(pageName === "constitution.jsp") {
                 document.getElementById("menu2").className += 'active';
             }
-            else if(pageName === "Members" || pageName === "members.jsp"){
+            else if(pageName === "Members" || pageName === "members.jsp" || pageName === "MemberDetails"){
                 document.getElementById("menu5").className += 'active';
             }
             

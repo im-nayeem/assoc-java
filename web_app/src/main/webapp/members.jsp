@@ -22,6 +22,7 @@
             <th>Email</th>
             <th>Department</th>
             <th>Batch</th>
+            <th>Details</th>
         </tr>
         <c:forEach var="assocMember" items="${sessionScope.assocMemberList}">
         <tr>
@@ -30,6 +31,7 @@
             <td><c:out value="${assocMember.getEmail()}"/></td>
             <td><c:out value="${assocMember.getDept()}"/></td>
             <td><c:out value="${assocMember.getBatch()}"/></td>
+            <td><a href="MemberDetails?email=${assocMember.getEmail()}">Details</a></td>
         </tr>
         </c:forEach>
     </table>
