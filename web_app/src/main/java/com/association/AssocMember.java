@@ -317,6 +317,9 @@ public class AssocMember {
         this.trancNo = trancNo;
     }
 
+    public void setPhoto(InputStream photo) {
+        this.photo = photo;
+    }
 
     /**-------------------------------------------------------*/
 

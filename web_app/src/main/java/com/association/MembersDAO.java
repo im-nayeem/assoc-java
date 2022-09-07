@@ -1,5 +1,13 @@
 package com.association;
 
+import com.association.database.DatabaseConnection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * Created on 07-Sep-22
  *
@@ -7,4 +15,49 @@ package com.association;
  */
 public class MembersDAO {
 
+    public MembersDAO() {
+    }
+    
+    private Vector<AssocMember>assocMemberList = new Vector<>();
+
+    
+    public Vector<AssocMember> getAssocMemberList() {
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement("SELECT * FROM members WHERE id IN(SELECT id FROM verified);");
+            ResultSet rs = pstmnt.executeQuery();
+            
+            while(rs.next()){
+                AssocMember assocMember = new AssocMember();
+                assocMember.setName(rs.getString("name"));
+                assocMember.setId(rs.getString("id"));
+                assocMember.setEmail(rs.getString("email"));
+                assocMember.setPhone(rs.getString("phone"));
+                assocMember.setDept(rs.getString("dept"));
+                assocMember.setSession(rs.getString("session"));
+                assocMember.setBatch(rs.getString("batch"));
+                assocMember.setGender(rs.getString("gender"));
+                assocMember.setBloodGroup(rs.getString("bg"));
+                assocMember.setPhoto(rs.getBinaryStream("photo"));
+                assocMember.setCoActivity(rs.getString("co_activity"));
+                assocMember.setFathersName(rs.getString("fathersname"));
+                assocMember.setMothersName(rs.getString("mothersname"));
+                assocMember.setPresentArea(rs.getString("present_area"));
+                assocMember.setPresentDetails(rs.getString("present_details"));
+                assocMember.setPermanentUpazila(rs.getString("permanent_upazila"));
+                assocMember.setPermanentDetails(rs.getString("permanent_details"));
+                assocMember.setTrancNo(rs.getString("tranc_no"));
+                
+                assocMemberList.add(assocMember);
+
+            }
+            
+            return assocMemberList;
+        } catch (SQLException ex) {
+            throw  new RuntimeException(ex.getMessage());
+        }
+    }
+    
+    
+    
 }
