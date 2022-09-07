@@ -13,7 +13,7 @@
 <html>
 
 <head>
-    <title>${title}</title>
+    <title>${applicationScope.assocInfo.getAssocName()}</title>
 <%--    set title of the page from attribute title from session--%>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,30 +44,26 @@
 <div class="topnav" id="myTopnav">
 
     <div class="menu">
-        <a href="./" class="name_in_nav">${h}</a>
+        <a href="./" class="name_in_nav">MSWA-CoU</a>
         <a href="./" class="active">Home</a>
         <a href="constitution.jsp">Constitution</a>
         <a href="">Gallery</a>
-        <a href="">Notice</a>
-
-
         <div class="dropdown">
-            <button class="dropbtn">Members
+            <button class="dropbtn">News&Notice
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="Members">All Members</a>
-                <a href="#">...</a>
-                <a href="#">...</a>
+                <a href="Notice">Notice</a>
+                <a href="Notice">News</a>
+                <a href="Notice">Event</a>
             </div>
 
         </div>
 
+        <a href="Members">Members</a>
 
-
-
-        <a href="#contact">Advisor</a>
-        <a href="#contact">Alumni</a>
+        <a href="">Advisor</a>
+        <a href="">Alumni</a>
 
         <div class="dropdown">
             <button class="dropbtn">Executive Committee
@@ -80,7 +76,16 @@
             </div>
 
         </div>
-        <a href="#about">Culture</a>
+        <div class="dropdown">
+            <button class="dropbtn">Culture
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="">Culture</a>
+                <a href="#">Heritage</a>
+            </div>
+
+        </div>
         <a href="#about">About</a>
     </div>
 

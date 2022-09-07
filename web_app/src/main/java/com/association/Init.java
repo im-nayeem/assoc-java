@@ -28,7 +28,7 @@ public class Init extends HttpServlet {
             getServletContext().setAttribute("assocInfo",assocInfo);
             getServletContext().setAttribute("varsityInfo", varsityInfo);
 
-            req.getSession().setAttribute("title", assocInfo.getAssocName());
+            req.getSession().setAttribute("title", "Home");
 
             req.getRequestDispatcher("index.jsp").forward(req,resp);
         }

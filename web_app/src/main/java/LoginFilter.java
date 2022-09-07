@@ -9,7 +9,7 @@ import java.io.IOException;
  *
  * @author Nayeem
  */
-@WebFilter(filterName = "LoginFilter", servletNames = {"Dashboard","Members"})
+@WebFilter(filterName = "LoginFilter", servletNames = {"Dashboard","Members","Notice"})
 public class LoginFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }
