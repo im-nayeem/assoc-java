@@ -52,6 +52,7 @@ public class AssocMember {
      * Constructor
      * @param memberEmail member's email address used to retrieve data from DB
      */
+    public AssocMember(){}
     public AssocMember(String memberEmail){
         try {
             DatabaseConnection conn = new DatabaseConnection();
