@@ -2,6 +2,7 @@ package com.association;
 
 
 import com.association.database.DatabaseConnection;
+import java.io.ByteArrayInputStream;
 import org.jetbrains.annotations.NotNull;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,8 +44,8 @@ public class AssocInfo {
             ResultSet rs =  stmt.executeQuery("SELECT * FROM assoc_info");
             rs.next();
 
-            this.assocLogo = new AssocMember().inputStreamToString(rs.getBinaryStream("assoc_logo"));
-            this.assocConstitution =  new AssocMember().inputStreamToString(rs.getBinaryStream("constitution"));
+            this.assocLogo = this.inputStreamToString(rs.getBinaryStream("assoc_logo"));
+            this.assocConstitution =  this.inputStreamToString(rs.getBinaryStream("constitution"));
             this.assocAbout =  rs.getString("about");
             this.paymentMethod =  rs.getString("pay_details");
             this.assocName = rs.getString("assoc_name");
@@ -84,6 +85,34 @@ public class AssocInfo {
      * @return base64Image the converted String
      * @throws IOException
      */
+    
+    public  String inputStreamToString(@NotNull InputStream inpStream)
+    {
+
+        try{
+
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+            byte[] buffer = new byte[8192];
+            int length;
+            while ((length = inpStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, length);
+            }
+            outputStream.flush();
+
+
+            String base64Image = Base64.getEncoder().encodeToString(outputStream.toByteArray());
+            return base64Image;
+
+
+
+        }
+        catch(Exception e)
+        {
+            throw  new RuntimeException(e.getMessage());
+        }
+
+    }
 
     /**==================Getter Methods=======================**/
     public String getAssocName() {
