@@ -7,10 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@include file="../includes/regLoginHead.jsp"%>
+<%@include file="./includes/regLoginHead.jsp"%>
+
 <div class="content">
-    <div id="id01" class="modal">
-        <a href="../"> <span class="close" onclick="" title="Close Form">&times;</span></a>
+    <div id="id07" class="modal">
+        <a href="./"> <span class="close" onclick="" title="Close Form">&times;</span></a>
         <form class="modal-content" action="StoreInfo" method="post" >
             
             <!--this hidden type input help to StoreInfo servlet-->
@@ -24,14 +25,14 @@
                 <hr>
                 <fieldset style="padding: 10px 5px;">
                     <legend>Basic information</legend>
-                    <label for="varsity_name"><strong>Varsity Name</strong></label>
-                    <input type="text" placeholder="Varsity name" name="varsity_name" pattern="[A-Za-z ]+" required>
+                    <label for="varsity_name"><strong>Institution Name</strong></label>
+                    <input type="text" placeholder="Varsity name" name="varsity_name" id="varsity_name" pattern="[A-Za-z ]+" required>
 
-                    <label for="varsity_web_link"><strong>Varsity Website Link</strong></label>
-                    <input type="text" placeholder="Varsity website link" name="varsity_web_link" required>
+                    <label for="varsity_web_link"><strong>Institution Website Link</strong></label>
+                    <input type="text" placeholder="Varsity website link" name="varsity_web_link" id="varsity_web_link" required>
 
-                    <label for="last_batch_number"><strong>Varsity Website Link</strong></label>
-                    <input type="number" placeholder="Last batch number" name="last_batch_number" required>
+                    <label for="last_batch_number"><strong>Institution Website Link</strong></label>
+                    <input type="number" placeholder="Last batch number" name="last_batch_number" id="last_batch_number" required>
 
                     <label for="number_of_dept"><strong>Number Of departments</strong></label>
                     <div style="display:flex;">
@@ -49,12 +50,6 @@
                 <div class="clearfix">
 
                     <button type="submit" class="submitbtn">Submit</button>
-                    <p>Already have an account?</p>
-                    <a href="Login">
-                        <button type="button" class="secondary_log_sign"
-                                onclick="">Login</button>
-                    </a>
-                    <%--                    go to login.jsp onclick--%>
 
 
                 </div>
@@ -89,4 +84,4 @@
         }
     }
 </script>
-<%@include file="../includes/footer.jsp"%>
+<%@include file="./includes/footer.jsp"%>
