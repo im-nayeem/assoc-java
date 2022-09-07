@@ -13,6 +13,7 @@ public class VarsityInfo {
     private String varsityName;
     private String varsityWebLink;
     private Vector<String> deptList;
+    private String deptListAsString;
     private int lastBatch;
     public VarsityInfo() {
         try
@@ -33,32 +34,29 @@ public class VarsityInfo {
 
     }
     public VarsityInfo(HttpServletRequest request){
-
+        try {
+            this.varsityName = request.getParameter("varsity_name");
+            this.varsityWebLink = request.getParameter("varsity_web_link");
+            int numberOfDepts = Integer.parseInt(request.getParameter("number_of_dept"));
+            this.deptListAsString = "";
+            for(int i=1; i<=numberOfDepts; i++){
+                String dept = request.getParameter("department"+i);
+                this.deptListAsString += dept;
+                if(i+1<=numberOfDepts)this.deptListAsString+=",";
+            }
+            this.lastBatch = Integer.parseInt(request.getParameter("last_batch_number"));
+        } catch (Exception e) {
+            throw new RuntimeException(e.toString() + "\nProblem with varsity information storing query.");
+        }
+        
     }
     
-//    JSON file to String list
+    
     private void setDeptList(String s) {
         deptList = new Vector<>();
-        int i = 0;
-        while (s.charAt(i) != ':') {
-            i++;
-        }
-        boolean start = false;
-        String tmp = "";
-        while (i < s.length()) {
-            if (('a' <= s.charAt(i) && s.charAt(i) <= 'z') || ('A' <= s.charAt(i) && s.charAt(i) <= 'Z')) {
-                tmp += s.charAt(i);
-            } else if (s.charAt(i) == '"') {
-                if (start) {
-                    this.deptList.add(tmp);
-                    start = false;
-                    tmp = "";
-                } else {
-                    start = true;
-                    tmp = "";
-                }
-            }
-            i++;
+        String tmp[] = s.split(",");
+        for(String dept:tmp){
+            deptList.add(dept);
         }
     }
 
@@ -74,6 +72,10 @@ public class VarsityInfo {
         return deptList;
     }
 
+    public String getDeptListAsString() {
+        return deptListAsString;
+    }
+    
     public int getLastBatch() {
         return lastBatch;
     }

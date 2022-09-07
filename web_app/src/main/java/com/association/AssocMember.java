@@ -17,8 +17,8 @@ import java.util.Base64;
 import javax.servlet.http.HttpServletRequest;
 
 import com.google.common.io.ByteStreams;
-import com.sun.xml.internal.fastinfoset.util.CharArrayString;
-import javafx.util.converter.CharacterStringConverter;
+//import com.sun.xml.internal.fastinfoset.util.CharArrayString;
+//import javafx.util.converter.CharacterStringConverter;
 import org.jetbrains.annotations.NotNull;
 import sun.awt.CharsetString;
 
@@ -120,6 +120,10 @@ public class AssocMember {
         {
             throw  new RuntimeException(e);
         }
+    }
+
+    AssocMember() {
+        
     }
 
     /**
