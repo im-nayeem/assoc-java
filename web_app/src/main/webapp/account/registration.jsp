@@ -55,7 +55,7 @@
                         <option selected disabled hidden>Select Department</option>
                         <!--// use jstl to set all the dept name-->
                         <c:forEach var="dept" items="${applicationScope.varsityInfo.getDeptList()}">
-                            <option value="dept"><c:out value="${dept}"/></option>
+                            <option value="${dept}"><c:out value="${dept}"/></option>
                         </c:forEach>
                         
                         <!--//use jstl-->
