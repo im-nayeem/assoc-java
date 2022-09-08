@@ -8,7 +8,7 @@
 
 <%@include file="includes/head.jsp"%>
 <style>
-    <%@include file="assets/dashboard.css"%>
+    <%@include file="assets/profileView.css"%>
 </style>
 
 <div class="content">
@@ -29,16 +29,16 @@
                 <th>E-mail</th>
                 <td> <c:out value="${sessionScope.assocMemberDetails.getEmail()}"/></td>
             </tr>
+<%--            <tr>--%>
+<%--                <th>Phone Number</th>--%>
+<%--                <td> <c:out value="${sessionScope.assocMemberDetails.getPhone()}"/></td>--%>
+<%--            </tr>--%>
             <tr>
-                <th>Phone Number</th>
-                <td> <c:out value="${sessionScope.assocMemberDetails.getPhone()}"/></td>
-            </tr>
-            <tr>
-                <th>Department Name</th>
+                <th>Department</th>
                 <td> <c:out value="${sessionScope.assocMemberDetails.getDept()}"/></td>
             </tr>
             <tr>
-                <th>Session Year</th>
+                <th>Session</th>
                 <td> <c:out value="${sessionScope.assocMemberDetails.getSession()}"/></td>
             </tr>
             <tr>
@@ -54,25 +54,19 @@
                 <td> <c:out value="${sessionScope.assocMemberDetails.getBloodGroup()}"/></td>
             </tr>
             <tr>
-                <th>Co-Activity</th>
+                <th>Co-Curricular Activities</th>
                 <td> <c:out value="${sessionScope.assocMemberDetails.getCoActivity()}"/></td>
             </tr>
             <tr>
-                <th>Present Area</th>
+                <th>Current Living Area</th>
                 <td> <c:out value="${sessionScope.assocMemberDetails.getPresentArea()}"/></td>
             </tr>
-            <tr>
-                <th>Present Details</th>
-                <td> <c:out value="${sessionScope.assocMemberDetails.getPresentDetails()}"/></td>
-            </tr>
+
             <tr>
                 <th>Permanent Upazila</th>
                 <td> <c:out value="${sessionScope.assocMemberDetails.getPermanentUpazila()}"/></td>
             </tr>
-            <tr>
-                <th>Permament Address</th>
-                <td> <c:out value="${sessionScope.assocMemberDetails.getPermanentDetails()}"/></td>
-            </tr>
+
         </table>
     </div>
 </div>

@@ -263,24 +263,3 @@ a.name_in_nav {
     }
 
 }
-
-/*----------association member information table---------------*/
-.content .assoc-member-table{
-    margin: 40px auto;
-    width: 70%;
-    border-collapse: collapse;
-}
-.content .assoc-member-table td,th{
-    border: 1px solid black;
-    padding: 5px 5px;
-    text-align: center;
-    color:black;
-    background: white;
-}
-.content .assoc-member-table td a{
-    color:blue;
-    background: white;
-    text-decoration: none;
-    font-weight: 600;
-}
-/*-------------------------------------------------------------*/

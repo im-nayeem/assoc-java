@@ -19,8 +19,7 @@ public class VarsityInfo {
         try
         {
             DatabaseConnection conn = new DatabaseConnection();
-            Statement stmt = conn.getStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM varsity_info");
+            ResultSet rs = conn.executeQuery("SELECT * FROM varsity_info");
             rs.next();
             this.varsityName = rs.getString("varsity_name");
             this.varsityWebLink = rs.getString("website_link");

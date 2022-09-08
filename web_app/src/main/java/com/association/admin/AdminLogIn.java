@@ -1,6 +1,5 @@
 package com.association.admin;
 
-import com.association.AssocMember;
 import com.association.SecurePassword;
 import com.association.database.DatabaseConnection;
 

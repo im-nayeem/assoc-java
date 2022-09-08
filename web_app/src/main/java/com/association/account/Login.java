@@ -1,6 +1,6 @@
 package com.association.account;
 
-import com.association.AssocMember;
+import com.association.members.AssocMember;
 import com.association.database.DatabaseConnection;
 import javax.servlet.*;
 import javax.servlet.http.*;

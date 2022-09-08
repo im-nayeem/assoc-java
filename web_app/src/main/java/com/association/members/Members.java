@@ -1,4 +1,6 @@
-package com.association;
+package com.association.members;
+
+import com.association.members.AssocMember;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

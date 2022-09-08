@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created on 07-Sep-22
+ * Created on 08-Sep-22
  *
  * @author Nayeem
  */
-@WebFilter(filterName = "LoginFilter", servletNames = {"Dashboard","Members","members-filter","MemberDetails","Notice"})
-public class LoginFilter implements Filter {
+@WebFilter(filterName = "InitFilter",urlPatterns = {"/*"})
+public class InitFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }
 
@@ -21,13 +21,12 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
-
-        if(req.getSession().getAttribute("userProfile")!=null){
+        if(req.getServletPath().equals("/init") || req.getServletPath().contains("Admin") || req.getServletContext().getAttribute("assocInfo")!=null){
             chain.doFilter(req, resp);
-        }
-        else
-            resp.sendRedirect("Login");
+        } else if (req.getServletPath().contains("admin") || req.getServletPath().contains("StoreInfo")) {
+            chain.doFilter(req, resp);
 
-
+        } else
+            resp.sendRedirect("./");
     }
 }

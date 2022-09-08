@@ -10,12 +10,12 @@
 <%@include file="./includes/head.jsp"%>
 
 <style>
-    <%--    <%@include file=""%>--%>
+        <%@include file="./assets/members.css"%>
 </style>
 
 <div class="content">
     <div class="filter-member">
-        <form action="FilterMemberList" method="post">
+        <form action="members-filter" method="post">
             <select name="dept" id="dept" required>
                 <option selected disabled hidden>Select Department</option>
                 <c:forEach var="dept" items="${sessionScope.memberFilterValue.getDeptList()}">

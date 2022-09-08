@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.association;
+package com.association.members;
 
+import com.association.SecurePassword;
 import com.association.database.DatabaseConnection;
 
 import java.io.ByteArrayInputStream;
@@ -55,8 +56,7 @@ public class AssocMember {
     public AssocMember(String memberEmail){
         try {
             DatabaseConnection conn = new DatabaseConnection();
-            Statement stmt= conn.getStatement();
-            ResultSet rs =  stmt.executeQuery("SELECT * FROM members WHERE email = '"+memberEmail+"'");
+            ResultSet rs =  conn.executeQuery("SELECT * FROM members WHERE email = '"+memberEmail+"'");
             rs.next();
 
             this.name =  rs.getString("name");

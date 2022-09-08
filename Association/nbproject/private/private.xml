@@ -8,7 +8,10 @@
             <file>file:/N:/Project/Association/src/welcome/WelcomeController.java</file>
             <file>file:/N:/Project/Association/src/ExecutiveController/ExecutiveMember.java</file>
             <file>file:/N:/Project/Association/src/ExecutiveController/ExecutiveController.java</file>
+            <file>file:/N:/Project/Association/src/database/DatabaseConnection.java</file>
             <file>file:/N:/Project/Association/src/association/Association.java</file>
+            <file>file:/N:/Project/Association/src/initAssociation/AssocInfo.java</file>
+            <file>file:/N:/Project/Association/src/initAssociation/AssocInitModel.java</file>
         </group>
     </open-files>
 </project-private>

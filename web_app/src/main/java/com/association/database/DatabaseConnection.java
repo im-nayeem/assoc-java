@@ -1,16 +1,17 @@
 package com.association.database;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DatabaseConnection {
 
-    private final String dbAddr = "jdbc:mysql://127.0.0.1:3306/assoc";
+    private final String dbAddr = "jdbc:mysql://127.0.0.1:3306/association"+"?allowMultiQueries=true";
     private final String uname = "root";
     private final String pass = "";
     private Connection conn;
-    private Statement statement;
+    private ResultSet rs;
     private PreparedStatement preparedStatement;
 
     /**
@@ -27,21 +28,25 @@ public class DatabaseConnection {
 
     }
 
-    /**
-     * ============Getter Methods==============
-     */
-    Connection getConn() {
-        return conn;
-    }
-
-    public Statement getStatement() {
-
+     /** ============Methods==============*/
+    public void execute(String query){
         try {
-            statement = conn.createStatement();
+            Statement st = conn.createStatement();
+             st.execute(query);
         } catch (SQLException e) {
             throw new RuntimeException(e.toString() + "\nCouldn't Create Statement");
         }
-        return statement;
+    }
+
+    public ResultSet executeQuery(String query) {
+
+        try {
+            Statement st = conn.createStatement();
+            rs = st.executeQuery(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.toString() + "\nCouldn't Create Statement");
+        }
+        return rs;
     }
 
     /**
