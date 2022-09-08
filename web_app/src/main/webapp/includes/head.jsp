@@ -49,12 +49,12 @@
         <a href="constitution.jsp" id="constitution">Constitution</a>
         <a href="gallery.jsp" id="gallery">Gallery</a>
         <div class="dropdown">
-            <button class="dropbtn" id="news_notice">News&Notice
+            <button class="dropbtn" id="newsNotice">News&Notice
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
                 <a href="Notice">Notice</a>
-                <a href="Notice">News</a>
+                <a href="News">News</a>
                 <a href="Notice">Event</a>
             </div>
 
@@ -66,7 +66,7 @@
         <a href="" id="menu7">Alumni</a>
 
         <div class="dropdown">
-            <button class="dropbtn" id="exe_committee">Executive Committee
+            <button class="dropbtn" id="exeCommittee">Executive Committee
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
@@ -137,6 +137,10 @@
             }
             else if(pageName === "Gallery" || pageName === "gallery.jsp"){
                 document.getElementById("gallery").className += 'active';
+            }
+            else if(pageName === "News" || pageName === "Notice" || pageName === "Event"){
+                document.getElementById("newsNotice").style.background = "#04AA6D";
+                document.getElementById("newsNotice").style.color = "white";
             }
             
         </script>
