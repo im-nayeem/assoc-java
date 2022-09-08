@@ -44,6 +44,7 @@
                         <button type="button" class="secondary_log_sign"
                             onclick="">Register</button>
                     </a>
+                    <a href="reset?t=password&role=member">Forgot Password? Click to Reset.</a>
 <%--                    go to registration.jsp onclick--%>
                 </div>
             </div>
