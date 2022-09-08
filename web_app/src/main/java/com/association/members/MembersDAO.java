@@ -1,6 +1,7 @@
-package com.association;
+package com.association.members;
 
 import com.association.database.DatabaseConnection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

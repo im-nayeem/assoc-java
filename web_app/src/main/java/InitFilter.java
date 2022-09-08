@@ -21,10 +21,12 @@ public class InitFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
-        if(req.getServletPath().equals("/init") || req.getServletContext().getAttribute("assocInfo")!=null){
+        if(req.getServletPath().equals("/init") || req.getServletPath().contains("Admin") || req.getServletContext().getAttribute("assocInfo")!=null){
             chain.doFilter(req, resp);
-        }
-        else
+        } else if (req.getServletPath().contains("admin") || req.getServletPath().contains("StoreInfo")) {
+            chain.doFilter(req, resp);
+
+        } else
             resp.sendRedirect("./");
     }
 }

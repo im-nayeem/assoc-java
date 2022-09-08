@@ -24,7 +24,7 @@
                 <fieldset>
                     <legend>Basic information</legend>
                     <label for="assoc_name"><strong>Association Name</strong></label>
-                    <input type="text" placeholder="Association name" name="assoc_name" id="assoc_name" pattern="[A-Za-z ]+" required>
+                    <input type="text" placeholder="Association name" name="assoc_name" id="assoc_name" pattern="[A-Za-z ']+" required>
 
                     <label for="assoc_abbr"><strong>Association Name Abbreviation</strong></label>
                     <input type="text" placeholder="Abbreviation-Institution Name e.g, MSWA-CoU" name="assoc_abbr" id="assoc_abbr" pattern="[A-Za-z -]+" required>

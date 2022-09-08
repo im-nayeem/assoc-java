@@ -1,12 +1,11 @@
 package com.association.account;
 
 import com.association.AssocInfo;
-import com.association.AssocMember;
+import com.association.members.AssocMember;
 import com.association.SendMail;
 import com.association.Utility;
 import com.association.database.DatabaseConnection;
 
-import javax.naming.Context;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -51,7 +50,7 @@ public class Registration extends HttpServlet {
 
             AssocInfo assocInfo = (AssocInfo) getServletContext().getAttribute("assocInfo");
             SendMail mail = new SendMail(assocInfo,email);
-//            mail.send("Verification","Your Verification Code is: "+request.getSession().getAttribute("verificationCode")+"\n");
+            mail.send("Verification","Your Verification Code is: "+request.getSession().getAttribute("verificationCode")+"\n");
 
             request.getRequestDispatcher("account/verifyMail.jsp").forward(request,response);
 

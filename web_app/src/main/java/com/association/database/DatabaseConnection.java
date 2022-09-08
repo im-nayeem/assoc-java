@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 public class DatabaseConnection {
 
-    private final String dbAddr = "jdbc:mysql://127.0.0.1:3306/assoc";
+    private final String dbAddr = "jdbc:mysql://127.0.0.1:3306/association"+"?allowMultiQueries=true";
     private final String uname = "root";
     private final String pass = "";
     private Connection conn;
@@ -28,14 +28,15 @@ public class DatabaseConnection {
 
     }
 
-    /**
-     * ============Getter Methods==============
-     */
-    Connection getConn() {
-        return conn;
+     /** ============Methods==============*/
+    public void execute(String query){
+        try {
+            Statement st = conn.createStatement();
+             st.execute(query);
+        } catch (SQLException e) {
+            throw new RuntimeException(e.toString() + "\nCouldn't Create Statement");
+        }
     }
-
-
 
     public ResultSet executeQuery(String query) {
 

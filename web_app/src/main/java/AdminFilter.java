@@ -9,7 +9,7 @@ import java.io.IOException;
  *
  * @author Nayeem
  */
-@WebFilter(filterName = "AdminFilter",servletNames = {"AdminPanel"})
+@WebFilter(filterName = "AdminFilter",servletNames = {"AdminPanel","StoreInfo"})
 public class AdminFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }

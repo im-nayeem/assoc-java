@@ -124,7 +124,6 @@
             for (var i = tmp.length - 1; i >= 0; i--) {
                 pageName += tmp[i];
             }
-            console.log(pageName);
             //compare with all jsp file name
             if(pageName === "index.jsp" || pageName.length===0){
                 document.getElementById("menu1").className += 'active';

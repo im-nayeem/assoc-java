@@ -1,6 +1,6 @@
 package com.association.account;
 
-import com.association.AssocMember;
+import com.association.members.AssocMember;
 import com.association.database.DatabaseConnection;
 
 import javax.servlet.ServletException;
@@ -63,8 +63,7 @@ public class Verify extends HttpServlet {
             request.getSession().removeAttribute("member");
 
             request.setAttribute("isRegistrationCompleted",true);
-            response.sendRedirect("Login");
-
+            request.getRequestDispatcher("login.jsp").forward(request,response);
         } catch (Exception e) {
             request.setAttribute("error",e);
             request.getRequestDispatcher("error.jsp").forward(request,response);

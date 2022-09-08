@@ -21,8 +21,8 @@ public class storeInfoDAO {
 
     public void storeAssocInfo(AssocInfo assocInfo) {
         final String assocInfoQuery = "INSERT INTO assoc_info "
-                + "(assoc_name,assoc_logo,about,constitution,email,pass,pay_details,prsdnt_phone,gs_phone)"
-                + " VALUES(?,?,?,?,?,?,?,?,?);";
+                + "(assoc_name,assoc_abbr,assoc_logo,about,constitution,email,pass,pay_details,prsdnt_phone,gs_phone)"
+                + " VALUES(?,?,?,?,?,?,?,?,?,?);";
 
         try {
             PreparedStatement pstmnt = conn.getPreparedStatement(assocInfoQuery);

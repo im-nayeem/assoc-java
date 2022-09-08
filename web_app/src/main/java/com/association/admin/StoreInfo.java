@@ -32,14 +32,17 @@ public class StoreInfo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             storeInfoDAO admin = new storeInfoDAO();
-            //infoType is set in 17th line of two jsp files
-            if(request.getParameter("infoType").equals("varsityInfo")){
-                VarsityInfo varsityInfo = new VarsityInfo(request);
-                admin.storeVarsityInfo(varsityInfo);
-            }
-            else if(request.getParameter("infoType").equals("assocInfo")){
+
+            if(request.getParameter("infoType").equals("assocInfo")){
                 AssocInfo assocInfo = new AssocInfo(request);
                 admin.storeAssocInfo(assocInfo);
+                response.sendRedirect("StoreInfo?t=institution");
+            }
+            //infoType is set in 17th line of two jsp files
+            else if(request.getParameter("infoType").equals("varsityInfo")){
+                VarsityInfo varsityInfo = new VarsityInfo(request);
+                admin.storeVarsityInfo(varsityInfo);
+                response.sendRedirect("./");
             }
         }
         catch (Exception e){

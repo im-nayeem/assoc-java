@@ -1,5 +1,6 @@
 package com.association.admin;
 
+import com.association.Utility;
 import com.association.database.DatabaseConnection;
 
 import javax.servlet.*;
@@ -22,8 +23,19 @@ public class AdminPanel extends HttpServlet {
         try{
             DatabaseConnection conn = new DatabaseConnection();
             ResultSet rs = conn.executeQuery("Select * from members");
-        } catch (Exception e) {
-            request.getRequestDispatcher("initAssoc.jsp").forward(request,response);
+            request.getRequestDispatcher("admin dashboard.jsp").forward(request,response);
+        }
+        catch (Exception e) {
+            try{
+                DatabaseConnection conn = new DatabaseConnection();
+                conn.execute(Utility.getAssocInitQuery());
+                response.sendRedirect("StoreInfo?t=association");
+            }
+            catch (Exception ex)
+            {
+                request.setAttribute("error",ex+"\n"+e);
+                request.getRequestDispatcher("error.jsp").forward(request,response);
+            }
         }
     }
 

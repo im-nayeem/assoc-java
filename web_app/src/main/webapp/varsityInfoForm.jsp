@@ -31,7 +31,7 @@
                     <label for="varsity_web_link"><strong>Institution Website Link</strong></label>
                     <input type="text" placeholder="Varsity website link" name="varsity_web_link" id="varsity_web_link" required>
 
-                    <label for="last_batch_number"><strong>Institution Website Link</strong></label>
+                    <label for="last_batch_number"><strong>Last Batch</strong></label>
                     <input type="number" placeholder="Last batch number" name="last_batch_number" id="last_batch_number" required>
 
                     <label for="number_of_dept"><strong>Number Of departments</strong></label>

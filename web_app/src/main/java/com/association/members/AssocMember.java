@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.association;
+package com.association.members;
 
+import com.association.SecurePassword;
 import com.association.database.DatabaseConnection;
 
 import java.io.ByteArrayInputStream;
