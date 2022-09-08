@@ -31,10 +31,13 @@ public class Verify extends HttpServlet {
             request.getRequestDispatcher("account/verifyMail.jsp").forward(request,response);
         }
         try {
+            AssocMember member = (AssocMember) request.getSession().getAttribute("member");
+
+            member.getUserAccount().storeAccount();
+
             DatabaseConnection conn = new DatabaseConnection();
             String query = "INSERT INTO members VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
             PreparedStatement pstmnt = conn.getPreparedStatement(query);
-            AssocMember member = (AssocMember) request.getSession().getAttribute("member");
             pstmnt.setString(1,member.getName());
             pstmnt.setString(2,member.getId());
             pstmnt.setString(3,member.getEmail());
@@ -58,12 +61,11 @@ public class Verify extends HttpServlet {
 
             pstmnt.execute();
 
-            member.getUserAccount().storeAccount();
 
             request.getSession().removeAttribute("member");
 
             request.setAttribute("isRegistrationCompleted",true);
-            request.getRequestDispatcher("login.jsp").forward(request,response);
+            request.getRequestDispatcher("account/login.jsp").forward(request,response);
         } catch (Exception e) {
             request.setAttribute("error",e);
             request.getRequestDispatcher("error.jsp").forward(request,response);

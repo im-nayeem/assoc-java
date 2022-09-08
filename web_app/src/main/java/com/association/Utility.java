@@ -7,16 +7,7 @@ public class Utility {
        return   ThreadLocalRandom.current().nextInt(1111, 1000000 );
     }
     public static  String getAssocInitQuery(){
-        return "CREATE TABLE account(\n" +
-                "    email varchar(40),\n" +
-                "    salt varchar(2000),\n" +
-                "    pass varchar(1000),\n" +
-                "    role varchar(10),\n" +
-                "    PRIMARY key(email,role)\n" +
-                ");\n" +
-                "\n" +
-                "\n" +
-                "CREATE TABLE varsity_info(\n" +
+        return "CREATE TABLE varsity_info(\n" +
                 "    varsity_name varchar(50),\n" +
                 "    website_link varchar(30),\n" +
                 "    dept varchar(3000),\n" +
@@ -38,7 +29,7 @@ public class Utility {
                 "\n" +
                 "\n" +
                 "CREATE TABLE members(\n" +
-                "    name varchar(30),\n" +
+                "    name varchar(40),\n" +
                 "    id int UNIQUE not null,\n" +
                 "    email varchar(30),\n" +
                 "    phone varchar(15),\n" +
@@ -59,7 +50,12 @@ public class Utility {
                 "    PRIMARY KEY(id),\n" +
                 "    FOREIGN key(email) REFERENCES account(email) on update cascade on DELETE CASCADE\n" +
                 ");\n" +
-                "\n" +
+                "CREATE TABLE verified(\n" +
+                "    email varchar(30),\n" +
+                "    id int not null,\n" +
+                "    FOREIGN KEY(email) REFERENCES members(email) on UPDATE CASCADE on DELETE CASCADE,\n" +
+                "    FOREIGN KEY(id) REFERENCES members(id) on update cascade on delete cascade\n" +
+                "    );\n" +
                 "CREATE table alumni(\n" +
                 "    id int not null,\n" +
                 "    email varchar(30) not null,\n" +
