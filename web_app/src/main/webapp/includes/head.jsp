@@ -44,12 +44,12 @@
 <div class="topnav" id="myTopnav">
 
     <div class="menu">
-        <a href="./" class="name_in_nav">MSWA-CoU</a>
-        <a href="./" class="active">Home</a>
-        <a href="constitution.jsp">Constitution</a>
-        <a href="">Gallery</a>
+        <a href="./" class="name_in_nav" >MSWA-CoU</a>
+        <a href="./" class="" id="menu1">Home</a>
+        <a href="constitution.jsp" id="menu2">Constitution</a>
+        <a href="" id="menu3">Gallery</a>
         <div class="dropdown">
-            <button class="dropbtn">News&Notice
+            <button class="dropbtn" id="menu4">News&Notice
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
@@ -60,13 +60,13 @@
 
         </div>
 
-        <a href="Members">Members</a>
+        <a href="Members" id="menu5">Members</a>
 
-        <a href="">Advisor</a>
-        <a href="">Alumni</a>
+        <a href="" id="menu6">Advisor</a>
+        <a href="" id="menu7">Alumni</a>
 
         <div class="dropdown">
-            <button class="dropbtn">Executive Committee
+            <button class="dropbtn" id="menu8">Executive Committee
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
@@ -77,7 +77,7 @@
 
         </div>
         <div class="dropdown">
-            <button class="dropbtn">Culture
+            <button class="dropbtn" id="menu9">Culture
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
@@ -86,7 +86,7 @@
             </div>
 
         </div>
-        <a href="#about">About</a>
+        <a href="#about" id="menu10">About</a>
     </div>
 
 
@@ -106,3 +106,34 @@
 
 
 </div>
+        <script>
+            //get current link
+            var link = window.location.href;
+            var tmp = "";
+            //retrieve jsp file name
+            for (var i = link.length - 1; i >= 0; i--) {
+                if (link[i] === '/')
+                    break;
+                if(link[i] === '?'){
+                    tmp="";continue;
+                }
+                tmp += link[i];
+            }
+            var pageName = "";
+            //reverse jsp file name
+            for (var i = tmp.length - 1; i >= 0; i--) {
+                pageName += tmp[i];
+            }
+            console.log(pageName);
+            //compare with all jsp file name
+            if(pageName === "index.jsp" || pageName.length===0){
+                document.getElementById("menu1").className += 'active';
+            }
+            else if(pageName === "constitution.jsp") {
+                document.getElementById("menu2").className += 'active';
+            }
+            else if(pageName === "Members" || pageName === "members.jsp" || pageName === "MemberDetails"){
+                document.getElementById("menu5").className += 'active';
+            }
+            
+        </script>
