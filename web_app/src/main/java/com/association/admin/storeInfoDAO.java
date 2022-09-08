@@ -69,4 +69,27 @@ public class storeInfoDAO {
             throw new RuntimeException(e.toString() + "\nProblem with varsity information storing query");
         }
     }
+    
+    public void storeVerifiedInfo(String email, String id){
+        final String qeury = "INSERT INTO verified VALUES('"+email+"',"+id+");";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(qeury);
+            pstmnt.execute();
+        } catch (Exception e) {
+            throw new RuntimeException(e.toString() + "\nProblem while verifying members information");
+        }
+    }
+    
+//    when rejected by admin
+    public void removeMember(String email){
+        final String qeury = "DELET FROM members WHERE email="+email+";";
+        try {
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmnt = conn.getPreparedStatement(qeury);
+            pstmnt.execute();
+        } catch (Exception e) {
+            throw new RuntimeException(e.toString() + "\nProblem while removing rejected member");
+        }
+    }
 }
