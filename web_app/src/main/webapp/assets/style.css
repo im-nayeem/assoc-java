@@ -26,7 +26,7 @@ body {
 
 }
 .logo{
-    padding-left: 14px;
+    padding-left: 10px;
 }
 .name, .name h3{
     color: #ddd;
@@ -72,7 +72,7 @@ body {
 }
 /*--padding for first link in topnav--*/
 a.name_in_nav {
-    min-width: 108px;
+    min-width: 110px;
 }
 
 

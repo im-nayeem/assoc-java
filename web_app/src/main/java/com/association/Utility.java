@@ -7,7 +7,16 @@ public class Utility {
        return   ThreadLocalRandom.current().nextInt(1111, 1000000 );
     }
     public static  String getAssocInitQuery(){
-        return "CREATE TABLE varsity_info(\n" +
+        return "CREATE TABLE account(\n" +
+                "    email varchar(40),\n" +
+                "    salt varchar(2000),\n" +
+                "    pass varchar(1000),\n" +
+                "    role varchar(10),\n" +
+                "    PRIMARY key(email,role)\n" +
+                ");\n" +
+                "\n" +
+                "\n" +
+                "CREATE TABLE varsity_info(\n" +
                 "    varsity_name varchar(50),\n" +
                 "    website_link varchar(30),\n" +
                 "    dept varchar(3000),\n" +
@@ -32,8 +41,6 @@ public class Utility {
                 "    name varchar(30),\n" +
                 "    id int UNIQUE not null,\n" +
                 "    email varchar(30),\n" +
-                "    pass varchar(1000),\n" +
-                "    salt varchar(2000),\n" +
                 "    phone varchar(15),\n" +
                 "    dept varchar(40),\n" +
                 "    session varchar(9),\n" +
@@ -49,19 +56,10 @@ public class Utility {
                 "    permanent_upazila varchar(30),\n" +
                 "    permanent_details varchar(50),\n" +
                 "    tranc_no varchar(20),\n" +
-                "    PRIMARY KEY(email)  );\n" +
-                "    \n" +
-                "    \n" +
-                "\n" +
-                "CREATE TABLE verified(\n" +
-                "    id int not null,\n" +
-                "    email varchar(30) not null,\n" +
-                "    is_alumni boolean,\n" +
-                "    is_exec boolean,\n" +
-                "    was_exec boolean,\n" +
-                "    FOREIGN KEY(id) REFERENCES members(id) on update cascade on delete cascade,\n" +
-                "    FOREIGN KEY(email) REFERENCES members(email) on update cascade on delete cascade\n" +
+                "    PRIMARY KEY(id),\n" +
+                "    FOREIGN key(email) REFERENCES account(email) on update cascade on DELETE CASCADE\n" +
                 ");\n" +
+                "\n" +
                 "CREATE table alumni(\n" +
                 "    id int not null,\n" +
                 "    email varchar(30) not null,\n" +
@@ -72,8 +70,8 @@ public class Utility {
                 ");\n" +
                 "CREATE table exec_committee(\n" +
                 "    committee_id int not null AUTO_INCREMENT,\n" +
-                "    from_time varchar(10),\n" +
-                "    to_time varchar(10),\n" +
+                "    from_time DATE,\n" +
+                "    to_time DATE,\n" +
                 "    PRIMARY key(committee_id)\n" +
                 "    \n" +
                 ");\n" +
@@ -89,15 +87,13 @@ public class Utility {
                 "CREATE table advisor(\n" +
                 "    name varchar(30),\n" +
                 "    email varchar(30),\n" +
-                "    pass varchar(1000),\n" +
-                "    salt varchar(2000),\n" +
                 "    present_addr varchar(70),\n" +
                 "    permanent_addr varchar(70), \n" +
                 "    photo mediumblob,\n" +
                 "    occupation varchar(50),\n" +
-                "    from_time varchar(10),\n" +
-                "    to_time varchar(10),\n" +
-                "    PRIMARY KEY(email)\n" +
+                "    from_time DATE,\n" +
+                "    to_time DATE,\n" +
+                "    FOREIGN KEY(email) REFERENCES account(email) on UPDATE CASCADE on DELETE CASCADE\n" +
                 "    );\n" +
                 "\n" +
                 "\n" +
@@ -127,27 +123,29 @@ public class Utility {
                 "    headline varchar(1000),\n" +
                 "    details varchar(3000),\n" +
                 "    footer varchar(500),\n" +
+                "    post_date DATE,\n" +
                 "    Primary key(news_id),\n" +
                 "   Foreign key(media_id) references media(media_id) on update cascade on delete cascade\n" +
                 ");\n" +
                 "Create table notice(\n" +
-                "\t\n" +
-                "\tnotice_id int UNIQUE not null AUTO_INCREMENT,\n" +
-                "\theadline varchar(1000),\n" +
+                "   notice_id int UNIQUE not null AUTO_INCREMENT,\n" +
+                "    headline varchar(1000),\n" +
                 "    details varchar(3000),\n" +
                 "    footer varchar(500),\n" +
+                "    post_date DATE,\n" +
                 "    Primary key(notice_id)\n" +
                 ");\n" +
                 "Create table Culture (\n" +
-                "\tculture_id int unique not null auto_increment,\n" +
+                "    culture_id int unique not null auto_increment,\n" +
                 "    media_id int unique not null,\n" +
                 "    headline varchar(1000),\n" +
                 "    details varchar(3000),\n" +
                 "    label varchar(10),\n" +
-                "\tPRIMARY KEY(culture_id),\n" +
+                "    PRIMARY KEY(culture_id),\n" +
                 "    Foreign key(media_id) references media(media_id) on update cascade on delete cascade\n" +
                 "    \n" +
-                ");";
+                "); \n";
+
     }
 
 }
