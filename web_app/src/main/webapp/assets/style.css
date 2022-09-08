@@ -91,7 +91,10 @@ a.name_in_nav {
     float: left;
     overflow: hidden;
 }
-
+.dropdown .active {
+    background-color: #04AA6D;
+    color: white;
+}
 .dropdown .dropbtn {
     font-size: 17px;
     border: none;

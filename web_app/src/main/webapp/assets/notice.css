@@ -1,0 +1,138 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Sep 8, 2022, 9:03:16 PM
+    Author     : Mestu
+*/
+
+/*----------------Notice table-----------*/
+.notice-container{
+    min-height: 70vh;
+    background: #ced6d6;
+    padding-top: 3%;
+}
+.notice-container table{
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+
+}
+.notice-container table th,td{
+    border: 1px solid black;
+    padding: 5px;
+    background: white;
+}
+.notice-container table button{
+    background: #f1f1f1;
+    padding: 3px;
+    border-color: #c1c1c1;
+
+}
+/*-------------------------------------------------------*/
+
+/*----------------------Notice details modal-------------*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation-name: modalopen;
+    animation-duration: 1s;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 5px;
+    display: block;
+    margin: 5% auto;
+    padding: 10px;
+    padding-bottom: 40px;
+    width: 70%;
+    box-shadow: 0 0 19px 4px rgb(51, 51, 51);
+    animation-name: modalcontetnopne;
+    animation-duration: 1s;
+    text-align: center;
+}
+
+.modal-content input {
+    outline: 0;
+    border: 0px;
+    border-bottom: 1px solid rgb(202, 201, 201);
+    background-color: transparent;
+    height: 20px;
+    width: 60%;
+    margin: 15px 20%;
+}
+
+.closeBtn {
+    color: rgb(177, 171, 171);
+    float: right;
+    font-size: 35px;
+    font-weight: 700;
+    background: white;
+}
+
+.closeBtn:hover {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes modalopen {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalcontetnopne {
+    from {
+        opacity: 0;
+        margin: 0% auto;
+    }
+
+    to {
+        opacity: 1;
+        margin: 5% auto;
+    }
+}
+/*-----------------------------------------------------*/
+/*---------------notice details text format-------------*/
+#headline{
+    font-size: 30px;
+    font-weight: 600;
+    border: 1px solid black;
+    background-color: #404040ed;
+    color: white;
+    margin: 30px 30px;
+}
+#details{
+    font-size: 18px;
+    font-weight: 500;
+    border: 1px solid black;
+    min-height: 10vh;
+    max-height: max-content;
+    margin: 30px 30px;
+    padding: 10px;
+    text-align: left;
+    background-color: white;
+}
+#noticefooter{
+    text-align: right;
+    margin: 30px 30px;
+    padding: 10px;
+    font-style: italic;
+    background-color: white;
+}
+/*----------------------------------------------------------*/

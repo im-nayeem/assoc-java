@@ -44,29 +44,29 @@
 <div class="topnav" id="myTopnav">
 
     <div class="menu">
-        <a href="./" class="name_in_nav" >${applicationScope.assocInfo.getAssocAbbr()}</a>
-        <a href="./" class="" id="menu1">Home</a>
-        <a href="constitution.jsp" id="menu2">Constitution</a>
-        <a href="" id="menu3">Gallery</a>
+        <a href="./" class="name_in_nav" >MSWA-CoU</a>
+        <a href="./" class="" id="home">Home</a>
+        <a href="constitution.jsp" id="constitution">Constitution</a>
+        <a href="gallery.jsp" id="gallery">Gallery</a>
         <div class="dropdown">
-            <button class="dropbtn" id="menu4">News&Notice
+            <button class="dropbtn" id="newsNotice">News&Notice
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
                 <a href="Notice">Notice</a>
-                <a href="Notice">News</a>
+                <a href="News">News</a>
                 <a href="Notice">Event</a>
             </div>
 
         </div>
 
-        <a href="Members" id="menu5">Members</a>
+        <a href="Members" id="members">Members</a>
 
         <a href="" id="menu6">Advisor</a>
         <a href="" id="menu7">Alumni</a>
 
         <div class="dropdown">
-            <button class="dropbtn" id="menu8">Executive Committee
+            <button class="dropbtn" id="exeCommittee">Executive Committee
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
@@ -77,7 +77,7 @@
 
         </div>
         <div class="dropdown">
-            <button class="dropbtn" id="menu9">Culture
+            <button class="dropbtn" id="culture">Culture
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
@@ -86,7 +86,7 @@
             </div>
 
         </div>
-        <a href="#about" id="menu10">About</a>
+        <a href="#about" id="about">About</a>
     </div>
 
 
@@ -124,15 +124,23 @@
             for (var i = tmp.length - 1; i >= 0; i--) {
                 pageName += tmp[i];
             }
+            
             //compare with all jsp file name
             if(pageName === "index.jsp" || pageName.length===0){
-                document.getElementById("menu1").className += 'active';
+                document.getElementById("home").className += 'active';
             }
             else if(pageName === "constitution.jsp") {
-                document.getElementById("menu2").className += 'active';
+                document.getElementById("constitution").className += 'active';
             }
             else if(pageName === "Members" || pageName === "members.jsp" || pageName === "MemberDetails"){
-                document.getElementById("menu5").className += 'active';
+                document.getElementById("members").className += 'active';
+            }
+            else if(pageName === "Gallery" || pageName === "gallery.jsp"){
+                document.getElementById("gallery").className += 'active';
+            }
+            else if(pageName === "News" || pageName === "Notice" || pageName === "Event"){
+                document.getElementById("newsNotice").style.background = "#04AA6D";
+                document.getElementById("newsNotice").style.color = "white";
             }
             
         </script>
