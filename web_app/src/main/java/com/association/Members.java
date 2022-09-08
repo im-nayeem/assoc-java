@@ -19,8 +19,10 @@ public class Members extends HttpServlet {
         try{
             MembersDAO memberModel = new MembersDAO();
             Vector<AssocMember>assocMemberList = memberModel.getAssocMemberList();
-
+            MemberFilterValue memberFilterValue = memberModel.getMemberFilterValue();
+            
             request.getSession().setAttribute("assocMemberList", assocMemberList);
+            request.getSession().setAttribute("memberFilterValue", memberFilterValue);
             request.getRequestDispatcher("members.jsp").forward(request,response);
         }
         catch(Exception e){
