@@ -1,6 +1,7 @@
 package com.association.account;
 
 import com.association.AssocInfo;
+import com.association.UserAccount;
 import com.association.members.AssocMember;
 import com.association.SendMail;
 import com.association.Utility;
@@ -44,6 +45,7 @@ public class Registration extends HttpServlet {
 
             AssocMember member = new AssocMember(request);
             request.getSession().setAttribute("member",member);
+
 
             request.getSession().setAttribute("verificationCode", Utility.getVerificationCode() );
 

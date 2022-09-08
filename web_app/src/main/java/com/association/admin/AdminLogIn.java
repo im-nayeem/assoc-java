@@ -1,6 +1,7 @@
 package com.association.admin;
 
 import com.association.SecurePassword;
+import com.association.UserAccount;
 import com.association.database.DatabaseConnection;
 
 import javax.servlet.*;
@@ -30,8 +31,9 @@ public class AdminLogIn extends HttpServlet {
 
             DatabaseConnection conn = new DatabaseConnection();
 
-            PreparedStatement pstmt = conn.getPreparedStatement("SELECT  * from adminpanel where email=?");
+            PreparedStatement pstmt = conn.getPreparedStatement("SELECT  * from account where email=? and role=?");
             pstmt.setString(1,email);
+            pstmt.setString(2,"admin");
             ResultSet rs = pstmt.executeQuery();
 
 
@@ -41,13 +43,12 @@ public class AdminLogIn extends HttpServlet {
             }
 
 
-            String key = conn.getColumnValueByKey("adminpanel", "pass","email", email);
-            String salt = conn.getColumnValueByKey("adminpanel", "salt","email", email);
+            UserAccount user = new UserAccount(email,"admin");
 
-            if(SecurePassword.verifyPassword(password,key,salt)==true)
+            if(SecurePassword.verifyPassword(password,user.getKey(), user.getSalt())==true)
             {
 
-                request.getSession().setAttribute("adminInfo",email);
+                request.getSession().setAttribute("adminInfo",user);
                 response.sendRedirect("admin-panel");
             }
             else{

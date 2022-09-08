@@ -6,6 +6,7 @@
 package com.association.members;
 
 import com.association.SecurePassword;
+import com.association.UserAccount;
 import com.association.database.DatabaseConnection;
 
 import java.io.ByteArrayInputStream;
@@ -13,15 +14,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.Base64;
 import javax.servlet.http.HttpServletRequest;
 
-import com.google.common.io.ByteStreams;
-//import com.sun.xml.internal.fastinfoset.util.CharArrayString;
-//import javafx.util.converter.CharacterStringConverter;
 import org.jetbrains.annotations.NotNull;
-import sun.awt.CharsetString;
 
 /**
  * AssocMember the  class containing single member's info
@@ -31,8 +27,8 @@ public class AssocMember {
     private String name;
     private String id;
     private String email;
-    private String password;
-    private String salt;
+
+    private UserAccount userAccount;
     private String phone;
     private String dept;
     private String session;
@@ -62,8 +58,7 @@ public class AssocMember {
             this.name =  rs.getString("name");
             this.id =  rs.getString("id");
             this.email =  rs.getString("email");
-            this.salt = rs.getString("salt");
-            this.password =  rs.getString("pass");
+            this.userAccount = new UserAccount(this.email,"member");
             this.phone =  rs.getString("phone");
             this.dept =  rs.getString("dept");
             this.session =  rs.getString("session");
@@ -97,8 +92,9 @@ public class AssocMember {
             this.name = request.getParameter("name");
             this.id = request.getParameter("id");
             this.email = request.getParameter("email");
-            this.salt = SecurePassword.generateSalt(512).get();
-            this.password = SecurePassword.hashPassword(request.getParameter("password"),salt).get();
+            String salt = SecurePassword.generateSalt(512).get();
+            String password = SecurePassword.hashPassword(request.getParameter("password"),salt).get();
+            this.userAccount = new UserAccount(email,password,salt,"member");
             this.phone = request.getParameter("phone");
             this.dept = request.getParameter("department");
             this.session = request.getParameter("session");
@@ -236,15 +232,14 @@ public class AssocMember {
     public String getPermanentDetails() {
         return permanentDetails;
     }
-    public String getPassword(){
-        return this.password;
-    }
-    public String  getSalt(){return  salt;}
     public String getTrancNo() {
         return trancNo;
     }
-    
-    /**-----------------------------------------------------------------*/
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+/**-----------------------------------------------------------------*/
 
 
     /**=============================setter methods====================*/

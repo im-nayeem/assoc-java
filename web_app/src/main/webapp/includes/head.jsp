@@ -44,7 +44,7 @@
 <div class="topnav" id="myTopnav">
 
     <div class="menu">
-        <a href="./" class="name_in_nav" >MSWA-CoU</a>
+        <a href="./" class="name_in_nav" >${applicationScope.assocInfo.getAssocAbbr()}</a>
         <a href="./" class="" id="menu1">Home</a>
         <a href="constitution.jsp" id="menu2">Constitution</a>
         <a href="" id="menu3">Gallery</a>
