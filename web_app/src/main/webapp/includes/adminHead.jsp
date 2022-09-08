@@ -40,9 +40,9 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="Notice">Notice</a>
-                <a href="Notice">News</a>
-                <a href="Notice">Event</a>
+                <a href="AdminNotice">Notice</a>
+                <a href="AdminNotice">News</a>
+                <a href="AdminNotice">Event</a>
             </div>
 
         </div>
