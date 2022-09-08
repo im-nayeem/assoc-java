@@ -9,7 +9,7 @@
 <%@include file="../includes/head.jsp"%>
 
 <style>
-    <%@include file="../assets/dashboard.css"%>
+    <%@include file="../assets/profileView.css"%>
 </style>
 
 <div class="content">

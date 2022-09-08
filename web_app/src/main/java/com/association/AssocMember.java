@@ -55,8 +55,7 @@ public class AssocMember {
     public AssocMember(String memberEmail){
         try {
             DatabaseConnection conn = new DatabaseConnection();
-            Statement stmt= conn.getStatement();
-            ResultSet rs =  stmt.executeQuery("SELECT * FROM members WHERE email = '"+memberEmail+"'");
+            ResultSet rs =  conn.executeQuery("SELECT * FROM members WHERE email = '"+memberEmail+"'");
             rs.next();
 
             this.name =  rs.getString("name");

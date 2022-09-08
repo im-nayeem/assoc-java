@@ -10,7 +10,7 @@
 <%@include file="./includes/head.jsp"%>
 
 <style>
-    <%--    <%@include file=""%>--%>
+        <%@include file="./assets/members.css"%>
 </style>
 
 <div class="content">

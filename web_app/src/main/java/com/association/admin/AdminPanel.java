@@ -21,9 +21,8 @@ public class AdminPanel extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
             DatabaseConnection conn = new DatabaseConnection();
-            Statement st = conn.getStatement();
-            ResultSet rs = st.executeQuery("Select * from members");
-        } catch (SQLException e) {
+            ResultSet rs = conn.executeQuery("Select * from members");
+        } catch (Exception e) {
             request.getRequestDispatcher("initAssoc.jsp").forward(request,response);
         }
     }

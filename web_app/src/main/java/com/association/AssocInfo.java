@@ -41,8 +41,7 @@ public class AssocInfo {
     public AssocInfo() {
         try {
             DatabaseConnection conn = new DatabaseConnection();
-            Statement stmt= conn.getStatement();
-            ResultSet rs =  stmt.executeQuery("SELECT * FROM assoc_info");
+            ResultSet rs = conn.executeQuery("SELECT * FROM assoc_info");
             rs.next();
 
             this.assocLogo = this.inputStreamToString(rs.getBinaryStream("assoc_logo"));

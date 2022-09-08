@@ -1,5 +1,6 @@
 package com.association.database;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -10,7 +11,7 @@ public class DatabaseConnection {
     private final String uname = "root";
     private final String pass = "";
     private Connection conn;
-    private Statement statement;
+    private ResultSet rs;
     private PreparedStatement preparedStatement;
 
     /**
@@ -34,14 +35,17 @@ public class DatabaseConnection {
         return conn;
     }
 
-    public Statement getStatement() {
+
+
+    public ResultSet executeQuery(String query) {
 
         try {
-            statement = conn.createStatement();
+            Statement st = conn.createStatement();
+            rs = st.executeQuery(query);
         } catch (SQLException e) {
             throw new RuntimeException(e.toString() + "\nCouldn't Create Statement");
         }
-        return statement;
+        return rs;
     }
 
     /**

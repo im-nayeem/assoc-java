@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Created on 07-Sep-22
@@ -14,8 +12,11 @@ import java.util.logging.Logger;
  * @author Nayeem
  */
 public class MembersDAO {
+    private DatabaseConnection conn;
 
     public MembersDAO() {
+        conn = new DatabaseConnection();
+
     }
     
     private Vector<AssocMember>assocMemberList = new Vector<>();
@@ -23,9 +24,7 @@ public class MembersDAO {
     
     public Vector<AssocMember> getAssocMemberList() {
         try {
-            DatabaseConnection conn = new DatabaseConnection();
-            PreparedStatement pstmnt = conn.getPreparedStatement("SELECT * FROM members WHERE id IN(SELECT id FROM verified);");
-            ResultSet rs = pstmnt.executeQuery();
+            ResultSet rs = conn.executeQuery("SELECT * FROM members WHERE id IN(SELECT id FROM verified);");
             
             while(rs.next()){
                 AssocMember assocMember = new AssocMember();
@@ -103,7 +102,7 @@ public class MembersDAO {
     
     public MemberFilterValue getMemberFilterValue(){
         MemberFilterValue memberFilterValue = new MemberFilterValue();
-        String query = "SELECT DISTINCT dept FROM members;";
+        String query = "SELECT DISTINCT dept FROM members WHERE id IN(SELECT id FROM verified);";
         
         try {
             DatabaseConnection conn = new DatabaseConnection();
@@ -116,7 +115,7 @@ public class MembersDAO {
             }
             
 //            retrieve unique session year list 
-            query = "SELECT DISTINCT session FROM members;";
+            query = "SELECT DISTINCT session FROM members WHERE id IN(SELECT id FROM verified);;";
             pstmnt = conn.getPreparedStatement(query);
             rs = pstmnt.executeQuery();
             while(rs.next()){
@@ -124,7 +123,7 @@ public class MembersDAO {
             }
             
 //            retrieve unique present area list
-            query = "SELECT DISTINCT present_area FROM members;";
+            query = "SELECT DISTINCT present_area FROM members WHERE id IN(SELECT id FROM verified);";
             pstmnt = conn.getPreparedStatement(query);
             rs = pstmnt.executeQuery();
             while(rs.next()){
@@ -132,7 +131,7 @@ public class MembersDAO {
             }
             
 //            retrieve unique permanent Area list
-            query = "SELECT DISTINCT permanent_upazila FROM members;";
+            query = "SELECT DISTINCT permanent_upazila FROM members WHERE id IN(SELECT id FROM verified);";
             pstmnt = conn.getPreparedStatement(query);
             rs = pstmnt.executeQuery();
             while(rs.next()){
