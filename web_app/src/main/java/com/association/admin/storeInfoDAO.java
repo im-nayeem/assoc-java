@@ -30,14 +30,14 @@ public class storeInfoDAO {
             //set value to the query,extract values from assocInfo
             pstmnt.setString(1, assocInfo.getAssocName());
             pstmnt.setString(2,assocInfo.getAssocAbbr());
-            pstmnt.setBinaryStream(2, assocInfo.getAssocLogoStream());
-            pstmnt.setString(3, assocInfo.getAssocAbout());
-            pstmnt.setBinaryStream(4, assocInfo.getAssocConstStream());
-            pstmnt.setString(5, assocInfo.getAssocMail());
-            pstmnt.setString(6, assocInfo.getPass());
-            pstmnt.setString(7, assocInfo.getPaymentMethod());
-            pstmnt.setString(8, assocInfo.getPresidentNumber());
-            pstmnt.setString(9, assocInfo.getGenSecNumber());
+            pstmnt.setBinaryStream(3, assocInfo.getAssocLogoStream());
+            pstmnt.setString(4, assocInfo.getAssocAbout());
+            pstmnt.setBinaryStream(5, assocInfo.getAssocConstStream());
+            pstmnt.setString(6, assocInfo.getAssocMail());
+            pstmnt.setString(7, assocInfo.getPass());
+            pstmnt.setString(8, assocInfo.getPaymentMethod());
+            pstmnt.setString(9, assocInfo.getPresidentNumber());
+            pstmnt.setString(10, assocInfo.getGenSecNumber());
 
             pstmnt.execute();
 
