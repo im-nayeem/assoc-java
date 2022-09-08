@@ -82,6 +82,16 @@ public class UserAccount {
         }
     }
     public void storeAccount(){
-
+            try{
+                DatabaseConnection conn = new DatabaseConnection();
+                PreparedStatement pstmt = conn.getPreparedStatement("INSERT into account (email,pass,salt,role) values(?,?,?,?)");
+                pstmt.setString(1,this.email);
+                pstmt.setString(2,this.key);
+                pstmt.setString(3,this.salt);
+                pstmt.setString(4,this.role);
+                pstmt.execute();
+            }catch (Exception e){
+                throw  new RuntimeException(e);
+            }
     }
 }
