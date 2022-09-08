@@ -1,5 +1,6 @@
 package com.association.account;
 
+import com.association.UserAccount;
 import com.association.members.AssocMember;
 import com.association.database.DatabaseConnection;
 import javax.servlet.*;
@@ -37,10 +38,9 @@ public class Login extends HttpServlet {
             }
 
 
-            String key = conn.getColumnValueByKey("members", "pass","email", email);
-            String salt = conn.getColumnValueByKey("members", "salt","email", email);
+            UserAccount user = new UserAccount(email,"member");
 
-            if(SecurePassword.verifyPassword(password,key,salt)==true)
+            if(SecurePassword.verifyPassword(password,user.getKey(), user.getSalt())==true)
             {
                 AssocMember userProfile = new AssocMember(email);
                 request.getSession().setAttribute("userProfile",userProfile);
