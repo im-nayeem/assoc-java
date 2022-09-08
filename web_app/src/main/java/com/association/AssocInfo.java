@@ -25,6 +25,7 @@ import javax.servlet.ServletException;
 public class AssocInfo {
     private DatabaseConnection conn;
     private String assocName;
+    private String assocAbbr;
     private String assocLogo;
     private InputStream assocLogoStream;
     private String assocConstitution;
@@ -49,6 +50,7 @@ public class AssocInfo {
             this.assocAbout =  rs.getString("about");
             this.paymentMethod =  rs.getString("pay_details");
             this.assocName = rs.getString("assoc_name");
+            this.assocAbbr = rs.getString("assoc_abbr");
             this.assocMail = rs.getString("email");
             this.pass=rs.getString("pass");
             this.presidentNumber = rs.getString("prsdnt_phone");
@@ -63,6 +65,7 @@ public class AssocInfo {
     public AssocInfo(HttpServletRequest request){
         try {
             this.assocName = request.getParameter("assoc_name");
+            this.assocAbbr  = request.getParameter("assoc_abbr");
             this.assocLogoStream = request.getPart("assoc_logo").getInputStream();
             this.assocConstStream = request.getPart("assoc_constitution").getInputStream();
             this.assocAbout = request.getParameter("assoc_about");
@@ -81,7 +84,7 @@ public class AssocInfo {
 
     /**
      * Convert InputStream to String,Used to covert image into string
-     * @param is_image inputStream to be converted into String
+     * @param inpStream inputStream to be converted into String
      * @return base64Image the converted String
      * @throws IOException
      */
@@ -118,6 +121,7 @@ public class AssocInfo {
     public String getAssocName() {
         return assocName;
     }
+    public String getAssocAbbr(){return assocAbbr;}
 
     public String getAssocLogo() {
         return assocLogo;

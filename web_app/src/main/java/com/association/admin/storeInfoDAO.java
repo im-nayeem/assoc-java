@@ -4,21 +4,18 @@ import com.association.AssocInfo;
 import com.association.VarsityInfo;
 import com.association.database.DatabaseConnection;
 
-import javax.servlet.http.HttpServletRequest;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 /**
  * Created on 07-Sep-22
  *
  * @author Nayeem
  */
-public class AdminDAO {
+public class storeInfoDAO {
 
     private DatabaseConnection conn;
 
-    public AdminDAO() {
+    public storeInfoDAO() {
         conn = new DatabaseConnection();
     }
 
@@ -32,6 +29,7 @@ public class AdminDAO {
 
             //set value to the query,extract values from assocInfo
             pstmnt.setString(1, assocInfo.getAssocName());
+            pstmnt.setString(2,assocInfo.getAssocAbbr());
             pstmnt.setBinaryStream(2, assocInfo.getAssocLogoStream());
             pstmnt.setString(3, assocInfo.getAssocAbout());
             pstmnt.setBinaryStream(4, assocInfo.getAssocConstStream());
