@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 public class DatabaseConnection {
 
-    private final String dbAddr = "jdbc:mysql://127.0.0.1:3306/association"+"?allowMultiQueries=true";
+    private final String dbAddr = "jdbc:mysql://127.0.0.1:3306/assoc"+"?allowMultiQueries=true";
     private final String uname = "root";
     private final String pass = "";
     private Connection conn;
