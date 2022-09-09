@@ -18,6 +18,7 @@ public class AssocNotice {
     public AssocNotice() {
     }
 
+// <editor-fold defaultstate="collapsed" desc="Notice getter method. Click on the + sign on the left to edit the code.">
 //--------------------all getter method-----------------//
     public String getHeadline() {
         return headline;
@@ -39,8 +40,9 @@ public class AssocNotice {
         return noticeId;
     }
 //------------------------------------------------------//
+//    </editor-fold>
     
-    
+// <editor-fold defaultstate="collapsed" desc="Notice setter method. Click on the + sign on the left to edit the code.">
 //--------------------all setter method-----------------//
     public void setHeadline(String headline) {
         this.headline = headline;
@@ -63,7 +65,7 @@ public class AssocNotice {
     }
     
 //------------------------------------------------------//
-    
+//</editor-fold>
     
     
 }
