@@ -27,6 +27,46 @@ public class UserAccount {
         this.role = role;
     }
 
+    /**
+     * Constructor
+     * @param email the email used to retrieve an account from DB
+     * @param role the role used to retrieve an account from DB
+     */
+    public UserAccount(String email,String role){
+        try{
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmt = conn.getPreparedStatement("Select * from account where email=? and role=?");
+            pstmt.setString(1,email);
+            pstmt.setString(2,role);
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            this.key = rs.getString("pass");
+            this.salt = rs.getString("salt");
+            this.email = email;
+            this.role = role;
+
+        }catch (Exception e){
+            throw  new RuntimeException(e);
+        }
+    }
+
+    /**======Methods======================*/
+    public void storeAccount(){
+            try{
+                DatabaseConnection conn = new DatabaseConnection();
+                PreparedStatement pstmt = conn.getPreparedStatement("INSERT into account (email,pass,salt,role) values(?,?,?,?)");
+                pstmt.setString(1,this.email);
+                pstmt.setString(2,this.key);
+                pstmt.setString(3,this.salt);
+                pstmt.setString(4,this.role);
+                pstmt.execute();
+            }catch (Exception e){
+                throw  new RuntimeException(e);
+            }
+    }
+
+
+    /**=======Getter==================*/
     public String getEmail() {
         return email;
     }
@@ -57,41 +97,5 @@ public class UserAccount {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    /**
-     * Constructor
-     * @param email the email used to retrieve an account from DB
-     * @param role the role used to retrieve an account from DB
-     */
-    public UserAccount(String email,String role){
-        try{
-            DatabaseConnection conn = new DatabaseConnection();
-            PreparedStatement pstmt = conn.getPreparedStatement("Select * from account where email=? and role=?");
-            pstmt.setString(1,email);
-            pstmt.setString(2,role);
-            ResultSet rs = pstmt.executeQuery();
-            rs.next();
-            this.key = rs.getString("pass");
-            this.salt = rs.getString("salt");
-            this.email = email;
-            this.role = role;
-
-        }catch (Exception e){
-            throw  new RuntimeException(e);
-        }
-    }
-    public void storeAccount(){
-            try{
-                DatabaseConnection conn = new DatabaseConnection();
-                PreparedStatement pstmt = conn.getPreparedStatement("INSERT into account (email,pass,salt,role) values(?,?,?,?)");
-                pstmt.setString(1,this.email);
-                pstmt.setString(2,this.key);
-                pstmt.setString(3,this.salt);
-                pstmt.setString(4,this.role);
-                pstmt.execute();
-            }catch (Exception e){
-                throw  new RuntimeException(e);
-            }
     }
 }

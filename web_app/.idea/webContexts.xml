@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/includes/head.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/includes" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/admin-panel/addAdvisorForm.jsp" value="file://$PROJECT_DIR$/src/main/webapp/admin-panel" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/constitution.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/includes/head.jsp" value="file://$PROJECT_DIR$/src/main/webapp/includes" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
