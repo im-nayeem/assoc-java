@@ -11,37 +11,7 @@
 
 <style>
     <%@include file="./assets/members.css"%>
-    .content form{
-        background: transparent;
-        margin: 10px auto;
-    }
-    .filter-member{
-        background: transparent;
-        text-align: center;
-    }
-    .filter-member select{
-        background: white;
-        padding: 10px;
-        
-    }
-    .filter-member select option{
-        background: white;
-        margin: 40px;
-        font-size:18px;
-        
-    }
-    .filter-member button{
-        padding:10px 20px;
-        background: #06c37d;
-        color:white;
-        font-size:15px;
-        font-weight:500;
-        border: 1px solid #2fad94;
-    }
-    .filter-member button:hover{
-        background: #2e785d;
-        color:white;
-    }
+    
 </style>
 
 <div class="content">
