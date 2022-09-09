@@ -71,12 +71,16 @@
 </div>
 <script>
     function confirmDelete(id, numberOfId){
+        const confirmId = document.getElementById("confirm"+id);
+        if(confirmId.style.display === "block"){
+            confirmId.style.display = "none";
+            return;
+        }
         for(var i=0; i<numberOfId; i++){
             var Id = document.getElementById("confirm"+i);
             Id.style.display = "none";
             console.log(id+" this "+Id);
         }
-        const confirmId = document.getElementById("confirm"+id);
         confirmId.style.display = "block";
         console.log(id+" that "+confirmId);
     }
