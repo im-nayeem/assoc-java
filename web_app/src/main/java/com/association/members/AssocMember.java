@@ -44,11 +44,18 @@ public class AssocMember {
     private String permanentUpazila;
     private String permanentDetails;
     private String trancNo;
-
+    
+//--------------Additional Info-------------------------//
+    private boolean isAlumni=false;
+    private String occupation;
+    private String jobLocation;
     /**
      * Constructor
      * @param memberEmail member's email address used to retrieve data from DB
      */
+    
+    public AssocMember(){}
+    
     public AssocMember(String memberEmail){
         try {
             DatabaseConnection conn = new DatabaseConnection();
@@ -116,9 +123,6 @@ public class AssocMember {
         }
     }
 
-    AssocMember() {
-        
-    }
 
     /**
      * Convert InputStream to String
@@ -157,7 +161,7 @@ public class AssocMember {
 
     }
 
-
+//    <editor-fold desc="all getter method">
     /**====================getter methods=========================*/
     public String getName() {
         return name;
@@ -237,9 +241,24 @@ public class AssocMember {
     public UserAccount getUserAccount() {
         return userAccount;
     }
+
+    public boolean getIsAlumni() {
+        return isAlumni;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public String getJobLocation() {
+        return jobLocation;
+    }
+    
+//    </editor-fold>
+    
 /**-----------------------------------------------------------------*/
 
-
+//    <editor-fold desc="all setter method">
     /**=============================setter methods====================*/
 
     public void setName(String name) {
@@ -314,6 +333,19 @@ public class AssocMember {
         this.photo = photo;
     }
 
+    public void setIsAlumni(boolean isAlumni) {
+        this.isAlumni = isAlumni;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public void setJobLocation(String jobLocation) {
+        this.jobLocation = jobLocation;
+    }
+
+//    </editor-fold>
     /**-------------------------------------------------------*/
 
 }

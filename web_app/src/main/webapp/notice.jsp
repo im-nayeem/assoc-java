@@ -24,51 +24,11 @@
             <tr>
                 <td>${i+1}</td>
                 <td>${sessionScope.noticeList[i].getHeadline()}</td>
-                <td>${sessionScope.noticeList[i].getPublicationDate()}</td>
-                <td style="text-align: center;"><button type="button" id="${i}" onclick="seeDetails(this.id)" value="${sessionScope.noticeList[i].getDetails()}">See Details</button></td>
-                <input type="hidden" id="headline${i}" value="${sessionScope.noticeList[i].getHeadline()}"/>
-                <input type="hidden" id="footer${i}" value="${sessionScope.noticeList[i].getFooter()}"/>
+                <td>${sessionScope.noticeList[i].getPublicationDate()} ${sessionScope.noticeList[i].getNoticeId()}</td>
+                <td style="text-align: center;"><a target="_blank" href="DetailsNewsNotice?type=notice&id=${sessionScope.noticeList[i].getNoticeId()}"> <button>See Details</button></a></td>
 
             </tr>
         </c:forEach>
     </table>
-    <div id="noticeDetailsModal" class="modal">
-        <div class="modal-content">
-            <span class="closeBtn" onclick="closeModel()">&times;</span>
-            <div id="headline">
-            </div>
-            <div id="details">
-            </div>
-            <hr><p style="background: white; font-weight: 600; text-align: right; margin:30px 30px;">Noticed By</p>
-            <div id="noticefooter">
-            </div>
-        </div>
-    </div>
 </div>
-<script>
-    function seeDetails(clicked_id) {
-        const noticeDetails = document.getElementById(clicked_id);
-        const noticeHeadline = document.getElementById("headline" + clicked_id);
-        const noticeFooter = document.getElementById("footer" + clicked_id);
-        
-        
-//        set details in modal
-        const headline = document.getElementById("headline");
-        headline.innerHTML = noticeHeadline.value;
-        const details = document.getElementById("details");
-        details.innerHTML = noticeDetails.value;
-        const noticefooter = document.getElementById("noticefooter");
-        noticefooter.innerHTML =  noticeFooter.value;
-        
-//        display details notice
-        const modal = document.getElementById("noticeDetailsModal");
-        modal.style.display = "block";
-        return ;
-    }
-//    close modal
-    function closeModel(){
-        const modal = document.getElementById("noticeDetailsModal");
-        modal.style.display = "none";
-    }
-</script>
 <%@ include file="includes/footer.jsp"%>
