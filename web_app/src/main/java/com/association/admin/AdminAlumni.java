@@ -52,11 +52,8 @@ public class AdminAlumni extends HttpServlet {
                 
                 alumniList.add(alumni);
             }
-            response.setContentType("text/html;charset=UTF-8");
-            PrintWriter out = response.getWriter();
-            out.println(alumniList.size());
             request.setAttribute("alumniList", alumniList);
-            request.getRequestDispatcher("admin-panel/alumni.jsp").include(request, response);
+            request.getRequestDispatcher("admin-panel/alumni.jsp").forward(request, response);
         } catch (Exception e) {
         }
     }
