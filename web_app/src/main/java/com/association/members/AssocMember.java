@@ -44,7 +44,9 @@ public class AssocMember {
     private String permanentUpazila;
     private String permanentDetails;
     private String trancNo;
-
+    
+//--------------Additional Info-------------------------//
+    private boolean isAlumni=false;
     /**
      * Constructor
      * @param memberEmail member's email address used to retrieve data from DB
@@ -239,6 +241,12 @@ public class AssocMember {
     public UserAccount getUserAccount() {
         return userAccount;
     }
+
+    public boolean getIsAlumni() {
+        return isAlumni;
+    }
+    
+    
 /**-----------------------------------------------------------------*/
 
 
@@ -316,6 +324,11 @@ public class AssocMember {
         this.photo = photo;
     }
 
+    public void setIsAlumni(boolean isAlumni) {
+        this.isAlumni = isAlumni;
+    }
+
+    
     /**-------------------------------------------------------*/
 
 }

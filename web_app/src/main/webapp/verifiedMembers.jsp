@@ -17,6 +17,8 @@
             <th>Department</th>
             <th>Batch</th>
             <th>Details</th>
+            <th>Alumni</th>
+            <th style="width:5%">Executive Member</th>
         </tr>
         <c:forEach var="assocMember" items="${sessionScope.assocMemberList}">
             <tr>
@@ -26,7 +28,22 @@
                 <td><c:out value="${assocMember.getDept()}"/></td>
                 <td><c:out value="${assocMember.getBatch()}"/></td>
                 <!--get details information of member using email-->
+                <input type="hidden" name="studentId" value="${assocMember.getId()}"/>
                 <td><a href="AdminMembersDetails?email=${assocMember.getEmail()}&type=verified">Details</a></td>
+                <td>
+                    <c:choose>
+                        <c:when test="${assocMember.getIsAlumni()==true}">
+                            <p style="background: transparent; font-weight: bold; color:green">Marked</p> 
+                        </c:when>
+                        <c:otherwise>
+                            <a href="AdditionalInfo?email=${assocMember.getEmail()}&studentId=${assocMember.getId()}&type=alumni">Mark</a>
+                        </c:otherwise>
+                    </c:choose> 
+                </td>
+                <td>
+                    <a href="AdditionalInfo?email=${assocMember.getEmail()}&studentId=${assocMember.getId()}&type=exeMember">Mark</a>
+                </td>
+                
             </tr>
         </c:forEach>
     </table>

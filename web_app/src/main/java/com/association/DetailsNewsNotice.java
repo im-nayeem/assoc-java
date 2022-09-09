@@ -52,6 +52,9 @@ public class DetailsNewsNotice extends HttpServlet {
                 }
                 else{
 //                    notice deleted
+                    response.setContentType("text/html;charset=UTF-8");
+                    PrintWriter out = response.getWriter();
+                    out.println("<h2>Sorry the notice is deleted</h2>");
                 }
             } catch (Exception e) {
                 request.setAttribute("error",e);
@@ -85,6 +88,9 @@ public class DetailsNewsNotice extends HttpServlet {
                 }
                 else{
 //                    news deleted
+                    response.setContentType("text/html;charset=UTF-8");
+                    PrintWriter out = response.getWriter();
+                    out.println("<h2>Sorry the news is deleted</h2>");
                 }
             } catch (Exception e) {
                 request.setAttribute("error",e);
