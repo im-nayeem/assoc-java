@@ -40,6 +40,7 @@ public class VerifyMember extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     @Override
@@ -56,12 +57,11 @@ public class VerifyMember extends HttpServlet {
             else{
                 model.removeMember(request.getParameter("email"));
             }
-            request.getRequestDispatcher("RegisteredMembers").forward(request, response);
+            response.sendRedirect("RegisteredMembers");
         }
         catch(Exception e){
-            response.setContentType("text/html;charset=UTF-8");
-            PrintWriter out = response.getWriter();
-            out.println(e.getMessage());
+            request.setAttribute("error",e);
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
 

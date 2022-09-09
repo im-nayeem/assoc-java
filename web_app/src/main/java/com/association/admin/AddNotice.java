@@ -69,8 +69,9 @@ public class AddNotice extends HttpServlet {
                 pstmnt.setString(3, footer);
                 pstmnt.execute();
                 response.sendRedirect("AdminNotice");
-            } catch (Exception ex) {
-                processRequest(request, response,ex.toString());
+            } catch (Exception e) {
+                request.setAttribute("error", e);
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
             
         }
@@ -83,8 +84,9 @@ public class AddNotice extends HttpServlet {
                 pstmnt.execute();
                 response.sendRedirect("AdminNotice");
 
-            } catch (Exception ex) {
-                processRequest(request, response,"erro ---- "+ ex.toString());
+            } catch (Exception e) {
+                request.setAttribute("error", e);
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
         }
     }

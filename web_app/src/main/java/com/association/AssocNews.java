@@ -51,7 +51,7 @@ public class AssocNews {
             throw  new RuntimeException(e.getMessage());
         }
     }
-
+// <editor-fold defaultstate="collapsed" desc="News getter method. Click on the + sign on the left to edit the code.">
 //---------------all getter method-------------------//
     public String getHeadline() {
         return headline;
@@ -76,8 +76,10 @@ public class AssocNews {
     public String getPhotoString(){
         return inputStreamToString(photo);
     }
-    
+//    </editor-fold>
 //-----------------------------------------------------------//
+    
+// <editor-fold defaultstate="collapsed" desc="News setter method. Click on the + sign on the left to edit the code.">
 //---------all setter method--------------------------//
     public void setHeadline(String headline) {
         this.headline = headline;
@@ -99,6 +101,7 @@ public class AssocNews {
         this.photo = photo;
     }
 //------------------------------------------------------------//
+//    </editor-fold>
 
 
     

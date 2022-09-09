@@ -23,21 +23,25 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "RegisteredMembers", urlPatterns = {"/RegisteredMembers"})
 public class RegisteredMembers extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try {
             MembersDAO memberModel = new MembersDAO();
-            Vector<AssocMember>assocMemberList = memberModel.getRegisteredAssocMemberList();
+            Vector<AssocMember> assocMemberList = memberModel.getRegisteredAssocMemberList();
 
             request.getSession().setAttribute("assocMemberList", assocMemberList);
-            request.getRequestDispatcher("registeredMembers.jsp").forward(request,response);
+            request.getRequestDispatcher("registeredMembers.jsp").forward(request, response);
+        } catch (Exception e) {
+            request.setAttribute("error", e);
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     }
-
 
 }
