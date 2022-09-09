@@ -58,8 +58,8 @@
         </div>
 
 
-        <a href="" id="menu6">Advisor</a>
-        <a href="" id="menu7">Alumni</a>
+        <a href="" id="advisor">Advisor</a>
+        <a href="AdminAlumni" id="alumni">Alumni</a>
 
         <div class="dropdown">
             <button class="dropbtn" id="menu8">Executive Committee
