@@ -25,7 +25,9 @@ public class MembersDAO {
     
     public Vector<AssocMember> getAssocMemberList() {
         try {
-            ResultSet rs = conn.executeQuery("SELECT * FROM members WHERE id IN(SELECT id FROM verified);");
+            ResultSet rs = conn.executeQuery("SELECT *, (SELECT id FROM alumni WHERE members.id=alumni.id) as isAlum, "
+                    + "(SELECT id FROM exec_member WHERE members.id=exec_member.id) as isExeMember"
+                    + " FROM members WHERE id IN(SELECT id FROM verified);");
             
             while(rs.next()){
                 AssocMember assocMember = new AssocMember();
@@ -47,6 +49,9 @@ public class MembersDAO {
                 assocMember.setPermanentUpazila(rs.getString("permanent_upazila"));
                 assocMember.setPermanentDetails(rs.getString("permanent_details"));
                 assocMember.setTrancNo(rs.getString("tranc_no"));
+                if(rs.getString("isAlum") == null)
+                    assocMember.setIsAlumni(false);
+                else assocMember.setIsAlumni(true);
                 
                 assocMemberList.add(assocMember);
 

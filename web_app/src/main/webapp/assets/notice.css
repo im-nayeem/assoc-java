@@ -116,6 +116,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     background-color: #404040ed;
     color: white;
     margin: 30px 30px;
+    text-align: center;
 }
 #details{
     font-size: 18px;
@@ -135,4 +136,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     font-style: italic;
     background-color: white;
 }
+#newsPhoto{
+    text-align: center;
+    background-color: white;
+}
+
 /*----------------------------------------------------------*/

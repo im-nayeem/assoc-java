@@ -20,6 +20,7 @@ public class AssocNews {
     private String footer;
     private String publicationDate;
     private InputStream photo;
+    private String newsId;
     public AssocNews() {
     }
     
@@ -76,6 +77,12 @@ public class AssocNews {
     public String getPhotoString(){
         return inputStreamToString(photo);
     }
+
+    public String getNewsId() {
+        return newsId;
+    }
+    
+    
 //    </editor-fold>
 //-----------------------------------------------------------//
     
@@ -100,12 +107,17 @@ public class AssocNews {
     public void setPhoto(InputStream photo) {
         this.photo = photo;
     }
+    
+    public void setNewsId(String newsId) {
+        this.newsId = newsId;
+    }
+    
 //------------------------------------------------------------//
 //    </editor-fold>
 
 
-    
-    
+
+
     
     
 }

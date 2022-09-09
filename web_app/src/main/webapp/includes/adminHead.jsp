@@ -36,12 +36,12 @@
         <a href="" id="constitution">Constitution</a>
         <a href="" id="gallery">Gallery</a>
         <div class="dropdown">
-            <button class="dropbtn">News&Notice
+            <button class="dropbtn" id="newsNotice">News&Notice
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
                 <a href="AdminNotice">Notice</a>
-                <a href="AdminNotice">News</a>
+                <a href="AdminNews">News</a>
                 <a href="AdminNotice">Event</a>
             </div>
 
@@ -57,9 +57,8 @@
 
         </div>
 
-
-        <a href="ManageAdvisor" id="menu6">Advisor</a>
-        <a href="" id="menu7">Alumni</a>
+        <a href="" id="advisor">Advisor</a>
+        <a href="AdminAlumni" id="alumni">Alumni</a>
 
         <div class="dropdown">
             <button class="dropbtn" id="menu8">Executive Committee
@@ -119,6 +118,10 @@
     else if(pageName === "RegisteredMembers" || pageName === "VerifiedMembers" || pageName === "AdminMembersDetails"){
         document.getElementById("members").style.background = "#04AA6D";
         document.getElementById("members").style.color = "white";
+    }
+    else if(pageName === "AdminNotice" || pageName === "AdminNews"){
+        document.getElementById("newsNotice").style.background = "#04AA6D";
+        document.getElementById("newsNotice").style.color = "white";
     }
 
 </script>

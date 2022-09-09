@@ -35,7 +35,7 @@
     <p class="paragraph"><a href="addNotice.jsp">Add new Notice</a></p>
     <c:choose>
         <c:when test="${sessionScope.noticeList.size()<1}">
-            <p>No previous notice</p>
+            <p class="paragraph">No previous notice</p>
         </c:when>
         <c:otherwise>
             <table>
@@ -52,69 +52,36 @@
                         <td>${i+1}</td>
                         <td>${sessionScope.noticeList[i].getHeadline()}</td>
                         <td>${sessionScope.noticeList[i].getPublicationDate()}</td>
-                        <td style="text-align: center;"><button type="button" id="${i}" onclick="seeDetails(this.id)" value="${sessionScope.noticeList[i].getDetails()}">See Details</button></td>
-                    <input type="hidden" id="headline${i}" value="${sessionScope.noticeList[i].getHeadline()}"/>
-                    <input type="hidden" id="footer${i}" value="${sessionScope.noticeList[i].getFooter()}"/>
-                    <td style="text-align: center;"><a href="UpdateNotice?noticeId=${sessionScope.noticeList[i].getNoticeId()}"><button>Update</button></a></td>
-                    <td style="text-align: center;">
-                        <button onclick="confirmDelete(${i}, ${sessionScope.noticeList.size()})">Delete</button>
-                        <a id="confirm${i}" style="display:none;" href="DeleteNewsNotice?type=notice&id=${sessionScope.noticeList[i].getNoticeId()}">
-                            <button style="color:red">Confirm Delete</button>
-                        </a>
-                    </td>
+                        <td style="text-align: center;"><a target="_blank" href="DetailsNewsNotice?type=notice&id=${sessionScope.noticeList[i].getNoticeId()}"> <button>See Details</button></a></td>
+                    
+                        <td style="text-align: center;"><a href="UpdateNotice?type=notice&id=${sessionScope.noticeList[i].getNoticeId()}"><button>Update</button></a></td>
+                        <td style="text-align: center;">
+                            <button onclick="confirmDelete(${i}, ${sessionScope.noticeList.size()})">Delete</button>
+                            <a id="confirm${i}" style="display:none;" href="DeleteNewsNotice?type=notice&id=${sessionScope.noticeList[i].getNoticeId()}">
+                                <button style="color:red">Confirm Delete</button>
+                            </a>
+                        </td>
 
                     </tr>
                 </c:forEach>
             </table>
         </c:otherwise>
     </c:choose>
-    <div id="noticeDetailsModal" class="modal">
-        <div class="modal-content">
-            <span class="closeBtn" onclick="closeModel()">&times;</span>
-            <div id="headline">
-            </div>
-            <div id="details">
-            </div>
-            <hr><p style="background: white; font-weight: 600; text-align: right; margin:30px 30px;">Noticed By</p>
-            <div id="noticefooter">
-            </div>
-        </div>
-    </div>
 
 </div>
 <script>
     function confirmDelete(id, numberOfId){
+        const confirmId = document.getElementById("confirm"+id);
+        if(confirmId.style.display === "block"){
+            confirmId.style.display = "none";
+            return;
+        }
         for(var i=0; i<numberOfId; i++){
             var Id = document.getElementById("confirm"+i);
             Id.style.display = "none";
             console.log(id+" this "+Id);
         }
-        const confirmId = document.getElementById("confirm"+id);
         confirmId.style.display = "block";
         console.log(id+" that "+confirmId);
-    }
-    function seeDetails(clicked_id) {
-        const noticeDetails = document.getElementById(clicked_id);
-        const noticeHeadline = document.getElementById("headline" + clicked_id);
-        const noticeFooter = document.getElementById("footer" + clicked_id);
-
-
-//        set details in modal
-        const headline = document.getElementById("headline");
-        headline.innerHTML = noticeHeadline.value;
-        const details = document.getElementById("details");
-        details.innerHTML = noticeDetails.value;
-        const noticefooter = document.getElementById("noticefooter");
-        noticefooter.innerHTML = noticeFooter.value;
-
-//        display details notice
-        const modal = document.getElementById("noticeDetailsModal");
-        modal.style.display = "block";
-        return;
-    }
-//    close modal
-    function closeModel() {
-        const modal = document.getElementById("noticeDetailsModal");
-        modal.style.display = "none";
     }
 </script>
