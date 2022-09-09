@@ -35,10 +35,22 @@ public class DeleteNewsNotice extends HttpServlet {
                 pstmnt.execute();
                 response.sendRedirect("AdminNotice");
             }
-            else{
+            else if(type.equals("news")){
                 PreparedStatement pstmnt = conn.getPreparedStatement("DELETE FROM `news` WHERE news_id ='"+request.getParameter("id")+"'");
                 pstmnt.execute();
                 response.sendRedirect("AdminNews");
+            }
+            else if(type.equals("gallery")){
+                String id = request.getParameter("id");
+//--------------------delete from gallery table--------------------------------------//
+                PreparedStatement pstmnt = conn.getPreparedStatement("DELETE FROM `gallery` WHERE id ='"+id+"'");
+                pstmnt.execute();
+                
+//-------------------------delete from media table----------------------------------//
+                pstmnt = conn.getPreparedStatement("DELETE FROM `media` WHERE media_id ='"+id+"'");
+                pstmnt.execute();
+                
+                response.sendRedirect("Gallery");
             }
             
         } catch (Exception e) {

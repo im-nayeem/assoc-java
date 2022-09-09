@@ -41,8 +41,7 @@ public class AddNews extends HttpServlet {
 //----------------------add new news----------------------//
         if(newNews.equals("yes")){
             try {
-                DatabaseConnection conn = new DatabaseConnection();
-//news_id	media_id	headline	details	footer	post_date	
+                DatabaseConnection conn = new DatabaseConnection();	
 
 //------------------------------insert photo into media table--------------------------------//
                 InputStream photo  = request.getPart("photo").getInputStream();
@@ -52,7 +51,7 @@ public class AddNews extends HttpServlet {
 //-------------------------------get last inserted media id-----------------------------------//
                 pstmnt = conn.getPreparedStatement("SELECT AUTO_INCREMENT\n" +
                                                     "FROM information_schema.TABLES\n" +
-                                                    "WHERE TABLE_SCHEMA = \"assoc\"\n" +
+                                                    "WHERE TABLE_SCHEMA = \"association\"\n" +
                                                     "AND TABLE_NAME = \"media\";");
                 ResultSet rs = pstmnt.executeQuery();
                 rs.next();

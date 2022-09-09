@@ -36,8 +36,7 @@
                         </td>
                         <td style="text-align: center;">
                             <button onclick="confirmDelete(${i}, ${requestScope.description.size()})">Delete</button>
-                            <!-- href="DeleteNewsNotice?type=notice&id=${sessionScope.noticeList[i].getNoticeId()}"-->
-                            <a id="confirm${i}" style="display:none;">
+                            <a id="confirm${i}" style="display:none;" href="DeleteNewsNotice?type=gallery&id=${requestScope.id[i]}">
                                 <button style="color:red">Confirm Delete</button>
                             </a>
                         </td>
