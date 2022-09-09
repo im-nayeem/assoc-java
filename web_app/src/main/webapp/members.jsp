@@ -10,12 +10,43 @@
 <%@include file="./includes/head.jsp"%>
 
 <style>
-        <%@include file="./assets/members.css"%>
+    <%@include file="./assets/members.css"%>
+    .content form{
+        background: transparent;
+        margin: 10px auto;
+    }
+    .filter-member{
+        background: transparent;
+        text-align: center;
+    }
+    .filter-member select{
+        background: white;
+        padding: 10px;
+        
+    }
+    .filter-member select option{
+        background: white;
+        margin: 40px;
+        font-size:18px;
+        
+    }
+    .filter-member button{
+        padding:10px 20px;
+        background: #06c37d;
+        color:white;
+        font-size:15px;
+        font-weight:500;
+        border: 1px solid #2fad94;
+    }
+    .filter-member button:hover{
+        background: #2e785d;
+        color:white;
+    }
 </style>
 
 <div class="content">
-    <div class="filter-member">
-        <form action="members-filter" method="post">
+    <form action="members-filter" method="post">
+        <div class="filter-member">
             <select name="dept" id="dept" required>
                 <option selected disabled hidden>Select Department</option>
                 <c:forEach var="dept" items="${sessionScope.memberFilterValue.getDeptList()}">
@@ -41,8 +72,9 @@
                 </c:forEach>
             </select>
             <button type="submit">Apply</button>
-        </form>
-    </div>
+
+        </div>
+    </form>
 
     <table class="assoc-member-table">
         <tr>

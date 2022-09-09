@@ -132,7 +132,7 @@
             else if(pageName === "constitution.jsp") {
                 document.getElementById("constitution").className += 'active';
             }
-            else if(pageName === "Members" || pageName === "members.jsp" || pageName === "MemberDetails"){
+            else if(pageName === "Members" || pageName === "members.jsp" || pageName === "MemberDetails" || pageName === "members-filter"){
                 document.getElementById("members").className += 'active';
             }
             else if(pageName === "Gallery" || pageName === "gallery.jsp"){
