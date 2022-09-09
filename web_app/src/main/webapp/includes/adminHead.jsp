@@ -1,4 +1,4 @@
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%--
@@ -32,7 +32,7 @@
 
     <div class="menu">
         <a href="" class="name_in_nav" >Admin-Panel</a>
-        <a href="" class="" id="home">Home</a>
+        <a href="admin-panel" class="" id="home">Home</a>
         <a href="" id="constitution">Constitution</a>
         <a href="" id="gallery">Gallery</a>
         <div class="dropdown">
@@ -56,7 +56,6 @@
             </div>
 
         </div>
-
 
         <a href="" id="advisor">Advisor</a>
         <a href="AdminAlumni" id="alumni">Alumni</a>

@@ -5,7 +5,6 @@
   Time: 12:43 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@include file="./includes/head.jsp"%>
 
