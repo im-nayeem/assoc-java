@@ -41,10 +41,11 @@
             <table>
                 <tr>
                     <th style="width:8%;">Serial No</th>
-                    <th style="width:60%;">Headline</th>
+                    <th style="width:50%;">Headline</th>
                     <th style="width:12%;">Publication Date</th>
                     <th style="width:10%;">Details</th>
                     <th style="width:10%;">Update</th>
+                    <th style="width:10%;">Delete</th>
                 </tr>
                 <c:forEach var="i" begin="0" end="${sessionScope.noticeList.size()-1}">
                     <tr>
@@ -55,6 +56,12 @@
                     <input type="hidden" id="headline${i}" value="${sessionScope.noticeList[i].getHeadline()}"/>
                     <input type="hidden" id="footer${i}" value="${sessionScope.noticeList[i].getFooter()}"/>
                     <td style="text-align: center;"><a href="UpdateNotice?noticeId=${sessionScope.noticeList[i].getNoticeId()}"><button>Update</button></a></td>
+                    <td style="text-align: center;">
+                        <button onclick="confirmDelete(${i}, ${sessionScope.noticeList.size()})">Delete</button>
+                        <a id="confirm${i}" style="display:none;" href="DeleteNewsNotice?type=notice&id=${sessionScope.noticeList[i].getNoticeId()}">
+                            <button style="color:red">Confirm Delete</button>
+                        </a>
+                    </td>
 
                     </tr>
                 </c:forEach>
@@ -76,6 +83,16 @@
 
 </div>
 <script>
+    function confirmDelete(id, numberOfId){
+        for(var i=0; i<numberOfId; i++){
+            var Id = document.getElementById("confirm"+i);
+            Id.style.display = "none";
+            console.log(id+" this "+Id);
+        }
+        const confirmId = document.getElementById("confirm"+id);
+        confirmId.style.display = "block";
+        console.log(id+" that "+confirmId);
+    }
     function seeDetails(clicked_id) {
         const noticeDetails = document.getElementById(clicked_id);
         const noticeHeadline = document.getElementById("headline" + clicked_id);
