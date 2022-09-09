@@ -49,8 +49,10 @@ public class AdminNews extends HttpServlet {
         try {
             DatabaseConnection conn = new DatabaseConnection();
             PreparedStatement pstmnt = conn.getPreparedStatement("SELECT media.photo1 as photo,"
+                    + " news.news_id as news_id,"
                     + " news.headline as headline,news.details as details, news.footer as footer,"
-                    + " news.post_date as post_date FROM media,news WHERE media.media_id=news.media_id ORDER BY news.post_date;");
+                    + " news.post_date as post_date FROM media,news WHERE media.media_id=news.media_id"
+                    + " ORDER BY news.post_date;");
             ResultSet rs = pstmnt.executeQuery();
             Vector<AssocNews>newsList = new Vector<>();
             
@@ -61,11 +63,13 @@ public class AdminNews extends HttpServlet {
                 news.setPublicationDate(rs.getString("post_date"));
                 news.setFooter(rs.getString("footer"));
                 news.setPhoto(rs.getBinaryStream("photo"));
+                news.setNewsId(rs.getString("news_id"));
                 newsList.add(news);
             }
             
             request.getSession().setAttribute("newsList", newsList);
-            request.getRequestDispatcher("news.jsp").forward(request,response);
+            response.setContentType("text/html;charset=UTF-8");
+            request.getRequestDispatcher("adminNews.jsp").forward(request,response);
         } catch (Exception e) {
             request.setAttribute("error",e);
             request.getRequestDispatcher("error.jsp").forward(request,response);

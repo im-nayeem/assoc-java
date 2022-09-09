@@ -79,8 +79,12 @@ public class AddNotice extends HttpServlet {
         else{
             DatabaseConnection conn = new DatabaseConnection();
             AssocNotice updateNotice = (AssocNotice) request.getSession().getAttribute("updateNotice");
-            PreparedStatement pstmnt = conn.getPreparedStatement("UPDATE `notice` SET `headline`='"+headline+"',`details`='"+details+"',`footer`='"+footer+"' WHERE `notice_id`='"+updateNotice.getNoticeId()+"';");
+            request.getSession().removeAttribute("updateNotice");
+            
             try {
+                PreparedStatement pstmnt = conn.getPreparedStatement("UPDATE `notice` SET `headline`='"
+                        +headline+"',`details`='"+details+"',`footer`='"+footer+"' WHERE `notice_id`='"
+                        +updateNotice.getNoticeId()+"';");
                 pstmnt.execute();
                 response.sendRedirect("AdminNotice");
 

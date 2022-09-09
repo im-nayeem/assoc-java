@@ -31,6 +31,7 @@ public class Notice extends HttpServlet {
                 notice.setDetails(rs.getString("details"));
                 notice.setPublicationDate(rs.getString("post_date"));
                 notice.setFooter(rs.getString("footer"));
+                notice.setNoticeId(rs.getString("notice_id"));
                 noticeList.add(notice);
             }
             
