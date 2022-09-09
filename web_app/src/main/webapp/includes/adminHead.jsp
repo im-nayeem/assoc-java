@@ -58,7 +58,7 @@
         </div>
 
 
-        <a href="ManageAdvisor" id="menu6">Advisor</a>
+        <a href="ManageAdviser?t=all" id="menu6">Adviser</a>
         <a href="" id="menu7">Alumni</a>
 
         <div class="dropdown">

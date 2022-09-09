@@ -52,9 +52,9 @@ public class Registration extends HttpServlet {
 
             AssocInfo assocInfo = (AssocInfo) getServletContext().getAttribute("assocInfo");
             SendMail mail = new SendMail(assocInfo,email);
-//            mail.send("Verification","Your Verification Code is: "+request.getSession().getAttribute("verificationCode")+"\n");
-
-            request.getRequestDispatcher("account/verifyMail.jsp").forward(request,response);
+            mail.send("Verification","Your Verification Code is: "+request.getSession().getAttribute("verificationCode")+"\n");
+            request.setAttribute("forwardServlet","verifyMail");
+            request.getRequestDispatcher("verifyMail.jsp").forward(request,response);
 
             conn.close();
 

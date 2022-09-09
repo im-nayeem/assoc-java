@@ -62,7 +62,7 @@
 
         <a href="Members" id="members">Members</a>
 
-        <a href="" id="menu6">Advisor</a>
+        <a href="adviser-panel?t=all" id="menu6">Adviser</a>
         <a href="" id="menu7">Alumni</a>
 
         <div class="dropdown">
@@ -70,9 +70,7 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="#">Current Committee</a>
-                <a href="#">11th</a>
-                <a href="#">10th</a>
+<%--                use jstl to show all committee--%>
             </div>
 
         </div>
@@ -82,7 +80,7 @@
             </button>
             <div class="dropdown-content">
                 <a href="">Culture</a>
-                <a href="#">Heritage</a>
+                <a href="">Heritage</a>
             </div>
 
         </div>
