@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <%--
@@ -32,22 +32,31 @@
 
     <div class="menu">
         <a href="" class="name_in_nav" >Admin-Panel</a>
-        <a href="" class="" id="menu1">Home</a>
-        <a href="" id="menu2">Constitution</a>
-        <a href="" id="menu3">Gallery</a>
+        <a href="" class="" id="home">Home</a>
+        <a href="" id="constitution">Constitution</a>
+        <a href="" id="gallery">Gallery</a>
         <div class="dropdown">
-            <button class="dropbtn" id="menu4">News&Notice
+            <button class="dropbtn">News&Notice
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="Notice">Notice</a>
-                <a href="Notice">News</a>
-                <a href="Notice">Event</a>
+                <a href="AdminNotice">Notice</a>
+                <a href="AdminNotice">News</a>
+                <a href="AdminNotice">Event</a>
+            </div>
+
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn" id="members">Members
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="VerifiedMembers">Verified Members</a>
+                <a href="RegisteredMembers">Registered Members</a>
             </div>
 
         </div>
 
-        <a href="" id="menu5">Members</a>
 
         <a href="" id="menu6">Advisor</a>
         <a href="" id="menu7">Alumni</a>
@@ -102,13 +111,14 @@
     }
     //compare with all jsp file name
     if(pageName === "index.jsp" || pageName.length===0){
-        document.getElementById("menu1").className += 'active';
+        document.getElementById("home").className += 'active';
     }
     else if(pageName === "constitution.jsp") {
-        document.getElementById("menu2").className += 'active';
+        document.getElementById("gallery").className += 'active';
     }
-    else if(pageName === "Members" || pageName === "members.jsp" || pageName === "MemberDetails"){
-        document.getElementById("menu5").className += 'active';
+    else if(pageName === "RegisteredMembers" || pageName === "VerifiedMembers" || pageName === "AdminMembersDetails"){
+        document.getElementById("members").style.background = "#04AA6D";
+        document.getElementById("members").style.color = "white";
     }
 
 </script>

@@ -147,4 +147,38 @@ public class MembersDAO {
     }
     
     
+    public Vector<AssocMember> getRegisteredAssocMemberList() {
+        try {
+            ResultSet rs = conn.executeQuery("SELECT * FROM members WHERE id NOT IN(SELECT id FROM verified);");
+            
+            while(rs.next()){
+                AssocMember assocMember = new AssocMember();
+                assocMember.setName(rs.getString("name"));
+                assocMember.setId(rs.getString("id"));
+                assocMember.setEmail(rs.getString("email"));
+                assocMember.setPhone(rs.getString("phone"));
+                assocMember.setDept(rs.getString("dept"));
+                assocMember.setSession(rs.getString("session"));
+                assocMember.setBatch(rs.getString("batch"));
+                assocMember.setGender(rs.getString("gender"));
+                assocMember.setBloodGroup(rs.getString("bg"));
+                assocMember.setPhoto(rs.getBinaryStream("photo"));
+                assocMember.setCoActivity(rs.getString("co_activity"));
+                assocMember.setFathersName(rs.getString("fathersname"));
+                assocMember.setMothersName(rs.getString("mothersname"));
+                assocMember.setPresentArea(rs.getString("present_area"));
+                assocMember.setPresentDetails(rs.getString("present_details"));
+                assocMember.setPermanentUpazila(rs.getString("permanent_upazila"));
+                assocMember.setPermanentDetails(rs.getString("permanent_details"));
+                assocMember.setTrancNo(rs.getString("tranc_no"));
+                assocMemberList.add(assocMember);
+
+            }
+            
+            return assocMemberList;
+        } catch (SQLException ex) {
+            throw  new RuntimeException(ex.getMessage());
+        }
+    }
+    
 }
