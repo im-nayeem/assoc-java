@@ -13,10 +13,12 @@ public class AssocNotice {
     private String details;
     private String footer;
     private String publicationDate;
+    private String noticeId;
 
     public AssocNotice() {
     }
 
+//--------------------all getter method-----------------//
     public String getHeadline() {
         return headline;
     }
@@ -33,6 +35,13 @@ public class AssocNotice {
         return publicationDate;
     }
 
+    public String getNoticeId() {
+        return noticeId;
+    }
+//------------------------------------------------------//
+    
+    
+//--------------------all setter method-----------------//
     public void setHeadline(String headline) {
         this.headline = headline;
     }
@@ -48,7 +57,12 @@ public class AssocNotice {
     public void setPublicationDate(String publicationDate) {
         this.publicationDate = publicationDate;
     }
+
+    public void setNoticeId(String noticeId) {
+        this.noticeId = noticeId;
+    }
     
+//------------------------------------------------------//
     
     
     

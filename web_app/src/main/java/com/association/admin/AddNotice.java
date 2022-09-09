@@ -4,6 +4,7 @@
  */
 package com.association.admin;
 
+import com.association.AssocNotice;
 import com.association.database.DatabaseConnection;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "AddNotice", urlPatterns = {"/AddNotice"})
 public class AddNotice extends HttpServlet {
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response, Exception e)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response, String e)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
@@ -35,9 +36,10 @@ public class AddNotice extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AddNotice at " + request.getContextPath() + "</h1>");
-            out.println(e.getMessage());
+            out.println(e);
             out.println("</body>");
             out.println("</html>");
+            return ;
         }
     }
 
@@ -56,6 +58,7 @@ public class AddNotice extends HttpServlet {
         String footer = request.getParameter("footer");
         String newNotice = request.getParameter("newNotice");
         
+//        add new notice 
         if(newNotice.equals("yes")){
             DatabaseConnection conn = new DatabaseConnection();
             PreparedStatement pstmnt = conn.getPreparedStatement("INSERT INTO `notice`(`headline`, "
@@ -67,12 +70,22 @@ public class AddNotice extends HttpServlet {
                 pstmnt.execute();
                 response.sendRedirect("AdminNotice");
             } catch (Exception ex) {
-                processRequest(request, response,ex);
+                processRequest(request, response,ex.toString());
             }
             
         }
+//        update existing notice
         else{
-            
+            DatabaseConnection conn = new DatabaseConnection();
+            AssocNotice updateNotice = (AssocNotice) request.getSession().getAttribute("updateNotice");
+            PreparedStatement pstmnt = conn.getPreparedStatement("UPDATE `notice` SET `headline`='"+headline+"',`details`='"+details+"',`footer`='"+footer+"' WHERE `notice_id`='"+updateNotice.getNoticeId()+"';");
+            try {
+                pstmnt.execute();
+                response.sendRedirect("AdminNotice");
+
+            } catch (Exception ex) {
+                processRequest(request, response,"erro ---- "+ ex.toString());
+            }
         }
     }
 

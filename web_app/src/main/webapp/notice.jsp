@@ -26,8 +26,8 @@
                 <td>${sessionScope.noticeList[i].getHeadline()}</td>
                 <td>${sessionScope.noticeList[i].getPublicationDate()}</td>
                 <td style="text-align: center;"><button type="button" id="${i}" onclick="seeDetails(this.id)" value="${sessionScope.noticeList[i].getDetails()}">See Details</button></td>
-            <input type="hidden" id="headline${i}" value="${sessionScope.noticeList[i].getHeadline()}"/>
-            <input type="hidden" id="footer${i}" value="${sessionScope.noticeList[i].getFooter()}"/>
+                <input type="hidden" id="headline${i}" value="${sessionScope.noticeList[i].getHeadline()}"/>
+                <input type="hidden" id="footer${i}" value="${sessionScope.noticeList[i].getFooter()}"/>
 
             </tr>
         </c:forEach>

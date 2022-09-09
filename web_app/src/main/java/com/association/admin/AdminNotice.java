@@ -35,6 +35,7 @@ public class AdminNotice extends HttpServlet {
             
             while(rs.next()){
                 AssocNotice notice = new AssocNotice();
+                notice.setNoticeId(rs.getString("notice_id"));
                 notice.setHeadline(rs.getString("headline"));
                 notice.setDetails(rs.getString("details"));
                 notice.setPublicationDate(rs.getString("post_date"));

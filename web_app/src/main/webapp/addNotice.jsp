@@ -73,7 +73,7 @@
                 <label for="headline">Enter headline of notice</label>
                 <input required class="headline-input" name="headline" type="text" value="${sessionScope.updateNotice.getHeadline()}" placeholder="Enter headline"/>
                 <label for="details">Enter details of notice</label>
-                <textarea required class="details-input" name="details" value="${sessionScope.updateNotice.getDetails()}"></textarea>
+                <textarea required class="details-input" name="details">${sessionScope.updateNotice.getDetails()}</textarea>
                 <label for="footer">Enter author name of notice</label>
                 <input required class="footer-input" name="footer" type="text" value="${sessionScope.updateNotice.getFooter()}" placeholder="Enter author name"/>
             </c:if>
