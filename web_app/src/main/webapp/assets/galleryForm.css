@@ -1,0 +1,51 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Sep 10, 2022, 12:33:16 AM
+    Author     : Mestu
+*/
+.gallery-input textarea{
+    width: 74%;
+    background: transparent;
+}
+.gallery-input{
+    background: white;
+    border: 1px solid black;
+    width: 70%;
+    margin: 10px auto;
+    padding: 30px;
+    text-align: center;
+}
+.all-img{
+    background: transparent;
+    height: max-content;
+    padding: 20px;
+    margin: 10px auto;
+}
+.all-img li{
+    background: transparent;
+    list-style: none;
+    margin: 10px 0px;
+
+}
+.all-img li input[type=text]{
+    background: transparent;
+    width: 75%;
+    height: 10vh;
+    margin: 10px 0px;
+    margin: auto;
+}
+.all-img li input[type=file]{
+    background: white;
+    border: 1px solid gray;
+}
+button{
+    background: #e1e1e1;
+    border-color: #a0a0a0;
+    padding: 5px 5px;
+}
+button:hover{
+    background: #f1f1f1;
+}
