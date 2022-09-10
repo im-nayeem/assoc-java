@@ -59,7 +59,7 @@
 
 
         <a href="ManageAdviser?t=all" id="advisor">Adviser</a>
-        <a href="" id="AdminAlumni">Alumni</a>
+        <a href="AdminAlumni" id="AdminAlumni">Alumni</a>
         
         <div class="dropdown">
             <button class="dropbtn" id="menu8">Executive Committee
