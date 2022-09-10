@@ -92,12 +92,15 @@
     <a href="javascript:void(0);" style="font-size:30px;" class="icon option" onclick="myFunction()">&#9776;</a>
     <div class="login_signup">
         <c:choose>
-            <c:when test="${empty sessionScope.userProfile.getName()}">
-                    <a href="Registration">Register</a>
-                    <a href="Login">Log-In</a>
+            <c:when test="${not empty sessionScope.userProfile.getName()}">
+                <a href="Dashboard">${sessionScope.userProfile.getName()}</a>
+            </c:when>
+            <c:when test="${not empty sessionScope.adviserProfile.getName()}">
+                <a href="Dashboard">${sessionScope.adviserProfile.getName()}</a>
             </c:when>
             <c:otherwise>
-                <a href="Dashboard">${sessionScope.userProfile.getName()}</a>
+                <a href="Registration">Register</a>
+                <a href="Login">Log-In</a>
             </c:otherwise>
         </c:choose>
     </div>

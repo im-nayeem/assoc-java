@@ -48,7 +48,7 @@ public class AdminLogIn extends HttpServlet {
             if(SecurePassword.verifyPassword(password,user.getKey(), user.getSalt())==true)
             {
 
-                request.getSession().setAttribute("adminInfo",user);
+                request.getSession().setAttribute("adminProfile",user);
                 response.sendRedirect("admin-panel");
             }
             else{

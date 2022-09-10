@@ -31,7 +31,10 @@ public class Logout extends HttpServlet {
             throws ServletException, IOException {
         
 //        after logout remove user information from request sesssion
-        request.getSession().removeAttribute("userProfile");
+        if(request.getSession().getAttribute("userProfile")!=null)
+            request.getSession().removeAttribute("userProfile");
+        if(request.getSession().getAttribute("adviserProfile")!=null)
+            request.getSession().removeAttribute("adviserProfile");
         response.sendRedirect("./");
 
     }
