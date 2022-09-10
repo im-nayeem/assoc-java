@@ -12,23 +12,30 @@
     <%@include file="assets/notice.css"%>
 </style>
 <div class="notice-container">
+    <c:choose>
+        <c:when test="${empty sessionScope.newsList}">
+            <p class="paragraph">No Previous Notice</p>
+        </c:when>
+        <c:otherwise>
+            <table>
+                <tr>
+                    <th style="width:8%;">Serial No</th>
+                    <th style="width:70%;">Headline</th>
+                    <th style="width:13%;">Publication Date</th>
+                    <th style="width:10%;">Details</th>
+                </tr>
+                <c:forEach var="i" begin="0" end="${sessionScope.noticeList.size()-1}">
+                    <tr>
+                        <td>${i+1}</td>
+                        <td>${sessionScope.noticeList[i].getHeadline()}</td>
+                        <td>${sessionScope.noticeList[i].getPublicationDate()} ${sessionScope.noticeList[i].getNoticeId()}</td>
+                        <td style="text-align: center;"><a target="_blank" href="DetailsNewsNotice?type=notice&id=${sessionScope.noticeList[i].getNoticeId()}"> <button>See Details</button></a></td>
 
-    <table>
-        <tr>
-            <th style="width:8%;">Serial No</th>
-            <th style="width:70%;">Headline</th>
-            <th style="width:13%;">Publication Date</th>
-            <th style="width:10%;">Details</th>
-        </tr>
-        <c:forEach var="i" begin="0" end="${sessionScope.noticeList.size()-1}">
-            <tr>
-                <td>${i+1}</td>
-                <td>${sessionScope.noticeList[i].getHeadline()}</td>
-                <td>${sessionScope.noticeList[i].getPublicationDate()} ${sessionScope.noticeList[i].getNoticeId()}</td>
-                <td style="text-align: center;"><a target="_blank" href="DetailsNewsNotice?type=notice&id=${sessionScope.noticeList[i].getNoticeId()}"> <button>See Details</button></a></td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </c:otherwise>
+    </c:choose>
 
-            </tr>
-        </c:forEach>
-    </table>
 </div>
 <%@ include file="includes/footer.jsp"%>
