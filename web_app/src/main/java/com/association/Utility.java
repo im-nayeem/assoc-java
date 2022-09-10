@@ -30,7 +30,7 @@ public class Utility {
                 "\n" +
                 "\n" +
                 "CREATE TABLE members(\n" +
-                "    name varchar(40),\n" +
+                "    name varchar(30),\n" +
                 "    id int UNIQUE not null,\n" +
                 "    email varchar(30),\n" +
                 "    phone varchar(15),\n" +
@@ -66,7 +66,7 @@ public class Utility {
                 "    FOREIGN KEY(email) REFERENCES members(email) on update cascade on delete cascade\n" +
                 ");\n" +
                 "CREATE table exec_committee(\n" +
-                "    committee_id int not null AUTO_INCREMENT,\n" +
+                "    committee_id int not null,\n" +
                 "    from_time DATE,\n" +
                 "    to_time DATE,\n" +
                 "    PRIMARY key(committee_id)\n" +
@@ -81,13 +81,13 @@ public class Utility {
                 "    FOREIGN KEY(id) REFERENCES members(id) on update cascade on delete cascade,\n" +
                 "    FOREIGN KEY(email) REFERENCES members(email) on update cascade on delete cascade\n" +
                 ");\n" +
-                "CREATE table advisor(\n" +
+                "CREATE table adviser(\n" +
                 "    name varchar(30),\n" +
                 "    email varchar(30),\n" +
                 "    present_addr varchar(70),\n" +
                 "    permanent_addr varchar(70), \n" +
                 "    photo mediumblob,\n" +
-                "    occupation varchar(50),\n" +
+                "    occupation varchar(50) default “Not Provided”,\n" +
                 "    from_time DATE,\n" +
                 "    to_time DATE,\n" +
                 "    FOREIGN KEY(email) REFERENCES account(email) on UPDATE CASCADE on DELETE CASCADE\n" +
@@ -141,8 +141,7 @@ public class Utility {
                 "    PRIMARY KEY(culture_id),\n" +
                 "    Foreign key(media_id) references media(media_id) on update cascade on delete cascade\n" +
                 "    \n" +
-                "); \n";
-
+                ");";
     }
     public static String getBaseUrl(HttpServletRequest request) {
         String scheme = request.getScheme() + "://";
