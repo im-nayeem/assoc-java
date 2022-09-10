@@ -33,8 +33,7 @@
     <div class="menu">
         <a href="" class="name_in_nav" >Admin-Panel</a>
         <a href="admin-panel" class="" id="home">Home</a>
-        <a href="" id="constitution">Constitution</a>
-        <a href="Gallery" id="gallery">Gallery</a>
+        <a href="manage-gallery?t=all" id="gallery">Gallery</a>
         <div class="dropdown">
             <button class="dropbtn" id="newsNotice">News&Notice
                 <i class="fa fa-caret-down"></i>

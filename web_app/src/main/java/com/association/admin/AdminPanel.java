@@ -26,6 +26,14 @@ public class AdminPanel extends HttpServlet {
         try{
             AssocInfo assocInfo = new AssocInfo();
             VarsityInfo varsityInfo = new VarsityInfo();
+            DatabaseConnection conn = new DatabaseConnection();
+            ResultSet rs = conn.executeQuery("select count(*) from verified");
+            if(rs.next())
+                request.getSession().setAttribute("totalVerified",rs.getString("count(*)"));
+            rs = conn.executeQuery("select count(*) from members");
+            if(rs.next())
+                request.getSession().setAttribute("totalMembers",rs.getString("count(*)"));
+            conn.close();
             request.getRequestDispatcher("admin dashboard.jsp").forward(request,response);
         }
         catch (Exception e) {

@@ -1,0 +1,16 @@
+button {
+    background-color: #316955;
+    color: rgb(228, 222, 222);
+    padding: 14px 20px;
+    margin: 8px 0px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+     /*display: inline;*/
+    /* width:auto; */
+}
+.stat ,.stat *,.update{
+    background-color: #0000;
+
+}
