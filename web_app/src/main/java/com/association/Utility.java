@@ -107,8 +107,7 @@ public class Utility {
                 "    caption2 varchar(1000),\n" +
                 "    photo3 mediumblob,\n" +
                 "    caption3 varchar(1000),\n" +
-                "    video longblob,\n" +
-                "    video_caption varchar(1000),\n" +
+                "    video_link varchar(1000),\n" +
                 "    Primary key(media_id)\n" +
                 ");\n" +
                 "CREATE TABLE gallery(\n" +
