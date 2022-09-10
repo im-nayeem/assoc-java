@@ -5,12 +5,10 @@ import com.association.SendMail;
 import com.association.Utility;
 import com.association.database.DatabaseConnection;
 
-import javax.rmi.CORBA.Util;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 /**
@@ -19,7 +17,7 @@ import java.sql.PreparedStatement;
  * @author Nayeem
  */
 @WebServlet(name = "AddAdviser", value = "/AddAdviser")
-public class AddAdvisor extends HttpServlet {
+public class AddAdviser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -52,7 +50,7 @@ public class AddAdvisor extends HttpServlet {
                 AssocInfo assocInfo = (AssocInfo) getServletContext().getAttribute("assocInfo");
                 SendMail mail = new SendMail(assocInfo,email);
                 String baseUrl = Utility.getBaseUrl(request);
-                mail.send("Advisor in "+assocInfo.getAssocAbbr(),"Greetings!\n"+assocInfo.getAssocName()+"has added you as an adviser. Complete this process and access website by creating new password at: \n"+baseUrl+"/adviser-reg?email="+email+"\n");
+                mail.send("Adviser in "+assocInfo.getAssocAbbr(),"Greetings!\n"+assocInfo.getAssocName()+"has added you as an adviser. Complete this process and access website by creating new password at: \n"+baseUrl+"/adviser-reg?email="+email+"\n");
 
                 response.sendRedirect("ManageAdviser?t=all");
 

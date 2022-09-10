@@ -32,7 +32,7 @@ public class storeInfoDAO {
             pstmnt.setString(2,assocInfo.getAssocAbbr());
             pstmnt.setBinaryStream(3, assocInfo.getAssocLogoStream());
             pstmnt.setString(4, assocInfo.getAssocAbout());
-            pstmnt.setBinaryStream(5, assocInfo.getAssocConstStream());
+            pstmnt.setBinaryStream(5, assocInfo.getAssocConstitution()  );
             pstmnt.setString(6, assocInfo.getAssocMail());
             pstmnt.setString(7, assocInfo.getPass());
             pstmnt.setString(8, assocInfo.getPaymentMethod());
