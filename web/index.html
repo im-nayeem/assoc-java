@@ -6,8 +6,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/style.css">
     <script src="assets/style.js"></script>
+
+    <link rel="stylesheet" href="assets/mainpage.css">
+    <link rel="stylesheet" href="assets/style.css">
 
 </head>
 
@@ -79,39 +81,17 @@
 
 
     </div>
-
+   
 
     <div class="content" id="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
+            
+            <img src="assets/img/mswa.png" alt="" class="slide">
+            <img src="assets/img/nayeem.jpg" alt="" class="slide">
+            <img src="assets/img/assoc.png" alt="" class="slide">
+            <div class="desc">
+                <h3>MSWA</h3>
+            </div>
 
-        <br><br><br><br><br><br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. oident, sunt in culpa qui officia deserunt mollit anim id est laborum
-        oluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-        in culpa qui officia deserunt mollit anim id est laborum
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-
-        <br><br><br><br><br><br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. oident, sunt in culpa qui officia deserunt mollit anim id
-        oluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-        in culpa qui officia deserunt mollit anim id est laborum
-        <br><br><br><br><br><br>
-        <br><br><br><br><br><br>
-
-        <br><br><br><br><br><br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. oident, sunt in culpa qui officia deserunt mollit anim id
     </div>
 
 
@@ -119,6 +99,22 @@
     <div class="footer">
 
     </div>
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+        var i;
+        var x = document.getElementsByClassName("slide");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}    
+        x[myIndex-1].style.display = "block";  
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+    </script>
 
     <script>
         //if window is small show assoc name and univ name in two lines and show active page in the place of font icon(assoc name abbreviation)

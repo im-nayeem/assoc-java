@@ -1,0 +1,15 @@
+.slide{
+    display: none;
+    height: 70vh;
+    width: fit-content;
+    margin: auto;
+}
+
+.homepage *{
+    text-align: center;
+    background-color: #0000;
+}
+.desc{
+    text-align: center;
+    background-color: #0000;
+}

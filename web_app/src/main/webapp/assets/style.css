@@ -14,7 +14,7 @@ body {
 
 /*-----HEADER containing logo and name--*/
 .header{
-    background-image: linear-gradient(rgb(57, 109, 141),rgb(163, 146, 134),rgb(50, 115, 69));
+    background-image: linear-gradient(rgb(57, 109, 141),rgb(152, 123, 97),rgb(50, 115, 69));
     height: 13vh;
 }
 .logo,.logo img{
@@ -154,7 +154,7 @@ a.name_in_nav {
 .content{
     height: auto;
     background-color: #ced6d6;
-    min-height: 76vh;
+    min-height: 74vh;
     padding: 5px;
     /* margin: 0; */
     overflow: auto;
