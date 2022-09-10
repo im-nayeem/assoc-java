@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.association.admin;
+package com.association;
 
 import com.association.GalleryObj;
 import com.association.database.DatabaseConnection;
@@ -43,7 +43,7 @@ public class Gallery extends HttpServlet {
            }
        }
        if(request.getParameter("t").equals("details")){
-           request.setAttribute("gallery",new GalleryObj(request.getParameter("id")));
+           request.setAttribute("gallery",new GalleryObj(Integer.parseInt(request.getParameter("id"))));
            request.getRequestDispatcher("galleryDetailsView.jsp").forward(request,response);
        }
     }

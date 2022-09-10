@@ -6,19 +6,20 @@
 
 <%@include file="../includes/adminHead.jsp"%>
 <style>
-    <%@include file="../assets/galleryForm.css"%>
+    <%@include file="../assets/form.css"%>
     label{
         background: transparent;
     }
 </style>
 <div class="content">
+
     <div class="gallery-input">
-        <h2 style="background: white;" >Add new Event with image</h2><hr><br>
-        <form style="background: white;" action="AddNewEventPhotos" method="post" enctype="multipart/form-data">
+        <h2 style="background: white;" >Add New Event to Gallery</h2><hr><br>
+        <form style="background: white;" action="manage-gallery" method="post" enctype="multipart/form-data">
             <label style="margin-left: -45%; font-size:20px;" for="description">Add short description of event:</label><br>
             <br>
-            <textarea rows="10" cols="50" required name="description"></textarea><br><br><br>
-            <label style="margin-left: -40%; font-size:20px;" for="description">Add event's image:</label>
+            <textarea rows="10" cols="50" required name="description" id="description"></textarea><br><br><br>
+
             <button type="button" style="margin-left: 30px;" id="addMore">Add more image</button>
             <div id="allImg" class="all-img">
 

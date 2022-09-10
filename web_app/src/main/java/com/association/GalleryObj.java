@@ -28,11 +28,11 @@ public class GalleryObj {
     GalleryObj(){
 
     }
-    public GalleryObj(String id){
+    public GalleryObj(int id){
         try{
             DatabaseConnection conn = new DatabaseConnection();
             PreparedStatement pstmt = conn.getPreparedStatement("select * from gallery,media where gallery.id=media.media_id and gallery.id=?");
-            pstmt.setString(1,id);
+            pstmt.setInt(1,id);
             ResultSet rs = pstmt.executeQuery();
             if(rs.next()){
                 this.photo1 = Utility.inputStreamToString(rs.getBinaryStream("photo1"));
