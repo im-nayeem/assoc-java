@@ -4,10 +4,13 @@
  */
 package com.association.admin;
 
+import com.association.database.DatabaseConnection;
 import com.association.members.AssocMember;
 import com.association.members.MembersDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Vector;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,31 +25,33 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "VerifiedMembers", urlPatterns = {"/VerifiedMembers"})
 public class VerifiedMembers extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet VerifiedMembers</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet VerifiedMembers at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         MembersDAO memberModel = new MembersDAO();
-        Vector<AssocMember>assocMemberList = memberModel.getAssocMemberList();
-
+        Vector<AssocMember> assocMemberList = memberModel.getAssocMemberList();
         request.getSession().setAttribute("assocMemberList", assocMemberList);
-        request.getRequestDispatcher("verifiedMembers.jsp").forward(request,response);
+        
+        try {
+//----------------------------get latest committee number-------------------------------------//
+            DatabaseConnection conn = new DatabaseConnection();
+
+            PreparedStatement pstmnt = conn.getPreparedStatement("SELECT MAX(committee_id) as lastId FROM exec_committee");
+            ResultSet rs = pstmnt.executeQuery();
+            int lastCommitteeId = 1;
+            if(rs.next()){
+                lastCommitteeId = rs.getInt("lastId");
+                lastCommitteeId++;
+            }
+            request.getSession().setAttribute("lastCommitteeId", lastCommitteeId);
+        } catch (Exception e) {
+            request.setAttribute("error", e);
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
+
+        
+        request.getRequestDispatcher("verifiedMembers.jsp").forward(request, response);
     }
 
     @Override

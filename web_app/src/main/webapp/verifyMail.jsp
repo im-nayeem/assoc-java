@@ -23,7 +23,7 @@
 
                 </div>
                 <h3>We have sent verification code to your email address. Provide this verification code here:</h3>
-                <input type="number" id="verify_code" name="verify_code" required>
+                <input type="number" id="verify_code" name="verify_code" required value="${verificationCode}"/>
                 <button type="submit">Verify</button>
             </div>
         <!-- End of container div -->

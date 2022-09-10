@@ -45,6 +45,8 @@ public class Gallery extends HttpServlet {
             request.getRequestDispatcher("admin-panel/gallery.jsp").forward(request, response);
             
         } catch (Exception e) {
+            request.setAttribute("error", e);
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
 

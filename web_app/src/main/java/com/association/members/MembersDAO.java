@@ -25,9 +25,8 @@ public class MembersDAO {
     
     public Vector<AssocMember> getAssocMemberList() {
         try {
-            ResultSet rs = conn.executeQuery("SELECT *, (SELECT id FROM alumni WHERE members.id=alumni.id) as isAlum, "
-                    + "(SELECT id FROM exec_member WHERE members.id=exec_member.id) as isExeMember"
-                    + " FROM members WHERE id IN(SELECT id FROM verified);");
+            ResultSet rs = conn.executeQuery("SELECT *, (SELECT id FROM alumni WHERE members.id=alumni.id) as isAlum\n" +
+                    " FROM members WHERE id IN(SELECT id FROM verified);");
             
             while(rs.next()){
                 AssocMember assocMember = new AssocMember();

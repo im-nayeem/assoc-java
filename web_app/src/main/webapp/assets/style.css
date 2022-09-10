@@ -122,6 +122,7 @@ a.name_in_nav {
     text-decoration: none;
     display: block;
     text-align: left;
+    color: white;
 }
 
 .topnav a:hover{
