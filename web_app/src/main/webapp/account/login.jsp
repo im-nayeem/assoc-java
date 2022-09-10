@@ -5,8 +5,6 @@
   Time: 1:27 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../includes/regLoginHead.jsp"%>
 <div class="content">
     <div class="modal" id="id02">
@@ -45,7 +43,12 @@
                             onclick="">Register</button>
                     </a>
                     <a href="reset?t=password&role=member">Forgot Password? Click to Reset.</a>
-<%--                    go to registration.jsp onclick--%>
+                    <hr>
+                    <hr>
+                    <p>Are you an adviser?</p>
+                    <a href="adviser-panel?t=login">
+                        <button type="button">Log In as Adviser</button>
+                    </a>
                 </div>
             </div>
         </form>

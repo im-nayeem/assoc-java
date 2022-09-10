@@ -29,7 +29,7 @@ public class ConfirmReset extends HttpServlet {
             if(x!=y)
             {
                 request.setAttribute("errorCode","Wrong verification code! Code didn't match.");
-                request.getRequestDispatcher("resetVerification.jsp").forward(request,response);
+                request.getRequestDispatcher("verifyMail.jsp").forward(request,response);
             }
 
             UserAccount user = (UserAccount) request.getSession().getAttribute("user");

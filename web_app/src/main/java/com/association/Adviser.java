@@ -1,13 +1,12 @@
-package com.association.admin;
+package com.association;
 
-import com.association.UserAccount;
 import com.association.database.DatabaseConnection;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -18,7 +17,7 @@ import java.util.List;
  *
  * @author Nayeem
  */
-public class Advisor {
+public class Adviser {
     private String name;
     private String email;
     private InputStream photo;
@@ -28,34 +27,45 @@ public class Advisor {
     private String fromTime;
     private String toTime;
 
-    public Advisor(String name, String email, String fromTime, String toTime) {
+    private UserAccount userAccount;
+
+    public Adviser(String name, String email, String fromTime, String toTime) {
         this.name = name;
         this.email = email;
         this.fromTime = fromTime;
         this.toTime = toTime;
     }
 
+   public Adviser(){
+
+   }
     /**
      * Constructor
-     * @param name advisor name
-     * @param email advisor email
-     * @param occupation advisor's occupation
-     * @param presentAddr advisor's present address
-     * @param permanentAddr advisor's permanent address
-     * @param fromTime
-     * @param toTime
+     * @param email adviser email
      */
-    public Advisor(String name, String email,InputStream photo, String occupation, String presentAddr, String permanentAddr, String fromTime, String toTime) {
-        this.name = name;
-        this.email = email;
-        this.photo = photo;
-        this.occupation = occupation;
-        this.presentAddr = presentAddr;
-        this.permanentAddr = permanentAddr;
-        this.fromTime = fromTime;
-        this.toTime = toTime;
+    public Adviser(final String email) {
+        try{
+
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmt = conn.getPreparedStatement("select * from adviser where email = ?");
+            pstmt.setString(1,email);
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            this.name = rs.getString("name");
+            this.email =rs.getString("email");
+            this.occupation = rs.getString("occupation");
+            this.photo = rs.getBinaryStream("photo");
+            this.presentAddr = rs.getString("present_addr");
+            this.permanentAddr = rs.getString("permanent_addr");
+            this.fromTime = rs.getString("from_time");
+            this.toTime = rs.getString("to_time");
+
+        }
+        catch (Exception e){
+            throw  new RuntimeException(e);
+        }
     }
-    public Advisor(final ResultSet rs){
+    public Adviser(final ResultSet rs){
         try{
             this.name = rs.getString("name");
             this.email =rs.getString("email");
@@ -74,15 +84,15 @@ public class Advisor {
 
 
     /**====================Methods=====================*/
-    public  static List<Advisor> getAdvisorList(){
-        List<Advisor>advisorList = new ArrayList<>();
+    public  static List<Adviser> getAdviserList(){
+        List<Adviser> adviserList = new ArrayList<>();
 
        try{
            DatabaseConnection conn = new DatabaseConnection();
-           ResultSet rs = conn.executeQuery("select * from advisor");
+           ResultSet rs = conn.executeQuery("select * from adviser");
            while(rs.next())
            {
-               advisorList.add(new Advisor(rs));
+               adviserList.add(new Adviser(rs));
 
            }
        }
@@ -90,7 +100,7 @@ public class Advisor {
            throw new RuntimeException(e);
        }
 
-       return advisorList;
+       return adviserList;
     }
 
 
@@ -160,6 +170,10 @@ public class Advisor {
         return fromTime;
     }
 
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
     public String getToTime() {
         return toTime;
     }
@@ -183,6 +197,10 @@ public class Advisor {
 
     public void setOccupation(String occupation) {
         this.occupation = occupation;
+    }
+
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
     }
 
     public void setPresentAddr(String presentAddr) {

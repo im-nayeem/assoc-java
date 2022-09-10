@@ -22,7 +22,7 @@ public class LoginFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
 
-        if(req.getSession().getAttribute("userProfile")!=null){
+        if(req.getSession().getAttribute("userProfile")!=null || req.getSession().getAttribute("adviserProfile")!=null){
             chain.doFilter(req, resp);
         }
         else

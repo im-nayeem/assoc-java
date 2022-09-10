@@ -28,7 +28,7 @@ public class Verify extends HttpServlet {
         if(x!=y)
         {
             request.setAttribute("errorCode","Wrong verification code! Code didn't match.");
-            request.getRequestDispatcher("account/verifyMail.jsp").forward(request,response);
+            request.getRequestDispatcher("verifyMail.jsp").forward(request,response);
         }
         try {
             AssocMember member = (AssocMember) request.getSession().getAttribute("member");

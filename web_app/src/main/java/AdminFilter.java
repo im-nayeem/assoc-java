@@ -22,7 +22,7 @@ public class AdminFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
 
-        if(req.getSession().getAttribute("adminInfo")!=null){
+        if(req.getSession().getAttribute("adminProfile")!=null){
             chain.doFilter(req, resp);
         }
         else

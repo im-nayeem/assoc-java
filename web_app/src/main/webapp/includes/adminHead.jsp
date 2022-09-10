@@ -57,9 +57,10 @@
 
         </div>
 
-        <a href="" id="advisor">Advisor</a>
-        <a href="AdminAlumni" id="alumni">Alumni</a>
 
+        <a href="ManageAdviser?t=all" id="advisor">Adviser</a>
+        <a href="" id="AdminAlumni">Alumni</a>
+        
         <div class="dropdown">
             <button class="dropbtn" id="menu8">Executive Committee
                 <i class="fa fa-caret-down"></i>

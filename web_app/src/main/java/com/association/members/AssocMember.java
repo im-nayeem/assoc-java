@@ -99,9 +99,7 @@ public class AssocMember {
             this.name = request.getParameter("name");
             this.id = request.getParameter("id");
             this.email = request.getParameter("email");
-            String salt = SecurePassword.generateSalt(512).get();
-            String password = SecurePassword.hashPassword(request.getParameter("password"),salt).get();
-            this.userAccount = new UserAccount(email,password,salt,"member");
+            this.userAccount = new UserAccount(this.email,request.getParameter("password"),"member");
             this.phone = request.getParameter("phone");
             this.dept = request.getParameter("department");
             this.session = request.getParameter("session");

@@ -19,6 +19,12 @@ public class UserAccount {
     public UserAccount(){
 
     }
+    public UserAccount(String email,String password,String role){
+        this.email = email;
+        this.salt = SecurePassword.generateSalt(512).get();
+        this.key  = SecurePassword.hashPassword(password,this.salt).get();
+        this.role = role;
+    }
 
     public UserAccount(String email, String key, String salt, String role) {
         this.email = email;

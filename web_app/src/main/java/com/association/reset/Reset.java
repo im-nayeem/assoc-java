@@ -36,6 +36,7 @@ public class Reset extends HttpServlet {
             SendMail mail = new SendMail(assocInfo, user.getEmail());
             mail.send("Verification","Your Verification Code is: "+request.getSession().getAttribute("verificationCode")+"\n");
 
-            request.getRequestDispatcher("resetVerification.jsp").forward(request,response);
+            request.setAttribute("forwardServlet","confirm-reset");
+            request.getRequestDispatcher("verifyMail.jsp").forward(request,response);
     }
 }
