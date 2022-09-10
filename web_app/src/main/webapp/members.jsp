@@ -9,12 +9,13 @@
 <%@include file="./includes/head.jsp"%>
 
 <style>
-        <%@include file="./assets/members.css"%>
+    <%@include file="./assets/members.css"%>
+    
 </style>
 
 <div class="content">
-    <div class="filter-member">
-        <form action="members-filter" method="post">
+    <form action="members-filter" method="post">
+        <div class="filter-member">
             <select name="dept" id="dept" required>
                 <option selected disabled hidden>Select Department</option>
                 <c:forEach var="dept" items="${sessionScope.memberFilterValue.getDeptList()}">
@@ -40,8 +41,9 @@
                 </c:forEach>
             </select>
             <button type="submit">Apply</button>
-        </form>
-    </div>
+
+        </div>
+    </form>
 
     <table class="assoc-member-table">
         <tr>

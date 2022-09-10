@@ -4,6 +4,19 @@
     <welcome-file-list>
         <welcome-file>init</welcome-file>
     </welcome-file-list>
+    <servlet>
+        <servlet-name>adminGalleryJsp</servlet-name>
+        <jsp-file>/admin-panel/gallery.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>adminGalleryJsp</servlet-name>
+        <jsp-file>/admin-panel/galleryForm.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>adminGalleryJsp</servlet-name>
+        <url-pattern>/galleryForm.jsp</url-pattern>   
+    </servlet-mapping>
     
     <session-config>
         <session-timeout>30</session-timeout> <!-- in minutes -->

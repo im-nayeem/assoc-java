@@ -47,7 +47,7 @@
         <a href="./" class="name_in_nav" >MSWA-CoU</a>
         <a href="./" class="" id="home">Home</a>
         <a href="constitution.jsp" id="constitution">Constitution</a>
-        <a href="gallery.jsp" id="gallery">Gallery</a>
+        <a href="UserGallery" id="gallery">Gallery</a>
         <div class="dropdown">
             <button class="dropbtn" id="newsNotice">News&Notice
                 <i class="fa fa-caret-down"></i>
@@ -133,7 +133,7 @@
             else if(pageName === "constitution.jsp") {
                 document.getElementById("constitution").className += 'active';
             }
-            else if(pageName === "Members" || pageName === "members.jsp" || pageName === "MemberDetails"){
+            else if(pageName === "Members" || pageName === "members.jsp" || pageName === "MemberDetails" || pageName === "members-filter"){
                 document.getElementById("members").className += 'active';
             }
             else if(pageName === "Gallery" || pageName === "gallery.jsp"){

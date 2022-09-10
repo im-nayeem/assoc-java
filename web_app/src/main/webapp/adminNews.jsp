@@ -7,29 +7,6 @@
 <%@include file="includes/adminHead.jsp"%>
 <style>
     <%@include file="assets/notice.css"%>
-    .paragraph{
-        background:white;
-        width: max-content;
-        height: max-content;
-        padding:10px;
-        font-weight: 600;
-        margin:20px auto;
-    }
-    .paragraph a{
-        background:#1c9356;
-        padding:10px;
-        margin: -9px;
-        font-weight: 600;
-        color:white;
-        border:none;
-        text-decoration: none;
-    }
-    table td a{
-        background: #f1f1f1;
-        padding: 3px;
-        color: black;
-        text-decoration: none;
-    }
 </style>
 <div class="content"> 
     <div class="notice-container">
