@@ -5,14 +5,22 @@
 <div class="content homepage" id="content">
 
     <div class="slideshow">
-        <img src="assets/img/mswa.png" alt="" class="slide">
-        <img src="assets/img/nayeem.jpg" alt="" class="slide">
-        <img src="assets/img/assoc.png" alt="" class="slide">
-        <p>Caption</p>
+            <c:if test="${not empty applicationScope.gallery.getPhoto1()}">
+                <img src="data:image/jpg;base64,${applicationScope.gallery.getPhoto1()}" alt="" class="slide">
+                <p class="caption">${applicationScope.gallery.getCaption1()}</p>
+            </c:if>
+            <c:if test="${not empty applicationScope.gallery.getPhoto2()}">
+                <img src="data:image/jpg;base64,${applicationScope.gallery.getPhoto1()}" alt="" class="slide">
+                <p class="caption">${applicationScope.gallery.getCaption2()}</p>
+            </c:if>
+            <c:if test="${not empty applicationScope.gallery.getPhoto3()}">
+                <img src="data:image/jpg;base64,${applicationScope.gallery.getPhoto1()}" alt="" class="slide">
+                <p class="caption">${applicationScope.gallery.getCaption3()}</p>
+            </c:if>
     </div>
 
     <div class="desc">
-        <h3>Description</h3>
+        <h3>${applicationScope.gallery.getShortDesc()}</h3>
     </div>
 
 </div>

@@ -1,6 +1,11 @@
 package com.association;
 
+import org.jetbrains.annotations.NotNull;
+
 import javax.servlet.http.HttpServletRequest;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.util.Base64;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Utility {
@@ -87,7 +92,7 @@ public class Utility {
                 "    present_addr varchar(70),\n" +
                 "    permanent_addr varchar(70), \n" +
                 "    photo mediumblob,\n" +
-                "    occupation varchar(50) default \"Not Provided\",\n" +
+                "    occupation varchar(50),\n" +
                 "    from_time DATE,\n" +
                 "    to_time DATE,\n" +
                 "    FOREIGN KEY(email) REFERENCES account(email) on UPDATE CASCADE on DELETE CASCADE\n" +
@@ -109,6 +114,7 @@ public class Utility {
                 "CREATE TABLE gallery(\n" +
                 "\tid int unique not null,\n" +
                 "\tshort_desc varchar(1000),\n" +
+                "\thighlights tinyint(1),"+
                 "\tForeign key(id) references media(media_id) on update cascade on delete cascade\n" +
                 "\t\n" +
                 "\t);\n" +
@@ -149,5 +155,34 @@ public class Utility {
         String serverPort = (request.getServerPort() == 80) ? "" : ":" + request.getServerPort();
         String contextPath = request.getContextPath();
         return scheme + serverName + serverPort + contextPath;
+    }
+
+    public static String inputStreamToString( InputStream inpStream)
+    {
+        if(inpStream==null)
+            return "";
+        try{
+
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+            byte[] buffer = new byte[8192];
+            int length;
+            while ((length = inpStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, length);
+            }
+            outputStream.flush();
+
+
+            String base64Image = Base64.getEncoder().encodeToString(outputStream.toByteArray());
+            return base64Image;
+
+
+
+        }
+        catch(Exception e)
+        {
+            throw  new RuntimeException(e.getMessage());
+        }
+
     }
 }

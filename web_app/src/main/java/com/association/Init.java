@@ -21,6 +21,8 @@ public class Init extends HttpServlet {
 
         try
         {
+            GalleryObj gallery = GalleryObj.getHighlights().get(0);
+            getServletContext().setAttribute("gallery",gallery);
 
             AssocInfo assocInfo = new AssocInfo();
             VarsityInfo varsityInfo = new VarsityInfo();
