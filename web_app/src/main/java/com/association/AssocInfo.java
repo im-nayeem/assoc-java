@@ -2,7 +2,6 @@ package com.association;
 
 
 import com.association.database.DatabaseConnection;
-import java.io.ByteArrayInputStream;
 import org.jetbrains.annotations.NotNull;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,11 +10,7 @@ import java.io.IOException;
 
 import java.io.InputStream;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Base64;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 
 /**

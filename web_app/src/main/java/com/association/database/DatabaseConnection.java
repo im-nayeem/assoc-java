@@ -1,9 +1,6 @@
 package com.association.database;
 
-import javax.swing.plaf.nimbus.State;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class DatabaseConnection {
 
