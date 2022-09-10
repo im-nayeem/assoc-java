@@ -5,6 +5,10 @@
         <welcome-file>init</welcome-file>
     </welcome-file-list>
     <servlet>
+        <servlet-name>adminExecutiveMember</servlet-name>
+        <jsp-file>/admin-panel/executiveMember.jsp</jsp-file>
+    </servlet>
+    <servlet>
         <servlet-name>adminGalleryJsp</servlet-name>
         <jsp-file>/admin-panel/gallery.jsp</jsp-file>
     </servlet>
@@ -13,6 +17,11 @@
         <jsp-file>/admin-panel/galleryForm.jsp</jsp-file>
     </servlet>
     
+    
+    <servlet-mapping>
+        <servlet-name>adminExecutiveMember</servlet-name>
+        <url-pattern>/executiveMember.jsp</url-pattern>   
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>adminGalleryJsp</servlet-name>
         <url-pattern>/galleryForm.jsp</url-pattern>   

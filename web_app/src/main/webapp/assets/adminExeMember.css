@@ -1,0 +1,65 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Sep 10, 2022, 4:34:11 PM
+    Author     : Mestu
+*/
+
+.content input,button{
+    text-align: center;
+}
+.content .filter{
+    text-align: center;
+}
+.content .filter button{
+    color:white;
+    font-weight: bold;
+    font-size:16px;
+    padding: 7px;
+}
+.content .filter select{
+    background: white;
+    padding: 10px;
+}
+.content .info-update h1{
+    width:70%;
+    margin: 10px auto;
+    padding: 10px;
+    color:white;
+    text-align: center;
+}
+.content .info-update .start-end-time{
+    width:70%;
+    margin: 10px auto -20px auto;
+    justify-content: space-between;
+    display:flex;
+    padding: 7px 0px;
+    background: white;
+}
+.content .info-update .start-end-time li{
+    margin: 0% 29% 0% 4%;
+    background: white;
+    list-style: none;
+}
+.content .info-update .start-end-time li input{
+    background: white;
+    width:250%;
+    padding: 7px;
+    font-size:18px;
+}
+.content .info-update .assoc-member-table input{
+    background: white;
+    width:100%;
+    padding: 4px;
+    border:none;
+    font-size:18px;
+}
+.content .info-update button{
+    width: 10%;
+    color: white;
+    padding: 5px;
+    font-size:18px;
+    margin:0px 45%;
+}

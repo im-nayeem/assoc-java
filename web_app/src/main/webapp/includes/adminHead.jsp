@@ -58,19 +58,9 @@
 
 
         <a href="ManageAdviser?t=all" id="advisor">Adviser</a>
-        <a href="" id="AdminAlumni">Alumni</a>
+        <a href="AdminAlumni" id="AdminAlumni">Alumni</a>
+        <a href="ExecutiveCommittee?type=init" id="ExecutiveCommittee">Executive Committee</a>
         
-        <div class="dropdown">
-            <button class="dropbtn" id="menu8">Executive Committee
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Current Committee</a>
-                <a href="#">11th</a>
-                <a href="#">10th</a>
-            </div>
-
-        </div>
         <div class="dropdown">
             <button class="dropbtn" id="menu9">Culture
                 <i class="fa fa-caret-down"></i>
