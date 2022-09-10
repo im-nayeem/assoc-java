@@ -87,7 +87,7 @@ public class Utility {
                 "    present_addr varchar(70),\n" +
                 "    permanent_addr varchar(70), \n" +
                 "    photo mediumblob,\n" +
-                "    occupation varchar(50) default “Not Provided”,\n" +
+                "    occupation varchar(50) default \"Not Provided\",\n" +
                 "    from_time DATE,\n" +
                 "    to_time DATE,\n" +
                 "    FOREIGN KEY(email) REFERENCES account(email) on UPDATE CASCADE on DELETE CASCADE\n" +

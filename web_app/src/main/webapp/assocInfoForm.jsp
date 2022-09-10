@@ -10,7 +10,6 @@
 <%@include file="./includes/regLoginHead.jsp"%>
 <div class="content">
     <div id="id06" class="modal">
-        <a href="./"> <span class="close" onclick="" title="Close Form">&times;</span></a>
         <form class="modal-content" action="StoreInfo" method="post" enctype='multipart/form-data' >
             
             <!--this hidden type input help to StoreInfo servlet-->

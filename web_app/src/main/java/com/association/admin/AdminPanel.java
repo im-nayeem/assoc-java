@@ -1,7 +1,10 @@
 package com.association.admin;
 
+import com.association.AssocInfo;
 import com.association.Utility;
+import com.association.VarsityInfo;
 import com.association.database.DatabaseConnection;
+import org.checkerframework.checker.units.qual.A;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -21,20 +24,25 @@ public class AdminPanel extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            DatabaseConnection conn = new DatabaseConnection();
-            ResultSet rs = conn.executeQuery("Select * from members");
+            AssocInfo assocInfo = new AssocInfo();
+            VarsityInfo varsityInfo = new VarsityInfo();
             request.getRequestDispatcher("admin dashboard.jsp").forward(request,response);
         }
         catch (Exception e) {
             try{
                 DatabaseConnection conn = new DatabaseConnection();
                 conn.execute(Utility.getAssocInitQuery());
-                response.sendRedirect("StoreInfo?t=association");
             }
             catch (Exception ex)
             {
-                request.setAttribute("error",ex+"\n"+e);
-                request.getRequestDispatcher("error.jsp").forward(request,response);
+                try{
+                    response.sendRedirect("StoreInfo?t=association");
+                }
+                catch (Exception e1)
+                {
+                    request.setAttribute("error",ex+"\n"+e+"\n"+e1);
+                    request.getRequestDispatcher("error.jsp").forward(request,response);
+                }
             }
         }
     }
