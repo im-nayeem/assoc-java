@@ -1,0 +1,29 @@
+.gallery-list{
+    display: flex;
+}
+.single-gallery{
+
+    height: 320px;
+    width: 210px;
+    border: 2px solid whitesmoke;
+    overflow: hidden;
+}
+.single-gallery img{
+    width: auto;
+    height: 280px;
+    width: 200px;
+}
+.content *{
+    background-color: #0000;
+}
+
+@media screen and (max-width: 800px){
+
+    .single-gallery{
+        height: 320px;
+        width: 80vw;
+        border: 2px solid whitesmoke;
+        overflow: hidden;
+    }
+
+}

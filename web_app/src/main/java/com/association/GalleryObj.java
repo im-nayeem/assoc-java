@@ -21,8 +21,34 @@ public class GalleryObj {
     private String caption3;
     private String videoLink;
     private  String shortDesc;
+    private int id;
+
+
+
     GalleryObj(){
 
+    }
+    public GalleryObj(String id){
+        try{
+            DatabaseConnection conn = new DatabaseConnection();
+            PreparedStatement pstmt = conn.getPreparedStatement("select * from gallery,media where gallery.id=media.media_id and gallery.id=?");
+            pstmt.setString(1,id);
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()){
+                this.photo1 = Utility.inputStreamToString(rs.getBinaryStream("photo1"));
+                this.photo2 = Utility.inputStreamToString(rs.getBinaryStream("photo2"));
+                this.photo3 = Utility.inputStreamToString(rs.getBinaryStream("photo3"));
+                this.caption1 = rs.getString("caption1");
+                this.caption2 = rs.getString("caption2");
+                this.caption3  = rs.getString("caption3");
+                this.shortDesc = rs.getString("short_desc");
+                this.id = Integer.parseInt(rs.getString("id"));
+            }
+        }
+        catch (Exception e)
+        {
+            throw  new RuntimeException(e);
+        }
     }
     public GalleryObj(ResultSet rs){
         try{
@@ -33,6 +59,7 @@ public class GalleryObj {
             this.caption2 = rs.getString("caption2");
             this.caption3  = rs.getString("caption3");
             this.shortDesc = rs.getString("short_desc");
+            this.id = Integer.parseInt(rs.getString("id"));
         }
         catch (Exception e){
                 throw new RuntimeException(e);
@@ -49,6 +76,24 @@ public class GalleryObj {
         this.videoLink = videoLink;
     }
 
+    public static  List<GalleryObj> getGalleryList(){
+        try{
+            List<GalleryObj>galleryList = new ArrayList<>();
+            DatabaseConnection conn = new DatabaseConnection();
+            ResultSet rs = conn.executeQuery("SELECT * from media,gallery where gallery.id=media.media_id");
+            while(rs.next())
+            {
+                galleryList.add(new GalleryObj(rs));
+
+            }
+            return galleryList;
+
+        }
+        catch(Exception e){
+            throw  new RuntimeException(e);
+
+        }
+    }
     public static List<GalleryObj> getHighlights(){
         try{
             List<GalleryObj>highlights = new ArrayList<>();
@@ -98,6 +143,9 @@ public class GalleryObj {
 
     public String getShortDesc() {
         return shortDesc;
+    }
+    public int getId() {
+        return id;
     }
 }
 
