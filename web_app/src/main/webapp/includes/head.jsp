@@ -62,8 +62,8 @@
 
         <a href="Members" id="members">Members</a>
 
-        <a href="adviser-panel?t=all" id="menu6">Adviser</a>
-        <a href="" id="menu7">Alumni</a>
+        <a href="adviser-panel?t=all" id="adviser">Adviser</a>
+        <a href="Alumni?type=init" id="alumni">Alumni</a>
         
         <a href="ExecutiveCommitteeUser?type=init" id="members">Executive Committee</a>
         
@@ -131,6 +131,15 @@
             }
             else if(pageName === "Gallery" || pageName === "gallery.jsp"){
                 document.getElementById("gallery").className += 'active';
+            }
+            else if(pageName === "adviser-panel"){
+                document.getElementById("adviser").style.background = "#04AA6D";
+            }
+            else if(pageName === "Alumni"){
+                document.getElementById("alumni").style.background = "#04AA6D";
+            }
+            else if(pageName === "gallery"){
+                document.getElementById("gallery").style.background = "#04AA6D";
             }
             else if(pageName === "News" || pageName === "Notice" || pageName === "Event"){
                 document.getElementById("newsNotice").style.background = "#04AA6D";
