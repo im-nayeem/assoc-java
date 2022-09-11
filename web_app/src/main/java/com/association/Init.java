@@ -1,6 +1,7 @@
 package com.association;
 
 
+import com.association.members.AssocExecutiveMember;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +25,7 @@ public class Init extends HttpServlet {
 
             AssocInfo assocInfo = new AssocInfo();
             VarsityInfo varsityInfo = new VarsityInfo();
-
+            
             getServletContext().setAttribute("assocInfo",assocInfo);
             getServletContext().setAttribute("varsityInfo", varsityInfo);
 

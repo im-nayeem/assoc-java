@@ -53,33 +53,24 @@
                 </c:choose> 
             </td>
             <td>
-                <c:choose>
-                    <c:when test="${assocMember.getIsAlumni()==true}">
-                        <p style="background: transparent; font-weight: bold; color:green">Marked</p> 
-                    </c:when>
-                    <c:otherwise>
-                        <c:if test="${not empty requestScope.addedEmail}">
-                            <c:if test="${assocMember.getEmail() == requestScope.addedEmail}">
-                            <lable style="color:white;">${requestScope.msg}</lable>
-                            </c:if>
-                        </c:if>
-                        <form action="AdditionalInfo" method="post">
-                            <input type="hidden" name="email" value="${assocMember.getEmail()}"/>
-                            <input type="hidden" name="id" value="${assocMember.getId()}"/>
-                            <input type="hidden" name="type" value="exeMember"/>
-                            
-                            <select style="background: white; padding: 5px;" name="addCommitteeTo" required>
-                                <option style="background: white;" selected disabled hidden>Select committee Number</option>
-                                <c:forEach var="cmi" begin="1" end="${sessionScope.lastCommitteeId-1}">
-                                    <option style="background: white; padding: 5px;" value="${cmi}">${cmi}</option>
-                                </c:forEach>
-                            </select>
-                            <a href=""><button style="cursor: pointer" type="submit">Mark</button></a>
-                        </form>
-                        
-                    </c:otherwise>
-                </c:choose> 
+                <c:if test="${not empty requestScope.addedEmail}">
+                    <c:if test="${assocMember.getEmail() == requestScope.addedEmail}">
+                    <lable style="color:white;">${requestScope.msg}</lable>
+                    </c:if>
+                </c:if>
+            <form action="AdditionalInfo" method="post">
+                <input type="hidden" name="email" value="${assocMember.getEmail()}"/>
+                <input type="hidden" name="id" value="${assocMember.getId()}"/>
+                <input type="hidden" name="type" value="exeMember"/>
 
+                <select style="background: white; padding: 5px;" name="addCommitteeTo" required>
+                    <option style="background: white;" selected disabled hidden>Select committee Number</option>
+                    <c:forEach var="cmi" begin="1" end="${sessionScope.lastCommitteeId-1}">
+                        <option style="background: white; padding: 5px;" value="${cmi}">${cmi}</option>
+                    </c:forEach>
+                </select>
+                <a href=""><button style="cursor: pointer" type="submit">Mark</button></a>
+            </form>
 
             </td>
 

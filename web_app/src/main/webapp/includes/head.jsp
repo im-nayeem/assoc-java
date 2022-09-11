@@ -64,16 +64,9 @@
 
         <a href="adviser-panel?t=all" id="menu6">Adviser</a>
         <a href="" id="menu7">Alumni</a>
-
-        <div class="dropdown">
-            <button class="dropbtn" id="exeCommittee">Executive Committee
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-<%--                use jstl to show all committee--%>
-            </div>
-
-        </div>
+        
+        <a href="ExecutiveCommitteeUser?type=init" id="members">Executive Committee</a>
+        
         <div class="dropdown">
             <button class="dropbtn" id="culture">Culture
                 <i class="fa fa-caret-down"></i>

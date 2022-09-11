@@ -4,17 +4,40 @@
  */
 package com.association.members;
 
+import com.association.database.DatabaseConnection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author Mestu
  */
-public class ExecutiveMember extends AssocMember{
+public class AssocExecutiveMember extends AssocMember{
     private int committeeId;
     private String postName;
     private String startDate;
     private String endDate;
 
-    public ExecutiveMember() {
+    public AssocExecutiveMember() {
+    }
+    
+    //----------------------------get latest committee number-------------------------------------//
+    public int getLastCommitteeNumer(){
+        try {
+                DatabaseConnection conn = new DatabaseConnection();
+                PreparedStatement pstmnt = conn.getPreparedStatement("SELECT MAX(committee_id) as lastId FROM exec_committee");
+                ResultSet rs = pstmnt.executeQuery();
+
+                int lastCommitteeId = 1;
+                if (rs.next()) {
+                    lastCommitteeId = rs.getInt("lastId");
+                    lastCommitteeId++;
+                }
+                return lastCommitteeId;
+
+            } catch (Exception e) {
+                throw new RuntimeException(e.toString()+"\nProblem with finding committee number.");
+            }
     }
     
 //    <editor-fold desc="all getter method">
