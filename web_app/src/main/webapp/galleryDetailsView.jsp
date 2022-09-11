@@ -12,22 +12,24 @@
 <div class="content homepage" id="content">
 
     <div class="slideshow">
-        <c:if test="${not empty applicationScope.gallery.getPhoto1()}">
-            <img src="data:image/jpg;base64,${applicationScope.gallery.getPhoto1()}" alt="photo1" class="slide">
-            <p class="caption">${applicationScope.gallery.getCaption1()}</p>
-        </c:if>
-        <c:if test="${not empty applicationScope.gallery.getPhoto2()}">
-            <img src="data:image/jpg;base64,${applicationScope.gallery.getPhoto2()}" alt="photo2" class="slide">
-            <p class="caption">${applicationScope.gallery.getCaption2()}</p>
-        </c:if>
-        <c:if test="${not empty applicationScope.gallery.getPhoto3()}">
-            <img src="data:image/jpg;base64,${applicationScope.gallery.getPhoto3()}" alt="photo3" class="slide">
-            <p class="caption">${applicationScope.gallery.getCaption3()}</p>
+        <c:if test="${not empty requestScope.gallery.getShortDesc()}">
+            <c:if test="${not empty requestScope.gallery.getPhoto1()}">
+                <img src="data:image/jpg;base64,${requestScope.gallery.getPhoto1()}" alt="photo1" class="slide">
+                <p class="caption">${requestScope.gallery.getCaption1()}</p>
+            </c:if>
+            <c:if test="${not empty requestScope.gallery.getPhoto2()}">
+                <img src="data:image/jpg;base64,${requestScope.gallery.getPhoto2()}" alt="photo2" class="slide">
+                <p class="caption">${requestScope.gallery.getCaption2()}</p>
+            </c:if>
+            <c:if test="${not empty requestScope.gallery.getPhoto3()}">
+                <img src="data:image/jpg;base64,${requestScope.gallery.getPhoto3()}" alt="photo3" class="slide">
+                <p class="caption">${requestScope.gallery.getCaption3()}</p>
+            </c:if>
         </c:if>
     </div>
 
     <div class="desc">
-        <h3>${applicationScope.gallery.getShortDesc()}</h3>
+        <h3>${requestScope.gallery.getShortDesc()}</h3>
     </div>
 
 </div>

@@ -77,8 +77,9 @@ public class GalleryObj {
     }
 
     public static  List<GalleryObj> getGalleryList(){
+        List<GalleryObj>galleryList = new ArrayList<>();
+
         try{
-            List<GalleryObj>galleryList = new ArrayList<>();
             DatabaseConnection conn = new DatabaseConnection();
             ResultSet rs = conn.executeQuery("SELECT * from media,gallery where gallery.id=media.media_id");
             while(rs.next())
@@ -86,31 +87,32 @@ public class GalleryObj {
                 galleryList.add(new GalleryObj(rs));
 
             }
-            return galleryList;
 
         }
         catch(Exception e){
-            throw  new RuntimeException(e);
 
         }
+        return galleryList;
+
     }
     public static List<GalleryObj> getHighlights(){
+        List<GalleryObj>highlights = new ArrayList<>();
+
         try{
-            List<GalleryObj>highlights = new ArrayList<>();
             DatabaseConnection conn = new DatabaseConnection();
-            ResultSet rs = conn.executeQuery("SELECT * from media,gallery WHERE media.media_id=gallery.id and gallery.highlight=1");
+            ResultSet rs = conn.executeQuery("SELECT * from media,gallery WHERE media.media_id=gallery.id and gallery.highlights=1");
             while(rs.next())
             {
                 highlights.add(new GalleryObj(rs));
 
             }
-            return highlights;
 
         }
         catch(Exception e){
-            throw  new RuntimeException(e);
 
         }
+        return highlights;
+
     }
 
     public String getPhoto1() {

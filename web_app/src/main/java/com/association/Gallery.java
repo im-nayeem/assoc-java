@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "gallery", urlPatterns = {"/gallery"})
 public class Gallery extends HttpServlet {
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,7 +35,10 @@ public class Gallery extends HttpServlet {
            }
        }
        if(request.getParameter("t").equals("details")){
-           request.setAttribute("gallery",new GalleryObj(Integer.parseInt(request.getParameter("id"))));
+
+           GalleryObj glry = new GalleryObj(Integer.parseInt(request.getParameter("id")));
+           System.out.println(glry.getShortDesc());
+           request.setAttribute("gallery",glry);
            request.getRequestDispatcher("galleryDetailsView.jsp").forward(request,response);
        }
     }

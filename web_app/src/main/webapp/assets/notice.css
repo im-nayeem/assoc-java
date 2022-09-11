@@ -30,6 +30,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     border-color: #c1c1c1;
 
 }
+
+
+
 /*-------------------------------------------------------*/
 
 /*----------------------Notice details modal-------------*/
@@ -122,7 +125,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     font-size: 18px;
     font-weight: 500;
     border: 1px solid black;
-    min-height: 10vh;
+    min-height: 40vh;
     max-height: max-content;
     margin: 30px 30px;
     padding: 10px;
@@ -165,4 +168,28 @@ table td a{
     padding: 3px;
     color: black;
     text-decoration: none;
+}
+
+.footer{
+    background-color: #0000;
+    text-align: right;
+    margin-right: 30px;
+}
+@media screen and (max-width: 800px) {
+    .notice-container * {
+        margin: 0;
+        width: 100%;
+    }
+    #headline{
+        font-size: 14px;
+    }
+    .notice-container {
+        width: 100%;
+    }
+
+    #headline, #details {
+        margin: 5px 0 0 0;
+    }
+
+
 }

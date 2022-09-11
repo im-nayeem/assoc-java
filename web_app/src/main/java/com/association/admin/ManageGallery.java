@@ -44,18 +44,15 @@ public class ManageGallery extends HttpServlet {
 
             int id = 0;
             if(rs.next())
-                id=Integer.parseInt(rs.getString("media_id"));
+                id=Integer.parseInt(rs.getString("AUTO_INCREMENT"));
 
             PreparedStatement pstmt = conn.getPreparedStatement("insert into media(photo1,caption1,photo2,caption2,photo3,caption3,video_link,media_id) values(?,?,?,?,?,?,?,?)");
             pstmt.setBlob(1,request.getPart("photo1").getInputStream());
             pstmt.setString(2,request.getParameter("caption1"));
-
             pstmt.setBlob(3,request.getPart("photo2").getInputStream());
             pstmt.setString(4,request.getParameter("caption2"));
-
             pstmt.setBlob(5,request.getPart("photo3").getInputStream());
             pstmt.setString(6,request.getParameter("caption3"));
-
             pstmt.setString(7,request.getParameter("video_link"));
             pstmt.setInt(8,id);
             pstmt.execute();
@@ -69,6 +66,8 @@ public class ManageGallery extends HttpServlet {
             pstmt.execute();
 
             conn.close();
+
+            response.sendRedirect("manage-gallery?t=all");
         }
         catch (Exception e){
             request.setAttribute("error",e);

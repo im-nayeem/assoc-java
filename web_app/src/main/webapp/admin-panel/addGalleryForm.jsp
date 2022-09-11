@@ -12,7 +12,7 @@
         <a href="manage-gallery?t=all"><span onclick="" class="close" title="Close Form">&times;</span></a>
         <%--            onclick go to home page--%>
 
-        <form class="modal-content" action="manage-gallery" method="post" enctype="multipart/form-data">
+        <form class="modal-content" action="manage-gallery" method="post" enctype="multipart/form-data" accept-charset="utf-8">
             <div class="container">
                 <h3>Add New Gallery</h3>
                 <br>
@@ -31,7 +31,7 @@
                 <input type="text" name="caption2" id="caption2" >
 
                 <label for="photo3"><strong>Select Your Photo-3</strong>(less than 16MB):</label>
-                <input type="file" id="photo3" name="photo1"><br>
+                <input type="file" id="photo3" name="photo3"><br>
                 <label for="caption3"><strong>Caption-3</strong></label>
                 <input type="text" name="caption3" id="caption3">
 

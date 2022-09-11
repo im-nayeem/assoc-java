@@ -33,7 +33,8 @@ public class AddNotice extends HttpServlet {
         String details = request.getParameter("details");
         String footer = request.getParameter("footer");
         String newNotice = request.getParameter("newNotice");
-        
+
+
 //        add new notice 
         if(newNotice.equals("yes")){
             DatabaseConnection conn = new DatabaseConnection();

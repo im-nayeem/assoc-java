@@ -50,7 +50,7 @@
 <div class="content">
     <div class="container">
         <h2>Add new notice</h2><br><hr><br>
-        <form action="AddNotice" method="post">
+        <form action="AddNotice" method="post" accept-charset="utf-8">
             
             <!----------------------------new notice---------------------->
             
@@ -58,11 +58,11 @@
                 <input name="newNotice" value="yes" type="hidden"/>
 
                 <label for="headline">Enter headline of notice</label>
-                <input required class="headline-input" name="headline" type="text" value="" placeholder="Enter headline"/>
+                <input required class="headline-input" id="headline" name="headline" type="text" value="" placeholder="Enter headline"/>
                 <label for="details">Enter details of notice</label>
-                <textarea required class="details-input" name="details" value=""></textarea>
-                <label for="footer">Enter author name of notice</label>
-                <input required class="footer-input" name="footer" type="text" value="" placeholder="Enter author name"/>
+                <textarea required class="details-input" id="details" name="details" value=""></textarea>
+                <label for="footer">Footer</label>
+                <input required class="footer-input" name="footer" id="footer" type="text" value="" placeholder="Enter author name"/>
             </c:if>
                 
             <!----------------------for update notice------------------->

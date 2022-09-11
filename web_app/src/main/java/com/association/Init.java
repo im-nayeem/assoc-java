@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /***
  * Welcome Servlet that retrieve essential data from database to configure index.jsp
@@ -21,8 +22,10 @@ public class Init extends HttpServlet {
 
         try
         {
-            GalleryObj gallery = GalleryObj.getHighlights().get(0);
-            getServletContext().setAttribute("gallery",gallery);
+            List<GalleryObj> gallery = GalleryObj.getHighlights();
+
+            if(!gallery.isEmpty())
+                getServletContext().setAttribute("gallery",gallery.get(0));
 
             AssocInfo assocInfo = new AssocInfo();
             VarsityInfo varsityInfo = new VarsityInfo();

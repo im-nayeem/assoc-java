@@ -4,7 +4,6 @@ import com.association.AssocInfo;
 import com.association.Utility;
 import com.association.VarsityInfo;
 import com.association.database.DatabaseConnection;
-import org.checkerframework.checker.units.qual.A;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -40,6 +39,7 @@ public class AdminPanel extends HttpServlet {
             try{
                 DatabaseConnection conn = new DatabaseConnection();
                 conn.execute(Utility.getAssocInitQuery());
+                response.sendRedirect("StoreInfo?t=association");
             }
             catch (Exception ex)
             {
