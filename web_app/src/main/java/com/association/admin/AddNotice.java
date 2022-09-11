@@ -7,11 +7,7 @@ package com.association.admin;
 import com.association.AssocNotice;
 import com.association.database.DatabaseConnection;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +33,8 @@ public class AddNotice extends HttpServlet {
         String details = request.getParameter("details");
         String footer = request.getParameter("footer");
         String newNotice = request.getParameter("newNotice");
-        
+
+
 //        add new notice 
         if(newNotice.equals("yes")){
             DatabaseConnection conn = new DatabaseConnection();

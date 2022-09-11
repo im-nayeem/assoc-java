@@ -2,7 +2,6 @@ package com.association;
 
 
 import com.association.database.DatabaseConnection;
-import java.io.ByteArrayInputStream;
 import org.jetbrains.annotations.NotNull;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,11 +10,7 @@ import java.io.IOException;
 
 import java.io.InputStream;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Base64;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 
 /**
@@ -28,8 +23,7 @@ public class AssocInfo {
     private String assocAbbr;
     private String assocLogo;
     private InputStream assocLogoStream;
-    private String assocConstitution;
-    private InputStream assocConstStream;
+    private InputStream assocConstitution;
     private String assocAbout;
     private String paymentMethod;
     private String assocMail;
@@ -45,7 +39,7 @@ public class AssocInfo {
             rs.next();
 
             this.assocLogo = this.inputStreamToString(rs.getBinaryStream("assoc_logo"));
-            this.assocConstitution =  this.inputStreamToString(rs.getBinaryStream("constitution"));
+            this.assocConstitution =  rs.getBinaryStream("constitution");
             this.assocAbout =  rs.getString("about");
             this.paymentMethod =  rs.getString("pay_details");
             this.assocName = rs.getString("assoc_name");
@@ -66,7 +60,7 @@ public class AssocInfo {
             this.assocName = request.getParameter("assoc_name");
             this.assocAbbr  = request.getParameter("assoc_abbr");
             this.assocLogoStream = request.getPart("assoc_logo").getInputStream();
-            this.assocConstStream = request.getPart("assoc_constitution").getInputStream();
+            this.assocConstitution = request.getPart("assoc_constitution").getInputStream();
             this.assocAbout = request.getParameter("assoc_about");
             this.paymentMethod = request.getParameter("payment_details");
             this.assocMail = request.getParameter("assoc_email");
@@ -126,7 +120,7 @@ public class AssocInfo {
         return assocLogo;
     }
 
-    public  String getAssocConstitution() {
+    public  InputStream getAssocConstitution() {
         return assocConstitution;
     }
 
@@ -154,9 +148,6 @@ public class AssocInfo {
         return assocLogoStream;
     }
 
-    public InputStream getAssocConstStream() {
-        return assocConstStream;
-    }
 
     public String getPresidentNumber() {
         return presidentNumber;

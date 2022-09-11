@@ -28,6 +28,25 @@
         document.getElementsByClassName('name')[0].children[0].style.fontSize='25px';
     }
 
+    /**==== to show slideshow========*/
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("slide");
+        var y = document.getElementsByClassName("caption");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+            y[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        if (myIndex > y.length) {myIndex = 1}
+        y[myIndex-1].style.display = "block";
+        setTimeout(carousel, 2300);} // Change image every 2 seconds
+
 </script>
 </body>
 

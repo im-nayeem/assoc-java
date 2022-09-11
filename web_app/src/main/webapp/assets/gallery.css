@@ -1,0 +1,43 @@
+.gallery-list{
+    display: flex;
+}
+.gallery-list{
+    background-color: #0000;
+}
+.single-gallery{
+    height: 320px;
+    width: 210px;
+    border: 2px solid whitesmoke;
+    overflow: hidden;
+}
+.single-gallery a{
+    color: black;
+}
+.single-gallery img{
+    width: auto;
+    height: 280px;
+    width: 200px;
+}
+button {
+    background-color: #316955;
+    color: rgb(228, 222, 222);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    /* display: inline; */
+    /* width:auto; */
+}
+
+@media screen and (max-width: 800px){
+
+    .single-gallery{
+        height: 320px;
+        width: 80vw;
+        border: 2px solid whitesmoke;
+        overflow: hidden;
+    }
+
+}

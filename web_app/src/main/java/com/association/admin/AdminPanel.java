@@ -1,6 +1,8 @@
 package com.association.admin;
 
+import com.association.AssocInfo;
 import com.association.Utility;
+import com.association.VarsityInfo;
 import com.association.database.DatabaseConnection;
 
 import javax.servlet.*;
@@ -21,8 +23,16 @@ public class AdminPanel extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
+            AssocInfo assocInfo = new AssocInfo();
+            VarsityInfo varsityInfo = new VarsityInfo();
             DatabaseConnection conn = new DatabaseConnection();
-            ResultSet rs = conn.executeQuery("Select * from members");
+            ResultSet rs = conn.executeQuery("select count(*) from verified");
+            if(rs.next())
+                request.getSession().setAttribute("totalVerified",rs.getString("count(*)"));
+            rs = conn.executeQuery("select count(*) from members");
+            if(rs.next())
+                request.getSession().setAttribute("totalMembers",rs.getString("count(*)"));
+            conn.close();
             request.getRequestDispatcher("admin dashboard.jsp").forward(request,response);
         }
         catch (Exception e) {
@@ -33,8 +43,14 @@ public class AdminPanel extends HttpServlet {
             }
             catch (Exception ex)
             {
-                request.setAttribute("error",ex+"\n"+e);
-                request.getRequestDispatcher("error.jsp").forward(request,response);
+                try{
+                    response.sendRedirect("StoreInfo?t=association");
+                }
+                catch (Exception e1)
+                {
+                    request.setAttribute("error",ex+"\n"+e+"\n"+e1);
+                    request.getRequestDispatcher("error.jsp").forward(request,response);
+                }
             }
         }
     }

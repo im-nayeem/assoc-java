@@ -12,7 +12,6 @@
 
 <div class="content">
     <div id="id07" class="modal">
-        <a href="./"> <span class="close" onclick="" title="Close Form">&times;</span></a>
         <form class="modal-content" action="StoreInfo" method="post" >
             
             <!--this hidden type input help to StoreInfo servlet-->

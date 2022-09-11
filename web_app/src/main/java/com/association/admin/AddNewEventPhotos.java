@@ -91,10 +91,11 @@ public class AddNewEventPhotos extends HttpServlet {
         //</editor-fold>
     
         //<editor-fold desc="Store short description into gallery table">
-            query = "INSERT INTO gallery VALUES(?,?);";
+            query = "INSERT INTO gallery VALUES(?,?,?);";
             pstmnt = conn.getPreparedStatement(query);
             pstmnt.setInt(1,lastMediaId);
             pstmnt.setString(2,description);
+            pstmnt.setString(3,"0");
             
             out.println(pstmnt.execute());
         //</editor-fold>
