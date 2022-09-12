@@ -29,14 +29,14 @@
                    <th>Occupation</th>
                    <td><c:out value="${sessionScope.adviserProfile.getOccupation()}"/></td>
                </tr>
-               <tr>
-                   <th>Present Address</th>
-                   <td><c:out value="${sessionScope.adviserProfile.getPresentAddr}"/></td>
-               </tr>
-               <tr>
-                   <th>Permanent Address</th>
-                   <td><c:out value="${sessionScope.adviserProfile.getPresentAddr}"/></td>
-               </tr>
+<%--               <tr>--%>
+<%--                   <th>Present Address</th>--%>
+<%--                   <td><c:out value="${sessionScope.adviserProfile.getPresentAddr}"/></td>--%>
+<%--               </tr>--%>
+<%--               <tr>--%>
+<%--                   <th>Permanent Address</th>--%>
+<%--                   <td><c:out value="${sessionScope.adviserProfile.getPresentAddr}"/></td>--%>
+<%--               </tr>--%>
            </table>
 
            <div class="edit">
