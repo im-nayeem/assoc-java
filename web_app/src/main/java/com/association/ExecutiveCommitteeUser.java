@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.association.admin;
+package com.association;
 
 import com.association.database.DatabaseConnection;
 import com.association.members.AssocExecutiveMember;
@@ -21,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Mestu
  */
-@WebServlet(name = "ExecutiveCommittee", urlPatterns = {"/ExecutiveCommittee"})
-public class ExecutiveCommittee extends HttpServlet {
+@WebServlet(name = "ExecutiveCommitteeUser", urlPatterns = {"/ExecutiveCommitteeUser"})
+public class ExecutiveCommitteeUser extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     @Override
@@ -36,7 +36,7 @@ public class ExecutiveCommittee extends HttpServlet {
                 request.getSession().removeAttribute("lastAddedList");
                 request.getSession().setAttribute("lastCommitteeId", lastCommitteeId);
 
-                request.getRequestDispatcher("executiveMember.jsp").forward(request, response);
+                request.getRequestDispatcher("userExecutiveMember.jsp").forward(request, response);
 
             } catch (Exception e) {
                 request.setAttribute("error", e);
@@ -49,50 +49,7 @@ public class ExecutiveCommittee extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String type = request.getParameter("type");
-
-//---------------------- add new committee time -----------------//
-        if (type.equals("newExecutiveCommittee")) {
-            String startDate = request.getParameter("from_time");
-            String endDate = request.getParameter("to_time");
-            int committeeNumber = (int) request.getSession().getAttribute("lastCommitteeId");
-
-            try {
-                DatabaseConnection conn = new DatabaseConnection();
-                PreparedStatement pstmnt = conn.getPreparedStatement("INSERT INTO `exec_committee`(`committee_id`, `from_time`, `to_time`) VALUES (?,?,?)");
-                pstmnt.setInt(1, committeeNumber);
-                pstmnt.setString(2, startDate);
-                pstmnt.setString(3, endDate);
-
-                pstmnt.execute();
-            } catch (Exception e) {
-                request.setAttribute("error", e);
-                request.getRequestDispatcher("error.jsp").forward(request, response);
-            }
-            request.getRequestDispatcher("executiveMember.jsp").forward(request, response);
-        } 
-
-//-------------- update executive committee member info----------------//
-        else if (type.equals("update")) {
-            Vector<AssocExecutiveMember> lastAddedList = (Vector<AssocExecutiveMember>) request.getSession().getAttribute("lastAddedList");
-            DatabaseConnection conn = new DatabaseConnection();
-            PreparedStatement pstmnt = null;
-            try {
-                for (AssocExecutiveMember member : lastAddedList) {
-                    String postName = request.getParameter(member.getId() + "postName");
-                    pstmnt = conn.getPreparedStatement("UPDATE `exec_member` SET `post`='" + postName
-                            + "' WHERE exec_member.id='" + member.getId() + "';");
-                    pstmnt.execute();
-                }
-            } catch (Exception e) {
-                request.setAttribute("error", e);
-                request.getRequestDispatcher("error.jsp").forward(request, response);
-            }
-            request.getSession().removeAttribute("lastAddedList");
-            request.getRequestDispatcher("executiveMember.jsp").forward(request, response);
-
-        }
-//------------ FILTER to update executive member info according to committee id-----------------//
-        else if (type.equals("filter")) {
+        if (type.equals("filter")) {
             int committeeNumber = Integer.parseInt(request.getParameter("committeeNumber"));
             Vector<AssocExecutiveMember> lastAddedList = new Vector<>();
             try {
@@ -105,27 +62,22 @@ public class ExecutiveCommittee extends HttpServlet {
                 ResultSet rs = pstmnt.executeQuery();
                 while (rs.next()) {
                     AssocExecutiveMember exeMember = new AssocExecutiveMember();
-                    exeMember.setStartDate(rs.getString("from_time"));
-                    exeMember.setEndDate(rs.getString("to_time"));
                     exeMember.setPostName(rs.getString("post"));
                     exeMember.setName(rs.getString("name"));
                     exeMember.setEmail(rs.getString("email"));
-                    exeMember.setId(rs.getString("id"));
                     exeMember.setPhoto(rs.getBinaryStream("photo"));
-                    if(lastAddedList.size()==0 || lastAddedList.lastElement().getEmail().equals(exeMember.getEmail())==false){
+                    if (lastAddedList.size() == 0 || lastAddedList.lastElement().getEmail().equals(exeMember.getEmail()) == false) {
                         lastAddedList.add(exeMember);
                     }
                 }
                 request.getSession().setAttribute("lastAddedList", lastAddedList);
-                request.getRequestDispatcher("executiveMember.jsp").forward(request, response);
+                request.getRequestDispatcher("userExecutiveMember.jsp").forward(request, response);
 
             } catch (Exception e) {
                 request.setAttribute("error", e);
                 request.getRequestDispatcher("error.jsp").forward(request, response);
             }
-
         }
-
     }
 
     // </editor-fold>

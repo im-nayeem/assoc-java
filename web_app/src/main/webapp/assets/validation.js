@@ -10,3 +10,11 @@ function checkPass()
     else
         document.getElementById('warn_mismatched_pass').style.display='none';
 }
+function checkMatchingPass(){
+    var pass1=document.getElementById('password').value;
+    var pass2=document.getElementById('confirm_pass').value;
+    if(pass1!==pass2){
+        alert("Password didn\'t match");
+        return false;
+    }
+}
