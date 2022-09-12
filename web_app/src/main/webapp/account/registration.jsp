@@ -13,7 +13,7 @@
         <a href="./"> <span class="close" onclick="" title="Close Form">&times;</span></a>
 <%--        //onclick go to home page--%>
 
-        <form class="modal-content" action="Registration" method="post" enctype='multipart/form-data'>
+<form class="modal-content" action="Registration" method="post" enctype='multipart/form-data' onsubmit="return checkMatchingPass()">
 
             <!----------container that contain form input fields--------->
             <div class="container">
