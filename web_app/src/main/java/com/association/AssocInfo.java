@@ -30,7 +30,6 @@ public class AssocInfo {
     private String pass;
     private String presidentNumber;
     private String genSecNumber;
-    private final  String query="SELECT * FROM assoc_info";
 
     public AssocInfo() {
         try {

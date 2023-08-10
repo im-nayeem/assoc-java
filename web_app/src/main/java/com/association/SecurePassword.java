@@ -86,9 +86,9 @@ public class SecurePassword {
 
 //    public static void main(String[] args) {
 //        String salt = generateSalt(512).get();
-//        String key = hashPassword("im-nayeem",salt).get();
+//        String key = hashPassword("pass#admin",salt).get();
 //        System.out.println(salt);
+//        System.out.println();
 //        System.out.println(key);
-//
 //    }
 }

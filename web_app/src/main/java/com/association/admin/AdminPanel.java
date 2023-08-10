@@ -36,23 +36,15 @@ public class AdminPanel extends HttpServlet {
             request.getRequestDispatcher("admin dashboard.jsp").forward(request,response);
         }
         catch (Exception e) {
-            try{
-                DatabaseConnection conn = new DatabaseConnection();
-                conn.execute(Utility.getAssocInitQuery());
-                response.sendRedirect("StoreInfo?t=association");
-            }
-            catch (Exception ex)
-            {
                 try{
                     response.sendRedirect("StoreInfo?t=association");
                 }
-                catch (Exception e1)
-                {
-                    request.setAttribute("error",ex+"\n"+e+"\n"+e1);
+                catch (Exception ex){
+                    request.setAttribute("error","Error in initializing");
                     request.getRequestDispatcher("error.jsp").forward(request,response);
                 }
+
             }
-        }
     }
 
     @Override

@@ -19,7 +19,7 @@ public class DatabaseConnection {
             Properties prop = new Properties();
             prop.load(DatabaseConnection.class.getClassLoader().getResourceAsStream("dbConfig.properties"));
 
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(prop.getProperty("db.url")+"?allowMultiQueries=true&characterEncoding=utf8",
                                                     prop.getProperty("db.username"),
                                                             prop.getProperty("db.password"));
