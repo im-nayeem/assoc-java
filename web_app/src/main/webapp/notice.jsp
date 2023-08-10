@@ -13,7 +13,7 @@
 </style>
 <div class="notice-container">
     <c:choose>
-        <c:when test="${empty sessionScope.newsList}">
+        <c:when test="${empty sessionScope.noticeList}">
             <p class="paragraph">No Previous Notice</p>
         </c:when>
         <c:otherwise>
