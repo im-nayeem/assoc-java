@@ -217,7 +217,9 @@ a.name_in_nav {
     .topnav{
         position: sticky;
         top: 0;
+
     }
+
     .menu{
         float: none;
     }
@@ -264,6 +266,15 @@ a.name_in_nav {
         display: block;
         width: 100%;
         text-align: left;
+    }
+
+    .menu .option{
+        position: relative;
+        z-index: 9999;
+    }
+    #content{
+        position: relative;
+        z-index: 1;
     }
 
 }

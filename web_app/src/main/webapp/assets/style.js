@@ -6,9 +6,11 @@ function myFunction()
 
     if (x.className === "topnav") {
         x.className += " responsive";
+        document.getElementById("content").style.zIndex="-1";
     }
     else  {
         x.className = "topnav";
+        document.getElementById("content").style.zIndex="1";
     }
 
 }
