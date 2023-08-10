@@ -2,6 +2,7 @@ package com.association.admin;
 
 import com.association.AssocInfo;
 import com.association.VarsityInfo;
+import com.association.database.DatabaseConnection;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

@@ -23,6 +23,7 @@ public class AdminPanel extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
+
             AssocInfo assocInfo = new AssocInfo();
             VarsityInfo varsityInfo = new VarsityInfo();
             DatabaseConnection conn = new DatabaseConnection();

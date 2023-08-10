@@ -48,7 +48,16 @@ public class storeInfoDAO {
         }
 
     }
+    public void ClearExistingInfo(){
+        try{
+            DatabaseConnection connection = new DatabaseConnection();
+            connection.executeQuery("DELETE FROM assoc_info");
+            connection.executeQuery("DELETE FROM varsity_info");
+        }catch (Exception e){
+            throw  new RuntimeException(e);
 
+        }
+    }
     public void storeVarsityInfo(VarsityInfo varsityInfo) {
         final String varsityInfoQuery = "INSERT INTO varsity_info "
                 + "(varsity_name,website_link,dept,last_batch) VALUES(?,?,?,?);";
