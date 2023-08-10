@@ -1,14 +1,13 @@
 package com.association.database;
 
+import java.io.IOException;
 import java.sql.*;
+import java.util.Properties;
 
 public class DatabaseConnection {
 
-    private final String dbAddr = "jdbc:mysql://127.0.0.1:3306/association?allowMultiQueries=true&characterEncoding=utf8";
-    private final String uname = "root";
-    private final String pass = "";
     private Connection conn;
-    private ResultSet rs;
+    private ResultSet resultSet;
     private PreparedStatement preparedStatement;
 
     /**
@@ -17,9 +16,15 @@ public class DatabaseConnection {
     public DatabaseConnection() {
 
         try {
+            Properties prop = new Properties();
+            prop.load(DatabaseConnection.class.getClassLoader().getResourceAsStream("dbConfig.properties"));
+
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(dbAddr, uname, pass);
-        } catch (ClassNotFoundException | SQLException e) {
+            conn = DriverManager.getConnection(prop.getProperty("db.url")+"?allowMultiQueries=true&characterEncoding=utf8",
+                                                    prop.getProperty("db.username"),
+                                                            prop.getProperty("db.password"));
+
+        } catch (ClassNotFoundException | SQLException | IOException e) {
             throw new RuntimeException(e + "\nCouldn't Connect With Database");
         }
 
@@ -31,7 +36,7 @@ public class DatabaseConnection {
             Statement st = conn.createStatement();
              st.execute(query);
         } catch (SQLException e) {
-            throw new RuntimeException(e.toString() + "\nCouldn't Create Statement");
+            throw new RuntimeException(e + "\nCouldn't Create Statement");
         }
     }
 
@@ -39,11 +44,11 @@ public class DatabaseConnection {
 
         try {
             Statement st = conn.createStatement();
-            rs = st.executeQuery(query);
+            resultSet = st.executeQuery(query);
         } catch (SQLException e) {
-            throw new RuntimeException(e.toString() + "\nCouldn't Create Statement");
+            throw new RuntimeException(e + "\nCouldn't Create Statement");
         }
-        return rs;
+        return resultSet;
     }
 
     /**
