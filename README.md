@@ -34,34 +34,37 @@ Follow these steps to get the project up and running on your local machine:
 7. **Deployment:** Deploy the application on Tomcat 9 using your IDE or manual deployment.
 8. **Initialize the Application:** Open the application admin-panel in your browser by navigating to `http://localhost:8080/{application-name}/admin-panel` and provide the necessary information for the first time by login to the admin-panel.`[ Use email: admin@assoc.com and password: pass#admin for the first time and then change this later.]`
 ## Schema Diagram
-![Schema Diagram](https://github.com/im-nayeem/assoc-java/assets/77660934/35cdb913-3779-4f19-b012-eb66faf1110d)
+![Schema](https://github.com/im-nayeem/assoc-java/assets/77660934/32dc59ef-e0a0-4ef4-b72b-b751bdf26e79)
 ## Screenshots
 ### Homepage
-![Homepage](https://github.com/im-nayeem/assoc-java/assets/77660934/6f4de73d-cd25-4310-a42b-8b44222ee7cc)
+![Homepage](https://github.com/im-nayeem/assoc-java/assets/77660934/a12e2f9e-70b3-4dbb-aff3-cfffed05a92c)
 ### Member Registration
-![Registration](https://github.com/im-nayeem/assoc-java/assets/77660934/df79e0a8-7558-47c4-a791-a8e88675ef53)
+![registration](https://github.com/im-nayeem/assoc-java/assets/77660934/096e2f26-9c25-4e42-8154-34eb9ef6a44e)
 ### Email Verification by OTP
-![email verification](https://github.com/im-nayeem/assoc-java/assets/77660934/809a9cff-4e8c-441f-a3ee-d08328ef5d12)
+![email verification](https://github.com/im-nayeem/assoc-java/assets/77660934/d630b5a9-6403-4e95-874c-66b0ca67eecd)
 ### Admin Approval of Newly Registered Member
-![admin approval](https://github.com/im-nayeem/assoc-java/assets/77660934/967550ae-b163-440c-a027-7405efe2887e)
+![admin approval](https://github.com/im-nayeem/assoc-java/assets/77660934/0bf8b69a-edb3-46a9-a6d0-66be74f1836d)
 ### Profile Dashboard
-![Profile Dashboard](https://github.com/im-nayeem/assoc-java/assets/77660934/a1ce1299-71bd-4a1c-ac2b-912523e92a73)
+![profile dashboard](https://github.com/im-nayeem/assoc-java/assets/77660934/c7eafc49-b815-4326-b2d9-5305aa47dc3b)
 ### Members
-![Members](https://github.com/im-nayeem/assoc-java/assets/77660934/02a59223-cf79-42ce-b99e-b8b6774250ee)
+![Members](https://github.com/im-nayeem/assoc-java/assets/77660934/5417ac19-2a59-4b74-91c6-92e689df5331)
 ### Executive Committee
-![executive committee](https://github.com/im-nayeem/assoc-java/assets/77660934/695eb564-9f16-49ff-a4a4-983a5f842c04)
+![Executive Committee](https://github.com/im-nayeem/assoc-java/assets/77660934/42cf228b-78aa-4cbe-905a-8c66d7e35229)
 ### Gallery
-![image](https://github.com/im-nayeem/assoc-java/assets/77660934/6cbc60f8-8278-4d69-836b-ef6008026d34)
+![gallery](https://github.com/im-nayeem/assoc-java/assets/77660934/cec76d4f-cc1e-4d99-830e-aba699a04568)
 ### Admin Panel
-![Admin Panel](https://github.com/im-nayeem/assoc-java/assets/77660934/da22d4d8-333d-49df-abd7-f8cef3b75c8f)
-### Adding Executive Committee
-![adding executive committe](https://github.com/im-nayeem/assoc-java/assets/77660934/3aed826e-45ff-49fc-8034-f2033d42971f)
-![image](https://github.com/im-nayeem/assoc-java/assets/77660934/3f857fcb-1fcf-4d16-87c4-ad2b5af2417b)
-![update committee](https://github.com/im-nayeem/assoc-java/assets/77660934/0193dc46-51ff-4650-9742-3bb0fc2c9e73)
-![image](https://github.com/im-nayeem/assoc-java/assets/77660934/c3dfddd0-714d-48d8-b350-cb5898fb798f)
-![image](https://github.com/im-nayeem/assoc-java/assets/77660934/4cc45847-c63a-4905-88d7-7f2883639690)
-![image](https://github.com/im-nayeem/assoc-java/assets/77660934/76da2c97-2aef-42a9-b9e8-9c09d0f1b30a)
-![image](https://github.com/im-nayeem/assoc-java/assets/77660934/61c21787-d9aa-49f6-b76d-ffc38ae3ed49)
+![admin panel](https://github.com/im-nayeem/assoc-java/assets/77660934/d6c46f29-12cf-43c6-836b-bf13748aafa6)
+### Manage Committe and Alumni from Existing Members
+![manage members](https://github.com/im-nayeem/assoc-java/assets/77660934/091c5086-541c-4fbc-9589-aeecd7f91d9a)
+### Managing Executive Committee
+![add committee](https://github.com/im-nayeem/assoc-java/assets/77660934/24e55486-d7d0-42e3-912e-eba2b9e2f368)
+![update committe](https://github.com/im-nayeem/assoc-java/assets/77660934/c4ffc553-b723-4c9c-b854-97ac11ebc9d5)
+### Managing Advisor
+![add advisor](https://github.com/im-nayeem/assoc-java/assets/77660934/576ace43-d72f-4de4-bff6-de0e737120ff)
+![new advisor](https://github.com/im-nayeem/assoc-java/assets/77660934/84bb6043-f9c8-4bed-b7e1-b170310fe3b2)
+### Add Notice
+![image](https://github.com/im-nayeem/assoc-java/assets/77660934/71f864e4-3fbe-4655-8e6e-449a358a8776)
+![image](https://github.com/im-nayeem/assoc-java/assets/77660934/2f00c206-556b-4f91-b4c6-73b8d62aad9a)
 
 
 
